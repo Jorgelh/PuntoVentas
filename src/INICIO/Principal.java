@@ -195,13 +195,17 @@ private void Opcion5(){
 
         jPanel1.add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 0, 40, 30));
 
-        jPanel3.setBackground(new java.awt.Color(0, 204, 153));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setMinimumSize(new java.awt.Dimension(180, 720));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JPanes.setBackground(new java.awt.Color(204, 255, 255));
+        JPanes.setBackground(new java.awt.Color(241, 106, 112));
         JPanes.setPreferredSize(new java.awt.Dimension(170, 60));
+        JPanes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 204));
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("PANES");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -210,23 +214,16 @@ private void Opcion5(){
                 jLabel4MouseClicked(evt);
             }
         });
+        JPanes.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 60));
 
-        javax.swing.GroupLayout JPanesLayout = new javax.swing.GroupLayout(JPanes);
-        JPanes.setLayout(JPanesLayout);
-        JPanesLayout.setHorizontalGroup(
-            JPanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-        );
-        JPanesLayout.setVerticalGroup(
-            JPanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-        );
+        jPanel3.add(JPanes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 140, -1));
 
-        jPanel3.add(JPanes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 170, -1));
-
-        JTMaiz.setBackground(new java.awt.Color(204, 255, 255));
+        JTMaiz.setBackground(new java.awt.Color(77, 77, 77));
         JTMaiz.setPreferredSize(new java.awt.Dimension(170, 60));
 
+        jLabel5.setBackground(new java.awt.Color(77, 77, 77));
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("TORTILLAS DE HARINA");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -251,9 +248,12 @@ private void Opcion5(){
 
         jPanel3.add(JTMaiz, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 170, -1));
 
-        jPanel6.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(140, 220, 218));
         jPanel6.setPreferredSize(new java.awt.Dimension(170, 60));
 
+        jLabel6.setBackground(new java.awt.Color(140, 220, 218));
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("TORTILLA DE MAIZ");
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -291,8 +291,10 @@ private void Opcion5(){
 
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 581, -1, -1));
 
-        jPanel8.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(177, 216, 119));
 
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("COMBOS");
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -343,8 +345,11 @@ private void Opcion5(){
 
         jPanel3.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, -1, 50));
 
+        jPanel5.setBackground(new java.awt.Color(241, 106, 112));
         jPanel5.setPreferredSize(new java.awt.Dimension(170, 60));
 
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("BEBIDAS");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -373,7 +378,7 @@ private void Opcion5(){
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 170, 690));
 
-        jPanel9.setBackground(new java.awt.Color(0, 204, 153));
+        jPanel9.setBackground(new java.awt.Color(204, 204, 204));
         jPanel9.setPreferredSize(new java.awt.Dimension(474, 300));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -499,7 +504,7 @@ private void Opcion5(){
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 30, 450, 690));
 
-        PanelPrincipal.setBackground(new java.awt.Color(255, 204, 204));
+        PanelPrincipal.setBackground(new java.awt.Color(204, 204, 204));
         PanelPrincipal.setRequestFocusEnabled(false);
         PanelPrincipal.setVerifyInputWhenFocusTarget(false);
 
