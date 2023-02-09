@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -84,6 +85,7 @@ private void PanelMismoColor(){
      complemento3.setBackground(c);
      complemento4.setBackground(c);
      complemento5.setBackground(c);
+     PanelPrincipal.setBackground(c);
 
 }
 
@@ -132,6 +134,7 @@ private void PanelMismoColor(){
         panelRound2 = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
         PanelPrincipal = new javax.swing.JPanel();
+        Imagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -147,6 +150,11 @@ private void PanelMismoColor(){
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel1.setText("Sistema de Comandas ");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -468,6 +476,11 @@ private void PanelMismoColor(){
         panelRound1.setRoundBottomRight(20);
         panelRound1.setRoundTopLeft(20);
         panelRound1.setRoundTopRight(20);
+        panelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelRound1MouseClicked(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("MENU");
@@ -625,15 +638,22 @@ private void PanelMismoColor(){
         PanelPrincipal.setRequestFocusEnabled(false);
         PanelPrincipal.setVerifyInputWhenFocusTarget(false);
 
+        Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Shuco.jpg"))); // NOI18N
+        Imagen.setText("jLabel11");
+
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
+                .addComponent(Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 724, Short.MAX_VALUE)
+                .addContainerGap())
         );
         PanelPrincipalLayout.setVerticalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                .addComponent(Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
         );
 
         jPanel1.add(PanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 730, 710));
@@ -713,6 +733,25 @@ private void PanelMismoColor(){
 
     }//GEN-LAST:event_jLabel9MouseClicked
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        try {
+            PanelMismoColor();
+        PanelPrincipal.removeAll();
+        PanelPrincipal.revalidate();
+        PanelPrincipal.repaint();
+        Imagen.setIcon(new ImageIcon("img/Shuco.jpg"));
+        } catch (Exception e) {
+            System.out.println("LINK = "+e);
+        }
+        
+        
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MouseClicked
+        Imagen.setIcon(new ImageIcon("img/Shuco.jpg"));
+
+    }//GEN-LAST:event_panelRound1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -750,6 +789,7 @@ private void PanelMismoColor(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BotonSalir;
+    private javax.swing.JLabel Imagen;
     private Clases.PanelRound JPanes;
     private Clases.PanelRound JTMaiz;
     private javax.swing.JPanel PanelPrincipal;
