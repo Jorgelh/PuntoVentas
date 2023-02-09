@@ -105,6 +105,11 @@ private void Opcion5(){
         jLabel8 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        complemento5 = new javax.swing.JPanel();
+        complemento2 = new javax.swing.JPanel();
+        complemento3 = new javax.swing.JPanel();
+        complemento4 = new javax.swing.JPanel();
+        complemento1 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -119,7 +124,6 @@ private void Opcion5(){
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1350, 720));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -203,7 +207,6 @@ private void Opcion5(){
         JPanes.setPreferredSize(new java.awt.Dimension(170, 60));
         JPanes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 204));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -222,10 +225,10 @@ private void Opcion5(){
         JTMaiz.setPreferredSize(new java.awt.Dimension(170, 60));
 
         jLabel5.setBackground(new java.awt.Color(77, 77, 77));
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("TORTILLAS DE HARINA");
+        jLabel5.setText("TORTILLAS \nDE HARINA");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -237,16 +240,14 @@ private void Opcion5(){
         JTMaiz.setLayout(JTMaizLayout);
         JTMaizLayout.setHorizontalGroup(
             JTMaizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JTMaizLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
         );
         JTMaizLayout.setVerticalGroup(
             JTMaizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(JTMaiz, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 170, -1));
+        jPanel3.add(JTMaiz, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 140, -1));
 
         jPanel6.setBackground(new java.awt.Color(140, 220, 218));
         jPanel6.setPreferredSize(new java.awt.Dimension(170, 60));
@@ -268,15 +269,15 @@ private void Opcion5(){
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 170, -1));
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 140, -1));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -308,9 +309,9 @@ private void Opcion5(){
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,7 +320,7 @@ private void Opcion5(){
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 170, -1));
+        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 153));
 
@@ -363,9 +364,9 @@ private void Opcion5(){
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,7 +375,82 @@ private void Opcion5(){
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 170, -1));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 140, -1));
+
+        complemento5.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout complemento5Layout = new javax.swing.GroupLayout(complemento5);
+        complemento5.setLayout(complemento5Layout);
+        complemento5Layout.setHorizontalGroup(
+            complemento5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+        complemento5Layout.setVerticalGroup(
+            complemento5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(complemento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, -1));
+
+        complemento2.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout complemento2Layout = new javax.swing.GroupLayout(complemento2);
+        complemento2.setLayout(complemento2Layout);
+        complemento2Layout.setHorizontalGroup(
+            complemento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+        complemento2Layout.setVerticalGroup(
+            complemento2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(complemento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 30, -1));
+
+        complemento3.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout complemento3Layout = new javax.swing.GroupLayout(complemento3);
+        complemento3.setLayout(complemento3Layout);
+        complemento3Layout.setHorizontalGroup(
+            complemento3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+        complemento3Layout.setVerticalGroup(
+            complemento3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(complemento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
+
+        complemento4.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout complemento4Layout = new javax.swing.GroupLayout(complemento4);
+        complemento4.setLayout(complemento4Layout);
+        complemento4Layout.setHorizontalGroup(
+            complemento4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+        complemento4Layout.setVerticalGroup(
+            complemento4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(complemento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
+
+        complemento1.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout complemento1Layout = new javax.swing.GroupLayout(complemento1);
+        complemento1.setLayout(complemento1Layout);
+        complemento1Layout.setHorizontalGroup(
+            complemento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+        complemento1Layout.setVerticalGroup(
+            complemento1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(complemento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 170, 690));
 
@@ -561,6 +637,7 @@ private void Opcion5(){
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         Opcion1();
+        complemento1.setBackground(Color.getHSBColor(241,106,112));
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -620,6 +697,11 @@ private void Opcion5(){
     private javax.swing.JPanel JTMaiz;
     private javax.swing.JPanel PanelPrincipal;
     private javax.swing.JLabel TxtSalir;
+    private javax.swing.JPanel complemento1;
+    private javax.swing.JPanel complemento2;
+    private javax.swing.JPanel complemento3;
+    private javax.swing.JPanel complemento4;
+    private javax.swing.JPanel complemento5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
