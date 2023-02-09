@@ -28,7 +28,7 @@ public class Opcion4 extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(177, 216, 119));
+        setBackground(new java.awt.Color(241, 106, 112));
 
         jLabel1.setText("4");
 

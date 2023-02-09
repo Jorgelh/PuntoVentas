@@ -26,7 +26,7 @@ public class Opcion5 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setBackground(new java.awt.Color(241, 106, 112));
+        setBackground(new java.awt.Color(177, 216, 119));
         setPreferredSize(new java.awt.Dimension(730, 690));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
