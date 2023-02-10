@@ -24,6 +24,7 @@ public class Opcion1 extends javax.swing.JPanel {
        
         initComponents();
         ListadeProductos();
+        ListadeProductosExtras();
     
 
     }
@@ -55,16 +56,47 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
         TableColumn columna1 = Panes.getColumn("DESCRIPCION");
-             columna1.setPreferredWidth(10);
+             columna1.setPreferredWidth(50);
              TableColumn columna2 = Panes.getColumn("PRECIO");
-             columna2.setPreferredWidth(75);
+             columna2.setPreferredWidth(10);
     }
     
+    private void ListadeProductosExtras() {
+        
+        
+        ArrayList<Productos> result = BDProductos.ListarProductos();
+        recargarTableExtra(result);
+    }
     
+    public void recargarTableExtra(ArrayList<Productos> list) {
+        Object[][] datos = new Object[list.size()][2];
+        int i = 0;
+        for (Productos m : list)
+        {
+            datos[i][0] = m.getDescripcion();
+            datos[i][1] = m.getPrecio();
+            i++;
+        }
+        Extra.setModel(new javax.swing.table.DefaultTableModel(
+                datos,
+                new String[]{
+                    "DESCRIPCION","PRECIO"
+                }) {
+                     @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        });
+        TableColumn columna1 = Extra.getColumn("DESCRIPCION");
+             columna1.setPreferredWidth(50);
+             TableColumn columna2 = Extra.getColumn("PRECIO");
+             columna2.setPreferredWidth(10);
+    }
     
+    private void Tomar() {
     
-    
-    
+    //String Extra = (Integer.parseInt(String.valueOf(Extra.getModel().getValueAt(Extra.getSelectedRow(),0))));
+    }
     
     
     
@@ -86,7 +118,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Panes = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Extra = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
@@ -119,6 +151,7 @@ public class Opcion1 extends javax.swing.JPanel {
                 "PAN DE ", "PRECIO"
             }
         ));
+        Panes.setIntercellSpacing(new java.awt.Dimension(10, 0));
         Panes.setRowHeight(30);
         jScrollPane1.setViewportView(Panes);
         if (Panes.getColumnModel().getColumnCount() > 0) {
@@ -128,7 +161,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "EXTRA DE ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Extra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -139,8 +172,8 @@ public class Opcion1 extends javax.swing.JPanel {
                 "EXTRA"
             }
         ));
-        jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane3.setViewportView(jTable2);
+        Extra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane3.setViewportView(Extra);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -347,6 +380,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Clases.PanelRound BotonAgregar;
+    private javax.swing.JTable Extra;
     private javax.swing.JTable Panes;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
@@ -365,6 +399,5 @@ public class Opcion1 extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
