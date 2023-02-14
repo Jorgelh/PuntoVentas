@@ -121,21 +121,21 @@ public class Opcion1 extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        Botton2 = new Clases.PanelRound();
         Botton7 = new Clases.PanelRound();
         Botton12 = new Clases.PanelRound();
         Botton3 = new Clases.PanelRound();
         Botton8 = new Clases.PanelRound();
-        Botton1 = new Clases.PanelRound();
         Botton4 = new Clases.PanelRound();
         Botton9 = new Clases.PanelRound();
         Botton11 = new Clases.PanelRound();
         Botton5 = new Clases.PanelRound();
         Botton10 = new Clases.PanelRound();
         Botton14 = new Clases.PanelRound();
-        jPanel1 = new javax.swing.JPanel();
         Botton6 = new Clases.PanelRound();
         Botton13 = new Clases.PanelRound();
+        jPanel1 = new javax.swing.JPanel();
+        Botton2 = new Clases.PanelRound();
+        Botton1 = new Clases.PanelRound();
         jPanel3 = new javax.swing.JPanel();
         Botton15 = new Clases.PanelRound();
         Botton16 = new Clases.PanelRound();
@@ -146,20 +146,20 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton21 = new Clases.PanelRound();
         Botton22 = new Clases.PanelRound();
         Botton23 = new Clases.PanelRound();
-        Botton24 = new Clases.PanelRound();
         Botton25 = new Clases.PanelRound();
-        Botton26 = new Clases.PanelRound();
         Botton27 = new Clases.PanelRound();
         Botton28 = new Clases.PanelRound();
         Botton29 = new Clases.PanelRound();
+        Botton24 = new Clases.PanelRound();
+        Botton26 = new Clases.PanelRound();
         jPanel2 = new javax.swing.JPanel();
+        Botton30 = new Clases.PanelRound();
+        Botton31 = new Clases.PanelRound();
+        Botton32 = new Clases.PanelRound();
         Botton33 = new Clases.PanelRound();
         Botton34 = new Clases.PanelRound();
         Botton35 = new Clases.PanelRound();
         Botton36 = new Clases.PanelRound();
-        Botton37 = new Clases.PanelRound();
-        Botton38 = new Clases.PanelRound();
-        Botton39 = new Clases.PanelRound();
         BotonAgregar = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
@@ -186,30 +186,6 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Botton2.setBackground(new java.awt.Color(255, 51, 51));
-        Botton2.setRoundBottomLeft(20);
-        Botton2.setRoundBottomRight(20);
-        Botton2.setRoundTopLeft(20);
-        Botton2.setRoundTopRight(20);
-        Botton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Botton2MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Botton2Layout = new javax.swing.GroupLayout(Botton2);
-        Botton2.setLayout(Botton2Layout);
-        Botton2Layout.setHorizontalGroup(
-            Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-        Botton2Layout.setVerticalGroup(
-            Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-
-        jPanel5.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
-
         Botton7.setBackground(new java.awt.Color(255, 51, 51));
         Botton7.setRoundBottomLeft(20);
         Botton7.setRoundBottomRight(20);
@@ -232,7 +208,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 150, -1));
+        jPanel5.add(Botton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, -1));
 
         Botton12.setBackground(new java.awt.Color(255, 51, 51));
         Botton12.setRoundBottomLeft(20);
@@ -256,7 +232,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, -1));
+        jPanel5.add(Botton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 150, -1));
 
         Botton3.setBackground(new java.awt.Color(255, 51, 51));
         Botton3.setRoundBottomLeft(20);
@@ -280,7 +256,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, -1));
+        jPanel5.add(Botton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
 
         Botton8.setBackground(new java.awt.Color(255, 51, 51));
         Botton8.setRoundBottomLeft(20);
@@ -306,30 +282,6 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 150, -1));
 
-        Botton1.setBackground(new java.awt.Color(255, 51, 51));
-        Botton1.setRoundBottomLeft(20);
-        Botton1.setRoundBottomRight(20);
-        Botton1.setRoundTopLeft(20);
-        Botton1.setRoundTopRight(20);
-        Botton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Botton1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Botton1Layout = new javax.swing.GroupLayout(Botton1);
-        Botton1.setLayout(Botton1Layout);
-        Botton1Layout.setHorizontalGroup(
-            Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-        Botton1Layout.setVerticalGroup(
-            Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 56, Short.MAX_VALUE)
-        );
-
-        jPanel5.add(Botton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 150, -1));
-
         Botton4.setBackground(new java.awt.Color(255, 51, 51));
         Botton4.setRoundBottomLeft(20);
         Botton4.setRoundBottomRight(20);
@@ -352,7 +304,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 150, -1));
+        jPanel5.add(Botton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, -1));
 
         Botton9.setBackground(new java.awt.Color(255, 51, 51));
         Botton9.setRoundBottomLeft(20);
@@ -400,7 +352,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 150, -1));
+        jPanel5.add(Botton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, -1));
 
         Botton5.setBackground(new java.awt.Color(255, 51, 51));
         Botton5.setRoundBottomLeft(20);
@@ -424,7 +376,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 150, -1));
+        jPanel5.add(Botton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 150, -1));
 
         Botton10.setBackground(new java.awt.Color(255, 51, 51));
         Botton10.setRoundBottomLeft(20);
@@ -448,7 +400,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, -1));
+        jPanel5.add(Botton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 150, -1));
 
         Botton14.setBackground(new java.awt.Color(255, 51, 51));
         Botton14.setRoundBottomLeft(20);
@@ -472,9 +424,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 150, -1));
-
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel5.add(Botton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 150, -1));
 
         Botton6.setBackground(new java.awt.Color(255, 51, 51));
         Botton6.setRoundBottomLeft(20);
@@ -498,7 +448,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
+        jPanel5.add(Botton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 150, -1));
 
         Botton13.setBackground(new java.awt.Color(255, 51, 51));
         Botton13.setRoundBottomLeft(20);
@@ -522,7 +472,57 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, -1));
+        jPanel5.add(Botton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 150, -1));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Botton2.setBackground(new java.awt.Color(255, 51, 51));
+        Botton2.setRoundBottomLeft(20);
+        Botton2.setRoundBottomRight(20);
+        Botton2.setRoundTopLeft(20);
+        Botton2.setRoundTopRight(20);
+        Botton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton2Layout = new javax.swing.GroupLayout(Botton2);
+        Botton2.setLayout(Botton2Layout);
+        Botton2Layout.setHorizontalGroup(
+            Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+        Botton2Layout.setVerticalGroup(
+            Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 55, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, -1));
+
+        Botton1.setBackground(new java.awt.Color(255, 51, 51));
+        Botton1.setRoundBottomLeft(20);
+        Botton1.setRoundBottomRight(20);
+        Botton1.setRoundTopLeft(20);
+        Botton1.setRoundTopRight(20);
+        Botton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton1Layout = new javax.swing.GroupLayout(Botton1);
+        Botton1.setLayout(Botton1Layout);
+        Botton1Layout.setHorizontalGroup(
+            Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+        Botton1Layout.setVerticalGroup(
+            Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 56, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(Botton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -548,7 +548,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
+        jPanel3.add(Botton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         Botton16.setBackground(new java.awt.Color(255, 51, 51));
         Botton16.setRoundBottomLeft(20);
@@ -572,7 +572,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
+        jPanel3.add(Botton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         Botton17.setBackground(new java.awt.Color(255, 51, 51));
         Botton17.setRoundBottomLeft(20);
@@ -596,7 +596,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        jPanel3.add(Botton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         Botton18.setBackground(new java.awt.Color(255, 51, 51));
         Botton18.setRoundBottomLeft(20);
@@ -620,7 +620,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jPanel3.add(Botton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         Botton19.setBackground(new java.awt.Color(255, 51, 51));
         Botton19.setRoundBottomLeft(20);
@@ -644,7 +644,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+        jPanel3.add(Botton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         Botton20.setBackground(new java.awt.Color(255, 51, 51));
         Botton20.setRoundBottomLeft(20);
@@ -668,7 +668,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
+        jPanel3.add(Botton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
 
         Botton21.setBackground(new java.awt.Color(255, 51, 51));
         Botton21.setRoundBottomLeft(20);
@@ -692,7 +692,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+        jPanel3.add(Botton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         Botton22.setBackground(new java.awt.Color(255, 51, 51));
         Botton22.setRoundBottomLeft(20);
@@ -716,7 +716,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
+        jPanel3.add(Botton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
 
         Botton23.setBackground(new java.awt.Color(255, 51, 51));
         Botton23.setRoundBottomLeft(20);
@@ -740,31 +740,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-
-        Botton24.setBackground(new java.awt.Color(255, 51, 51));
-        Botton24.setRoundBottomLeft(20);
-        Botton24.setRoundBottomRight(20);
-        Botton24.setRoundTopLeft(20);
-        Botton24.setRoundTopRight(20);
-        Botton24.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Botton24MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Botton24Layout = new javax.swing.GroupLayout(Botton24);
-        Botton24.setLayout(Botton24Layout);
-        Botton24Layout.setHorizontalGroup(
-            Botton24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 93, Short.MAX_VALUE)
-        );
-        Botton24Layout.setVerticalGroup(
-            Botton24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(Botton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jPanel3.add(Botton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
 
         Botton25.setBackground(new java.awt.Color(255, 51, 51));
         Botton25.setRoundBottomLeft(20);
@@ -788,31 +764,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
-
-        Botton26.setBackground(new java.awt.Color(255, 51, 51));
-        Botton26.setRoundBottomLeft(20);
-        Botton26.setRoundBottomRight(20);
-        Botton26.setRoundTopLeft(20);
-        Botton26.setRoundTopRight(20);
-        Botton26.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Botton26MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Botton26Layout = new javax.swing.GroupLayout(Botton26);
-        Botton26.setLayout(Botton26Layout);
-        Botton26Layout.setHorizontalGroup(
-            Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 93, Short.MAX_VALUE)
-        );
-        Botton26Layout.setVerticalGroup(
-            Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(Botton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+        jPanel3.add(Botton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
 
         Botton27.setBackground(new java.awt.Color(255, 51, 51));
         Botton27.setRoundBottomLeft(20);
@@ -836,7 +788,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jPanel3.add(Botton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         Botton28.setBackground(new java.awt.Color(255, 51, 51));
         Botton28.setRoundBottomLeft(20);
@@ -860,7 +812,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
+        jPanel3.add(Botton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
 
         Botton29.setBackground(new java.awt.Color(255, 51, 51));
         Botton29.setRoundBottomLeft(20);
@@ -884,9 +836,129 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel3.add(Botton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, -1, -1));
+        jPanel3.add(Botton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
+
+        Botton24.setBackground(new java.awt.Color(255, 51, 51));
+        Botton24.setRoundBottomLeft(20);
+        Botton24.setRoundBottomRight(20);
+        Botton24.setRoundTopLeft(20);
+        Botton24.setRoundTopRight(20);
+        Botton24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton24MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton24Layout = new javax.swing.GroupLayout(Botton24);
+        Botton24.setLayout(Botton24Layout);
+        Botton24Layout.setHorizontalGroup(
+            Botton24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 93, Short.MAX_VALUE)
+        );
+        Botton24Layout.setVerticalGroup(
+            Botton24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 55, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(Botton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+
+        Botton26.setBackground(new java.awt.Color(255, 51, 51));
+        Botton26.setRoundBottomLeft(20);
+        Botton26.setRoundBottomRight(20);
+        Botton26.setRoundTopLeft(20);
+        Botton26.setRoundTopRight(20);
+        Botton26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton26MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton26Layout = new javax.swing.GroupLayout(Botton26);
+        Botton26.setLayout(Botton26Layout);
+        Botton26Layout.setHorizontalGroup(
+            Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 93, Short.MAX_VALUE)
+        );
+        Botton26Layout.setVerticalGroup(
+            Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 55, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(Botton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Botton30.setBackground(new java.awt.Color(255, 51, 51));
+        Botton30.setRoundBottomLeft(10);
+        Botton30.setRoundBottomRight(10);
+        Botton30.setRoundTopLeft(10);
+        Botton30.setRoundTopRight(10);
+        Botton30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton30MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton30Layout = new javax.swing.GroupLayout(Botton30);
+        Botton30.setLayout(Botton30Layout);
+        Botton30Layout.setHorizontalGroup(
+            Botton30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+        Botton30Layout.setVerticalGroup(
+            Botton30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(Botton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 70, 30));
+
+        Botton31.setBackground(new java.awt.Color(255, 51, 51));
+        Botton31.setRoundBottomLeft(10);
+        Botton31.setRoundBottomRight(10);
+        Botton31.setRoundTopLeft(10);
+        Botton31.setRoundTopRight(10);
+        Botton31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton31MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton31Layout = new javax.swing.GroupLayout(Botton31);
+        Botton31.setLayout(Botton31Layout);
+        Botton31Layout.setHorizontalGroup(
+            Botton31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+        Botton31Layout.setVerticalGroup(
+            Botton31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(Botton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 70, 30));
+
+        Botton32.setBackground(new java.awt.Color(255, 51, 51));
+        Botton32.setRoundBottomLeft(10);
+        Botton32.setRoundBottomRight(10);
+        Botton32.setRoundTopLeft(10);
+        Botton32.setRoundTopRight(10);
+        Botton32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton32MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton32Layout = new javax.swing.GroupLayout(Botton32);
+        Botton32.setLayout(Botton32Layout);
+        Botton32Layout.setHorizontalGroup(
+            Botton32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
+        );
+        Botton32Layout.setVerticalGroup(
+            Botton32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(Botton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 70, 30));
 
         Botton33.setBackground(new java.awt.Color(255, 51, 51));
         Botton33.setRoundBottomLeft(10);
@@ -910,7 +982,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel2.add(Botton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 70, 30));
+        jPanel2.add(Botton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 70, 30));
 
         Botton34.setBackground(new java.awt.Color(255, 51, 51));
         Botton34.setRoundBottomLeft(10);
@@ -934,7 +1006,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel2.add(Botton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 70, 30));
+        jPanel2.add(Botton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 70, 30));
 
         Botton35.setBackground(new java.awt.Color(255, 51, 51));
         Botton35.setRoundBottomLeft(10);
@@ -958,7 +1030,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel2.add(Botton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 70, 30));
+        jPanel2.add(Botton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 70, 30));
 
         Botton36.setBackground(new java.awt.Color(255, 51, 51));
         Botton36.setRoundBottomLeft(10);
@@ -982,79 +1054,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel2.add(Botton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 70, 30));
-
-        Botton37.setBackground(new java.awt.Color(255, 51, 51));
-        Botton37.setRoundBottomLeft(10);
-        Botton37.setRoundBottomRight(10);
-        Botton37.setRoundTopLeft(10);
-        Botton37.setRoundTopRight(10);
-        Botton37.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Botton37MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Botton37Layout = new javax.swing.GroupLayout(Botton37);
-        Botton37.setLayout(Botton37Layout);
-        Botton37Layout.setHorizontalGroup(
-            Botton37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-        );
-        Botton37Layout.setVerticalGroup(
-            Botton37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(Botton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 70, 30));
-
-        Botton38.setBackground(new java.awt.Color(255, 51, 51));
-        Botton38.setRoundBottomLeft(10);
-        Botton38.setRoundBottomRight(10);
-        Botton38.setRoundTopLeft(10);
-        Botton38.setRoundTopRight(10);
-        Botton38.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Botton38MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Botton38Layout = new javax.swing.GroupLayout(Botton38);
-        Botton38.setLayout(Botton38Layout);
-        Botton38Layout.setHorizontalGroup(
-            Botton38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-        );
-        Botton38Layout.setVerticalGroup(
-            Botton38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(Botton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 70, 30));
-
-        Botton39.setBackground(new java.awt.Color(255, 51, 51));
-        Botton39.setRoundBottomLeft(10);
-        Botton39.setRoundBottomRight(10);
-        Botton39.setRoundTopLeft(10);
-        Botton39.setRoundTopRight(10);
-        Botton39.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Botton39MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Botton39Layout = new javax.swing.GroupLayout(Botton39);
-        Botton39.setLayout(Botton39Layout);
-        Botton39Layout.setHorizontalGroup(
-            Botton39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-        );
-        Botton39Layout.setVerticalGroup(
-            Botton39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(Botton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 70, 30));
+        jPanel2.add(Botton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 70, 30));
 
         BotonAgregar.setBackground(new java.awt.Color(51, 255, 51));
         BotonAgregar.setRoundBottomLeft(20);
@@ -1128,7 +1128,7 @@ public class Opcion1 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addGap(14, 14, 14)
+                .addGap(2, 2, 2)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1144,7 +1144,7 @@ public class Opcion1 extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(27, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1274,6 +1274,18 @@ public class Opcion1 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Botton29MouseClicked
 
+    private void Botton30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton30MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton30MouseClicked
+
+    private void Botton31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton31MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton31MouseClicked
+
+    private void Botton32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton32MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton32MouseClicked
+
     private void Botton33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton33MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Botton33MouseClicked
@@ -1289,18 +1301,6 @@ public class Opcion1 extends javax.swing.JPanel {
     private void Botton36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton36MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Botton36MouseClicked
-
-    private void Botton37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton37MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Botton37MouseClicked
-
-    private void Botton38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton38MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Botton38MouseClicked
-
-    private void Botton39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton39MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Botton39MouseClicked
  
     
 
@@ -1329,13 +1329,13 @@ public class Opcion1 extends javax.swing.JPanel {
     private Clases.PanelRound Botton28;
     private Clases.PanelRound Botton29;
     private Clases.PanelRound Botton3;
+    private Clases.PanelRound Botton30;
+    private Clases.PanelRound Botton31;
+    private Clases.PanelRound Botton32;
     private Clases.PanelRound Botton33;
     private Clases.PanelRound Botton34;
     private Clases.PanelRound Botton35;
     private Clases.PanelRound Botton36;
-    private Clases.PanelRound Botton37;
-    private Clases.PanelRound Botton38;
-    private Clases.PanelRound Botton39;
     private Clases.PanelRound Botton4;
     private Clases.PanelRound Botton5;
     private Clases.PanelRound Botton6;
