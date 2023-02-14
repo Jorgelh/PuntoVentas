@@ -4,13 +4,15 @@
  */
 package INICIO;
 
+import java.awt.Color;
+
 
 /**
  *
  * @author Jorge Lopez
  */
 public class Opcion1 extends javax.swing.JPanel {
-
+   int pan= 1;
     /**
      * Creates new form Opcion1
      */
@@ -1155,7 +1157,11 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void Botton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton2MouseClicked
-        // TODO add your handling code here:
+     if(pan==0){
+         System.out.println("ENTRA 0");
+        if(pan==0 ){Botton1.setBackground(Color.RED);Botton2.setBackground(Color.GREEN);pan=1;}else{Botton1.setBackground(Color.GREEN);Botton1.setBackground(Color.RED);pan=0;}
+     
+     }
     }//GEN-LAST:event_Botton2MouseClicked
 
     private void Botton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton7MouseClicked
@@ -1175,9 +1181,10 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton8MouseClicked
 
     private void Botton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton1MouseClicked
-
-     //   if(a==1 ){Botton1.setBackground(Color.GREEN);a=0;}else{Botton1.setBackground(Color.red);a=1;}
-
+     if(pan==1){
+         System.out.println("ENTRA 1");
+     if(pan==1 ){Botton1.setBackground(Color.GREEN);Botton2.setBackground(Color.RED);pan=0;}else{Botton1.setBackground(Color.red);Botton1.setBackground(Color.GREEN);pan=1;}
+     }
     }//GEN-LAST:event_Botton1MouseClicked
 
     private void Botton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton4MouseClicked
