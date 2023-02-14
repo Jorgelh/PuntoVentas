@@ -17,9 +17,9 @@ public class BDConexion {
     
    
         
-    public static final String URL = "jdbc:mysql://68.64.164.99:10273/PanesBD";
-    public static final String USER = "admin";
-    public static final String CLAVE = "JFj9Sh9y";
+    public static final String URL = "jdbc:mysql://34.134.216.151:3306/elrey";
+    public static final String USER = "root";
+    public static final String CLAVE = "campana";
      
     public Connection getConexion(){
         Connection con = null;

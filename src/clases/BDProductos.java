@@ -19,12 +19,12 @@ public class BDProductos {
     
     public static ArrayList<Productos> ListarProductos() {
 
-        return consultarSQL("select id_producto,descripcion,truncate(precio,2) as precio FROM PanesBD.PRODUCTOS where tipo = 1");
+        return consultarSQL("select id_producto,descripcion,truncate(precio,2) as precio FROM PRODUCTOS where tipo = 1");
     }
     
     public static ArrayList<Productos> ListarProductosExtra() {
 
-        return consultarSQL("select id_adicional,descripcion,truncate(precio,2) as precio FROM PanesBD.adicional");
+        return consultarSQL("select id_adicional,descripcion,truncate(precio,2) as precio FROM adicional");
     }
     
 
@@ -44,8 +44,8 @@ public class BDProductos {
                 p.setDescripcion(rs.getString("descripcion"));
                 p.setPrecio("Q "+rs.getString("precio"));
                 //p.setPrecio(Double.parseDouble(df.format(rs.getDouble("precio"))));
-                System.out.println("precio ="+rs.getDouble("precio"));
-                 System.out.println(df.format(rs.getDouble("precio")));
+                //System.out.println("precio ="+rs.getDouble("precio"));
+                 //System.out.println(df.format(rs.getDouble("precio")));
                 list.add(p);
             }
             cn.close();
