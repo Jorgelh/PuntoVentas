@@ -4,12 +4,11 @@
  */
 package clases;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.*;
 import java.sql.Connection;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author jluis
@@ -57,5 +56,24 @@ public class BDProductos {
     }
     
     
-    
+ public static void InsertarProducto_Pedido(InsertarProducto t) throws SQLException{
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement smtp = null;
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad) values(?,?,?)");
+
+        try {
+         smtp.setInt(1,t.getId_pedido());
+         smtp.setInt(2,t.getId_producto());
+         smtp.setInt(3, t.getCantidad());
+         smtp.executeUpdate();
+         
+            
+     } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);}
+        con.close();
+        smtp.close(); 
+      
+       
+    }   
 }

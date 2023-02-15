@@ -4,6 +4,7 @@
  */
 package INICIO;
 
+import com.mysql.cj.conf.PropertyKey;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -16,7 +17,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author jluis
  */
 public class Principal extends javax.swing.JFrame {
-
+     
     /**
      * Creates new form Principal
      */
@@ -29,7 +30,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         PanelMismoColor();
-        //this.setExtendedState(MAXIMIZED_BOTH); 
+      //this.setExtendedState(MAXIMIZED_BOTH); 
     }
     
 public void Opcion1(){
@@ -127,7 +128,7 @@ private void PanelMismoColor(){
         jTable1 = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        PEDIDO_ID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         panelRound2 = new Clases.PanelRound();
@@ -239,7 +240,7 @@ private void PanelMismoColor(){
         panelRound.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(panelRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 40, 60));
 
-        JPanes.setBackground(new java.awt.Color(241, 106, 112));
+        JPanes.setBackground(new java.awt.Color(11, 46, 102));
         JPanes.setRoundBottomLeft(20);
         JPanes.setRoundBottomRight(28);
         JPanes.setRoundTopLeft(20);
@@ -419,7 +420,7 @@ private void PanelMismoColor(){
 
         jPanel3.add(complemento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, -1, -1));
 
-        jPanel5.setBackground(new java.awt.Color(241, 106, 112));
+        jPanel5.setBackground(new java.awt.Color(19, 195, 231));
         jPanel5.setRoundBottomLeft(20);
         jPanel5.setRoundBottomRight(28);
         jPanel5.setRoundTopLeft(20);
@@ -560,7 +561,7 @@ private void PanelMismoColor(){
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PEDIDO_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
@@ -577,7 +578,7 @@ private void PanelMismoColor(){
                         .addGap(23, 23, 23)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(PEDIDO_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
@@ -700,7 +701,7 @@ private void PanelMismoColor(){
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         PanelMismoColor();
-        Color c = new Color(241,106,112); 
+        Color c = new Color(11,46,102); 
         Opcion1();
         panelRound.setBackground(c);
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -728,7 +729,7 @@ private void PanelMismoColor(){
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-      Color c = new Color(241,106,112); 
+      Color c = new Color(19,195,231); 
         PanelMismoColor();
         Opcion4();
       complemento4.setBackground(c);
@@ -802,6 +803,7 @@ private void PanelMismoColor(){
     private javax.swing.JPanel BotonSalir;
     private Clases.PanelRound JPanes;
     private Clases.PanelRound JTMaiz;
+    private javax.swing.JTextField PEDIDO_ID;
     private javax.swing.JPanel PanelPrincipal;
     private javax.swing.JLabel TxtSalir;
     private Clases.PanelRound complemento2;
@@ -829,7 +831,6 @@ private void PanelMismoColor(){
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private Clases.PanelRound panelRound;
     private Clases.PanelRound panelRound1;
