@@ -2032,13 +2032,18 @@ public class Opcion1 extends javax.swing.JPanel {
         //System.out.println("numero = " + Arrays.toString(numeros));
         
         System.out.println("LISTO : "+Arrays.toString(numeros));
-        
-        
-       /* int a;
-       for (int i = 0; i < numeros.length; i++) {
-           a  = numeros.length;
-           if(a==0){System.out.println("Datos:"+numeros[i]);}
-           }*/
+        int i;
+        //int[] numerosq = new int[10];
+        int media = 0;
+        for (i = 0; i < 10; i++) {
+            if (i  == numeros[i]){ //si la posición actual es par
+                System.out.println("LISTO : "+Arrays.toString(numeros));
+                //media = numeros[i]; //se suma el valor de esa posición
+            }
+        }
+        //Calcular y mostrar la media
+        System.out.println("Media de los valores que se encuentran en posiciones pares: "+ media);              
+    
 
     }//GEN-LAST:event_jLabel22MouseClicked
 
