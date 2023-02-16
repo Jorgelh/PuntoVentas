@@ -4,10 +4,13 @@
  */
 package INICIO;
 
+import clases.BDConexion;
 import clases.BDProductos;
 import clases.InsertarProducto;
 import java.awt.Color;
 import java.lang.reflect.Array;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
@@ -48,6 +51,7 @@ public class Opcion1 extends javax.swing.JPanel {
     int marca29 = 0;
     int id_pedido = 1;
     int id_producto = 0;
+    int id_producto_extra = 0;
     ArrayList<Integer> Num = new ArrayList<>();
 
     /**
@@ -105,6 +109,28 @@ public class Opcion1 extends javax.swing.JPanel {
         }
 
     }
+    
+   /* private void insertarExtras(){
+
+    
+    try {
+    BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement smtp = null;
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad) values(?,?,?)");
+
+         smtp.setInt(1,id_producto_extra);
+         smtp.setInt(2,t.getId_producto());
+         smtp.setInt(3, t.getCantidad());
+         smtp.executeUpdate();
+         
+     } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);}
+        con.close();
+        smtp.close(); 
+
+
+}*/
 
     /* private void ListadeProductos() {
         
@@ -2076,10 +2102,16 @@ public class Opcion1 extends javax.swing.JPanel {
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
         //System.out.println("numero = " + Arrays.toString(numeros));
-        
+        int z = Num.size();
+        if(z>0){
          for(int i = 0; i < Num.size(); i++) {
             System.out.println(Num.get(i));
         }
+        InsertarProducto p = new InsertarProducto();
+        for(int i = 0; i < Num.size(); i++) {
+            
+        }
+        }else{System.out.println("ARRAY VACIO");}
        /* int i;
         //int[] numerosq = new int[10];
         int media = 0;

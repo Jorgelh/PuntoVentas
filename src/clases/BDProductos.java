@@ -74,5 +74,11 @@ public class BDProductos {
         smtp.close(); 
       
        
-    }   
+    }
+ 
+    public static void insertarArry(InsertarProducto d) {
+        
+        System.out.println(d.getId_extras());
+        
+    }
 }

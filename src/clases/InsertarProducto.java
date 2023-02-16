@@ -15,6 +15,7 @@ public class InsertarProducto {
     private int cantidad;
     private int id_nota;
     private int id_adicional;
+    private Object[] id_extras;
 
     public int getId_pedido() {
         return id_pedido;
@@ -55,7 +56,14 @@ public class InsertarProducto {
     public void setId_adicional(int id_adicional) {
         this.id_adicional = id_adicional;
     }
-    
+
+    public Object[] getId_extras() {
+        return id_extras;
+    }
+
+    public void setId_extras(Object[] id_extras) {
+        this.id_extras = id_extras;
+    }
     
     
 }
