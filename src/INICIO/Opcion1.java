@@ -48,7 +48,6 @@ public class Opcion1 extends javax.swing.JPanel {
     int marca29 = 0;
     int id_pedido = 1;
     int id_producto = 0;
-    int[] numeros = new int[15];
     ArrayList<Integer> Num = new ArrayList<>();
 
     /**
@@ -1629,6 +1628,7 @@ public class Opcion1 extends javax.swing.JPanel {
         } else {
             Botton15.setBackground(Color.red);
             marca15 = 1;
+            
         }
     }//GEN-LAST:event_Botton18MouseClicked
 
@@ -1853,14 +1853,18 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void Extra1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra1MouseClicked
+
+        
         if (marca15 == 0) {
             Botton15.setBackground(Color.GREEN);
             marca15 = 1;
-            Num.add(1);
+            Num.add(52);
         } else {
             Botton15.setBackground(Color.red);
             marca15 = 0;
-            Num.remove(0);
+            int remov = Num.indexOf(52);
+            Num.remove(remov);
+            
         }
         Extra1.setText(String.valueOf(marca15));
         
@@ -1870,11 +1874,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca16 == 0) {
             Botton16.setBackground(Color.GREEN);
             marca16 = 1;
-            Num.add(2);
+            Num.add(53);
         } else {
             Botton16.setBackground(Color.red);
             marca16 = 0;
-            Num.remove(1);
+            int remov = Num.indexOf(53);
+            Num.remove(remov);
         }
         Extra2.setText(String.valueOf(marca16));
 
@@ -1884,23 +1889,26 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca17 == 0) {
             Botton17.setBackground(Color.GREEN);
             marca17 = 1;
-            Num.add(3);
+            Num.add(54);
         } else {
             Botton17.setBackground(Color.red);
             marca17 = 0;
-            Num.remove(2);
+            int remov = Num.indexOf(54);
+            Num.remove(remov);
         }
         Extra3.setText(String.valueOf(marca17));
-        numeros[2] = 3;
     }//GEN-LAST:event_Extra3MouseClicked
 
     private void Extra4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra4MouseClicked
         if (marca18 == 0) {
             Botton18.setBackground(Color.GREEN);
             marca18 = 1;
+            Num.add(55);
         } else {
             Botton18.setBackground(Color.red);
             marca18 = 0;
+            int remov = Num.indexOf(55);
+            Num.remove(remov);
         }
         Extra4.setText(String.valueOf(marca18));
     }//GEN-LAST:event_Extra4MouseClicked
@@ -1909,9 +1917,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca19 == 0) {
             Botton19.setBackground(Color.GREEN);
             marca19 = 1;
+            Num.add(56);
         } else {
             Botton19.setBackground(Color.red);
             marca19 = 0;
+            int remov = Num.indexOf(56);
+            Num.remove(remov);
         }
         Extra5.setText(String.valueOf(marca19));
     }//GEN-LAST:event_Extra5MouseClicked
@@ -1920,9 +1931,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca20 == 0) {
             Botton20.setBackground(Color.GREEN);
             marca20 = 1;
+            Num.add(57);
         } else {
             Botton20.setBackground(Color.red);
             marca20 = 0;
+           int remov = Num.indexOf(57);
+            Num.remove(remov);
         }
         Extra6.setText(String.valueOf(marca20));
     }//GEN-LAST:event_Extra6MouseClicked
@@ -1931,9 +1945,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca21 == 0) {
             Botton21.setBackground(Color.GREEN);
             marca21 = 1;
+            Num.add(58);
         } else {
             Botton21.setBackground(Color.red);
             marca21 = 0;
+           int remov = Num.indexOf(58);
+            Num.remove(remov);
         }
         Extra7.setText(String.valueOf(marca21));
     }//GEN-LAST:event_Extra7MouseClicked
@@ -1942,9 +1959,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca22 == 0) {
             Botton22.setBackground(Color.GREEN);
             marca22 = 1;
+            Num.add(59);
         } else {
             Botton22.setBackground(Color.red);
             marca22 = 0;
+            int remov = Num.indexOf(59);
+            Num.remove(remov);
         }
         Extra8.setText(String.valueOf(marca22));
     }//GEN-LAST:event_Extra8MouseClicked
@@ -1953,9 +1973,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca23 == 0) {
             Botton23.setBackground(Color.GREEN);
             marca23 = 1;
+            Num.add(60);
         } else {
             Botton23.setBackground(Color.red);
             marca23 = 0;
+            int remov = Num.indexOf(60);
+            Num.remove(remov);
         }
         Extra9.setText(String.valueOf(marca23));
     }//GEN-LAST:event_Extra9MouseClicked
@@ -1964,9 +1987,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca24 == 0) {
             Botton24.setBackground(Color.GREEN);
             marca24 = 1;
+            Num.add(61);
         } else {
             Botton24.setBackground(Color.red);
             marca24 = 0;
+            int remov = Num.indexOf(61);
+            Num.remove(remov);
         }
         Extra10.setText(String.valueOf(marca24));
     }//GEN-LAST:event_Extra10MouseClicked
@@ -1975,9 +2001,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca25 == 0) {
             Botton25.setBackground(Color.GREEN);
             marca25 = 1;
+            Num.add(62);
         } else {
             Botton25.setBackground(Color.red);
             marca25 = 0;
+            int remov = Num.indexOf(62);
+            Num.remove(remov);
         }
         Extra11.setText(String.valueOf(marca25));
     }//GEN-LAST:event_Extra11MouseClicked
@@ -1986,9 +2015,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca26 == 0) {
             Botton26.setBackground(Color.GREEN);
             marca26 = 1;
+            Num.add(63);
         } else {
             Botton26.setBackground(Color.red);
             marca26 = 0;
+            int remov = Num.indexOf(63);
+            Num.remove(remov);
         }
         Extra12.setText(String.valueOf(marca26));
     }//GEN-LAST:event_Extra12MouseClicked
@@ -1997,9 +2029,12 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca27 == 0) {
             Botton27.setBackground(Color.GREEN);
             marca27 = 1;
+            Num.add(64);
         } else {
             Botton27.setBackground(Color.red);
             marca27 = 0;
+            int remov = Num.indexOf(64);
+            Num.remove(remov);
         }
         Extra13.setText(String.valueOf(marca27));
     }//GEN-LAST:event_Extra13MouseClicked
@@ -2008,20 +2043,29 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca28 == 0) {
             Botton28.setBackground(Color.GREEN);
             marca28 = 1;
+            Num.add(65);
         } else {
             Botton28.setBackground(Color.red);
             marca28 = 0;
+            int remov = Num.indexOf(65);
+            Num.remove(remov);
         }
         Extra14.setText(String.valueOf(marca28));
     }//GEN-LAST:event_Extra14MouseClicked
 
     private void QuesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuesoMouseClicked
+        
+        
         if (marca29 == 0) {
             Botton29.setBackground(Color.GREEN);
             marca29 = 1;
+            Num.add(66);
         } else {
             Botton29.setBackground(Color.red);
             marca29 = 0;
+            int remov = Num.indexOf(66);
+            Num.remove(remov);
+           
         }
         Queso.setText(String.valueOf(marca29));
     }//GEN-LAST:event_QuesoMouseClicked
