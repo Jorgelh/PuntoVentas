@@ -1860,7 +1860,7 @@ public class Opcion1 extends javax.swing.JPanel {
         } else {
             Botton15.setBackground(Color.red);
             marca15 = 0;
-            Num.remove(1);
+            Num.remove(0);
         }
         Extra1.setText(String.valueOf(marca15));
         
@@ -1874,7 +1874,7 @@ public class Opcion1 extends javax.swing.JPanel {
         } else {
             Botton16.setBackground(Color.red);
             marca16 = 0;
-            Num.remove(2);;
+            Num.remove(1);
         }
         Extra2.setText(String.valueOf(marca16));
 
@@ -1888,7 +1888,7 @@ public class Opcion1 extends javax.swing.JPanel {
         } else {
             Botton17.setBackground(Color.red);
             marca17 = 0;
-            Num.remove(3);
+            Num.remove(2);
         }
         Extra3.setText(String.valueOf(marca17));
         numeros[2] = 3;
