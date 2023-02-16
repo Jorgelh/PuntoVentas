@@ -8,6 +8,7 @@ import clases.BDProductos;
 import clases.InsertarProducto;
 import java.awt.Color;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -48,6 +49,7 @@ public class Opcion1 extends javax.swing.JPanel {
     int id_pedido = 1;
     int id_producto = 0;
     int[] numeros = new int[15];
+    ArrayList<Integer> Num = new ArrayList<>();
 
     /**
      * Creates new form Opcion1
@@ -1854,11 +1856,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca15 == 0) {
             Botton15.setBackground(Color.GREEN);
             marca15 = 1;
-            numeros[0] = 1;
+            Num.add(1);
         } else {
             Botton15.setBackground(Color.red);
             marca15 = 0;
-            numeros[0] = 0;
+            Num.remove(1);
         }
         Extra1.setText(String.valueOf(marca15));
         
@@ -1868,11 +1870,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca16 == 0) {
             Botton16.setBackground(Color.GREEN);
             marca16 = 1;
-            numeros[1] = 2;
+            Num.add(2);
         } else {
             Botton16.setBackground(Color.red);
             marca16 = 0;
-            numeros[1] = 0;
+            Num.remove(2);;
         }
         Extra2.setText(String.valueOf(marca16));
 
@@ -1882,11 +1884,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca17 == 0) {
             Botton17.setBackground(Color.GREEN);
             marca17 = 1;
-            numeros[2] = 3;
+            Num.add(3);
         } else {
             Botton17.setBackground(Color.red);
             marca17 = 0;
-            numeros[2] = 3;
+            Num.remove(3);
         }
         Extra3.setText(String.valueOf(marca17));
         numeros[2] = 3;
@@ -2031,8 +2033,10 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
         //System.out.println("numero = " + Arrays.toString(numeros));
         
-        System.out.println("LISTO : "+Arrays.toString(numeros));
-        int i;
+         for(int i = 0; i < Num.size(); i++) {
+            System.out.println(Num.get(i));
+        }
+       /* int i;
         //int[] numerosq = new int[10];
         int media = 0;
         for (i = 0; i < 10; i++) {
@@ -2044,7 +2048,7 @@ public class Opcion1 extends javax.swing.JPanel {
         //Calcular y mostrar la media
         System.out.println("Media de los valores que se encuentran en posiciones pares: "+ media);              
     
-
+*/
     }//GEN-LAST:event_jLabel22MouseClicked
 
     private void jLabel22KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel22KeyPressed

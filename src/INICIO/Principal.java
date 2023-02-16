@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package INICIO;
-
 import com.mysql.cj.conf.PropertyKey;
 import java.awt.BorderLayout;
 import java.awt.Color;

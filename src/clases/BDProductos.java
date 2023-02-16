@@ -68,7 +68,6 @@ public class BDProductos {
          smtp.setInt(3, t.getCantidad());
          smtp.executeUpdate();
          
-            
      } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);}
         con.close();
