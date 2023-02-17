@@ -4,6 +4,7 @@
  */
 package clases;
 
+//import com.mysql.cj.xdevapi.Statement;
 import java.sql.*;
 import java.sql.Connection;
 import java.text.DecimalFormat;
@@ -14,6 +15,9 @@ import javax.swing.JOptionPane;
  * @author jluis
  */
 public class BDProductos {
+    
+    
+    int a;
     
     
     public static ArrayList<Productos> ListarProductos() {
@@ -56,29 +60,56 @@ public class BDProductos {
     }
     
     
- public static void InsertarProducto_Pedido(InsertarProducto t) throws SQLException{
+    
+    
+ public static InsertarProducto InsertarProducto_Pedido(InsertarProducto t) throws SQLException{
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad) values(?,?,?)");
-
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad) values(?,?,?)",Statement.RETURN_GENERATED_KEYS);
+          
         try {
          smtp.setInt(1,t.getId_pedido());
          smtp.setInt(2,t.getId_producto());
          smtp.setInt(3, t.getCantidad());
          smtp.executeUpdate();
-         
      } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);}
-        con.close();
-        smtp.close(); 
-      
+        
+        ResultSet rs = smtp.getGeneratedKeys();
+        if(rs.next()){int id1 = rs.getInt(1);
+          t.setIdregreso(id1);
+        }
+        
+       con.close();
+       smtp.close(); 
+        return t;
        
     }
  
-    public static void insertarArry(InsertarProducto d) {
+    public static InsertarProducto InsertarPedido(InsertarProducto t) throws SQLException{
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement smtp = null;
+        smtp =con.prepareStatement("insert into elrey.PEDIDOS (FECHA) values(CURRENT_TIMESTAMP)",Statement.RETURN_GENERATED_KEYS);
+          
+        try {
+         //smtp.setString(1,t.getFecha());
+         smtp.executeUpdate();
+     } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);}
         
-        System.out.println(d.getId_extras());
+        ResultSet rs = smtp.getGeneratedKeys();
+        if(rs.next()){int id = rs.getInt(1);
+          t.setIdregresoPedido(id);
+        }
         
-    }
+       con.close();
+       smtp.close(); 
+        return t;
+       
+    } 
+ 
+ 
+ 
 }

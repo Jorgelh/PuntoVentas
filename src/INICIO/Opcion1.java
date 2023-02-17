@@ -8,11 +8,9 @@ import clases.BDConexion;
 import clases.BDProductos;
 import clases.InsertarProducto;
 import java.awt.Color;
-import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,43 +21,52 @@ public class Opcion1 extends javax.swing.JPanel {
 
     int pan = 1;
     int marca3 = 1;
-    int marca15 = 0;
-    int marca4 = 1;
-    int marca16 = 0;
+    int marca4 = 1; 
     int marca5 = 1;
-    int marca17 = 0;
     int marca6 = 1;
-    int marca18 = 0;
     int marca7 = 1;
-    int marca19 = 0;
-    int marca8 = 1;
-    int marca20 = 0;
     int marca9 = 1;
-    int marca21 = 0;
+    int marca8 = 1;
     int marca10 = 1;
-    int marca22 = 0;
     int marca11 = 1;
-    int marca23 = 0;
     int marca12 = 1;
-    int marca24 = 0;
     int marca13 = 1;
-    int marca25 = 0;
     int marca14 = 1;
+    int sin1 = 0;
+    int sin2 = 0;
+    int sin3 = 0; 
+    int sin4 = 0;
+    int sin5 = 0;
+    int sin6 = 0;
+    int marca15 = 0;   
+    int marca16 = 0;    
+    int marca17 = 0;  
+    int marca18 = 0;
+    int marca19 = 0;
+    int marca20 = 0;
+    int marca21 = 0;
+    int marca22 = 0;
+    int marca23 = 0;
+    int marca24 = 0;
+    int marca25 = 0;
     int marca26 = 0;
     int marca27 = 0;
     int marca28 = 0;
     int marca29 = 0;
-    int id_pedido = 1;
+    int id_pedido = 0;
     int id_producto = 0;
-    int id_producto_extra = 0;
+    int id_producto_pedido = 0;
     ArrayList<Integer> Num = new ArrayList<>();
+    ArrayList<Integer> NumSin = new ArrayList<>();
 
     /**
      * Creates new form Opcion1
      */
-    public Opcion1() {
-
+    public Opcion1(int a) {
+         
+        
         initComponents();
+        this.id_pedido=a;
         // ListadeProductos();
         // ListadeProductosExtras();
         String texto = "<html><center><body>Porcion<br>de<br>Queso Mozarela</body></center></html>";
@@ -93,6 +100,66 @@ public class Opcion1 extends javax.swing.JPanel {
         marca13 = 1;
         Botton14.setBackground(Color.red);
         marca14 = 1;
+        
+    }
+    
+    private void Limpiar() {
+        marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;marca14 = 1;
+        Botton3.setBackground(Color.red);
+        Botton4.setBackground(Color.red);
+        Botton5.setBackground(Color.red);
+        Botton6.setBackground(Color.red);
+        Botton7.setBackground(Color.red);
+        Botton8.setBackground(Color.red);
+        Botton9.setBackground(Color.red);
+        Botton10.setBackground(Color.red);
+        Botton11.setBackground(Color.red);
+        Botton12.setBackground(Color.red);
+        Botton13.setBackground(Color.red);
+        Botton14.setBackground(Color.red);
+        Botton15.setBackground(Color.red);
+        Botton16.setBackground(Color.red);
+        Botton17.setBackground(Color.red);
+        Botton18.setBackground(Color.red);
+        Botton19.setBackground(Color.red);
+        Botton20.setBackground(Color.red);
+        Botton21.setBackground(Color.red);
+        Botton22.setBackground(Color.red);
+        Botton23.setBackground(Color.red);
+        Botton24.setBackground(Color.red);
+        Botton25.setBackground(Color.red);
+        Botton26.setBackground(Color.red);
+        Botton27.setBackground(Color.red);
+        Botton28.setBackground(Color.red);
+        Botton29.setBackground(Color.red);
+        Botton30.setBackground(Color.red);
+        Botton31.setBackground(Color.red);
+        Botton32.setBackground(Color.red);
+        Botton33.setBackground(Color.red);
+        Botton34.setBackground(Color.red);
+        Botton35.setBackground(Color.red);
+        marca15 = 0;   
+        marca16 = 0;    
+        marca17 = 0;  
+        marca18 = 0;
+        marca19 = 0;
+        marca20 = 0;
+        marca21 = 0;
+        marca22 = 0;
+        marca23 = 0;
+        marca24 = 0;
+        marca25 = 0;
+        marca26 = 0;
+        marca27 = 0;
+        marca28 = 0;
+        marca29 = 0;
+        sin1 = 0;
+        sin2 = 0;
+        sin3 = 0; 
+        sin4 = 0;
+        sin5 = 0;
+        sin6 = 0;
+        
     }
 
     private void InsertarProductoPedido() {
@@ -104,33 +171,57 @@ public class Opcion1 extends javax.swing.JPanel {
             p1.setId_producto(id_producto);
             p1.setCantidad((int) cantidad.getValue());
             BDProductos.InsertarProducto_Pedido(p1);
+            id_producto_pedido = p1.getIdregreso();
+            insertarAdicional();
+            insertarSin();
             JOptionPane.showMessageDialog(null, "Producto Agregado");
+            
         } catch (Exception e) {
         }
 
     }
     
-   /* private void insertarExtras(){
-
     
+    
+    private void insertarAdicional(){
+
+    for(int i = 0; i < Num.size(); i++) {
     try {
-    BDConexion conecta = new BDConexion();
+        BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad) values(?,?,?)");
-
-         smtp.setInt(1,id_producto_extra);
-         smtp.setInt(2,t.getId_producto());
-         smtp.setInt(3, t.getCantidad());
-         smtp.executeUpdate();
-         
-     } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);}
+        
+        smtp =con.prepareStatement("insert into elrey.ADICIONAL (id_productos_pedido,id_producto) values(?,?)");
+        smtp.setInt(1,id_producto_pedido);
+        smtp.setInt(2,Num.get(i));
+        smtp.executeUpdate();
         con.close();
-        smtp.close(); 
+        smtp.close();    
+     } catch (Exception e) {
+         
+            JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
+    }
+}
+    
+       private void insertarSin(){
 
-
-}*/
+    for(int i = 0; i < NumSin.size(); i++) {
+    try {
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement smtp = null;
+        
+        smtp =con.prepareStatement("insert into elrey.NOTAS (id_productos_pedido,id) values(?,?)");
+        smtp.setInt(1,id_producto_pedido);
+        smtp.setInt(2,NumSin.get(i));
+        smtp.executeUpdate();
+        con.close();
+        smtp.close();    
+     } catch (Exception e) {
+         
+            JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
+    }
+}
 
     /* private void ListadeProductos() {
         
@@ -1272,6 +1363,11 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("jLabel16");
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Botton30Layout = new javax.swing.GroupLayout(Botton30);
         Botton30.setLayout(Botton30Layout);
@@ -1299,6 +1395,11 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("jLabel17");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Botton31Layout = new javax.swing.GroupLayout(Botton31);
         Botton31.setLayout(Botton31Layout);
@@ -1328,6 +1429,11 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("jLabel18");
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Botton32Layout = new javax.swing.GroupLayout(Botton32);
         Botton32.setLayout(Botton32Layout);
@@ -1355,6 +1461,11 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("jLabel19");
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Botton33Layout = new javax.swing.GroupLayout(Botton33);
         Botton33.setLayout(Botton33Layout);
@@ -1382,6 +1493,11 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("jLabel20");
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Botton34Layout = new javax.swing.GroupLayout(Botton34);
         Botton34.setLayout(Botton34Layout);
@@ -1409,6 +1525,11 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("jLabel21");
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Botton35Layout = new javax.swing.GroupLayout(Botton35);
         Botton35.setLayout(Botton35Layout);
@@ -1553,6 +1674,7 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
 
         InsertarProductoPedido();
+        Limpiar();
 
     }//GEN-LAST:event_jLabel3MouseClicked
 
@@ -2102,15 +2224,12 @@ public class Opcion1 extends javax.swing.JPanel {
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
         //System.out.println("numero = " + Arrays.toString(numeros));
-        int z = Num.size();
+        int z = NumSin.size();
         if(z>0){
-         for(int i = 0; i < Num.size(); i++) {
-            System.out.println(Num.get(i));
+         for(int i = 0; i < NumSin.size(); i++) {
+            System.out.println(NumSin.get(i));
         }
-        InsertarProducto p = new InsertarProducto();
-        for(int i = 0; i < Num.size(); i++) {
-            
-        }
+        
         }else{System.out.println("ARRAY VACIO");}
        /* int i;
         //int[] numerosq = new int[10];
@@ -2130,6 +2249,90 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel22KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel22KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel22KeyPressed
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+       if (sin1 == 0) {
+            Botton30.setBackground(Color.GREEN);
+            sin1 = 1;
+            NumSin.add(1);
+        } else {
+            Botton30.setBackground(Color.red);
+            sin1 = 0;
+            int remov = NumSin.indexOf(1);
+            NumSin.remove(remov);
+            
+        }
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+     if (sin2 == 0) {
+            Botton31.setBackground(Color.GREEN);
+            sin2 = 1;
+            NumSin.add(2);
+        } else {
+            Botton31.setBackground(Color.red);
+            sin2 = 0;
+            int remov = NumSin.indexOf(2);
+            NumSin.remove(remov);
+            
+        }
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+       if (sin3 == 0) {
+            Botton32.setBackground(Color.GREEN);
+            sin3 = 1;
+            NumSin.add(3);
+        } else {
+            Botton32.setBackground(Color.red);
+            sin3 = 0;
+            int remov = NumSin.indexOf(3);
+            NumSin.remove(remov);
+            
+        }
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+      if (sin4 == 0) {
+            Botton33.setBackground(Color.GREEN);
+            sin4 = 1;
+            NumSin.add(4);
+        } else {
+            Botton33.setBackground(Color.red);
+            sin4 = 0;
+            int remov = NumSin.indexOf(4);
+            NumSin.remove(remov);
+            
+        }
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        if (sin5 == 0) {
+            Botton34.setBackground(Color.GREEN);
+            sin5 = 1;
+            NumSin.add(5);
+        } else {
+            Botton34.setBackground(Color.red);
+            sin5 = 0;
+            int remov = NumSin.indexOf(5);
+            NumSin.remove(remov);
+            
+        }
+    }//GEN-LAST:event_jLabel20MouseClicked
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        if (sin6 == 0) {
+            Botton35.setBackground(Color.GREEN);
+            sin6 = 1;
+            NumSin.add(6);
+        } else {
+            Botton35.setBackground(Color.red);
+            sin6 = 0;
+            int remov = NumSin.indexOf(6);
+            NumSin.remove(remov);
+            
+        }
+    }//GEN-LAST:event_jLabel21MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

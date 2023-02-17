@@ -16,6 +16,35 @@ public class InsertarProducto {
     private int id_nota;
     private int id_adicional;
     private Object[] id_extras;
+    private int idregreso;
+    private String fecha;
+    private int idregresoPedido;
+
+    public int getIdregresoPedido() {
+        return idregresoPedido;
+    }
+    public void setIdregresoPedido(int idregresoPedido) {
+        this.idregresoPedido = idregresoPedido;
+    }
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+    
+    
+
+    public int getIdregreso() {
+        return idregreso;
+    }
+
+    public void setIdregreso(int idregreso) {
+        this.idregreso = idregreso;
+    }
+    
+    
 
     public int getId_pedido() {
         return id_pedido;
