@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class Opcion1 extends javax.swing.JPanel {
 
-    int pan = 1;
+    int pan=1;
     int marca3 = 1;
     int marca4 = 1; 
     int marca5 = 1;
@@ -71,6 +71,7 @@ public class Opcion1 extends javax.swing.JPanel {
         // ListadeProductosExtras();
         String texto = "<html><center><body>Porcion<br>de<br>Queso Mozarela</body></center></html>";
         Queso.setText(texto);
+        if(pan ==1){Botton1.setBackground(Color.GREEN);}
 
     }
 
@@ -104,7 +105,10 @@ public class Opcion1 extends javax.swing.JPanel {
     }
     
     private void Limpiar() {
+       // pan= 3;
         marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;marca14 = 1;
+        Botton1.setBackground(Color.red);
+        Botton2.setBackground(Color.red);
         Botton3.setBackground(Color.red);
         Botton4.setBackground(Color.red);
         Botton5.setBackground(Color.red);
@@ -170,6 +174,7 @@ public class Opcion1 extends javax.swing.JPanel {
             p1.setId_pedido(id_pedido);
             p1.setId_producto(id_producto);
             p1.setCantidad( Integer.parseInt( cantidad.getText()));
+            p1.setTipo(pan);
             BDProductos.InsertarProducto_Pedido(p1);
             id_producto_pedido = p1.getIdregreso();
             insertarAdicional();
@@ -1697,10 +1702,11 @@ public class Opcion1 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-
+    if(pan == 3){
         InsertarProductoPedido();
         Limpiar();
-
+    }else 
+    {JOptionPane.showMessageDialog(null, "seleccionar el tipo");}
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void Botton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton2MouseClicked
@@ -1717,6 +1723,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
 
         }
+        System.out.println("QUE ES "+pan);
     }//GEN-LAST:event_Botton2MouseClicked
 
     private void Botton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton7MouseClicked
@@ -1737,10 +1744,10 @@ public class Opcion1 extends javax.swing.JPanel {
 
     private void Botton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton1MouseClicked
         if (pan == 1) {
-            System.out.println("ENTRA 1");
+            
             if (pan == 1) {
                 Botton1.setBackground(Color.GREEN);
-                Botton1.setBackground(Color.RED);
+                Botton2.setBackground(Color.RED);
                 pan = 0;
             } else {
                 Botton1.setBackground(Color.red);
@@ -1748,6 +1755,7 @@ public class Opcion1 extends javax.swing.JPanel {
                 pan = 1;
             }
         }
+        System.out.println("QUE ES "+pan);
     }//GEN-LAST:event_Botton1MouseClicked
 
     private void Botton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton4MouseClicked

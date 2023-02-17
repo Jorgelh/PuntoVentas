@@ -95,7 +95,7 @@ private void PanelMismoColor(){
 }
 
 
-private void ListarProductosPedidos(){
+void ListarProductosPedidos(){
         
         ArrayList<InsertarProducto> result = BDProductos.ListarProductosPedidos(id_pedido);
         RecargarTabla(result);  
