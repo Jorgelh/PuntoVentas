@@ -91,7 +91,7 @@ public class BDProductos {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        smtp =con.prepareStatement("insert into elrey.PEDIDOS (FECHA) values(CURRENT_TIMESTAMP)",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into PEDIDOS (FECHA) values(CURRENT_TIMESTAMP)",Statement.RETURN_GENERATED_KEYS);
           
         try {
          //smtp.setString(1,t.getFecha());

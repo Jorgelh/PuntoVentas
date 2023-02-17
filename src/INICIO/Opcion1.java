@@ -191,7 +191,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         
-        smtp =con.prepareStatement("insert into elrey.ADICIONAL (id_productos_pedido,id_producto) values(?,?)");
+        smtp =con.prepareStatement("insert into ADICIONAL (id_productos_pedido,id_producto) values(?,?)");
         smtp.setInt(1,id_producto_pedido);
         smtp.setInt(2,Num.get(i));
         smtp.executeUpdate();
@@ -211,7 +211,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         
-        smtp =con.prepareStatement("insert into elrey.NOTAS (id_productos_pedido,id) values(?,?)");
+        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id) values(?,?)");
         smtp.setInt(1,id_producto_pedido);
         smtp.setInt(2,NumSin.get(i));
         smtp.executeUpdate();
@@ -1715,7 +1715,7 @@ public class Opcion1 extends javax.swing.JPanel {
             System.out.println("ENTRA 1");
             if (pan == 1) {
                 Botton1.setBackground(Color.GREEN);
-                Botton2.setBackground(Color.RED);
+                Botton1.setBackground(Color.RED);
                 pan = 0;
             } else {
                 Botton1.setBackground(Color.red);
