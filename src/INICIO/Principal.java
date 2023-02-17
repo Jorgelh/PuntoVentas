@@ -3,8 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package INICIO;
+import clases.BDProductos;
+import clases.InsertarProducto;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
@@ -92,7 +95,33 @@ private void PanelMismoColor(){
 }
 
 
-
+private void ListarProductosPedidos(){
+        
+        ArrayList<InsertarProducto> result = BDProductos.ListarProductosPedidos(id_pedido);
+        RecargarTabla(result);  
+    }
+     private void RecargarTabla(ArrayList<InsertarProducto> list) {
+         
+              Object[][] datos = new Object[list.size()][3];
+              int i = 0;
+              for(InsertarProducto t : list)
+              {
+                  datos[i][0] = t.getTipodeproducto()+" "+t.getDescripcion();
+                  datos[i][1] = t.getCantidad1();
+                  i++;
+              }    
+             Pedidos.setModel(new javax.swing.table.DefaultTableModel(
+                datos,
+                new String[]{
+                "DESCRIPCION","CANTIDAD","PREXIO"
+             })
+             {  
+                 @Override
+                 public boolean isCellEditable(int row, int column){
+                 return false;
+             }
+             });
+     }
 
 
 
@@ -135,7 +164,7 @@ private void PanelMismoColor(){
         jLabel8 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Pedidos = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         PEDIDO_ID = new javax.swing.JTextField();
@@ -523,7 +552,8 @@ private void PanelMismoColor(){
         jPanel9.setBackground(new java.awt.Color(238, 238, 238));
         jPanel9.setPreferredSize(new java.awt.Dimension(474, 300));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Pedidos.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        Pedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -550,9 +580,15 @@ private void PanelMismoColor(){
                 "Descripcion", "Cantidad", "Precio"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(250);
+        Pedidos.setRowHeight(30);
+        Pedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PedidosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Pedidos);
+        if (Pedidos.getColumnModel().getColumnCount() > 0) {
+            Pedidos.getColumnModel().getColumn(0).setMinWidth(250);
         }
 
         jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -572,7 +608,7 @@ private void PanelMismoColor(){
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PEDIDO_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -624,16 +660,16 @@ private void PanelMismoColor(){
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111))
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(111, 111, 111))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -652,6 +688,11 @@ private void PanelMismoColor(){
         PanelPrincipal.setBackground(new java.awt.Color(238, 238, 238));
         PanelPrincipal.setRequestFocusEnabled(false);
         PanelPrincipal.setVerifyInputWhenFocusTarget(false);
+        PanelPrincipal.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                PanelPrincipalComponentAdded(evt);
+            }
+        });
         PanelPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PanelPrincipalMouseClicked(evt);
@@ -774,6 +815,14 @@ private void PanelMismoColor(){
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel8MouseClicked
 
+    private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PedidosMouseClicked
+       ListarProductosPedidos();
+    }//GEN-LAST:event_PedidosMouseClicked
+
+    private void PanelPrincipalComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_PanelPrincipalComponentAdded
+      ListarProductosPedidos();
+    }//GEN-LAST:event_PanelPrincipalComponentAdded
+
     /**
      * @param args the command line arguments
      */
@@ -814,6 +863,7 @@ private void PanelMismoColor(){
     private Clases.PanelRound JTMaiz;
     private javax.swing.JTextField PEDIDO_ID;
     private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JTable Pedidos;
     private javax.swing.JLabel TxtSalir;
     private Clases.PanelRound complemento2;
     private Clases.PanelRound complemento3;
@@ -839,7 +889,6 @@ private void PanelMismoColor(){
     private Clases.PanelRound jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField2;
     private Clases.PanelRound panelRound;
     private Clases.PanelRound panelRound1;

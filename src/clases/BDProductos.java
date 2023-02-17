@@ -66,12 +66,13 @@ public class BDProductos {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad) values(?,?,?)",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo) values(?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
           
         try {
          smtp.setInt(1,t.getId_pedido());
          smtp.setInt(2,t.getId_producto());
          smtp.setInt(3, t.getCantidad());
+         smtp.setInt(4, t.getTipo());
          smtp.executeUpdate();
      } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);}
@@ -109,6 +110,40 @@ public class BDProductos {
         return t;
        
     } 
+    
+    
+    
+    public static ArrayList<InsertarProducto> ListarProductosPedidos (int a ) {
+        return SQL3("select \n" +
+"p.cantidad,\n" +
+"if(p.tipo = 1,'PAN DE','TORTILLA DE') as tipo,\n" +
+" pro.DESCRIPCION\n" +
+" from productos_pedido p \n" +
+"inner join productos pro on pro.ID_PRODUCTO = p.ID_PRODUCTO where p.ID_PEDIDO ="+a );
+    }
+
+private static ArrayList<InsertarProducto> SQL3(String sql){
+    ArrayList<InsertarProducto> list = new ArrayList<InsertarProducto>();
+    BDConexion conecta = new BDConexion();
+    Connection cn = conecta.getConexion();
+        try {
+            InsertarProducto t;
+            Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+                 t = new InsertarProducto();
+                 t.setDescripcion(rs.getString("descripcion").toUpperCase());
+                 t.setTipodeproducto(rs.getString("tipo"));
+                 t.setCantidad1(rs.getInt("cantidad"));
+                 list.add(t);
+            }
+            cn.close();
+        } catch (Exception e) {
+            System.out.println("error consulta DE LA ATABLA "+e);
+            return null;
+        } 
+        return list;
+}
  
  
  

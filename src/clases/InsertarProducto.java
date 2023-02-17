@@ -19,6 +19,20 @@ public class InsertarProducto {
     private int idregreso;
     private String fecha;
     private int idregresoPedido;
+    private int tipo;
+   
+    
+    
+    
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+    
+    
 
     public int getIdregresoPedido() {
         return idregresoPedido;
@@ -92,7 +106,38 @@ public class InsertarProducto {
 
     public void setId_extras(Object[] id_extras) {
         this.id_extras = id_extras;
+    }  
+    
+    
+    
+    private String descripcion;
+    private String tipodeproducto;
+    private int cantidad1;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getTipodeproducto() {
+        return tipodeproducto;
+    }
+
+    public void setTipodeproducto(String tipodeproducto) {
+        this.tipodeproducto = tipodeproducto;
+    }
+
+    public int getCantidad1() {
+        return cantidad1;
+    }
+
+    public void setCantidad1(int cantidad1) {
+        this.cantidad1 = cantidad1;
     }
     
     
-}
+    
+ }   
