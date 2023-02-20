@@ -21,7 +21,17 @@ public class InsertarProducto {
     private int idregresoPedido;
     private int tipo;
     private String sin;
+    private double precio;
 
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    
     public String getSin() {
         return sin;
     }

@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -114,8 +115,9 @@ private void PanelMismoColor(){
               int i = 0;
               for(InsertarProducto t : list)
               {
-                  datos[i][0] = t.getTipodeproducto()+" "+t.getDescripcion()+" "+t.getSin();
+                  datos[i][0] = t.getDescripcion();
                   datos[i][1] = t.getCantidad1();
+                  datos[i][2] = t.getPrecio();
                   i++;
               }    
              Pedidos.setModel(new javax.swing.table.DefaultTableModel(
@@ -130,6 +132,12 @@ private void PanelMismoColor(){
 
              }
              });
+             TableColumn columna1 = Pedidos.getColumn("DESCRIPCION");
+             columna1.setPreferredWidth(250);
+             TableColumn columna2 = Pedidos.getColumn("CANTIDAD");
+             columna2.setPreferredWidth(10);
+             TableColumn columna3 = Pedidos.getColumn("PRECIO");
+             columna3.setPreferredWidth(10);
      }
 
 
@@ -648,6 +656,11 @@ private void PanelMismoColor(){
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Finalizar Orden");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
@@ -831,6 +844,10 @@ private void PanelMismoColor(){
     private void PanelPrincipalComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_PanelPrincipalComponentAdded
       ListarProductosPedidos();
     }//GEN-LAST:event_PanelPrincipalComponentAdded
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+       ListarProductosPedidos();
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments

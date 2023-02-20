@@ -175,6 +175,8 @@ public class Opcion1 extends javax.swing.JPanel {
         sin4 = 0;
         sin5 = 0;
         sin6 = 0;
+        Num.clear();
+        NumSin.clear();
         
     }
 
@@ -207,10 +209,11 @@ public class Opcion1 extends javax.swing.JPanel {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        
-        smtp =con.prepareStatement("insert into ADICIONAL (id_productos_pedido,ID_DESCRI_ADICIONAL) values(?,?)");
-        smtp.setInt(1,id_producto_pedido);
+        //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1)
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,extra) values(?,?,?,1,2)");
+        smtp.setInt(1,id_pedido);
         smtp.setInt(2,Num.get(i));
+        smtp.setInt(3, id_producto_pedido);
         smtp.executeUpdate();
         con.close();
         smtp.close();    
@@ -238,6 +241,20 @@ public class Opcion1 extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
     }
 }
+       
+       private  void bloquear(boolean b){
+        
+           jLabel16.setEnabled(b);
+           jLabel17.setEnabled(b);
+           jLabel18.setEnabled(b);
+           jLabel19.setEnabled(b);
+           jLabel20.setEnabled(b);
+           jLabel21.setEnabled(b);
+           
+           
+       
+       
+       }
 
     /* private void ListadeProductos() {
         
@@ -411,7 +428,6 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton35 = new Clases.PanelRound();
         jLabel21 = new javax.swing.JLabel();
         Botton36 = new Clases.PanelRound();
-        jLabel22 = new javax.swing.JLabel();
         BotonAgregar = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -1593,28 +1609,15 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("jLabel22");
-        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel22MouseClicked(evt);
-            }
-        });
-        jLabel22.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jLabel22KeyPressed(evt);
-            }
-        });
-
         javax.swing.GroupLayout Botton36Layout = new javax.swing.GroupLayout(Botton36);
         Botton36.setLayout(Botton36Layout);
         Botton36Layout.setHorizontalGroup(
             Botton36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
         Botton36Layout.setVerticalGroup(
             Botton36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         jPanel2.add(Botton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, 30));
@@ -1741,8 +1744,6 @@ public class Opcion1 extends javax.swing.JPanel {
     
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
 
-
-        
         InsertarProductoPedido();
         ListarProductosPedidos();
         Limpiar();
@@ -2046,11 +2047,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca15 == 0) {
             Botton15.setBackground(Color.GREEN);
             marca15 = 1;
-            Num.add(1);
+            Num.add(52);
         } else {
             Botton15.setBackground(Color.red);
             marca15 = 0;
-            int remov = Num.indexOf(1);
+            int remov = Num.indexOf(52);
             Num.remove(remov);
             
         }
@@ -2062,11 +2063,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca16 == 0) {
             Botton16.setBackground(Color.GREEN);
             marca16 = 1;
-            Num.add(2);
+            Num.add(53);
         } else {
             Botton16.setBackground(Color.red);
             marca16 = 0;
-            int remov = Num.indexOf(2);
+            int remov = Num.indexOf(53);
             Num.remove(remov);
         }
         Extra2.setText(String.valueOf(marca16));
@@ -2077,11 +2078,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca17 == 0) {
             Botton17.setBackground(Color.GREEN);
             marca17 = 1;
-            Num.add(3);
+            Num.add(54);
         } else {
             Botton17.setBackground(Color.red);
             marca17 = 0;
-            int remov = Num.indexOf(3);
+            int remov = Num.indexOf(54);
             Num.remove(remov);
         }
         Extra3.setText(String.valueOf(marca17));
@@ -2091,11 +2092,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca18 == 0) {
             Botton18.setBackground(Color.GREEN);
             marca18 = 1;
-            Num.add(4);
+            Num.add(55);
         } else {
             Botton18.setBackground(Color.red);
             marca18 = 0;
-            int remov = Num.indexOf(4);
+            int remov = Num.indexOf(55);
             Num.remove(remov);
         }
         Extra4.setText(String.valueOf(marca18));
@@ -2105,11 +2106,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca19 == 0) {
             Botton19.setBackground(Color.GREEN);
             marca19 = 1;
-            Num.add(5);
+            Num.add(56);
         } else {
             Botton19.setBackground(Color.red);
             marca19 = 0;
-            int remov = Num.indexOf(5);
+            int remov = Num.indexOf(56);
             Num.remove(remov);
         }
         Extra5.setText(String.valueOf(marca19));
@@ -2119,11 +2120,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca20 == 0) {
             Botton20.setBackground(Color.GREEN);
             marca20 = 1;
-            Num.add(6);
+            Num.add(57);
         } else {
             Botton20.setBackground(Color.red);
             marca20 = 0;
-           int remov = Num.indexOf(6);
+           int remov = Num.indexOf(57);
             Num.remove(remov);
         }
         Extra6.setText(String.valueOf(marca20));
@@ -2133,11 +2134,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca21 == 0) {
             Botton21.setBackground(Color.GREEN);
             marca21 = 1;
-            Num.add(7);
+            Num.add(58);
         } else {
             Botton21.setBackground(Color.red);
             marca21 = 0;
-           int remov = Num.indexOf(7);
+           int remov = Num.indexOf(58);
             Num.remove(remov);
         }
         Extra7.setText(String.valueOf(marca21));
@@ -2147,11 +2148,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca22 == 0) {
             Botton22.setBackground(Color.GREEN);
             marca22 = 1;
-            Num.add(8);
+            Num.add(59);
         } else {
             Botton22.setBackground(Color.red);
             marca22 = 0;
-            int remov = Num.indexOf(8);
+            int remov = Num.indexOf(59);
             Num.remove(remov);
         }
         Extra8.setText(String.valueOf(marca22));
@@ -2161,11 +2162,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca23 == 0) {
             Botton23.setBackground(Color.GREEN);
             marca23 = 1;
-            Num.add(9);
+            Num.add(60);
         } else {
             Botton23.setBackground(Color.red);
             marca23 = 0;
-            int remov = Num.indexOf(9);
+            int remov = Num.indexOf(60);
             Num.remove(remov);
         }
         Extra9.setText(String.valueOf(marca23));
@@ -2175,11 +2176,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca24 == 0) {
             Botton24.setBackground(Color.GREEN);
             marca24 = 1;
-            Num.add(10);
+            Num.add(61);
         } else {
             Botton24.setBackground(Color.red);
             marca24 = 0;
-            int remov = Num.indexOf(10);
+            int remov = Num.indexOf(61);
             Num.remove(remov);
         }
         Extra10.setText(String.valueOf(marca24));
@@ -2189,11 +2190,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca25 == 0) {
             Botton25.setBackground(Color.GREEN);
             marca25 = 1;
-            Num.add(11);
+            Num.add(62);
         } else {
             Botton25.setBackground(Color.red);
             marca25 = 0;
-            int remov = Num.indexOf(11);
+            int remov = Num.indexOf(62);
             Num.remove(remov);
         }
         Extra11.setText(String.valueOf(marca25));
@@ -2203,11 +2204,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca26 == 0) {
             Botton26.setBackground(Color.GREEN);
             marca26 = 1;
-            Num.add(12);
+            Num.add(63);
         } else {
             Botton26.setBackground(Color.red);
             marca26 = 0;
-            int remov = Num.indexOf(12);
+            int remov = Num.indexOf(63);
             Num.remove(remov);
         }
         Extra12.setText(String.valueOf(marca26));
@@ -2217,11 +2218,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca27 == 0) {
             Botton27.setBackground(Color.GREEN);
             marca27 = 1;
-            Num.add(13);
+            Num.add(64);
         } else {
             Botton27.setBackground(Color.red);
             marca27 = 0;
-            int remov = Num.indexOf(13);
+            int remov = Num.indexOf(64);
             Num.remove(remov);
         }
         Extra13.setText(String.valueOf(marca27));
@@ -2231,11 +2232,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca28 == 0) {
             Botton28.setBackground(Color.GREEN);
             marca28 = 1;
-            Num.add(14);
+            Num.add(65);
         } else {
             Botton28.setBackground(Color.red);
             marca28 = 0;
-            int remov = Num.indexOf(14);
+            int remov = Num.indexOf(65);
             Num.remove(remov);
         }
         Extra14.setText(String.valueOf(marca28));
@@ -2247,11 +2248,11 @@ public class Opcion1 extends javax.swing.JPanel {
         if (marca29 == 0) {
             Botton29.setBackground(Color.GREEN);
             marca29 = 1;
-            Num.add(15);
+            Num.add(66);
         } else {
             Botton29.setBackground(Color.red);
             marca29 = 0;
-            int remov = Num.indexOf(15);
+            int remov = Num.indexOf(66);
             Num.remove(remov);
            
         }
@@ -2262,44 +2263,18 @@ public class Opcion1 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Extra8KeyReleased
 
-    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-        //System.out.println("numero = " + Arrays.toString(numeros));
-        int z = NumSin.size();
-        if(z>0){
-         for(int i = 0; i < NumSin.size(); i++) {
-            System.out.println(NumSin.get(i));
-        }
-        
-        }else{System.out.println("ARRAY VACIO");}
-       /* int i;
-        //int[] numerosq = new int[10];
-        int media = 0;
-        for (i = 0; i < 10; i++) {
-            if (i  == numeros[i]){ //si la posición actual es par
-                System.out.println("LISTO : "+Arrays.toString(numeros));
-                //media = numeros[i]; //se suma el valor de esa posición
-            }
-        }
-        //Calcular y mostrar la media
-        System.out.println("Media de los valores que se encuentran en posiciones pares: "+ media);              
-    
-*/
-    }//GEN-LAST:event_jLabel22MouseClicked
-
-    private void jLabel22KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel22KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel22KeyPressed
-
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
        if (sin1 == 0) {
             Botton30.setBackground(Color.GREEN);
             sin1 = 1;
             NumSin.add(1);
+            bloquear(true);
         } else {
             Botton30.setBackground(Color.red);
             sin1 = 0;
             int remov = NumSin.indexOf(1);
             NumSin.remove(remov);
+            bloquear(false);
             
         }
     }//GEN-LAST:event_jLabel16MouseClicked
@@ -2390,25 +2365,20 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
-          pan = 1;
             
             if (pan == 1) {
                 Botton1.setBackground(Color.GREEN);
                 Botton2.setBackground(Color.RED);
             } 
-        P.setText(String.valueOf(pan));
         System.out.println("QUE ES "+pan);
     }//GEN-LAST:event_jLabel23MouseClicked
 
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
-         pan = 0;
             System.out.println("ENTRA 0");
             if (pan == 0) {
                 Botton1.setBackground(Color.RED);
                 Botton2.setBackground(Color.GREEN);
             } 
-
-        P.setText(String.valueOf(pan));
         System.out.println("QUE ES "+pan);
     }//GEN-LAST:event_jLabel24MouseClicked
 
@@ -2483,7 +2453,6 @@ public class Opcion1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
