@@ -18,7 +18,8 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author jluis
  */
 public class Principal extends javax.swing.JFrame {
-     int id_pedido;
+    public static 
+    int id_pedido;
     /**
      * Creates new form Principal
      */
@@ -31,12 +32,14 @@ public class Principal extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
         }
         initComponents();
+        
         this.id_pedido = i;
         this.setLocationRelativeTo(null);
         PanelMismoColor();
         PEDIDO_ID.setText(String.valueOf(id_pedido));
       //this.setExtendedState(MAXIMIZED_BOTH); 
     }
+    
     
 public void Opcion1(){
     Opcion1 op1 = new Opcion1(id_pedido);
@@ -94,31 +97,37 @@ private void PanelMismoColor(){
 
 }
 
+    /*public static void Listar() {
+        ListarProductosPedidos a = new ListarProductosPedidos();
+    }*/
 
-void ListarProductosPedidos(){
+
+
+ public static void ListarProductosPedidos(){
         
         ArrayList<InsertarProducto> result = BDProductos.ListarProductosPedidos(id_pedido);
         RecargarTabla(result);  
     }
-     private void RecargarTabla(ArrayList<InsertarProducto> list) {
+     public static void RecargarTabla(ArrayList<InsertarProducto> list) {
          
               Object[][] datos = new Object[list.size()][3];
               int i = 0;
               for(InsertarProducto t : list)
               {
-                  datos[i][0] = t.getTipodeproducto()+" "+t.getDescripcion();
+                  datos[i][0] = t.getTipodeproducto()+" "+t.getDescripcion()+" "+t.getSin();
                   datos[i][1] = t.getCantidad1();
                   i++;
               }    
              Pedidos.setModel(new javax.swing.table.DefaultTableModel(
                 datos,
                 new String[]{
-                "DESCRIPCION","CANTIDAD","PREXIO"
+                "DESCRIPCION","CANTIDAD","PRECIO"
              })
              {  
                  @Override
                  public boolean isCellEditable(int row, int column){
                  return false;
+
              }
              });
      }
@@ -678,7 +687,7 @@ void ListarProductosPedidos(){
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
         );
@@ -863,7 +872,7 @@ void ListarProductosPedidos(){
     private Clases.PanelRound JTMaiz;
     private javax.swing.JTextField PEDIDO_ID;
     private javax.swing.JPanel PanelPrincipal;
-    private javax.swing.JTable Pedidos;
+    public static javax.swing.JTable Pedidos;
     private javax.swing.JLabel TxtSalir;
     private Clases.PanelRound complemento2;
     private Clases.PanelRound complemento3;

@@ -20,7 +20,16 @@ public class InsertarProducto {
     private String fecha;
     private int idregresoPedido;
     private int tipo;
-   
+    private String sin;
+
+    public String getSin() {
+        return sin;
+    }
+
+    public void setSin(String sin) {
+        this.sin = sin;
+    }
+    
     
     
     

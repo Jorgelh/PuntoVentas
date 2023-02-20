@@ -114,12 +114,12 @@ public class BDProductos {
     
     
     public static ArrayList<InsertarProducto> ListarProductosPedidos (int a ) {
-        return SQL3("select \n" +
-"p.cantidad,\n" +
+        return SQL3("select  p.cantidad,\n" +
 "if(p.tipo = 1,'PAN DE','TORTILLA DE') as tipo,\n" +
-" pro.DESCRIPCION\n" +
+" pro.DESCRIPCION as des,GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as Extra\n" +
 " from productos_pedido p \n" +
-"inner join productos pro on pro.ID_PRODUCTO = p.ID_PRODUCTO where p.ID_PEDIDO ="+a );
+"inner join productos pro on pro.ID_PRODUCTO = p.ID_PRODUCTO join notas n on p.ID_PRODUCTOS_PEDIDO = n.ID_PRODUCTOS_PEDIDO join descripcionnotas dn on\n" +
+"  dn.id = n.ID where p.ID_PEDIDO = "+a+" group by cantidad,tipo,pro.DESCRIPCION" );
     }
 
 private static ArrayList<InsertarProducto> SQL3(String sql){
@@ -132,9 +132,10 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
                  t = new InsertarProducto();
-                 t.setDescripcion(rs.getString("descripcion").toUpperCase());
+                 t.setDescripcion(rs.getString("des").toUpperCase());
                  t.setTipodeproducto(rs.getString("tipo"));
                  t.setCantidad1(rs.getInt("cantidad"));
+                 t.setSin(rs.getString("extra"));
                  list.add(t);
             }
             cn.close();
