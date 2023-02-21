@@ -81,8 +81,22 @@ public class Opcion1 extends javax.swing.JPanel {
         this.id_pedido=a;
         // ListadeProductos();
         // ListadeProductosExtras();
-        String texto = "<html><center><body>Porcion<br>de<br>Queso Mozarela</body></center></html>";
-        Queso.setText(texto);
+        String texto = "<html><center><body>SALCHICA<br>de<br>PEQUEÑA</body></center></html>";
+        SalPequeña.setText(texto);
+        String texto1 = "<html><center><body>CHORIZO<br>de<br>BREMEN</body></center></html>";
+        ChoriBremen.setText(texto1);
+        String texto2 = "<html><center><body>SALCHICHA<br>de<br>JUMBO</body></center></html>";
+        SAlchi.setText(texto2);
+        String texto3 = "<html><center><body>CHORIZO<br>de<br>AHUMADO</body></center></html>";
+        ChoAhumado.setText(texto3);
+        String texto4 = "<html><center><body>CHORIZO<br>de<br>ARGENTINO</body></center></html>";
+        ChoArgenti.setText(texto4);
+        String texto5 = "<html><center><body>PORCION<br>de<br>GUACAMOL</body></center></html>";
+        PorciGuaca.setText(texto5);
+        String texto6 = "<html><center><body>PORCION<br>de<br>MAYONESA</body></center></html>";
+        PorciMayonesa.setText(texto6);
+        String texto7 = "<html><center><body>PORCION DE<br>de<br>QUESO MOSARELA</body></center></html>";
+         Queso.setText(texto7);
         if(pan ==1){Botton1.setBackground(Color.GREEN);}
 
     }
@@ -210,7 +224,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1)
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,extra) values(?,?,?,1,2)");
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional) values(?,?,?,1,2)");
         smtp.setInt(1,id_pedido);
         smtp.setInt(2,Num.get(i));
         smtp.setInt(3, id_producto_pedido);
@@ -385,27 +399,27 @@ public class Opcion1 extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Botton15 = new Clases.PanelRound();
-        Extra1 = new javax.swing.JLabel();
+        SalPequeña = new javax.swing.JLabel();
         Botton16 = new Clases.PanelRound();
-        Extra2 = new javax.swing.JLabel();
+        ChoriBremen = new javax.swing.JLabel();
         Botton17 = new Clases.PanelRound();
         Extra3 = new javax.swing.JLabel();
         Botton18 = new Clases.PanelRound();
         Extra4 = new javax.swing.JLabel();
         Botton19 = new Clases.PanelRound();
-        Extra5 = new javax.swing.JLabel();
+        SAlchi = new javax.swing.JLabel();
         Botton20 = new Clases.PanelRound();
         Extra6 = new javax.swing.JLabel();
         Botton21 = new Clases.PanelRound();
         Extra7 = new javax.swing.JLabel();
         Botton22 = new Clases.PanelRound();
-        Extra8 = new javax.swing.JLabel();
+        ChoAhumado = new javax.swing.JLabel();
         Botton23 = new Clases.PanelRound();
-        Extra9 = new javax.swing.JLabel();
+        ChoArgenti = new javax.swing.JLabel();
         Botton25 = new Clases.PanelRound();
         Extra11 = new javax.swing.JLabel();
         Botton27 = new Clases.PanelRound();
-        Extra13 = new javax.swing.JLabel();
+        PorciMayonesa = new javax.swing.JLabel();
         Botton28 = new Clases.PanelRound();
         Extra14 = new javax.swing.JLabel();
         Botton29 = new Clases.PanelRound();
@@ -413,7 +427,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton24 = new Clases.PanelRound();
         Extra10 = new javax.swing.JLabel();
         Botton26 = new Clases.PanelRound();
-        Extra12 = new javax.swing.JLabel();
+        PorciGuaca = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Botton30 = new Clases.PanelRound();
         jLabel16 = new javax.swing.JLabel();
@@ -926,11 +940,14 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        Extra1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra1.setText("jLabel16");
-        Extra1.addMouseListener(new java.awt.event.MouseAdapter() {
+        SalPequeña.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        SalPequeña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SalPequeña.setText("SALCHICHA PEQUEÑA");
+        SalPequeña.setToolTipText("");
+        SalPequeña.setName("SALCHICHA PEQUEÑA"); // NOI18N
+        SalPequeña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Extra1MouseClicked(evt);
+                SalPequeñaMouseClicked(evt);
             }
         });
 
@@ -938,11 +955,11 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton15.setLayout(Botton15Layout);
         Botton15Layout.setHorizontalGroup(
             Botton15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+            .addComponent(SalPequeña, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
         );
         Botton15Layout.setVerticalGroup(
             Botton15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra1, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(SalPequeña, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel3.add(Botton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -958,11 +975,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        Extra2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra2.setText("jLabel17");
-        Extra2.addMouseListener(new java.awt.event.MouseAdapter() {
+        ChoriBremen.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        ChoriBremen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChoriBremen.setText("CHORIZO BREMEN");
+        ChoriBremen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Extra2MouseClicked(evt);
+                ChoriBremenMouseClicked(evt);
             }
         });
 
@@ -970,11 +988,11 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton16.setLayout(Botton16Layout);
         Botton16Layout.setHorizontalGroup(
             Botton16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra2, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+            .addComponent(ChoriBremen, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
         );
         Botton16Layout.setVerticalGroup(
             Botton16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra2, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(ChoriBremen, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel3.add(Botton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
@@ -991,7 +1009,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         Extra3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra3.setText("jLabel18");
+        Extra3.setText("SALAMI");
         Extra3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Extra3MouseClicked(evt);
@@ -1023,7 +1041,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         Extra4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra4.setText("jLabel19");
+        Extra4.setText("LONGANIZA");
         Extra4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Extra4MouseClicked(evt);
@@ -1054,11 +1072,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        Extra5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra5.setText("jLabel20");
-        Extra5.addMouseListener(new java.awt.event.MouseAdapter() {
+        SAlchi.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        SAlchi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SAlchi.setText("SALCHI JUMBO");
+        SAlchi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Extra5MouseClicked(evt);
+                SAlchiMouseClicked(evt);
             }
         });
 
@@ -1066,11 +1085,13 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton19.setLayout(Botton19Layout);
         Botton19Layout.setHorizontalGroup(
             Botton19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra5, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+            .addGroup(Botton19Layout.createSequentialGroup()
+                .addComponent(SAlchi, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Botton19Layout.setVerticalGroup(
             Botton19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra5, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(SAlchi, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel3.add(Botton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
@@ -1087,7 +1108,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         Extra6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra6.setText("jLabel21");
+        Extra6.setText("ADOBADO");
         Extra6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Extra6MouseClicked(evt);
@@ -1119,7 +1140,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         Extra7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra7.setText("jLabel22");
+        Extra7.setText("RES");
         Extra7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Extra7MouseClicked(evt);
@@ -1150,16 +1171,17 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        Extra8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra8.setText("jLabel23");
-        Extra8.addMouseListener(new java.awt.event.MouseAdapter() {
+        ChoAhumado.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        ChoAhumado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChoAhumado.setText("CHO AHUMADO");
+        ChoAhumado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Extra8MouseClicked(evt);
+                ChoAhumadoMouseClicked(evt);
             }
         });
-        Extra8.addKeyListener(new java.awt.event.KeyAdapter() {
+        ChoAhumado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                Extra8KeyReleased(evt);
+                ChoAhumadoKeyReleased(evt);
             }
         });
 
@@ -1167,11 +1189,13 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton22.setLayout(Botton22Layout);
         Botton22Layout.setHorizontalGroup(
             Botton22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra8, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+            .addGroup(Botton22Layout.createSequentialGroup()
+                .addComponent(ChoAhumado, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Botton22Layout.setVerticalGroup(
             Botton22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra8, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(ChoAhumado, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel3.add(Botton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
@@ -1187,11 +1211,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        Extra9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra9.setText("jLabel24");
-        Extra9.addMouseListener(new java.awt.event.MouseAdapter() {
+        ChoArgenti.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        ChoArgenti.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChoArgenti.setText("CHORI ARGENTINO");
+        ChoArgenti.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Extra9MouseClicked(evt);
+                ChoArgentiMouseClicked(evt);
             }
         });
 
@@ -1199,11 +1224,13 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton23.setLayout(Botton23Layout);
         Botton23Layout.setHorizontalGroup(
             Botton23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra9, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+            .addGroup(Botton23Layout.createSequentialGroup()
+                .addComponent(ChoArgenti, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Botton23Layout.setVerticalGroup(
             Botton23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra9, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(ChoArgenti, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel3.add(Botton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
@@ -1220,7 +1247,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         Extra11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra11.setText("jLabel26");
+        Extra11.setText("PAN");
         Extra11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Extra11MouseClicked(evt);
@@ -1251,11 +1278,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        Extra13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra13.setText("jLabel28");
-        Extra13.addMouseListener(new java.awt.event.MouseAdapter() {
+        PorciMayonesa.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        PorciMayonesa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PorciMayonesa.setText("PORCI MAYONESA");
+        PorciMayonesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Extra13MouseClicked(evt);
+                PorciMayonesaMouseClicked(evt);
             }
         });
 
@@ -1263,11 +1291,11 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton27.setLayout(Botton27Layout);
         Botton27Layout.setHorizontalGroup(
             Botton27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra13, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+            .addComponent(PorciMayonesa, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
         );
         Botton27Layout.setVerticalGroup(
             Botton27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra13, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(PorciMayonesa, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel3.add(Botton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
@@ -1284,7 +1312,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         Extra14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra14.setText("jLabel29");
+        Extra14.setText("CEBOLLIN");
         Extra14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Extra14MouseClicked(evt);
@@ -1349,7 +1377,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         Extra10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra10.setText("jLabel25");
+        Extra10.setText("TOCINO");
         Extra10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Extra10MouseClicked(evt);
@@ -1380,11 +1408,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        Extra12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Extra12.setText("jLabel27");
-        Extra12.addMouseListener(new java.awt.event.MouseAdapter() {
+        PorciGuaca.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        PorciGuaca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PorciGuaca.setText("PORCIO GUACAMOL");
+        PorciGuaca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Extra12MouseClicked(evt);
+                PorciGuacaMouseClicked(evt);
             }
         });
 
@@ -1392,11 +1421,13 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton26.setLayout(Botton26Layout);
         Botton26Layout.setHorizontalGroup(
             Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra12, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+            .addGroup(Botton26Layout.createSequentialGroup()
+                .addComponent(PorciGuaca, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Botton26Layout.setVerticalGroup(
             Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Extra12, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(PorciGuaca, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel3.add(Botton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
@@ -1416,7 +1447,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("jLabel16");
+        jLabel16.setText("CON TODO");
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel16MouseClicked(evt);
@@ -1448,7 +1479,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("jLabel17");
+        jLabel17.setText("SIN SALSA DULCE");
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel17MouseClicked(evt);
@@ -1482,7 +1513,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("jLabel18");
+        jLabel18.setText("SIN MAYONESA");
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel18MouseClicked(evt);
@@ -1514,7 +1545,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("jLabel19");
+        jLabel19.setText("SIN MOSTASA");
         jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel19MouseClicked(evt);
@@ -1546,7 +1577,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("jLabel20");
+        jLabel20.setText("SIN CEBOLLA");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel20MouseClicked(evt);
@@ -1578,7 +1609,7 @@ public class Opcion1 extends javax.swing.JPanel {
         });
 
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("jLabel21");
+        jLabel21.setText("SIN REPOLLO");
         jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel21MouseClicked(evt);
@@ -2041,9 +2072,8 @@ public class Opcion1 extends javax.swing.JPanel {
         id_producto = 12;
     }//GEN-LAST:event_jLabel15MouseClicked
 
-    private void Extra1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra1MouseClicked
+    private void SalPequeñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalPequeñaMouseClicked
 
-        
         if (marca15 == 0) {
             Botton15.setBackground(Color.GREEN);
             marca15 = 1;
@@ -2055,11 +2085,11 @@ public class Opcion1 extends javax.swing.JPanel {
             Num.remove(remov);
             
         }
-        Extra1.setText(String.valueOf(marca15));
+        SalPequeña.setText(String.valueOf(marca15));
         
-    }//GEN-LAST:event_Extra1MouseClicked
+    }//GEN-LAST:event_SalPequeñaMouseClicked
 
-    private void Extra2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra2MouseClicked
+    private void ChoriBremenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriBremenMouseClicked
         if (marca16 == 0) {
             Botton16.setBackground(Color.GREEN);
             marca16 = 1;
@@ -2070,9 +2100,9 @@ public class Opcion1 extends javax.swing.JPanel {
             int remov = Num.indexOf(53);
             Num.remove(remov);
         }
-        Extra2.setText(String.valueOf(marca16));
+        ChoriBremen.setText(String.valueOf(marca16));
 
-    }//GEN-LAST:event_Extra2MouseClicked
+    }//GEN-LAST:event_ChoriBremenMouseClicked
 
     private void Extra3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra3MouseClicked
         if (marca17 == 0) {
@@ -2102,7 +2132,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Extra4.setText(String.valueOf(marca18));
     }//GEN-LAST:event_Extra4MouseClicked
 
-    private void Extra5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra5MouseClicked
+    private void SAlchiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SAlchiMouseClicked
         if (marca19 == 0) {
             Botton19.setBackground(Color.GREEN);
             marca19 = 1;
@@ -2113,8 +2143,8 @@ public class Opcion1 extends javax.swing.JPanel {
             int remov = Num.indexOf(56);
             Num.remove(remov);
         }
-        Extra5.setText(String.valueOf(marca19));
-    }//GEN-LAST:event_Extra5MouseClicked
+        SAlchi.setText(String.valueOf(marca19));
+    }//GEN-LAST:event_SAlchiMouseClicked
 
     private void Extra6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra6MouseClicked
         if (marca20 == 0) {
@@ -2144,7 +2174,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Extra7.setText(String.valueOf(marca21));
     }//GEN-LAST:event_Extra7MouseClicked
 
-    private void Extra8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra8MouseClicked
+    private void ChoAhumadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoAhumadoMouseClicked
         if (marca22 == 0) {
             Botton22.setBackground(Color.GREEN);
             marca22 = 1;
@@ -2155,10 +2185,10 @@ public class Opcion1 extends javax.swing.JPanel {
             int remov = Num.indexOf(59);
             Num.remove(remov);
         }
-        Extra8.setText(String.valueOf(marca22));
-    }//GEN-LAST:event_Extra8MouseClicked
+        ChoAhumado.setText(String.valueOf(marca22));
+    }//GEN-LAST:event_ChoAhumadoMouseClicked
 
-    private void Extra9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra9MouseClicked
+    private void ChoArgentiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoArgentiMouseClicked
         if (marca23 == 0) {
             Botton23.setBackground(Color.GREEN);
             marca23 = 1;
@@ -2169,8 +2199,8 @@ public class Opcion1 extends javax.swing.JPanel {
             int remov = Num.indexOf(60);
             Num.remove(remov);
         }
-        Extra9.setText(String.valueOf(marca23));
-    }//GEN-LAST:event_Extra9MouseClicked
+        ChoArgenti.setText(String.valueOf(marca23));
+    }//GEN-LAST:event_ChoArgentiMouseClicked
 
     private void Extra10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra10MouseClicked
         if (marca24 == 0) {
@@ -2200,7 +2230,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Extra11.setText(String.valueOf(marca25));
     }//GEN-LAST:event_Extra11MouseClicked
 
-    private void Extra12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra12MouseClicked
+    private void PorciGuacaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PorciGuacaMouseClicked
         if (marca26 == 0) {
             Botton26.setBackground(Color.GREEN);
             marca26 = 1;
@@ -2211,10 +2241,10 @@ public class Opcion1 extends javax.swing.JPanel {
             int remov = Num.indexOf(63);
             Num.remove(remov);
         }
-        Extra12.setText(String.valueOf(marca26));
-    }//GEN-LAST:event_Extra12MouseClicked
+        PorciGuaca.setText(String.valueOf(marca26));
+    }//GEN-LAST:event_PorciGuacaMouseClicked
 
-    private void Extra13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra13MouseClicked
+    private void PorciMayonesaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PorciMayonesaMouseClicked
         if (marca27 == 0) {
             Botton27.setBackground(Color.GREEN);
             marca27 = 1;
@@ -2225,8 +2255,8 @@ public class Opcion1 extends javax.swing.JPanel {
             int remov = Num.indexOf(64);
             Num.remove(remov);
         }
-        Extra13.setText(String.valueOf(marca27));
-    }//GEN-LAST:event_Extra13MouseClicked
+        PorciMayonesa.setText(String.valueOf(marca27));
+    }//GEN-LAST:event_PorciMayonesaMouseClicked
 
     private void Extra14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra14MouseClicked
         if (marca28 == 0) {
@@ -2259,9 +2289,9 @@ public class Opcion1 extends javax.swing.JPanel {
         Queso.setText(String.valueOf(marca29));
     }//GEN-LAST:event_QuesoMouseClicked
 
-    private void Extra8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Extra8KeyReleased
+    private void ChoAhumadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChoAhumadoKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_Extra8KeyReleased
+    }//GEN-LAST:event_ChoAhumadoKeyReleased
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
        if (sin1 == 0) {
@@ -2421,22 +2451,22 @@ public class Opcion1 extends javax.swing.JPanel {
     private Clases.PanelRound Botton7;
     private Clases.PanelRound Botton8;
     private Clases.PanelRound Botton9;
-    private javax.swing.JLabel Extra1;
+    private javax.swing.JLabel ChoAhumado;
+    private javax.swing.JLabel ChoArgenti;
+    private javax.swing.JLabel ChoriBremen;
     private javax.swing.JLabel Extra10;
     private javax.swing.JLabel Extra11;
-    private javax.swing.JLabel Extra12;
-    private javax.swing.JLabel Extra13;
     private javax.swing.JLabel Extra14;
-    private javax.swing.JLabel Extra2;
     private javax.swing.JLabel Extra3;
     private javax.swing.JLabel Extra4;
-    private javax.swing.JLabel Extra5;
     private javax.swing.JLabel Extra6;
     private javax.swing.JLabel Extra7;
-    private javax.swing.JLabel Extra8;
-    private javax.swing.JLabel Extra9;
     private javax.swing.JLabel P;
+    private javax.swing.JLabel PorciGuaca;
+    private javax.swing.JLabel PorciMayonesa;
     private javax.swing.JLabel Queso;
+    private javax.swing.JLabel SAlchi;
+    private javax.swing.JLabel SalPequeña;
     private javax.swing.JTextField cantidad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -66,7 +66,7 @@ public class BDProductos {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1)",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional) values(?,?,?,?,1)",Statement.RETURN_GENERATED_KEYS);
           
         try {
          smtp.setInt(1,t.getId_pedido());
@@ -125,7 +125,7 @@ public class BDProductos {
  public static ArrayList<InsertarProducto> ListarProductosPedidos (int a ) {
         return SQL3("select\n" +
 "cantidad,\n" +
-"if(p.extra = 1, \n" +
+"if(p.adicional = 1, \n" +
 "    concat(if(p.tipo = 1,'PAN DE','TORTILLA DE'),'  ',pro.DESCRIPCION,' ',\n" +
 "    (select  GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as descri from  notas n inner join descripcionnotas dn on\n" +
 "dn.id = n.ID where ID_PRODUCTOS_PEDIDO = p.ID_PRODUCTOS_PEDIDO)),pro.DESCRIPCION) as DESCRIPCION,pro.precio\n" +
