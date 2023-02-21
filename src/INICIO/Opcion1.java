@@ -9,6 +9,7 @@ import clases.BDConexion;
 import clases.BDProductos;
 import clases.InsertarProducto;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,9 +24,9 @@ import javax.swing.JOptionPane;
 
 
 public class Opcion1 extends javax.swing.JPanel {
-
-    
-    int pan=1;
+    double precio;
+    int tipopan = 0;
+    int pan=0;
     int marca3 = 1;
     int marca4 = 1; 
     int marca5 = 1;
@@ -64,7 +65,8 @@ public class Opcion1 extends javax.swing.JPanel {
     int id_producto_pedido = 0;
     ArrayList<Integer> Num = new ArrayList<>();
     ArrayList<Integer> NumSin = new ArrayList<>();
-
+    Color Botrojo = new Color(255,102,102); 
+    Color Botverde = new Color(102,255,102);
     @Override
     public void print(Graphics g) {
         super.print(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
@@ -78,96 +80,114 @@ public class Opcion1 extends javax.swing.JPanel {
          
         
         initComponents();
+        
         this.id_pedido=a;
         // ListadeProductos();
         // ListadeProductosExtras();
-        String texto = "<html><center><body>SALCHICA<br>de<br>PEQUEÑA</body></center></html>";
+        String texto = "<html><center><body>SALCHICA<br>PEQUEÑA</body></center></html>";
         SalPequeña.setText(texto);
-        String texto1 = "<html><center><body>CHORIZO<br>de<br>BREMEN</body></center></html>";
+        String texto1 = "<html><center><body>CHORIZO<br>BREMEN</body></center></html>";
         ChoriBremen.setText(texto1);
-        String texto2 = "<html><center><body>SALCHICHA<br>de<br>JUMBO</body></center></html>";
+        String texto2 = "<html><center><body>SALCHICHA<br>JUMBO</body></center></html>";
         SAlchi.setText(texto2);
-        String texto3 = "<html><center><body>CHORIZO<br>de<br>AHUMADO</body></center></html>";
+        String texto3 = "<html><center><body>CHORIZO<br>AHUMADO</body></center></html>";
         ChoAhumado.setText(texto3);
-        String texto4 = "<html><center><body>CHORIZO<br>de<br>ARGENTINO</body></center></html>";
+        String texto4 = "<html><center><body>CHORIZO<br>ARGENTINO</body></center></html>";
         ChoArgenti.setText(texto4);
-        String texto5 = "<html><center><body>PORCION<br>de<br>GUACAMOL</body></center></html>";
+        String texto5 = "<html><center><body>PORCION DE<br>GUACAMOL</body></center></html>";
         PorciGuaca.setText(texto5);
-        String texto6 = "<html><center><body>PORCION<br>de<br>MAYONESA</body></center></html>";
+        String texto6 = "<html><center><body>PORCION DE<br>MAYONESA</body></center></html>";
         PorciMayonesa.setText(texto6);
-        String texto7 = "<html><center><body>PORCION DE<br>de<br>QUESO MOSARELA</body></center></html>";
+        String texto7 = "<html><center><body>PORCION DE<br>QUESO MOSARELA</body></center></html>";
          Queso.setText(texto7);
-        if(pan ==1){Botton1.setBackground(Color.GREEN);}
+        //if(pan ==1){Botton1.setBackground(Botverde);}
+        Botton15.setPreferredSize(new Dimension (93, 55));
+        Botton16.setPreferredSize(new Dimension (93, 55));
+        Botton17.setPreferredSize(new Dimension (93, 55));
+        Botton18.setPreferredSize(new Dimension (93, 55));
+        Botton19.setPreferredSize(new Dimension (93, 55));
+        Botton20.setPreferredSize(new Dimension (93, 55));
+        Botton21.setPreferredSize(new Dimension (93, 55));
+        Botton22.setPreferredSize(new Dimension (93, 55));
+        Botton23.setPreferredSize(new Dimension (93, 55));
+        Botton24.setPreferredSize(new Dimension (93, 55));
+        Botton25.setPreferredSize(new Dimension (93, 55));
+        Botton26.setPreferredSize(new Dimension (93, 55));
+        Botton27.setPreferredSize(new Dimension (93, 55));
+        Botton28.setPreferredSize(new Dimension (93, 55));
+        Botton29.setPreferredSize(new Dimension (93, 55));
+        
+        
 
     }
 
     private void todosBotones() {
-
-        Botton3.setBackground(Color.red);
+          //[255,102,102]
+        Botton3.setBackground(Botrojo);
         marca3 = 1;
-        Botton4.setBackground(Color.red);
+        Botton4.setBackground(Botrojo);
         marca4 = 1;
-        Botton5.setBackground(Color.red);
+        Botton5.setBackground(Botrojo);
         marca5 = 1;
-        Botton6.setBackground(Color.red);
+        Botton6.setBackground(Botrojo);
         marca6 = 1;
-        Botton7.setBackground(Color.red);
+        Botton7.setBackground(Botrojo);
         marca7 = 1;
-        Botton8.setBackground(Color.red);
+        Botton8.setBackground(Botrojo);
         marca8 = 1;
-        Botton9.setBackground(Color.red);
+        Botton9.setBackground(Botrojo);
         marca9 = 1;
-        Botton10.setBackground(Color.red);
+        Botton10.setBackground(Botrojo);
         marca10 = 1;
-        Botton11.setBackground(Color.red);
+        Botton11.setBackground(Botrojo);
         marca11 = 1;
-        Botton12.setBackground(Color.red);
+        Botton12.setBackground(Botrojo);
         marca12 = 1;
-        Botton13.setBackground(Color.red);
+        Botton13.setBackground(Botrojo);
         marca13 = 1;
-        Botton14.setBackground(Color.red);
+        Botton14.setBackground(Botrojo);
         marca14 = 1;
         
     }
     
     private void Limpiar() {
-       // pan= 3;
+        pan= 0;
         marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;marca14 = 1;
-        Botton1.setBackground(Color.red);
-        Botton2.setBackground(Color.red);
-        Botton3.setBackground(Color.red);
-        Botton4.setBackground(Color.red);
-        Botton5.setBackground(Color.red);
-        Botton6.setBackground(Color.red);
-        Botton7.setBackground(Color.red);
-        Botton8.setBackground(Color.red);
-        Botton9.setBackground(Color.red);
-        Botton10.setBackground(Color.red);
-        Botton11.setBackground(Color.red);
-        Botton12.setBackground(Color.red);
-        Botton13.setBackground(Color.red);
-        Botton14.setBackground(Color.red);
-        Botton15.setBackground(Color.red);
-        Botton16.setBackground(Color.red);
-        Botton17.setBackground(Color.red);
-        Botton18.setBackground(Color.red);
-        Botton19.setBackground(Color.red);
-        Botton20.setBackground(Color.red);
-        Botton21.setBackground(Color.red);
-        Botton22.setBackground(Color.red);
-        Botton23.setBackground(Color.red);
-        Botton24.setBackground(Color.red);
-        Botton25.setBackground(Color.red);
-        Botton26.setBackground(Color.red);
-        Botton27.setBackground(Color.red);
-        Botton28.setBackground(Color.red);
-        Botton29.setBackground(Color.red);
-        Botton30.setBackground(Color.red);
-        Botton31.setBackground(Color.red);
-        Botton32.setBackground(Color.red);
-        Botton33.setBackground(Color.red);
-        Botton34.setBackground(Color.red);
-        Botton35.setBackground(Color.red);
+        Botton1.setBackground(Botrojo);
+        Botton2.setBackground(Botrojo);
+        Botton3.setBackground(Botrojo);
+        Botton4.setBackground(Botrojo);
+        Botton5.setBackground(Botrojo);
+        Botton6.setBackground(Botrojo);
+        Botton7.setBackground(Botrojo);
+        Botton8.setBackground(Botrojo);
+        Botton9.setBackground(Botrojo);
+        Botton10.setBackground(Botrojo);
+        Botton11.setBackground(Botrojo);
+        Botton12.setBackground(Botrojo);
+        Botton13.setBackground(Botrojo);
+        Botton14.setBackground(Botrojo);
+        Botton15.setBackground(Botrojo);
+        Botton16.setBackground(Botrojo);
+        Botton17.setBackground(Botrojo);
+        Botton18.setBackground(Botrojo);
+        Botton19.setBackground(Botrojo);
+        Botton20.setBackground(Botrojo);
+        Botton21.setBackground(Botrojo);
+        Botton22.setBackground(Botrojo);
+        Botton23.setBackground(Botrojo);
+        Botton24.setBackground(Botrojo);
+        Botton25.setBackground(Botrojo);
+        Botton26.setBackground(Botrojo);
+        Botton27.setBackground(Botrojo);
+        Botton28.setBackground(Botrojo);
+        Botton29.setBackground(Botrojo);
+        Botton30.setBackground(Botrojo);
+        Botton31.setBackground(Botrojo);
+        Botton32.setBackground(Botrojo);
+        Botton33.setBackground(Botrojo);
+        Botton34.setBackground(Botrojo);
+        Botton35.setBackground(Botrojo);
         marca15 = 0;   
         marca16 = 0;    
         marca17 = 0;  
@@ -193,7 +213,7 @@ public class Opcion1 extends javax.swing.JPanel {
         NumSin.clear();
         
     }
-
+    
     private void InsertarProductoPedido() {
 
         try {
@@ -202,7 +222,8 @@ public class Opcion1 extends javax.swing.JPanel {
             p1.setId_pedido(id_pedido);
             p1.setId_producto(id_producto);
             p1.setCantidad( Integer.parseInt( cantidad.getText()));
-            p1.setTipo(pan);
+            p1.setTipo(tipopan);
+            p1.setPrecio(precio);
             BDProductos.InsertarProducto_Pedido(p1);
             id_producto_pedido = p1.getIdregreso();
             insertarAdicional();
@@ -223,8 +244,8 @@ public class Opcion1 extends javax.swing.JPanel {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1)
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional) values(?,?,?,1,2)");
+        //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio) values(?,?,?,1,2,(select precio from PRODUCTOS where id_producto = "+Num.get(i)+"))");
         smtp.setInt(1,id_pedido);
         smtp.setInt(2,Num.get(i));
         smtp.setInt(3, id_producto_pedido);
@@ -256,17 +277,14 @@ public class Opcion1 extends javax.swing.JPanel {
     }
 }
        
-       private  void bloquear(boolean b){
+       private  void colores(){
         
-           jLabel16.setEnabled(b);
-           jLabel17.setEnabled(b);
-           jLabel18.setEnabled(b);
-           jLabel19.setEnabled(b);
-           jLabel20.setEnabled(b);
-           jLabel21.setEnabled(b);
-           
-           
-       
+        //Botton30.setBackground(Botrojo);
+        Botton31.setBackground(Botrojo);
+        Botton32.setBackground(Botrojo);
+        Botton33.setBackground(Botrojo);
+        Botton34.setBackground(Botrojo);
+        Botton35.setBackground(Botrojo);
        
        }
 
@@ -472,7 +490,7 @@ public class Opcion1 extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(11, 46, 102));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Botton7.setBackground(new java.awt.Color(255, 0, 0));
+        Botton7.setBackground(new java.awt.Color(255, 102, 102));
         Botton7.setRoundBottomLeft(20);
         Botton7.setRoundBottomRight(20);
         Botton7.setRoundTopLeft(20);
@@ -505,7 +523,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, -1));
 
-        Botton12.setBackground(new java.awt.Color(255, 0, 0));
+        Botton12.setBackground(new java.awt.Color(255, 102, 102));
         Botton12.setRoundBottomLeft(20);
         Botton12.setRoundBottomRight(20);
         Botton12.setRoundTopLeft(20);
@@ -538,7 +556,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 150, -1));
 
-        Botton3.setBackground(new java.awt.Color(255, 0, 0));
+        Botton3.setBackground(new java.awt.Color(255, 102, 102));
         Botton3.setRoundBottomLeft(20);
         Botton3.setRoundBottomRight(20);
         Botton3.setRoundTopLeft(20);
@@ -571,7 +589,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
 
-        Botton8.setBackground(new java.awt.Color(255, 0, 0));
+        Botton8.setBackground(new java.awt.Color(255, 102, 102));
         Botton8.setRoundBottomLeft(20);
         Botton8.setRoundBottomRight(20);
         Botton8.setRoundTopLeft(20);
@@ -604,7 +622,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 150, -1));
 
-        Botton4.setBackground(new java.awt.Color(255, 0, 0));
+        Botton4.setBackground(new java.awt.Color(255, 102, 102));
         Botton4.setRoundBottomLeft(20);
         Botton4.setRoundBottomRight(20);
         Botton4.setRoundTopLeft(20);
@@ -637,7 +655,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, -1));
 
-        Botton9.setBackground(new java.awt.Color(255, 0, 0));
+        Botton9.setBackground(new java.awt.Color(255, 102, 102));
         Botton9.setRoundBottomLeft(20);
         Botton9.setRoundBottomRight(20);
         Botton9.setRoundTopLeft(20);
@@ -670,7 +688,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 150, -1));
 
-        Botton11.setBackground(new java.awt.Color(255, 0, 0));
+        Botton11.setBackground(new java.awt.Color(255, 102, 102));
         Botton11.setRoundBottomLeft(20);
         Botton11.setRoundBottomRight(20);
         Botton11.setRoundTopLeft(20);
@@ -703,7 +721,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, -1));
 
-        Botton5.setBackground(new java.awt.Color(255, 0, 0));
+        Botton5.setBackground(new java.awt.Color(255, 102, 102));
         Botton5.setRoundBottomLeft(20);
         Botton5.setRoundBottomRight(20);
         Botton5.setRoundTopLeft(20);
@@ -736,7 +754,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 150, -1));
 
-        Botton10.setBackground(new java.awt.Color(255, 0, 0));
+        Botton10.setBackground(new java.awt.Color(255, 102, 102));
         Botton10.setRoundBottomLeft(20);
         Botton10.setRoundBottomRight(20);
         Botton10.setRoundTopLeft(20);
@@ -769,7 +787,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 150, -1));
 
-        Botton14.setBackground(new java.awt.Color(255, 0, 0));
+        Botton14.setBackground(new java.awt.Color(255, 102, 102));
         Botton14.setEnabled(false);
         Botton14.setRoundBottomLeft(20);
         Botton14.setRoundBottomRight(20);
@@ -801,7 +819,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 150, -1));
 
-        Botton6.setBackground(new java.awt.Color(255, 0, 0));
+        Botton6.setBackground(new java.awt.Color(255, 102, 102));
         Botton6.setRoundBottomLeft(20);
         Botton6.setRoundBottomRight(20);
         Botton6.setRoundTopLeft(20);
@@ -834,7 +852,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 150, -1));
 
-        Botton13.setBackground(new java.awt.Color(255, 0, 0));
+        Botton13.setBackground(new java.awt.Color(255, 102, 102));
         Botton13.setRoundBottomLeft(20);
         Botton13.setRoundBottomRight(20);
         Botton13.setRoundTopLeft(20);
@@ -870,7 +888,7 @@ public class Opcion1 extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(11, 46, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Botton2.setBackground(new java.awt.Color(255, 0, 0));
+        Botton2.setBackground(new java.awt.Color(255, 102, 102));
         Botton2.setRoundBottomLeft(20);
         Botton2.setRoundBottomRight(20);
         Botton2.setRoundTopLeft(20);
@@ -898,7 +916,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, -1));
 
-        Botton1.setBackground(new java.awt.Color(255, 0, 0));
+        Botton1.setBackground(new java.awt.Color(255, 102, 102));
         Botton1.setRoundBottomLeft(20);
         Botton1.setRoundBottomRight(20);
         Botton1.setRoundTopLeft(20);
@@ -929,20 +947,20 @@ public class Opcion1 extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(11, 46, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Botton15.setBackground(new java.awt.Color(255, 0, 0));
-        Botton15.setRoundBottomLeft(20);
-        Botton15.setRoundBottomRight(20);
-        Botton15.setRoundTopLeft(20);
-        Botton15.setRoundTopRight(20);
+        Botton15.setBackground(new java.awt.Color(255, 102, 102));
+        Botton15.setRoundBottomLeft(15);
+        Botton15.setRoundBottomRight(15);
+        Botton15.setRoundTopLeft(15);
+        Botton15.setRoundTopRight(15);
         Botton15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton15MouseClicked(evt);
             }
         });
 
-        SalPequeña.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        SalPequeña.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         SalPequeña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SalPequeña.setText("SALCHICHA PEQUEÑA");
+        SalPequeña.setText("SAPEQUEÑA");
         SalPequeña.setToolTipText("");
         SalPequeña.setName("SALCHICHA PEQUEÑA"); // NOI18N
         SalPequeña.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -964,20 +982,20 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        Botton16.setBackground(new java.awt.Color(255, 0, 0));
-        Botton16.setRoundBottomLeft(20);
-        Botton16.setRoundBottomRight(20);
-        Botton16.setRoundTopLeft(20);
-        Botton16.setRoundTopRight(20);
+        Botton16.setBackground(new java.awt.Color(255, 102, 102));
+        Botton16.setRoundBottomLeft(15);
+        Botton16.setRoundBottomRight(15);
+        Botton16.setRoundTopLeft(15);
+        Botton16.setRoundTopRight(15);
         Botton16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton16MouseClicked(evt);
             }
         });
 
-        ChoriBremen.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        ChoriBremen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         ChoriBremen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ChoriBremen.setText("CHORIZO BREMEN");
+        ChoriBremen.setText("CHOBREMEN");
         ChoriBremen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ChoriBremenMouseClicked(evt);
@@ -988,7 +1006,9 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton16.setLayout(Botton16Layout);
         Botton16Layout.setHorizontalGroup(
             Botton16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ChoriBremen, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+            .addGroup(Botton16Layout.createSequentialGroup()
+                .addComponent(ChoriBremen, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Botton16Layout.setVerticalGroup(
             Botton16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -997,17 +1017,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
-        Botton17.setBackground(new java.awt.Color(255, 0, 0));
-        Botton17.setRoundBottomLeft(20);
-        Botton17.setRoundBottomRight(20);
-        Botton17.setRoundTopLeft(20);
-        Botton17.setRoundTopRight(20);
+        Botton17.setBackground(new java.awt.Color(255, 102, 102));
+        Botton17.setRoundBottomLeft(15);
+        Botton17.setRoundBottomRight(15);
+        Botton17.setRoundTopLeft(15);
+        Botton17.setRoundTopRight(15);
         Botton17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton17MouseClicked(evt);
             }
         });
 
+        Extra3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Extra3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Extra3.setText("SALAMI");
         Extra3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1029,17 +1050,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
-        Botton18.setBackground(new java.awt.Color(255, 0, 0));
-        Botton18.setRoundBottomLeft(20);
-        Botton18.setRoundBottomRight(20);
-        Botton18.setRoundTopLeft(20);
-        Botton18.setRoundTopRight(20);
+        Botton18.setBackground(new java.awt.Color(255, 102, 102));
+        Botton18.setRoundBottomLeft(15);
+        Botton18.setRoundBottomRight(15);
+        Botton18.setRoundTopLeft(15);
+        Botton18.setRoundTopRight(15);
         Botton18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton18MouseClicked(evt);
             }
         });
 
+        Extra4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Extra4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Extra4.setText("LONGANIZA");
         Extra4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1061,18 +1083,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        Botton19.setBackground(new java.awt.Color(255, 0, 0));
-        Botton19.setRoundBottomLeft(20);
-        Botton19.setRoundBottomRight(20);
-        Botton19.setRoundTopLeft(20);
-        Botton19.setRoundTopRight(20);
+        Botton19.setBackground(new java.awt.Color(255, 102, 102));
+        Botton19.setRoundBottomLeft(15);
+        Botton19.setRoundBottomRight(15);
+        Botton19.setRoundTopLeft(15);
+        Botton19.setRoundTopRight(15);
         Botton19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton19MouseClicked(evt);
             }
         });
 
-        SAlchi.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        SAlchi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         SAlchi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SAlchi.setText("SALCHI JUMBO");
         SAlchi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1096,17 +1118,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
-        Botton20.setBackground(new java.awt.Color(255, 0, 0));
-        Botton20.setRoundBottomLeft(20);
-        Botton20.setRoundBottomRight(20);
-        Botton20.setRoundTopLeft(20);
-        Botton20.setRoundTopRight(20);
+        Botton20.setBackground(new java.awt.Color(255, 102, 102));
+        Botton20.setRoundBottomLeft(15);
+        Botton20.setRoundBottomRight(15);
+        Botton20.setRoundTopLeft(15);
+        Botton20.setRoundTopRight(15);
         Botton20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton20MouseClicked(evt);
             }
         });
 
+        Extra6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Extra6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Extra6.setText("ADOBADO");
         Extra6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1128,17 +1151,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
 
-        Botton21.setBackground(new java.awt.Color(255, 0, 0));
-        Botton21.setRoundBottomLeft(20);
-        Botton21.setRoundBottomRight(20);
-        Botton21.setRoundTopLeft(20);
-        Botton21.setRoundTopRight(20);
+        Botton21.setBackground(new java.awt.Color(255, 102, 102));
+        Botton21.setRoundBottomLeft(15);
+        Botton21.setRoundBottomRight(15);
+        Botton21.setRoundTopLeft(15);
+        Botton21.setRoundTopRight(15);
         Botton21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton21MouseClicked(evt);
             }
         });
 
+        Extra7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Extra7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Extra7.setText("RES");
         Extra7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1160,18 +1184,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
-        Botton22.setBackground(new java.awt.Color(255, 0, 0));
-        Botton22.setRoundBottomLeft(20);
-        Botton22.setRoundBottomRight(20);
-        Botton22.setRoundTopLeft(20);
-        Botton22.setRoundTopRight(20);
+        Botton22.setBackground(new java.awt.Color(255, 102, 102));
+        Botton22.setRoundBottomLeft(15);
+        Botton22.setRoundBottomRight(15);
+        Botton22.setRoundTopLeft(15);
+        Botton22.setRoundTopRight(15);
         Botton22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton22MouseClicked(evt);
             }
         });
 
-        ChoAhumado.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        ChoAhumado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         ChoAhumado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ChoAhumado.setText("CHO AHUMADO");
         ChoAhumado.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1200,18 +1224,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
 
-        Botton23.setBackground(new java.awt.Color(255, 0, 0));
-        Botton23.setRoundBottomLeft(20);
-        Botton23.setRoundBottomRight(20);
-        Botton23.setRoundTopLeft(20);
-        Botton23.setRoundTopRight(20);
+        Botton23.setBackground(new java.awt.Color(255, 102, 102));
+        Botton23.setRoundBottomLeft(15);
+        Botton23.setRoundBottomRight(15);
+        Botton23.setRoundTopLeft(15);
+        Botton23.setRoundTopRight(15);
         Botton23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton23MouseClicked(evt);
             }
         });
 
-        ChoArgenti.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        ChoArgenti.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         ChoArgenti.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ChoArgenti.setText("CHORI ARGENTINO");
         ChoArgenti.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1235,17 +1259,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, -1, -1));
 
-        Botton25.setBackground(new java.awt.Color(255, 0, 0));
-        Botton25.setRoundBottomLeft(20);
-        Botton25.setRoundBottomRight(20);
-        Botton25.setRoundTopLeft(20);
-        Botton25.setRoundTopRight(20);
+        Botton25.setBackground(new java.awt.Color(255, 102, 102));
+        Botton25.setRoundBottomLeft(15);
+        Botton25.setRoundBottomRight(15);
+        Botton25.setRoundTopLeft(15);
+        Botton25.setRoundTopRight(15);
         Botton25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton25MouseClicked(evt);
             }
         });
 
+        Extra11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Extra11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Extra11.setText("PAN");
         Extra11.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1267,20 +1292,20 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
 
-        Botton27.setBackground(new java.awt.Color(255, 0, 0));
-        Botton27.setRoundBottomLeft(20);
-        Botton27.setRoundBottomRight(20);
-        Botton27.setRoundTopLeft(20);
-        Botton27.setRoundTopRight(20);
+        Botton27.setBackground(new java.awt.Color(255, 102, 102));
+        Botton27.setRoundBottomLeft(15);
+        Botton27.setRoundBottomRight(15);
+        Botton27.setRoundTopLeft(15);
+        Botton27.setRoundTopRight(15);
         Botton27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton27MouseClicked(evt);
             }
         });
 
-        PorciMayonesa.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        PorciMayonesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         PorciMayonesa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PorciMayonesa.setText("PORCI MAYONESA");
+        PorciMayonesa.setText("POR MAYONESA");
         PorciMayonesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PorciMayonesaMouseClicked(evt);
@@ -1291,7 +1316,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton27.setLayout(Botton27Layout);
         Botton27Layout.setHorizontalGroup(
             Botton27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PorciMayonesa, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+            .addComponent(PorciMayonesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Botton27Layout.setVerticalGroup(
             Botton27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1300,17 +1325,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
-        Botton28.setBackground(new java.awt.Color(255, 0, 0));
-        Botton28.setRoundBottomLeft(20);
-        Botton28.setRoundBottomRight(20);
-        Botton28.setRoundTopLeft(20);
-        Botton28.setRoundTopRight(20);
+        Botton28.setBackground(new java.awt.Color(255, 102, 102));
+        Botton28.setRoundBottomLeft(15);
+        Botton28.setRoundBottomRight(15);
+        Botton28.setRoundTopLeft(15);
+        Botton28.setRoundTopRight(15);
         Botton28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton28MouseClicked(evt);
             }
         });
 
+        Extra14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Extra14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Extra14.setText("CEBOLLIN");
         Extra14.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1332,18 +1358,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
 
-        Botton29.setBackground(new java.awt.Color(255, 0, 0));
-        Botton29.setRoundBottomLeft(20);
-        Botton29.setRoundBottomRight(20);
-        Botton29.setRoundTopLeft(20);
-        Botton29.setRoundTopRight(20);
+        Botton29.setBackground(new java.awt.Color(255, 102, 102));
+        Botton29.setRoundBottomLeft(15);
+        Botton29.setRoundBottomRight(15);
+        Botton29.setRoundTopLeft(15);
+        Botton29.setRoundTopRight(15);
         Botton29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton29MouseClicked(evt);
             }
         });
 
-        Queso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Queso.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         Queso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Queso.setText("jLabel30");
         Queso.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1365,17 +1391,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
-        Botton24.setBackground(new java.awt.Color(255, 0, 0));
-        Botton24.setRoundBottomLeft(20);
-        Botton24.setRoundBottomRight(20);
-        Botton24.setRoundTopLeft(20);
-        Botton24.setRoundTopRight(20);
+        Botton24.setBackground(new java.awt.Color(255, 102, 102));
+        Botton24.setRoundBottomLeft(15);
+        Botton24.setRoundBottomRight(15);
+        Botton24.setRoundTopLeft(15);
+        Botton24.setRoundTopRight(15);
         Botton24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton24MouseClicked(evt);
             }
         });
 
+        Extra10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Extra10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Extra10.setText("TOCINO");
         Extra10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1397,18 +1424,18 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
-        Botton26.setBackground(new java.awt.Color(255, 0, 0));
-        Botton26.setRoundBottomLeft(20);
-        Botton26.setRoundBottomRight(20);
-        Botton26.setRoundTopLeft(20);
-        Botton26.setRoundTopRight(20);
+        Botton26.setBackground(new java.awt.Color(255, 102, 102));
+        Botton26.setRoundBottomLeft(15);
+        Botton26.setRoundBottomRight(15);
+        Botton26.setRoundTopLeft(15);
+        Botton26.setRoundTopRight(15);
         Botton26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton26MouseClicked(evt);
             }
         });
 
-        PorciGuaca.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        PorciGuaca.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         PorciGuaca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PorciGuaca.setText("PORCIO GUACAMOL");
         PorciGuaca.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1435,7 +1462,7 @@ public class Opcion1 extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(11, 46, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Botton30.setBackground(new java.awt.Color(255, 0, 0));
+        Botton30.setBackground(new java.awt.Color(255, 102, 102));
         Botton30.setRoundBottomLeft(10);
         Botton30.setRoundBottomRight(10);
         Botton30.setRoundTopLeft(10);
@@ -1446,6 +1473,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("CON TODO");
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1467,7 +1495,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel2.add(Botton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 190, 30));
 
-        Botton31.setBackground(new java.awt.Color(255, 0, 0));
+        Botton31.setBackground(new java.awt.Color(255, 102, 102));
         Botton31.setRoundBottomLeft(10);
         Botton31.setRoundBottomRight(10);
         Botton31.setRoundTopLeft(10);
@@ -1478,6 +1506,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("SIN SALSA DULCE");
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1501,7 +1530,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel2.add(Botton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 30));
 
-        Botton32.setBackground(new java.awt.Color(255, 0, 0));
+        Botton32.setBackground(new java.awt.Color(255, 102, 102));
         Botton32.setRoundBottomLeft(10);
         Botton32.setRoundBottomRight(10);
         Botton32.setRoundTopLeft(10);
@@ -1512,6 +1541,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("SIN MAYONESA");
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1533,7 +1563,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel2.add(Botton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 190, 30));
 
-        Botton33.setBackground(new java.awt.Color(255, 0, 0));
+        Botton33.setBackground(new java.awt.Color(255, 102, 102));
         Botton33.setRoundBottomLeft(10);
         Botton33.setRoundBottomRight(10);
         Botton33.setRoundTopLeft(10);
@@ -1544,6 +1574,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
+        jLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("SIN MOSTASA");
         jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1565,7 +1596,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel2.add(Botton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 190, 30));
 
-        Botton34.setBackground(new java.awt.Color(255, 0, 0));
+        Botton34.setBackground(new java.awt.Color(255, 102, 102));
         Botton34.setRoundBottomLeft(10);
         Botton34.setRoundBottomRight(10);
         Botton34.setRoundTopLeft(10);
@@ -1576,6 +1607,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
+        jLabel20.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("SIN CEBOLLA");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1597,7 +1629,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel2.add(Botton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 190, 30));
 
-        Botton35.setBackground(new java.awt.Color(255, 0, 0));
+        Botton35.setBackground(new java.awt.Color(255, 102, 102));
         Botton35.setRoundBottomLeft(10);
         Botton35.setRoundBottomRight(10);
         Botton35.setRoundTopLeft(10);
@@ -1608,6 +1640,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
+        jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("SIN REPOLLO");
         jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1629,7 +1662,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel2.add(Botton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 190, 30));
 
-        Botton36.setBackground(new java.awt.Color(255, 0, 0));
+        Botton36.setBackground(new java.awt.Color(255, 102, 102));
         Botton36.setRoundBottomLeft(10);
         Botton36.setRoundBottomRight(10);
         Botton36.setRoundTopLeft(10);
@@ -1774,10 +1807,11 @@ public class Opcion1 extends javax.swing.JPanel {
     
     
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-
+        if(tipopan !=0 && id_producto !=0 && NumSin!=null){
         InsertarProductoPedido();
         ListarProductosPedidos();
         Limpiar();
+        }else{JOptionPane.showMessageDialog(null, "SELECCIONAR OPCIONES PRINCIPALES...");}
         
     }//GEN-LAST:event_jLabel3MouseClicked
 
@@ -1843,10 +1877,10 @@ public class Opcion1 extends javax.swing.JPanel {
 
     private void Botton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton18MouseClicked
         if (marca15 == 1) {
-            Botton15.setBackground(Color.GREEN);
+            Botton15.setBackground(Botverde);
             marca15 = 0;
         } else {
-            Botton15.setBackground(Color.red);
+            Botton15.setBackground(Botrojo);
             marca15 = 1;
             
         }
@@ -1862,7 +1896,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
     private void Botton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton21MouseClicked
 
-        //   if(a==1 ){Botton1.setBackground(Color.GREEN);a=0;}else{Botton1.setBackground(Color.red);a=1;}
+        //   if(a==1 ){Botton1.setBackground(Botverde);a=0;}else{Botton1.setBackground(c);a=1;}
 
     }//GEN-LAST:event_Botton21MouseClicked
 
@@ -1930,10 +1964,10 @@ public class Opcion1 extends javax.swing.JPanel {
 
         todosBotones();
         if (marca3 == 1) {
-            Botton3.setBackground(Color.GREEN);
+            Botton3.setBackground(Botverde);
             marca3 = 0;
         } else {
-            Botton3.setBackground(Color.red);
+            Botton3.setBackground(Botrojo);
             marca3 = 1;
         }
         id_producto = 1;
@@ -1942,10 +1976,10 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         todosBotones();
         if (marca4 == 1) {
-            Botton4.setBackground(Color.GREEN);
+            Botton4.setBackground(Botverde);
             marca4 = 0;
         } else {
-            Botton4.setBackground(Color.red);
+            Botton4.setBackground(Botrojo);
             marca4 = 1;
         }
         id_producto = 2;
@@ -1954,10 +1988,10 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         todosBotones();
         if (marca5 == 1) {
-            Botton5.setBackground(Color.GREEN);
+            Botton5.setBackground(Botverde);
             marca5 = 0;
         } else {
-            Botton5.setBackground(Color.red);
+            Botton5.setBackground(Botrojo);
             marca5 = 1;
         }
         id_producto = 3;
@@ -1966,10 +2000,10 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         todosBotones();
         if (marca6 == 1) {
-            Botton6.setBackground(Color.GREEN);
+            Botton6.setBackground(Botverde);
             marca6 = 0;
         } else {
-            Botton6.setBackground(Color.red);
+            Botton6.setBackground(Botrojo);
             marca6 = 1;
         }
         id_producto = 4;
@@ -1978,10 +2012,10 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         todosBotones();
         if (marca7 == 1) {
-            Botton7.setBackground(Color.GREEN);
+            Botton7.setBackground(Botverde);
             marca7 = 0;
         } else {
-            Botton7.setBackground(Color.red);
+            Botton7.setBackground(Botrojo);
             marca7 = 1;
         }
         id_producto = 5;
@@ -1990,10 +2024,10 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         todosBotones();
         if (marca8 == 1) {
-            Botton8.setBackground(Color.GREEN);
+            Botton8.setBackground(Botverde);
             marca8 = 0;
         } else {
-            Botton8.setBackground(Color.red);
+            Botton8.setBackground(Botrojo);
             marca8 = 1;
         }
         id_producto = 6;
@@ -2002,10 +2036,10 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         todosBotones();
         if (marca9 == 1) {
-            Botton9.setBackground(Color.GREEN);
+            Botton9.setBackground(Botverde);
             marca9 = 0;
         } else {
-            Botton9.setBackground(Color.red);
+            Botton9.setBackground(Botrojo);
             marca9 = 1;
         }
         id_producto = 7;
@@ -2015,10 +2049,10 @@ public class Opcion1 extends javax.swing.JPanel {
         todosBotones();
 
         if (marca10 == 1) {
-            Botton10.setBackground(Color.GREEN);
+            Botton10.setBackground(Botverde);
             marca10 = 0;
         } else {
-            Botton10.setBackground(Color.red);
+            Botton10.setBackground(Botrojo);
             marca10 = 1;
         }
         id_producto = 8;
@@ -2027,10 +2061,10 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         todosBotones();
         if (marca11 == 1) {
-            Botton11.setBackground(Color.GREEN);
+            Botton11.setBackground(Botverde);
             marca11 = 0;
         } else {
-            Botton11.setBackground(Color.red);
+            Botton11.setBackground(Botrojo);
             marca11 = 1;
         }
         id_producto = 9;
@@ -2039,10 +2073,10 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         todosBotones();
         if (marca12 == 1) {
-            Botton12.setBackground(Color.GREEN);
+            Botton12.setBackground(Botverde);
             marca12 = 0;
         } else {
-            Botton12.setBackground(Color.red);
+            Botton12.setBackground(Botrojo);
             marca12 = 1;
         }
         id_producto = 10;
@@ -2051,242 +2085,227 @@ public class Opcion1 extends javax.swing.JPanel {
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         todosBotones();
         if (marca13 == 1) {
-            Botton13.setBackground(Color.GREEN);
+            Botton13.setBackground(Botverde);
             marca13 = 0;
         } else {
-            Botton13.setBackground(Color.red);
+            Botton13.setBackground(Botrojo);
             marca13 = 1;
         }
         id_producto = 11;
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        todosBotones();
+        /*todosBotones();
         if (marca14 == 1) {
-            Botton14.setBackground(Color.GREEN);
+            Botton14.setBackground(Botverde);
             marca14 = 0;
         } else {
-            Botton14.setBackground(Color.red);
+            Botton14.setBackground(c);
             marca14 = 1;
         }
-        id_producto = 12;
+        id_producto = 12;*/
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void SalPequeñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalPequeñaMouseClicked
 
         if (marca15 == 0) {
-            Botton15.setBackground(Color.GREEN);
+            Botton15.setBackground(Botverde);
             marca15 = 1;
             Num.add(52);
         } else {
-            Botton15.setBackground(Color.red);
+            Botton15.setBackground(Botrojo);
             marca15 = 0;
             int remov = Num.indexOf(52);
             Num.remove(remov);
             
         }
-        SalPequeña.setText(String.valueOf(marca15));
         
     }//GEN-LAST:event_SalPequeñaMouseClicked
 
     private void ChoriBremenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriBremenMouseClicked
         if (marca16 == 0) {
-            Botton16.setBackground(Color.GREEN);
+            Botton16.setBackground(Botverde);
             marca16 = 1;
             Num.add(53);
         } else {
-            Botton16.setBackground(Color.red);
+            Botton16.setBackground(Botrojo);
             marca16 = 0;
             int remov = Num.indexOf(53);
             Num.remove(remov);
         }
-        ChoriBremen.setText(String.valueOf(marca16));
 
     }//GEN-LAST:event_ChoriBremenMouseClicked
 
     private void Extra3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra3MouseClicked
         if (marca17 == 0) {
-            Botton17.setBackground(Color.GREEN);
+            Botton17.setBackground(Botverde);
             marca17 = 1;
             Num.add(54);
         } else {
-            Botton17.setBackground(Color.red);
+            Botton17.setBackground(Botrojo);
             marca17 = 0;
             int remov = Num.indexOf(54);
             Num.remove(remov);
         }
-        Extra3.setText(String.valueOf(marca17));
     }//GEN-LAST:event_Extra3MouseClicked
 
     private void Extra4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra4MouseClicked
         if (marca18 == 0) {
-            Botton18.setBackground(Color.GREEN);
+            Botton18.setBackground(Botverde);
             marca18 = 1;
             Num.add(55);
         } else {
-            Botton18.setBackground(Color.red);
+            Botton18.setBackground(Botrojo);
             marca18 = 0;
             int remov = Num.indexOf(55);
             Num.remove(remov);
         }
-        Extra4.setText(String.valueOf(marca18));
     }//GEN-LAST:event_Extra4MouseClicked
 
     private void SAlchiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SAlchiMouseClicked
         if (marca19 == 0) {
-            Botton19.setBackground(Color.GREEN);
+            Botton19.setBackground(Botverde);
             marca19 = 1;
             Num.add(56);
         } else {
-            Botton19.setBackground(Color.red);
+            Botton19.setBackground(Botrojo);
             marca19 = 0;
             int remov = Num.indexOf(56);
             Num.remove(remov);
         }
-        SAlchi.setText(String.valueOf(marca19));
     }//GEN-LAST:event_SAlchiMouseClicked
 
     private void Extra6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra6MouseClicked
         if (marca20 == 0) {
-            Botton20.setBackground(Color.GREEN);
+            Botton20.setBackground(Botverde);
             marca20 = 1;
             Num.add(57);
         } else {
-            Botton20.setBackground(Color.red);
+            Botton20.setBackground(Botrojo);
             marca20 = 0;
            int remov = Num.indexOf(57);
             Num.remove(remov);
         }
-        Extra6.setText(String.valueOf(marca20));
     }//GEN-LAST:event_Extra6MouseClicked
 
     private void Extra7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra7MouseClicked
         if (marca21 == 0) {
-            Botton21.setBackground(Color.GREEN);
+            Botton21.setBackground(Botverde);
             marca21 = 1;
             Num.add(58);
         } else {
-            Botton21.setBackground(Color.red);
+            Botton21.setBackground(Botrojo);
             marca21 = 0;
            int remov = Num.indexOf(58);
             Num.remove(remov);
         }
-        Extra7.setText(String.valueOf(marca21));
     }//GEN-LAST:event_Extra7MouseClicked
 
     private void ChoAhumadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoAhumadoMouseClicked
         if (marca22 == 0) {
-            Botton22.setBackground(Color.GREEN);
+            Botton22.setBackground(Botverde);
             marca22 = 1;
             Num.add(59);
         } else {
-            Botton22.setBackground(Color.red);
+            Botton22.setBackground(Botrojo);
             marca22 = 0;
             int remov = Num.indexOf(59);
             Num.remove(remov);
         }
-        ChoAhumado.setText(String.valueOf(marca22));
     }//GEN-LAST:event_ChoAhumadoMouseClicked
 
     private void ChoArgentiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoArgentiMouseClicked
         if (marca23 == 0) {
-            Botton23.setBackground(Color.GREEN);
+            Botton23.setBackground(Botverde);
             marca23 = 1;
             Num.add(60);
         } else {
-            Botton23.setBackground(Color.red);
+            Botton23.setBackground(Botrojo);
             marca23 = 0;
             int remov = Num.indexOf(60);
             Num.remove(remov);
         }
-        ChoArgenti.setText(String.valueOf(marca23));
     }//GEN-LAST:event_ChoArgentiMouseClicked
 
     private void Extra10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra10MouseClicked
         if (marca24 == 0) {
-            Botton24.setBackground(Color.GREEN);
+            Botton24.setBackground(Botverde);
             marca24 = 1;
             Num.add(61);
         } else {
-            Botton24.setBackground(Color.red);
+            Botton24.setBackground(Botrojo);
             marca24 = 0;
             int remov = Num.indexOf(61);
             Num.remove(remov);
         }
-        Extra10.setText(String.valueOf(marca24));
     }//GEN-LAST:event_Extra10MouseClicked
 
     private void Extra11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra11MouseClicked
         if (marca25 == 0) {
-            Botton25.setBackground(Color.GREEN);
+            Botton25.setBackground(Botverde);
             marca25 = 1;
             Num.add(62);
         } else {
-            Botton25.setBackground(Color.red);
+            Botton25.setBackground(Botrojo);
             marca25 = 0;
             int remov = Num.indexOf(62);
             Num.remove(remov);
         }
-        Extra11.setText(String.valueOf(marca25));
     }//GEN-LAST:event_Extra11MouseClicked
 
     private void PorciGuacaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PorciGuacaMouseClicked
         if (marca26 == 0) {
-            Botton26.setBackground(Color.GREEN);
+            Botton26.setBackground(Botverde);
             marca26 = 1;
             Num.add(63);
         } else {
-            Botton26.setBackground(Color.red);
+            Botton26.setBackground(Botrojo);
             marca26 = 0;
             int remov = Num.indexOf(63);
             Num.remove(remov);
         }
-        PorciGuaca.setText(String.valueOf(marca26));
     }//GEN-LAST:event_PorciGuacaMouseClicked
 
     private void PorciMayonesaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PorciMayonesaMouseClicked
         if (marca27 == 0) {
-            Botton27.setBackground(Color.GREEN);
+            Botton27.setBackground(Botverde);
             marca27 = 1;
             Num.add(64);
         } else {
-            Botton27.setBackground(Color.red);
+            Botton27.setBackground(Botrojo);
             marca27 = 0;
             int remov = Num.indexOf(64);
             Num.remove(remov);
         }
-        PorciMayonesa.setText(String.valueOf(marca27));
     }//GEN-LAST:event_PorciMayonesaMouseClicked
 
     private void Extra14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra14MouseClicked
         if (marca28 == 0) {
-            Botton28.setBackground(Color.GREEN);
+            Botton28.setBackground(Botverde);
             marca28 = 1;
             Num.add(65);
         } else {
-            Botton28.setBackground(Color.red);
+            Botton28.setBackground(Botrojo);
             marca28 = 0;
             int remov = Num.indexOf(65);
             Num.remove(remov);
         }
-        Extra14.setText(String.valueOf(marca28));
     }//GEN-LAST:event_Extra14MouseClicked
 
     private void QuesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuesoMouseClicked
         
         
         if (marca29 == 0) {
-            Botton29.setBackground(Color.GREEN);
+            Botton29.setBackground(Botverde);
             marca29 = 1;
             Num.add(66);
         } else {
-            Botton29.setBackground(Color.red);
+            Botton29.setBackground(Botrojo);
             marca29 = 0;
             int remov = Num.indexOf(66);
             Num.remove(remov);
            
         }
-        Queso.setText(String.valueOf(marca29));
     }//GEN-LAST:event_QuesoMouseClicked
 
     private void ChoAhumadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChoAhumadoKeyReleased
@@ -2294,89 +2313,106 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_ChoAhumadoKeyReleased
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-       if (sin1 == 0) {
-            Botton30.setBackground(Color.GREEN);
+        if(sin2 !=1 && sin3 !=1 && sin4 !=1 && sin5 !=1 && sin6 !=1)   
+        NumSin.clear();
+        if (sin1 == 0) {
+            Botton30.setBackground(Botverde);
             sin1 = 1;
             NumSin.add(1);
-            bloquear(true);
+            colores();
+             //Botton32.setEnabled(true);
+            //Botton33.setEnabled(true);
         } else {
-            Botton30.setBackground(Color.red);
+            Botton30.setBackground(Botrojo);
             sin1 = 0;
             int remov = NumSin.indexOf(1);
             NumSin.remove(remov);
-            bloquear(false);
-            
+            //bloquear(false);
+            /*Botton31.setEnabled(false);
+            Botton32.setEnabled(false);
+            Botton33.setEnabled(false);
+            Botton34.setEnabled(false);
+            Botton35.setEnabled(false);*/
         }
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-     if (sin2 == 0) {
-            Botton31.setBackground(Color.GREEN);
+     if(sin1 ==1){ }else{
+        if (sin2 == 0) {
+            Botton31.setBackground(Botverde);
             sin2 = 1;
             NumSin.add(2);
         } else {
-            Botton31.setBackground(Color.red);
+            Botton31.setBackground(Botrojo);
             sin2 = 0;
             int remov = NumSin.indexOf(2);
             NumSin.remove(remov);
             
+            
         }
+     }
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-       if (sin3 == 0) {
-            Botton32.setBackground(Color.GREEN);
+       if(sin1 ==1){ }else{
+        if (sin3 == 0) {
+            Botton32.setBackground(Botverde);
             sin3 = 1;
             NumSin.add(3);
         } else {
-            Botton32.setBackground(Color.red);
+            Botton32.setBackground(Botrojo);
             sin3 = 0;
             int remov = NumSin.indexOf(3);
             NumSin.remove(remov);
             
         }
+       }
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-      if (sin4 == 0) {
-            Botton33.setBackground(Color.GREEN);
+      if(sin1 ==1){ }else{
+        if (sin4 == 0) {
+            Botton33.setBackground(Botverde);
             sin4 = 1;
             NumSin.add(4);
         } else {
-            Botton33.setBackground(Color.red);
+            Botton33.setBackground(Botrojo);
             sin4 = 0;
             int remov = NumSin.indexOf(4);
             NumSin.remove(remov);
             
         }
+      }
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        if(sin1 ==1){ }else{
         if (sin5 == 0) {
-            Botton34.setBackground(Color.GREEN);
+            Botton34.setBackground(Botverde);
             sin5 = 1;
             NumSin.add(5);
         } else {
-            Botton34.setBackground(Color.red);
+            Botton34.setBackground(Botrojo);
             sin5 = 0;
             int remov = NumSin.indexOf(5);
             NumSin.remove(remov);
             
-        }
+        }}
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        if(sin1 ==1){ }else{
         if (sin6 == 0) {
-            Botton35.setBackground(Color.GREEN);
+            Botton35.setBackground(Botverde);
             sin6 = 1;
             NumSin.add(6);
         } else {
-            Botton35.setBackground(Color.red);
+            Botton35.setBackground(Botrojo);
             sin6 = 0;
             int remov = NumSin.indexOf(6);
             NumSin.remove(remov);
             
-        }
+        }}
     }//GEN-LAST:event_jLabel21MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -2395,21 +2431,23 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
-            
+             pan = 1;
             if (pan == 1) {
-                Botton1.setBackground(Color.GREEN);
-                Botton2.setBackground(Color.RED);
+                Botton1.setBackground(Botverde);
+                Botton2.setBackground(Botrojo);
+                pan= 2;
+                tipopan = 1;
             } 
-        System.out.println("QUE ES "+pan);
     }//GEN-LAST:event_jLabel23MouseClicked
 
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
-            System.out.println("ENTRA 0");
-            if (pan == 0) {
-                Botton1.setBackground(Color.RED);
-                Botton2.setBackground(Color.GREEN);
+               pan = 2;            
+            if (pan == 2) {
+                Botton1.setBackground(Botrojo);
+                Botton2.setBackground(Botverde);
+                pan = 1;
+                tipopan = 2;
             } 
-        System.out.println("QUE ES "+pan);
     }//GEN-LAST:event_jLabel24MouseClicked
 
 
