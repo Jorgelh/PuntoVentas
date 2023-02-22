@@ -1,6 +1,6 @@
-package INICIO;
+package Clases;
 
-import INICIO.*;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;

@@ -1,4 +1,4 @@
-package INICIO;
+package clas;
 
 import INICIO.*;
 import java.awt.Graphics;

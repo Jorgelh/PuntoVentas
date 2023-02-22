@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package INICIO;
-import clases.BDConexion;
-import clases.BDProductos;
-import clases.InsertarProducto;
+import clas.BDConexion;
+import clas.BDProductos;
+import clas.InsertarProducto;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.sql.Connection;
@@ -22,11 +22,11 @@ import javax.swing.table.TableColumn;
  * @author jluis
  */
 public class Principal extends javax.swing.JFrame {
-    public static 
-    int id_pedido;
+    public static int id_pedido;
     /**
      * Creates new form Principal
      */
+    
     public Principal(int i) {
       
         
@@ -40,7 +40,7 @@ public class Principal extends javax.swing.JFrame {
         this.id_pedido = i;
         this.setLocationRelativeTo(null);
         PanelMismoColor();
-        PEDIDO_ID.setText(String.valueOf(id_pedido));
+       PEDIDO_ID.setText(String.valueOf(id_pedido));
       //this.setExtendedState(MAXIMIZED_BOTH); 
     }
     
@@ -108,7 +108,7 @@ private void PanelMismoColor(){
 
 
  public static void ListarProductosPedidos(){
-        
+     
         ArrayList<InsertarProducto> result = BDProductos.ListarProductosPedidos(id_pedido);
         RecargarTabla(result);  
     }
@@ -213,9 +213,11 @@ private void PanelMismoColor(){
         Total = new javax.swing.JTextField();
         panelRound2 = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
+        panelRound3 = new Clases.PanelRound();
+        panelRound4 = new Clases.PanelRound();
         PanelPrincipal = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
@@ -658,7 +660,7 @@ private void PanelMismoColor(){
                 .addGap(41, 41, 41)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Total)
+                .addComponent(Total, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
@@ -670,7 +672,7 @@ private void PanelMismoColor(){
                     .addComponent(PEDIDO_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addComponent(Total, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         panelRound2.setBackground(new java.awt.Color(102, 255, 0));
@@ -704,6 +706,40 @@ private void PanelMismoColor(){
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        panelRound3.setBackground(new java.awt.Color(255, 255, 102));
+        panelRound3.setRoundBottomLeft(10);
+        panelRound3.setRoundBottomRight(10);
+        panelRound3.setRoundTopLeft(10);
+        panelRound3.setRoundTopRight(10);
+
+        javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
+        panelRound3.setLayout(panelRound3Layout);
+        panelRound3Layout.setHorizontalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        panelRound3Layout.setVerticalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 51, Short.MAX_VALUE)
+        );
+
+        panelRound4.setBackground(new java.awt.Color(204, 255, 204));
+        panelRound4.setRoundBottomLeft(10);
+        panelRound4.setRoundBottomRight(10);
+        panelRound4.setRoundTopLeft(10);
+        panelRound4.setRoundTopRight(10);
+
+        javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
+        panelRound4.setLayout(panelRound4Layout);
+        panelRound4Layout.setHorizontalGroup(
+            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 140, Short.MAX_VALUE)
+        );
+        panelRound4Layout.setVerticalGroup(
+            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -712,12 +748,16 @@ private void PanelMismoColor(){
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -726,9 +766,13 @@ private void PanelMismoColor(){
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(18, 18, 18)
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelRound4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 30, 450, 690));
@@ -864,7 +908,7 @@ private void PanelMismoColor(){
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PedidosMouseClicked
-       ListarProductosPedidos();
+      ListarProductosPedidos();
     }//GEN-LAST:event_PedidosMouseClicked
 
     private void PanelPrincipalComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_PanelPrincipalComponentAdded
@@ -945,5 +989,7 @@ private void PanelMismoColor(){
     private Clases.PanelRound panelRound;
     private Clases.PanelRound panelRound1;
     private Clases.PanelRound panelRound2;
+    private Clases.PanelRound panelRound3;
+    private Clases.PanelRound panelRound4;
     // End of variables declaration//GEN-END:variables
 }

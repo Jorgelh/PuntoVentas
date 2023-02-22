@@ -4,11 +4,12 @@
  */
 package INICIO;
 
-import clases.BDProductos;
-import clases.InsertarProducto;
+import clas.BDProductos;
+import clas.InsertarProducto;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -17,18 +18,22 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author jluis
  */
 public class Entra extends javax.swing.JFrame {
+    
+    
        int id_pedido;
+       
     /**
      * Creates new form Entra
      */
     public Entra() {
+        
         try {
              UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
              
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
         }
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
     
     public void crear(){
@@ -41,6 +46,7 @@ public class Entra extends javax.swing.JFrame {
             id_pedido = p.getIdregresoPedido();
         } catch (SQLException ex) {
             Logger.getLogger(ConsultaPedidos.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         
                   //System.out.println("ID ="+id_pedido);
@@ -61,12 +67,12 @@ public class Entra extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        panelRound1 = new Clases.PanelRound();
+        panelRound1 = new clas.PanelRound();
         jLabel1 = new javax.swing.JLabel();
-        panelRound2 = new Clases.PanelRound();
+        panelRound2 = new clas.PanelRound();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(74, 183, 162));
 
@@ -174,7 +180,7 @@ public class Entra extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MouseClicked
-            crear();
+         crear();
     }//GEN-LAST:event_panelRound1MouseClicked
 
     private void panelRound2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MouseClicked
@@ -186,7 +192,7 @@ public class Entra extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-                  Cons C = new Cons();
+                  ConsultaPedidos C = new ConsultaPedidos();
                   C.setVisible(true);
                   this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
@@ -220,6 +226,7 @@ public class Entra extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
                 new Entra().setVisible(true);
             }
@@ -229,8 +236,8 @@ public class Entra extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private Clases.PanelRound panelRound1;
-    private Clases.PanelRound panelRound2;
+    public static javax.swing.JPanel jPanel1;
+    private clas.PanelRound panelRound1;
+    private clas.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }
