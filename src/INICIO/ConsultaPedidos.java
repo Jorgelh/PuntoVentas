@@ -9,6 +9,7 @@ import static INICIO.ConsultaPedidos.Pedidos;
 import clas.BDConexion;
 import clas.BDProductos;
 import clas.InsertarProducto;
+import clas.TextAreaRenderer;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -197,6 +198,7 @@ public class ConsultaPedidos extends javax.swing.JFrame {
                   datos[i][2] = t.getPrecio();
                   i++;
               }    
+             
              Pedidos.setModel(new javax.swing.table.DefaultTableModel(
                 datos,
                 new String[]{
@@ -205,12 +207,14 @@ public class ConsultaPedidos extends javax.swing.JFrame {
              {  
                  @Override
                  public boolean isCellEditable(int row, int column){
+                     
                  return false;
-
+          
              }
              });
+             Pedidos.getColumnModel().getColumn(0).setCellRenderer(new TextAreaRenderer());// ajustar texcto a ancho de celda
              TableColumn columna1 = Pedidos.getColumn("DESCRIPCION");
-             columna1.setPreferredWidth(250);
+             columna1.setPreferredWidth(100);
              TableColumn columna2 = Pedidos.getColumn("CANTIDAD");
              columna2.setPreferredWidth(10);
              TableColumn columna3 = Pedidos.getColumn("PRECIO");

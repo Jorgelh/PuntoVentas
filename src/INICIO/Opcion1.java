@@ -66,7 +66,7 @@ public class Opcion1 extends javax.swing.JPanel {
     ArrayList<Integer> Num = new ArrayList<>();
     ArrayList<Integer> NumSin = new ArrayList<>();
     Color Botrojo = new Color(255,102,102); 
-    Color Botverde = new Color(102,255,102);
+    Color Botverde = new Color(255,255,153);
     @Override
     public void print(Graphics g) {
         super.print(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
@@ -380,84 +380,82 @@ public class Opcion1 extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         P = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        Botton7 = new clas.PanelRound();
+        Botton7 = new Clases.PanelRound();
         jLabel8 = new javax.swing.JLabel();
-        Botton12 = new clas.PanelRound();
+        Botton12 = new Clases.PanelRound();
         jLabel13 = new javax.swing.JLabel();
-        Botton3 = new clas.PanelRound();
+        Botton3 = new Clases.PanelRound();
         jLabel4 = new javax.swing.JLabel();
-        Botton8 = new clas.PanelRound();
+        Botton8 = new Clases.PanelRound();
         jLabel9 = new javax.swing.JLabel();
-        Botton4 = new clas.PanelRound();
+        Botton4 = new Clases.PanelRound();
         jLabel5 = new javax.swing.JLabel();
-        Botton9 = new clas.PanelRound();
+        Botton9 = new Clases.PanelRound();
         jLabel10 = new javax.swing.JLabel();
-        Botton11 = new clas.PanelRound();
+        Botton11 = new Clases.PanelRound();
         jLabel12 = new javax.swing.JLabel();
-        Botton5 = new clas.PanelRound();
+        Botton5 = new Clases.PanelRound();
         jLabel6 = new javax.swing.JLabel();
-        Botton10 = new clas.PanelRound();
+        Botton10 = new Clases.PanelRound();
         jLabel11 = new javax.swing.JLabel();
-        Botton14 = new clas.PanelRound();
-        jLabel15 = new javax.swing.JLabel();
-        Botton6 = new clas.PanelRound();
+        Botton14 = new Clases.PanelRound();
+        Botton6 = new Clases.PanelRound();
         jLabel7 = new javax.swing.JLabel();
-        Botton13 = new clas.PanelRound();
+        Botton13 = new Clases.PanelRound();
         jLabel14 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        Botton2 = new clas.PanelRound();
+        Botton2 = new Clases.PanelRound();
         jLabel24 = new javax.swing.JLabel();
-        Botton1 = new clas.PanelRound();
+        Botton1 = new Clases.PanelRound();
         jLabel23 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        Botton15 = new clas.PanelRound();
+        Botton15 = new Clases.PanelRound();
         SalPequeña = new javax.swing.JLabel();
-        Botton16 = new clas.PanelRound();
+        Botton16 = new Clases.PanelRound();
         ChoriBremen = new javax.swing.JLabel();
-        Botton17 = new clas.PanelRound();
+        Botton17 = new Clases.PanelRound();
         Extra3 = new javax.swing.JLabel();
-        Botton18 = new clas.PanelRound();
+        Botton18 = new Clases.PanelRound();
         Extra4 = new javax.swing.JLabel();
-        Botton19 = new clas.PanelRound();
+        Botton19 = new Clases.PanelRound();
         SAlchi = new javax.swing.JLabel();
-        Botton20 = new clas.PanelRound();
+        Botton20 = new Clases.PanelRound();
         Extra6 = new javax.swing.JLabel();
-        Botton21 = new clas.PanelRound();
+        Botton21 = new Clases.PanelRound();
         Extra7 = new javax.swing.JLabel();
-        Botton22 = new clas.PanelRound();
+        Botton22 = new Clases.PanelRound();
         ChoAhumado = new javax.swing.JLabel();
-        Botton23 = new clas.PanelRound();
+        Botton23 = new Clases.PanelRound();
         ChoArgenti = new javax.swing.JLabel();
-        Botton25 = new clas.PanelRound();
+        Botton25 = new Clases.PanelRound();
         Extra11 = new javax.swing.JLabel();
-        Botton27 = new clas.PanelRound();
+        Botton27 = new Clases.PanelRound();
         PorciMayonesa = new javax.swing.JLabel();
-        Botton28 = new clas.PanelRound();
+        Botton28 = new Clases.PanelRound();
         Extra14 = new javax.swing.JLabel();
-        Botton29 = new clas.PanelRound();
+        Botton29 = new Clases.PanelRound();
         Queso = new javax.swing.JLabel();
-        Botton24 = new clas.PanelRound();
+        Botton24 = new Clases.PanelRound();
         Extra10 = new javax.swing.JLabel();
-        Botton26 = new clas.PanelRound();
+        Botton26 = new Clases.PanelRound();
         PorciGuaca = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Botton30 = new clas.PanelRound();
+        Botton30 = new Clases.PanelRound();
         jLabel16 = new javax.swing.JLabel();
-        Botton31 = new clas.PanelRound();
+        Botton31 = new Clases.PanelRound();
         jLabel17 = new javax.swing.JLabel();
-        Botton32 = new clas.PanelRound();
+        Botton32 = new Clases.PanelRound();
         jLabel18 = new javax.swing.JLabel();
-        Botton33 = new clas.PanelRound();
+        Botton33 = new Clases.PanelRound();
         jLabel19 = new javax.swing.JLabel();
-        Botton34 = new clas.PanelRound();
+        Botton34 = new Clases.PanelRound();
         jLabel20 = new javax.swing.JLabel();
-        Botton35 = new clas.PanelRound();
+        Botton35 = new Clases.PanelRound();
         jLabel21 = new javax.swing.JLabel();
-        Botton36 = new clas.PanelRound();
-        BotonAgregar = new clas.PanelRound();
+        Botton36 = new Clases.PanelRound();
+        BotonAgregar = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -474,17 +472,14 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 191, Short.MAX_VALUE)
         );
 
-        setBackground(new java.awt.Color(11, 46, 102));
+        setBackground(new java.awt.Color(0, 204, 0));
         setPreferredSize(new java.awt.Dimension(730, 690));
 
-        jLabel1.setText("1");
-
         P.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        P.setForeground(new java.awt.Color(255, 255, 255));
         P.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         P.setText("PANES");
 
-        jPanel5.setBackground(new java.awt.Color(11, 46, 102));
+        jPanel5.setBackground(new java.awt.Color(0, 204, 0));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Botton7.setBackground(new java.awt.Color(255, 102, 102));
@@ -518,7 +513,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 150, -1));
+        jPanel5.add(Botton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 150, -1));
 
         Botton12.setBackground(new java.awt.Color(255, 102, 102));
         Botton12.setRoundBottomLeft(20);
@@ -551,7 +546,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 150, -1));
+        jPanel5.add(Botton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 150, -1));
 
         Botton3.setBackground(new java.awt.Color(255, 102, 102));
         Botton3.setRoundBottomLeft(20);
@@ -584,7 +579,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
+        jPanel5.add(Botton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 150, -1));
 
         Botton8.setBackground(new java.awt.Color(255, 102, 102));
         Botton8.setRoundBottomLeft(20);
@@ -617,7 +612,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 150, -1));
+        jPanel5.add(Botton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 150, -1));
 
         Botton4.setBackground(new java.awt.Color(255, 102, 102));
         Botton4.setRoundBottomLeft(20);
@@ -650,7 +645,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, -1));
+        jPanel5.add(Botton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 150, -1));
 
         Botton9.setBackground(new java.awt.Color(255, 102, 102));
         Botton9.setRoundBottomLeft(20);
@@ -683,7 +678,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 150, -1));
+        jPanel5.add(Botton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 150, -1));
 
         Botton11.setBackground(new java.awt.Color(255, 102, 102));
         Botton11.setRoundBottomLeft(20);
@@ -716,7 +711,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, -1));
+        jPanel5.add(Botton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, -1));
 
         Botton5.setBackground(new java.awt.Color(255, 102, 102));
         Botton5.setRoundBottomLeft(20);
@@ -749,7 +744,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 150, -1));
+        jPanel5.add(Botton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 150, -1));
 
         Botton10.setBackground(new java.awt.Color(255, 102, 102));
         Botton10.setRoundBottomLeft(20);
@@ -782,7 +777,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 150, -1));
+        jPanel5.add(Botton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 150, -1));
 
         Botton14.setBackground(new java.awt.Color(255, 102, 102));
         Botton14.setEnabled(false);
@@ -796,25 +791,18 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel15MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout Botton14Layout = new javax.swing.GroupLayout(Botton14);
         Botton14.setLayout(Botton14Layout);
         Botton14Layout.setHorizontalGroup(
             Botton14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+            .addGap(0, 150, Short.MAX_VALUE)
         );
         Botton14Layout.setVerticalGroup(
             Botton14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addGap(0, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 150, -1));
+        jPanel5.add(Botton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 150, -1));
 
         Botton6.setBackground(new java.awt.Color(255, 102, 102));
         Botton6.setRoundBottomLeft(20);
@@ -847,7 +835,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 150, -1));
+        jPanel5.add(Botton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 150, -1));
 
         Botton13.setBackground(new java.awt.Color(255, 102, 102));
         Botton13.setRoundBottomLeft(20);
@@ -880,9 +868,9 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel5.add(Botton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 150, -1));
+        jPanel5.add(Botton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 150, -1));
 
-        jPanel1.setBackground(new java.awt.Color(11, 46, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Botton2.setBackground(new java.awt.Color(255, 102, 102));
@@ -911,7 +899,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, -1));
+        jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 150, -1));
 
         Botton1.setBackground(new java.awt.Color(255, 102, 102));
         Botton1.setRoundBottomLeft(20);
@@ -932,16 +920,19 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton1.setLayout(Botton1Layout);
         Botton1Layout.setHorizontalGroup(
             Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+            .addGroup(Botton1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         Botton1Layout.setVerticalGroup(
             Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(Botton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, -1));
 
-        jPanel3.setBackground(new java.awt.Color(11, 46, 102));
+        jPanel3.setBackground(new java.awt.Color(0, 204, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Botton15.setBackground(new java.awt.Color(255, 102, 102));
@@ -1456,7 +1447,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel3.add(Botton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(11, 46, 102));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Botton30.setBackground(new java.awt.Color(255, 102, 102));
@@ -1683,7 +1674,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel2.add(Botton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, 30));
 
-        BotonAgregar.setBackground(new java.awt.Color(51, 255, 51));
+        BotonAgregar.setBackground(new java.awt.Color(255, 153, 153));
         BotonAgregar.setRoundBottomLeft(20);
         BotonAgregar.setRoundBottomRight(20);
         BotonAgregar.setRoundTopLeft(20);
@@ -1702,13 +1693,13 @@ public class Opcion1 extends javax.swing.JPanel {
         BotonAgregar.setLayout(BotonAgregarLayout);
         BotonAgregarLayout.setHorizontalGroup(
             BotonAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
         );
         BotonAgregarLayout.setVerticalGroup(
             BotonAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonAgregarLayout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonAgregarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ABAJO.png"))); // NOI18N
@@ -1735,64 +1726,52 @@ public class Opcion1 extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(28, 28, 28)
-                                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(29, 29, 29))))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 38, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(306, 306, 306)
-                        .addComponent(P)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
-                .addContainerGap())
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
+            .addComponent(P, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(P))
+                .addComponent(P)
                 .addGap(2, 2, 2)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(23, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(27, Short.MAX_VALUE))))
+                        .addGap(53, 53, 53))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -2090,18 +2069,6 @@ public class Opcion1 extends javax.swing.JPanel {
         }
         id_producto = 11;
     }//GEN-LAST:event_jLabel14MouseClicked
-
-    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        /*todosBotones();
-        if (marca14 == 1) {
-            Botton14.setBackground(Botverde);
-            marca14 = 0;
-        } else {
-            Botton14.setBackground(c);
-            marca14 = 1;
-        }
-        id_producto = 12;*/
-    }//GEN-LAST:event_jLabel15MouseClicked
 
     private void SalPequeñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalPequeñaMouseClicked
 
@@ -2449,43 +2416,43 @@ public class Opcion1 extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private clas.PanelRound BotonAgregar;
-    private clas.PanelRound Botton1;
-    private clas.PanelRound Botton10;
-    private clas.PanelRound Botton11;
-    private clas.PanelRound Botton12;
-    private clas.PanelRound Botton13;
-    private clas.PanelRound Botton14;
-    private clas.PanelRound Botton15;
-    private clas.PanelRound Botton16;
-    private clas.PanelRound Botton17;
-    private clas.PanelRound Botton18;
-    private clas.PanelRound Botton19;
-    private clas.PanelRound Botton2;
-    private clas.PanelRound Botton20;
-    private clas.PanelRound Botton21;
-    private clas.PanelRound Botton22;
-    private clas.PanelRound Botton23;
-    private clas.PanelRound Botton24;
-    private clas.PanelRound Botton25;
-    private clas.PanelRound Botton26;
-    private clas.PanelRound Botton27;
-    private clas.PanelRound Botton28;
-    private clas.PanelRound Botton29;
-    private clas.PanelRound Botton3;
-    private clas.PanelRound Botton30;
-    private clas.PanelRound Botton31;
-    private clas.PanelRound Botton32;
-    private clas.PanelRound Botton33;
-    private clas.PanelRound Botton34;
-    private clas.PanelRound Botton35;
-    private clas.PanelRound Botton36;
-    private clas.PanelRound Botton4;
-    private clas.PanelRound Botton5;
-    private clas.PanelRound Botton6;
-    private clas.PanelRound Botton7;
-    private clas.PanelRound Botton8;
-    private clas.PanelRound Botton9;
+    private Clases.PanelRound BotonAgregar;
+    private Clases.PanelRound Botton1;
+    private Clases.PanelRound Botton10;
+    private Clases.PanelRound Botton11;
+    private Clases.PanelRound Botton12;
+    private Clases.PanelRound Botton13;
+    private Clases.PanelRound Botton14;
+    private Clases.PanelRound Botton15;
+    private Clases.PanelRound Botton16;
+    private Clases.PanelRound Botton17;
+    private Clases.PanelRound Botton18;
+    private Clases.PanelRound Botton19;
+    private Clases.PanelRound Botton2;
+    private Clases.PanelRound Botton20;
+    private Clases.PanelRound Botton21;
+    private Clases.PanelRound Botton22;
+    private Clases.PanelRound Botton23;
+    private Clases.PanelRound Botton24;
+    private Clases.PanelRound Botton25;
+    private Clases.PanelRound Botton26;
+    private Clases.PanelRound Botton27;
+    private Clases.PanelRound Botton28;
+    private Clases.PanelRound Botton29;
+    private Clases.PanelRound Botton3;
+    private Clases.PanelRound Botton30;
+    private Clases.PanelRound Botton31;
+    private Clases.PanelRound Botton32;
+    private Clases.PanelRound Botton33;
+    private Clases.PanelRound Botton34;
+    private Clases.PanelRound Botton35;
+    private Clases.PanelRound Botton36;
+    private Clases.PanelRound Botton4;
+    private Clases.PanelRound Botton5;
+    private Clases.PanelRound Botton6;
+    private Clases.PanelRound Botton7;
+    private Clases.PanelRound Botton8;
+    private Clases.PanelRound Botton9;
     private javax.swing.JLabel ChoAhumado;
     private javax.swing.JLabel ChoArgenti;
     private javax.swing.JLabel ChoriBremen;
@@ -2505,13 +2472,11 @@ public class Opcion1 extends javax.swing.JPanel {
     private javax.swing.JTextField cantidad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
