@@ -73,7 +73,7 @@ public class Opcion2 extends javax.swing.JPanel {
     
     private void todosBotones() {
           //[255,102,102]
-        menu = 0;  
+          
         Botton1.setBackground(Botrojo);
         m1 = 0;
         Botton2.setBackground(Botrojo);
@@ -86,8 +86,25 @@ public class Opcion2 extends javax.swing.JPanel {
         m5 = 0;
         Botton40.setBackground(Botrojo);
         m6 = 0;
-        System.out.println("MENU = "+menu);
+        Botton10.setBackground(Botrojo);
+        menu = 0;
+            marca10 = 1;
+            
+        if (marca13 == 1) {
+           
+        } else {
+            Botton13.setBackground(Botrojo);
+            marca13 = 1;
+            if(Cantidacarnes.size() != 0){
+            int remov = Cantidacarnes.indexOf(24);
+            Cantidacarnes.remove(remov);}
+          }    
+           
+        System.out.println("MENU = "+menu+" ARRAy ="+Cantidacarnes.size());
     }
+    
+   
+    
     
      private  void colores(){
         
@@ -224,6 +241,19 @@ public class Opcion2 extends javax.swing.JPanel {
             Cantidacarnes.remove(remov);
           }
      }
+     
+     private void TODAS(){
+      if (marca13 == 1) {
+            Botton13.setBackground(Botverde);
+            marca13 = 0;
+            Cantidacarnes.add(24);
+        } else {
+            Botton13.setBackground(Botrojo);
+            marca13 = 1;
+            int remov = Cantidacarnes.indexOf(24);
+            Cantidacarnes.remove(remov);
+          }
+     }
       
       
       
@@ -331,7 +361,7 @@ public class Opcion2 extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Botton1.setBackground(new java.awt.Color(255, 102, 102));
-        Botton1.setPreferredSize(new java.awt.Dimension(80, 56));
+        Botton1.setPreferredSize(new java.awt.Dimension(90, 56));
         Botton1.setRoundBottomLeft(20);
         Botton1.setRoundBottomRight(20);
         Botton1.setRoundTopLeft(20);
@@ -349,7 +379,7 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton1Layout.setHorizontalGroup(
             Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Botton1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
                 .addContainerGap())
         );
         Botton1Layout.setVerticalGroup(
@@ -360,6 +390,7 @@ public class Opcion2 extends javax.swing.JPanel {
         jPanel1.add(Botton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         Botton37.setBackground(new java.awt.Color(255, 102, 102));
+        Botton37.setPreferredSize(new java.awt.Dimension(90, 56));
         Botton37.setRoundBottomLeft(20);
         Botton37.setRoundBottomRight(20);
         Botton37.setRoundTopLeft(20);
@@ -376,17 +407,17 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton37.setLayout(Botton37Layout);
         Botton37Layout.setHorizontalGroup(
             Botton37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton37Layout.setVerticalGroup(
             Botton37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        jPanel1.add(Botton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         Botton39.setBackground(new java.awt.Color(255, 102, 102));
-        Botton39.setPreferredSize(new java.awt.Dimension(80, 56));
+        Botton39.setPreferredSize(new java.awt.Dimension(90, 56));
         Botton39.setRoundBottomLeft(20);
         Botton39.setRoundBottomRight(20);
         Botton39.setRoundTopLeft(20);
@@ -403,14 +434,14 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton39.setLayout(Botton39Layout);
         Botton39Layout.setHorizontalGroup(
             Botton39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton39Layout.setVerticalGroup(
             Botton39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+        jPanel1.add(Botton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
         Botton2.setBackground(new java.awt.Color(255, 102, 102));
         Botton2.setPreferredSize(new java.awt.Dimension(90, 56));
@@ -430,16 +461,17 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton2.setLayout(Botton2Layout);
         Botton2Layout.setHorizontalGroup(
             Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton2Layout.setVerticalGroup(
             Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 80, -1));
+        jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         Botton38.setBackground(new java.awt.Color(255, 102, 102));
+        Botton38.setPreferredSize(new java.awt.Dimension(90, 56));
         Botton38.setRoundBottomLeft(20);
         Botton38.setRoundBottomRight(20);
         Botton38.setRoundTopLeft(20);
@@ -456,17 +488,17 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton38.setLayout(Botton38Layout);
         Botton38Layout.setHorizontalGroup(
             Botton38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton38Layout.setVerticalGroup(
             Botton38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+        jPanel1.add(Botton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         Botton40.setBackground(new java.awt.Color(255, 102, 102));
-        Botton40.setPreferredSize(new java.awt.Dimension(80, 56));
+        Botton40.setPreferredSize(new java.awt.Dimension(90, 56));
         Botton40.setRoundBottomLeft(20);
         Botton40.setRoundBottomRight(20);
         Botton40.setRoundTopLeft(20);
@@ -483,14 +515,14 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton40.setLayout(Botton40Layout);
         Botton40Layout.setHorizontalGroup(
             Botton40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton40Layout.setVerticalGroup(
             Botton40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, -1, -1));
+        jPanel1.add(Botton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(77, 77, 77));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -873,6 +905,11 @@ public class Opcion2 extends javax.swing.JPanel {
         jLabel23.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("TODAS LAS CARNES");
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Botton13Layout = new javax.swing.GroupLayout(Botton13);
         Botton13.setLayout(Botton13Layout);
@@ -1629,11 +1666,12 @@ public class Opcion2 extends javax.swing.JPanel {
 
         jPanel3.add(Botton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
 
-        panelRound1.setRoundBottomLeft(10);
-        panelRound1.setRoundBottomRight(10);
-        panelRound1.setRoundTopLeft(10);
-        panelRound1.setRoundTopRight(10);
+        panelRound1.setRoundBottomLeft(15);
+        panelRound1.setRoundBottomRight(15);
+        panelRound1.setRoundTopLeft(15);
+        panelRound1.setRoundTopRight(15);
 
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("jLabel24");
         jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1645,11 +1683,13 @@ public class Opcion2 extends javax.swing.JPanel {
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
         );
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ARRIBA.png"))); // NOI18N
@@ -1679,23 +1719,19 @@ public class Opcion2 extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                            .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1707,7 +1743,7 @@ public class Opcion2 extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(35, 35, 35)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2216,7 +2252,9 @@ public class Opcion2 extends javax.swing.JPanel {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
        //Boton 1
+       
        todosBotones();
+       Botton1.setBackground(Botverde);
        menu = 12;
        
        
@@ -2224,33 +2262,44 @@ public class Opcion2 extends javax.swing.JPanel {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // Boton2
+   
        todosBotones();
+       Botton2.setBackground(Botverde);
        menu = 13;
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // Boton3
+        
         todosBotones();
+        Botton37.setBackground(Botverde);
         menu = 14;
         
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         // Boton4
+      
         todosBotones();
+        Botton38.setBackground(Botverde);
         menu = 15;
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         // Booton5
+         
         todosBotones();
+        Botton39.setBackground(Botverde);
         menu = 16;
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-        // Boton6
+     // Boton6
+        
         todosBotones();
+        Botton40.setBackground(Botverde);
         menu = 17;
+        TODAS();
     }//GEN-LAST:event_jLabel22MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -2270,29 +2319,32 @@ public class Opcion2 extends javax.swing.JPanel {
 
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
         
-        if(menu ==12)
+        int a =Cantidacarnes.size(); System.out.println("CARNES = "+a+" Y MENU= "+menu);
+        if(Cantidacarnes.size()!=0){
+        if(menu == 12)
         {
-            if(Cantidacarnes.size()>=1 && Cantidacarnes.size()<=1){JOptionPane.showMessageDialog(null, "NO PUEDE SER MAS DE 1 CARNE NI MENOS QUE 1");}
+            if(Cantidacarnes.size()>0 && Cantidacarnes.size()<=1){JOptionPane.showMessageDialog(null, "CARNES BIEN");} else {JOptionPane.showMessageDialog(null, "CARNES MAL");}
         }
         else if(menu == 13)
         { 
-            if(Cantidacarnes.size()>=2 && Cantidacarnes.size()<=2 )
-        {JOptionPane.showMessageDialog(null, "NO PUEDE SER MAS DE 2 CARNE NI MENOS QUE 2");}
+            if(Cantidacarnes.size()>1 && Cantidacarnes.size()<=2){JOptionPane.showMessageDialog(null, "CARNES BIEN");} else {JOptionPane.showMessageDialog(null, "CARNES MAL");}
         }
         
-        else if (menu == 14){if(Cantidacarnes.size()>=3 && Cantidacarnes.size()<=3 )
-        {JOptionPane.showMessageDialog(null, "NO PUEDE SER MAS DE 3 CARNE NI MENOS QUE 3");}}
+        else if (menu == 14){if(Cantidacarnes.size()>2 && Cantidacarnes.size()<=3){JOptionPane.showMessageDialog(null, "CARNES BIEN");} else {JOptionPane.showMessageDialog(null, "CARNES MAL");}}
         
-        else if (menu == 15){if(Cantidacarnes.size()>=4 && Cantidacarnes.size()<=4 )
-        {JOptionPane.showMessageDialog(null, "NO PUEDE SER MAS DE 4 CARNE NI MENOS QUE 4");}}
+        else if (menu == 15){if(Cantidacarnes.size()>3 && Cantidacarnes.size()<=4){JOptionPane.showMessageDialog(null, "CARNES BIEN");} else {JOptionPane.showMessageDialog(null, "CARNES MAL");}}
         
-        else if(menu == 16){if(Cantidacarnes.size()>=5 && Cantidacarnes.size()<=5 )
-        {JOptionPane.showMessageDialog(null, "NO PUEDE SER MAS DE 5 CARNE NI MENOS QUE 5");}}
         
-        else if(menu == 17){if(Cantidacarnes.size()>=6 && Cantidacarnes.size()<=6 )
-        {JOptionPane.showMessageDialog(null, "NO PUEDE SER MAS DE 6 CARNE NI MENOS QUE 6");}}
+        else if(menu == 16){if(Cantidacarnes.size()>4 && Cantidacarnes.size()<=5){JOptionPane.showMessageDialog(null, "CARNES BIEN");} else {JOptionPane.showMessageDialog(null, "CARNES MAL");}}
         
+        else {
+        {JOptionPane.showMessageDialog(null, "TODAS LAS CARNES");}}
+        }else {{JOptionPane.showMessageDialog(null, "SELECCIONE UNA DE LAS CARNES");}}   
     }//GEN-LAST:event_jLabel24MouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel23MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
