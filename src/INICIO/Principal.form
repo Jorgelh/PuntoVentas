@@ -25,10 +25,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Component id="jPanel1" min="-2" pref="959" max="-2" attributes="0"/>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" min="-2" pref="940" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -66,7 +63,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="920" height="30"/>
+              <AbsoluteConstraints x="0" y="0" width="900" height="30"/>
             </Constraint>
           </Constraints>
 
@@ -75,7 +72,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" pref="914" max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="215" max="-2" attributes="0"/>
+                      <EmptySpace pref="679" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -162,7 +160,7 @@
             <Container class="Clases.PanelRound" name="JPanes">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="77" green="d8" red="b1" type="rgb"/>
+                  <Color blue="0" green="cc" red="0" type="rgb"/>
                 </Property>
                 <Property name="roundBottomLeft" type="int" value="20"/>
                 <Property name="roundBottomRight" type="int" value="28"/>
@@ -596,7 +594,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="610" y="30" width="360" height="690"/>
+              <AbsoluteConstraints x="580" y="30" width="360" height="690"/>
             </Constraint>
           </Constraints>
 
@@ -873,6 +871,9 @@
                 <Property name="roundTopLeft" type="int" value="10"/>
                 <Property name="roundTopRight" type="int" value="10"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelRound3MouseClicked"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -930,14 +931,14 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="90" y="30" width="520" height="690"/>
+              <AbsoluteConstraints x="90" y="30" width="490" height="690"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="520" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="490" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -962,7 +963,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="920" y="0" width="40" height="-1"/>
+              <AbsoluteConstraints x="900" y="0" width="40" height="-1"/>
             </Constraint>
           </Constraints>
 

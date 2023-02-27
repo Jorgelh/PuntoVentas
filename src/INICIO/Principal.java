@@ -14,8 +14,16 @@ import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.TableColumn;
@@ -29,6 +37,7 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    ArrayList<Integer> NumSin = new ArrayList<>();
     
     public Principal(int i) {
       
@@ -55,6 +64,21 @@ public class Principal extends javax.swing.JFrame {
         jHarina6.setPreferredSize(new Dimension (80, 60));
     }
     
+    public void llenar(){
+      int num = 200;
+      int x = 0;
+      
+
+      for(int i=1;i < num+1;i++){
+          
+          NumSin.add(i);
+          
+      }
+      
+    
+    
+    }
+    
     
 public void Opcion1(){
     Opcion1 op1 = new Opcion1(id_pedido);
@@ -67,7 +91,7 @@ public void Opcion1(){
 }  
 private void Opcion2(){
     Opcion2 op2 = new Opcion2();
-    op2.setSize(580, 650);
+    op2.setSize(519, 690);
     op2.setLocation(0, 0);
     PanelPrincipal.removeAll();
     PanelPrincipal.add(op2,BorderLayout.CENTER);
@@ -76,7 +100,7 @@ private void Opcion2(){
 }
 private void Opcion3(){
     Opcion3 op3 = new Opcion3();
-    op3.setSize(580, 650);
+    op3.setSize(519, 690);
     op3.setLocation(0, 0);
     PanelPrincipal.removeAll();
     PanelPrincipal.add(op3,BorderLayout.CENTER);
@@ -85,7 +109,7 @@ private void Opcion3(){
 }
 private void Opcion4(){
     Opcion4 op4 = new Opcion4();
-    op4.setSize(580, 650);
+    op4.setSize(519, 690);
     op4.setLocation(0, 0);
     PanelPrincipal.removeAll();
     PanelPrincipal.add(op4,BorderLayout.CENTER);
@@ -94,7 +118,7 @@ private void Opcion4(){
 }
 private void Opcion5(){
     Opcion5 op5 = new Opcion5();
-    op5.setSize(580, 650);
+    op5.setSize(519, 690);
     op5.setLocation(0, 0);
     PanelPrincipal.removeAll();
     PanelPrincipal.add(op5,BorderLayout.CENTER);
@@ -257,7 +281,8 @@ private void PanelMismoColor(){
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 914, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(679, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +291,7 @@ private void PanelMismoColor(){
                 .addGap(0, 3, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 30));
 
         jPanel3.setBackground(new java.awt.Color(238, 238, 238));
         jPanel3.setMinimumSize(new java.awt.Dimension(180, 720));
@@ -291,7 +316,7 @@ private void PanelMismoColor(){
         panelRound.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(panelRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 40, 60));
 
-        JPanes.setBackground(new java.awt.Color(177, 216, 119));
+        JPanes.setBackground(new java.awt.Color(0, 204, 0));
         JPanes.setRoundBottomLeft(20);
         JPanes.setRoundBottomRight(28);
         JPanes.setRoundTopLeft(20);
@@ -679,6 +704,11 @@ private void PanelMismoColor(){
         panelRound3.setRoundBottomRight(10);
         panelRound3.setRoundTopLeft(10);
         panelRound3.setRoundTopRight(10);
+        panelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelRound3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
         panelRound3.setLayout(panelRound3Layout);
@@ -747,7 +777,7 @@ private void PanelMismoColor(){
                 .addGap(39, 39, 39))
         );
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 360, 690));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 360, 690));
 
         PanelPrincipal.setBackground(new java.awt.Color(238, 238, 238));
         PanelPrincipal.setPreferredSize(new java.awt.Dimension(519, 690));
@@ -768,14 +798,14 @@ private void PanelMismoColor(){
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
         PanelPrincipalLayout.setVerticalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 690, Short.MAX_VALUE)
         );
 
-        jPanel1.add(PanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 520, 690));
+        jPanel1.add(PanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 490, 690));
 
         BotonSalir.setBackground(java.awt.Color.lightGray);
         BotonSalir.setForeground(java.awt.SystemColor.control);
@@ -817,15 +847,13 @@ private void PanelMismoColor(){
             .addComponent(TxtSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 40, -1));
+        jPanel1.add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 40, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 959, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -859,7 +887,7 @@ private void PanelMismoColor(){
 
     private void jpanes4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanes4MouseClicked
         PanelMismoColor();
-        Color c = new Color(11,46,102); 
+        Color c = new Color(0,204,0); 
         Opcion1();
         panelRound.setBackground(c);
     }//GEN-LAST:event_jpanes4MouseClicked
@@ -933,6 +961,37 @@ private void PanelMismoColor(){
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
        ListarProductosPedidos();
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void panelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound3MouseClicked
+       
+        llenar();
+        try {
+
+        PrintService p = PrintServiceLookup.lookupDefaultPrintService();
+
+        DocPrintJob doc = p.createPrintJob();
+        DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
+        Doc d = null;
+
+        String textoTicket = "";
+
+        for(int c=0; c<NumSin.size(); c++){
+
+            textoTicket = textoTicket.concat(String.valueOf(NumSin.get(c)));
+
+        }
+        d = new SimpleDoc(textoTicket.getBytes(), flavor, null);
+        doc.print(d, null);
+
+    } catch (PrintException ex) {
+        JOptionPane.showMessageDialog(null, "No se ha podido imprimir el ticket.", "Awsys", JOptionPane.ERROR_MESSAGE);
+    }
+        
+         for(int i= 0;i<NumSin.size();i++){
+           System.out.print(NumSin.get(i) + " ");
+       }
+        
+    }//GEN-LAST:event_panelRound3MouseClicked
 
     /**
      * @param args the command line arguments
