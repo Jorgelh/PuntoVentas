@@ -87,6 +87,33 @@ public class BDProductos {
        
     }
  
+   public static InsertarProducto InsertarProducto_Pedido_tortilla(InsertarProducto t) throws SQLException{
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement smtp = null;
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional,precio) values(?,?,?,2,1,(select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" ))",Statement.RETURN_GENERATED_KEYS);
+        try {
+         smtp.setInt(1,t.getId_pedido());
+         smtp.setInt(2,t.getId_producto());
+         smtp.setInt(3, t.getCantidad());
+         smtp.executeUpdate();
+     } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);}
+        
+        ResultSet rs = smtp.getGeneratedKeys();
+        if(rs.next()){int id1 = rs.getInt(1);
+          t.setIdregreso(id1);
+        }
+        
+       con.close();
+       smtp.close(); 
+        return t;
+       
+    }
+ 
+ 
+ 
+ 
     public static InsertarProducto InsertarPedido(InsertarProducto t) throws SQLException{
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();

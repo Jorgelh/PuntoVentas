@@ -90,7 +90,7 @@ public void Opcion1(){
     PanelPrincipal.repaint();
 }  
 private void Opcion2(){
-    Opcion2 op2 = new Opcion2();
+    Opcion2 op2 = new Opcion2( id_pedido);
     op2.setSize(519, 690);
     op2.setLocation(0, 0);
     PanelPrincipal.removeAll();

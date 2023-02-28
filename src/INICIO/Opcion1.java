@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
 
 public class Opcion1 extends javax.swing.JPanel {
     double precio;
+    int entra;
     int tipopan = 0;
     int pan=0;
     int marca3 = 1;
@@ -84,17 +85,22 @@ public class Opcion1 extends javax.swing.JPanel {
         this.id_pedido=a;
         String texto = "<html><center><body>SALCHICA<br>PEQUEÑA</body></center></html>";
         SalPequeña.setText(texto);
+        Salchi.setText(texto);
         String texto1 = "<html><center><body>CHORIZO<br>BREMEN</body></center></html>";
         ChoriBremen.setText(texto1);
+        Chori.setText(texto1);
         String texto2 = "<html><center><body>SALCHICHA<br>JUMBO</body></center></html>";
         SAlchi.setText(texto2);
+        SalJumbo.setText(texto2);        
         String texto3 = "<html><center><body>CHORIZO<br>AHUMADO</body></center></html>";
         ChoAhumado.setText(texto3);
+        ahumado.setText(texto3);
         String texto4 = "<html><center><body>CHORIZO<br>ARGENTINO</body></center></html>";
         ChoArgenti.setText(texto4);
+        Argentino.setText(texto4);
         String texto5 = "<html><center><body>PORCION DE<br>GUACAMOL</body></center></html>";
         PorciGuaca.setText(texto5);
-        String texto6 = "<html><center><body>PORCION DE<br>MAYONESA</body></center></html>";
+        String texto6 = "<html><center><body>PORCION DE<br>TORTILLAS</body></center></html>";
         PorciMayonesa.setText(texto6);
         String texto7 = "<html><center><body>PORCION DE<br>QUESO MOSARELA</body></center></html>";
          Queso.setText(texto7);
@@ -280,6 +286,30 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton35.setBackground(Botrojo);
        
        }
+  
+       private void limpiarSin(){
+        Botton30.setBackground(Botrojo);
+        Botton31.setBackground(Botrojo);
+        Botton32.setBackground(Botrojo);
+        Botton33.setBackground(Botrojo);
+        Botton34.setBackground(Botrojo);
+        Botton35.setBackground(Botrojo);
+        Botton36.setBackground(Botrojo);
+        Botton37.setBackground(Botrojo);
+        Botton38.setBackground(Botrojo);
+        Botton39.setBackground(Botrojo);
+        Botton40.setBackground(Botrojo);
+        Botton41.setBackground(Botrojo);
+        Botton42.setBackground(Botrojo);
+        Botton43.setBackground(Botrojo);
+        sin1 = 0;
+        sin2 = 0;
+        sin3 = 0; 
+        sin4 = 0;
+        sin5 = 0;
+        sin6 = 0;
+        }
+
 /*
      private void ListadeProductos() {
         
@@ -379,23 +409,23 @@ public class Opcion1 extends javax.swing.JPanel {
         P = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         Botton7 = new Clases.PanelRound();
-        jLabel8 = new javax.swing.JLabel();
+        SalJumbo = new javax.swing.JLabel();
         Botton12 = new Clases.PanelRound();
         jLabel13 = new javax.swing.JLabel();
         Botton3 = new Clases.PanelRound();
-        jLabel4 = new javax.swing.JLabel();
+        Salchi = new javax.swing.JLabel();
         Botton8 = new Clases.PanelRound();
         jLabel9 = new javax.swing.JLabel();
         Botton4 = new Clases.PanelRound();
-        jLabel5 = new javax.swing.JLabel();
+        Chori = new javax.swing.JLabel();
         Botton9 = new Clases.PanelRound();
         jLabel10 = new javax.swing.JLabel();
         Botton11 = new Clases.PanelRound();
-        jLabel12 = new javax.swing.JLabel();
+        Argentino = new javax.swing.JLabel();
         Botton5 = new Clases.PanelRound();
         jLabel6 = new javax.swing.JLabel();
         Botton10 = new Clases.PanelRound();
-        jLabel11 = new javax.swing.JLabel();
+        ahumado = new javax.swing.JLabel();
         Botton14 = new Clases.PanelRound();
         Botton6 = new Clases.PanelRound();
         jLabel7 = new javax.swing.JLabel();
@@ -506,12 +536,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("SALCHICHA JUMBO");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        SalJumbo.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
+        SalJumbo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SalJumbo.setText("SALCHICHA JUMBO");
+        SalJumbo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                SalJumboMouseClicked(evt);
             }
         });
 
@@ -520,12 +550,12 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton7Layout.setHorizontalGroup(
             Botton7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Botton7Layout.createSequentialGroup()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SalJumbo, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 1, Short.MAX_VALUE))
         );
         Botton7Layout.setVerticalGroup(
             Botton7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(SalJumbo, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel5.add(Botton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
@@ -543,7 +573,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("TOCINO");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -578,12 +608,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("SALCHICHA PEQUEÑA");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        Salchi.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
+        Salchi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Salchi.setText("SALCHICHA PEQUEÑA");
+        Salchi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                SalchiMouseClicked(evt);
             }
         });
 
@@ -591,11 +621,11 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton3.setLayout(Botton3Layout);
         Botton3Layout.setHorizontalGroup(
             Botton3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, Short.MAX_VALUE)
+            .addComponent(Salchi, javax.swing.GroupLayout.PREFERRED_SIZE, 110, Short.MAX_VALUE)
         );
         Botton3Layout.setVerticalGroup(
             Botton3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(Salchi, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel5.add(Botton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
@@ -613,7 +643,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("ADOBADO");
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -648,12 +678,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("CHORIZO BREMEN");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Chori.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
+        Chori.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Chori.setText("CHORIZO BREMEN");
+        Chori.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                ChoriMouseClicked(evt);
             }
         });
 
@@ -662,12 +692,12 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton4Layout.setHorizontalGroup(
             Botton4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Botton4Layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Chori, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 1, Short.MAX_VALUE))
         );
         Botton4Layout.setVerticalGroup(
             Botton4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(Chori, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel5.add(Botton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
@@ -685,7 +715,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("RES");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -720,12 +750,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("CHORIZO ARGENTINO");
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+        Argentino.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
+        Argentino.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Argentino.setText("CHORIZO ARGENTINO");
+        Argentino.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
+                ArgentinoMouseClicked(evt);
             }
         });
 
@@ -734,12 +764,12 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton11Layout.setHorizontalGroup(
             Botton11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Botton11Layout.createSequentialGroup()
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Argentino, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 1, Short.MAX_VALUE))
         );
         Botton11Layout.setVerticalGroup(
             Botton11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(Argentino, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel5.add(Botton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
@@ -757,7 +787,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("SALAMI");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -792,12 +822,12 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("CHORIZO AHUMADO");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        ahumado.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
+        ahumado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ahumado.setText("CHORIZO AHUMADO");
+        ahumado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                ahumadoMouseClicked(evt);
             }
         });
 
@@ -806,12 +836,12 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton10Layout.setHorizontalGroup(
             Botton10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Botton10Layout.createSequentialGroup()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ahumado, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 1, Short.MAX_VALUE))
         );
         Botton10Layout.setVerticalGroup(
             Botton10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(ahumado, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         jPanel5.add(Botton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
@@ -856,7 +886,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("LONGANIZA");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -891,7 +921,7 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("VEGETARIANO");
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1014,9 +1044,7 @@ public class Opcion1 extends javax.swing.JPanel {
         );
         Botton15Layout.setVerticalGroup(
             Botton15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton15Layout.createSequentialGroup()
-                .addComponent(SalPequeña, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+            .addComponent(SalPequeña, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
         Botton16.setBackground(new java.awt.Color(255, 102, 102));
@@ -1140,9 +1168,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton19.setLayout(Botton19Layout);
         Botton19Layout.setHorizontalGroup(
             Botton19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton19Layout.createSequentialGroup()
-                .addComponent(SAlchi, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(SAlchi, javax.swing.GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
         );
         Botton19Layout.setVerticalGroup(
             Botton19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1243,9 +1269,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton22.setLayout(Botton22Layout);
         Botton22Layout.setHorizontalGroup(
             Botton22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton22Layout.createSequentialGroup()
-                .addComponent(ChoAhumado, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(ChoAhumado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
         );
         Botton22Layout.setVerticalGroup(
             Botton22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1277,9 +1301,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton23.setLayout(Botton23Layout);
         Botton23Layout.setHorizontalGroup(
             Botton23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton23Layout.createSequentialGroup()
-                .addComponent(ChoArgenti, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(ChoArgenti, javax.swing.GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
         );
         Botton23Layout.setVerticalGroup(
             Botton23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1332,7 +1354,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         PorciMayonesa.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         PorciMayonesa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PorciMayonesa.setText("POR MAYONESA");
+        PorciMayonesa.setText("tortilla");
         PorciMayonesa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PorciMayonesaMouseClicked(evt);
@@ -1343,9 +1365,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton27.setLayout(Botton27Layout);
         Botton27Layout.setHorizontalGroup(
             Botton27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton27Layout.createSequentialGroup()
-                .addComponent(PorciMayonesa, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(PorciMayonesa, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
         );
         Botton27Layout.setVerticalGroup(
             Botton27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1473,9 +1493,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton26.setLayout(Botton26Layout);
         Botton26Layout.setHorizontalGroup(
             Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton26Layout.createSequentialGroup()
-                .addComponent(PorciGuaca, javax.swing.GroupLayout.PREFERRED_SIZE, 69, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(PorciGuaca, javax.swing.GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
         );
         Botton26Layout.setVerticalGroup(
             Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1601,7 +1619,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("SIN SALSA DULCE");
+        jLabel17.setText("SIN SALSA ");
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel17MouseClicked(evt);
@@ -1633,9 +1651,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton32.setLayout(Botton32Layout);
         Botton32Layout.setHorizontalGroup(
             Botton32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton32Layout.createSequentialGroup()
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton32Layout.setVerticalGroup(
             Botton32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1666,9 +1682,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton33.setLayout(Botton33Layout);
         Botton33Layout.setHorizontalGroup(
             Botton33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton33Layout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 28, Short.MAX_VALUE))
+            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton33Layout.setVerticalGroup(
             Botton33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1794,7 +1808,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("SIN REPOLLO");
+        jLabel22.setText("SOLO REPOLLO");
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel22MouseClicked(evt);
@@ -1825,7 +1839,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("SIN CEBOLLA");
+        jLabel25.setText("SOLO CEBOLLA");
         jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel25MouseClicked(evt);
@@ -1856,7 +1870,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel26.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("SIN MOSTASA");
+        jLabel26.setText("SOLO MOSTASA");
         jLabel26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel26MouseClicked(evt);
@@ -1887,7 +1901,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel27.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setText("SIN MAYONESA");
+        jLabel27.setText("SOLO MAYONESA");
         jLabel27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel27MouseClicked(evt);
@@ -1898,7 +1912,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton41.setLayout(Botton41Layout);
         Botton41Layout.setHorizontalGroup(
             Botton41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+            .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Botton41Layout.setVerticalGroup(
             Botton41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1918,7 +1932,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel28.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("SIN SALSA DULCE");
+        jLabel28.setText("SOLO SALSA");
         jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel28MouseClicked(evt);
@@ -1929,7 +1943,9 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton42.setLayout(Botton42Layout);
         Botton42Layout.setHorizontalGroup(
             Botton42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(Botton42Layout.createSequentialGroup()
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Botton42Layout.setVerticalGroup(
             Botton42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2041,7 +2057,7 @@ public class Opcion1 extends javax.swing.JPanel {
                     .addComponent(Botton37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, 300));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, 260));
 
         BotonAgregar.setBackground(new java.awt.Color(255, 153, 153));
         BotonAgregar.setPreferredSize(new java.awt.Dimension(80, 55));
@@ -2267,7 +2283,7 @@ public class Opcion1 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Botton36MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void SalchiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalchiMouseClicked
 
         todosBotones();
         if (marca3 == 1) {
@@ -2278,9 +2294,9 @@ public class Opcion1 extends javax.swing.JPanel {
             marca3 = 1;
         }
         id_producto = 1;
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_SalchiMouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void ChoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriMouseClicked
         todosBotones();
         if (marca4 == 1) {
             Botton4.setBackground(Botverde);
@@ -2290,7 +2306,7 @@ public class Opcion1 extends javax.swing.JPanel {
             marca4 = 1;
         }
         id_producto = 2;
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_ChoriMouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         todosBotones();
@@ -2316,7 +2332,7 @@ public class Opcion1 extends javax.swing.JPanel {
         id_producto = 4;
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+    private void SalJumboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalJumboMouseClicked
         todosBotones();
         if (marca7 == 1) {
             Botton7.setBackground(Botverde);
@@ -2326,7 +2342,7 @@ public class Opcion1 extends javax.swing.JPanel {
             marca7 = 1;
         }
         id_producto = 5;
-    }//GEN-LAST:event_jLabel8MouseClicked
+    }//GEN-LAST:event_SalJumboMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         todosBotones();
@@ -2352,7 +2368,7 @@ public class Opcion1 extends javax.swing.JPanel {
         id_producto = 7;
     }//GEN-LAST:event_jLabel10MouseClicked
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    private void ahumadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ahumadoMouseClicked
         todosBotones();
 
         if (marca10 == 1) {
@@ -2363,9 +2379,9 @@ public class Opcion1 extends javax.swing.JPanel {
             marca10 = 1;
         }
         id_producto = 8;
-    }//GEN-LAST:event_jLabel11MouseClicked
+    }//GEN-LAST:event_ahumadoMouseClicked
 
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+    private void ArgentinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArgentinoMouseClicked
         todosBotones();
         if (marca11 == 1) {
             Botton11.setBackground(Botverde);
@@ -2375,7 +2391,7 @@ public class Opcion1 extends javax.swing.JPanel {
             marca11 = 1;
         }
         id_producto = 9;
-    }//GEN-LAST:event_jLabel12MouseClicked
+    }//GEN-LAST:event_ArgentinoMouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         todosBotones();
@@ -2608,11 +2624,13 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_ChoAhumadoKeyReleased
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        if(sin2 !=1 && sin3 !=1 && sin4 !=1 && sin5 !=1 && sin6 !=1)   
-        NumSin.clear();
+        
+         if(entra == 2){limpiarSin();NumSin.clear();}
+        
         if (sin1 == 0) {
             Botton30.setBackground(Botverde);
             sin1 = 1;
+            entra = 1;
             NumSin.add(1);
             colores();
              //Botton32.setEnabled(true);
@@ -2620,6 +2638,7 @@ public class Opcion1 extends javax.swing.JPanel {
         } else {
             Botton30.setBackground(Botrojo);
             sin1 = 0;
+            entra = 2;
             int remov = NumSin.indexOf(1);
             NumSin.remove(remov);
             //bloquear(false);
@@ -2632,7 +2651,8 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-     if(sin1 ==1){ }else{
+     if(entra ==2){ 
+         
         if (sin2 == 0) {
             Botton31.setBackground(Botverde);
             sin2 = 1;
@@ -2642,14 +2662,12 @@ public class Opcion1 extends javax.swing.JPanel {
             sin2 = 0;
             int remov = NumSin.indexOf(2);
             NumSin.remove(remov);
-            
-            
         }
      }
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-       if(sin1 ==1){ }else{
+       if(entra ==2){ 
         if (sin3 == 0) {
             Botton32.setBackground(Botverde);
             sin3 = 1;
@@ -2665,7 +2683,7 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-      if(sin1 ==1){ }else{
+       if(entra ==2){ 
         if (sin4 == 0) {
             Botton33.setBackground(Botverde);
             sin4 = 1;
@@ -2681,7 +2699,7 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
-        if(sin1 ==1){ }else{
+        if(entra ==2){ 
         if (sin5 == 0) {
             Botton34.setBackground(Botverde);
             sin5 = 1;
@@ -2696,7 +2714,7 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
-        if(sin1 ==1){ }else{
+       if(entra ==2){ 
         if (sin6 == 0) {
             Botton35.setBackground(Botverde);
             sin6 = 1;
@@ -2803,6 +2821,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Argentino;
     private Clases.PanelRound BotonAgregar;
     private Clases.PanelRound Botton1;
     private Clases.PanelRound Botton10;
@@ -2849,6 +2868,7 @@ public class Opcion1 extends javax.swing.JPanel {
     private Clases.PanelRound Botton9;
     private javax.swing.JLabel ChoAhumado;
     private javax.swing.JLabel ChoArgenti;
+    private javax.swing.JLabel Chori;
     private javax.swing.JLabel ChoriBremen;
     private javax.swing.JLabel Extra10;
     private javax.swing.JLabel Extra11;
@@ -2862,13 +2882,14 @@ public class Opcion1 extends javax.swing.JPanel {
     private javax.swing.JLabel PorciMayonesa;
     private javax.swing.JLabel Queso;
     private javax.swing.JLabel SAlchi;
+    private javax.swing.JLabel SalJumbo;
     private javax.swing.JLabel SalPequeña;
+    private javax.swing.JLabel Salchi;
+    private javax.swing.JLabel ahumado;
     private javax.swing.JTextField cantidad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
@@ -2886,11 +2907,8 @@ public class Opcion1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
