@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
 
 public class Opcion1 extends javax.swing.JPanel {
     double precio;
-    int entra;
+    int entra =2;
     int tipopan = 0;
     int pan=0;
     int marca3 = 1;
@@ -46,6 +46,13 @@ public class Opcion1 extends javax.swing.JPanel {
     int sin4 = 0;
     int sin5 = 0;
     int sin6 = 0;
+    int sin7 = 0;
+    int sin8 = 0;
+    int sin9 = 0;
+    int sin10 = 0;
+    int sin11 = 0;
+    int sin12 = 0;
+    int sin13 = 0;
     int marca15 = 0;   
     int marca16 = 0;    
     int marca17 = 0;  
@@ -208,9 +215,16 @@ public class Opcion1 extends javax.swing.JPanel {
         sin4 = 0;
         sin5 = 0;
         sin6 = 0;
+        sin7 = 0;
+        sin8 = 0;
+        sin9 = 0;
+        sin10 = 0;
+        sin11 = 0;
+        sin12 = 0;
+        sin13 = 0;
         Num.clear();
         NumSin.clear();
-        
+        cantidad.setText("1");
     }
     
     private void InsertarProductoPedido() {
@@ -245,15 +259,15 @@ public class Opcion1 extends javax.swing.JPanel {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio) values(?,?,?,1,2,(select precio from PRODUCTOS where id_producto = "+Num.get(i)+"))");
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio) values(?,?,?,?,2,(select precio*"+cantidad.getText()+" from PRODUCTOS where id_producto = "+Num.get(i)+"))");
         smtp.setInt(1,id_pedido);
         smtp.setInt(2,Num.get(i));
         smtp.setInt(3, id_producto_pedido);
+        smtp.setInt(4, Integer.parseInt(cantidad.getText()));
         smtp.executeUpdate();
         con.close();
         smtp.close();    
      } catch (Exception e) {
-         
             JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
     }
 }
@@ -277,16 +291,7 @@ public class Opcion1 extends javax.swing.JPanel {
     }
 }
        
-       private  void colores(){
-        
-        //Botton30.setBackground(Botrojo);
-        Botton31.setBackground(Botrojo);
-        Botton32.setBackground(Botrojo);
-        Botton33.setBackground(Botrojo);
-        Botton34.setBackground(Botrojo);
-        Botton35.setBackground(Botrojo);
-       
-       }
+     
   
        private void limpiarSin(){
         Botton30.setBackground(Botrojo);
@@ -309,6 +314,14 @@ public class Opcion1 extends javax.swing.JPanel {
         sin4 = 0;
         sin5 = 0;
         sin6 = 0;
+        sin7 = 0;
+        sin8 = 0;
+        sin9 = 0;
+        sin10 = 0;
+        sin11 = 0;
+        sin12 = 0;
+        sin13 = 0;
+        
         }
 
 /*
@@ -485,6 +498,7 @@ public class Opcion1 extends javax.swing.JPanel {
         jLabel30 = new javax.swing.JLabel();
         Botton37 = new Clases.PanelRound();
         Botton38 = new Clases.PanelRound();
+        jLabel31 = new javax.swing.JLabel();
         Botton39 = new Clases.PanelRound();
         jLabel25 = new javax.swing.JLabel();
         Botton40 = new Clases.PanelRound();
@@ -1816,15 +1830,24 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
+        jLabel31.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("SOLO CHIMICHURI");
+        jLabel31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel31MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout Botton38Layout = new javax.swing.GroupLayout(Botton38);
         Botton38.setLayout(Botton38Layout);
         Botton38Layout.setHorizontalGroup(
             Botton38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Botton38Layout.setVerticalGroup(
             Botton38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         Botton39.setBackground(new java.awt.Color(255, 102, 102));
@@ -2131,10 +2154,9 @@ public class Opcion1 extends javax.swing.JPanel {
     
     
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        if(tipopan !=0 && id_producto !=0 && NumSin!=null){
+        if(tipopan !=0 && id_producto !=0 && NumSin.size()!=0){
         InsertarProductoPedido();
         ListarProductosPedidos();
-        
         }else{JOptionPane.showMessageDialog(null, "SELECCIONAR OPCIONES PRINCIPALES...");}
         
     }//GEN-LAST:event_jLabel3MouseClicked
@@ -2631,9 +2653,8 @@ public class Opcion1 extends javax.swing.JPanel {
         if (sin1 == 0) {
             Botton30.setBackground(Botverde);
             sin1 = 1;
-            entra = 1;
+            entra = 3;
             NumSin.add(1);
-            colores();
              //Botton32.setEnabled(true);
             //Botton33.setEnabled(true);
         } else {
@@ -2773,7 +2794,18 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton38MouseClicked
 
     private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
-        // TODO add your handling code here:
+         if(entra ==2){
+            if (sin11 == 0) {
+                Botton39.setBackground(Botverde);
+                sin11= 1;
+                NumSin.add(11);
+            } else {
+                Botton39.setBackground(Botrojo);
+                sin11 = 0;
+                int remov = NumSin.indexOf(11);
+                NumSin.remove(remov);
+
+            }}
     }//GEN-LAST:event_jLabel25MouseClicked
 
     private void Botton39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton39MouseClicked
@@ -2781,7 +2813,18 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton39MouseClicked
 
     private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
-        // TODO add your handling code here:
+         if(entra ==2){
+            if (sin10 == 0) {
+                Botton40.setBackground(Botverde);
+                sin10 = 1;
+                NumSin.add(10);
+            } else {
+                Botton40.setBackground(Botrojo);
+                sin10 = 0;
+                int remov = NumSin.indexOf(10);
+                NumSin.remove(remov);
+
+            }}
     }//GEN-LAST:event_jLabel26MouseClicked
 
     private void Botton40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton40MouseClicked
@@ -2789,7 +2832,18 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton40MouseClicked
 
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
-        // TODO add your handling code here:
+        if(entra ==2){
+            if (sin9 == 0) {
+                Botton41.setBackground(Botverde);
+                sin9 = 1;
+                NumSin.add(9);
+            } else {
+                Botton41.setBackground(Botrojo);
+                sin9 = 0;
+                int remov = NumSin.indexOf(9);
+                NumSin.remove(remov);
+
+            }}
     }//GEN-LAST:event_jLabel27MouseClicked
 
     private void Botton41MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton41MouseClicked
@@ -2797,7 +2851,18 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton41MouseClicked
 
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
-        // TODO add your handling code here:
+         if(entra ==2){
+            if (sin8 == 0) {
+                Botton42.setBackground(Botverde);
+                sin8 = 1;
+                NumSin.add(25);
+            } else {
+                Botton42.setBackground(Botrojo);
+                sin8 = 0;
+                int remov = NumSin.indexOf(25);
+                NumSin.remove(remov);
+
+            }}
     }//GEN-LAST:event_jLabel28MouseClicked
 
     private void Botton42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton42MouseClicked
@@ -2805,7 +2870,17 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton42MouseClicked
 
     private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
-        // TODO add your handling code here:
+        if(entra ==2){
+            if (sin7 == 0) {
+                Botton43.setBackground(Botverde);
+                sin7 = 1;
+                NumSin.add(14);
+            } else {
+                Botton43.setBackground(Botrojo);
+                sin7 = 0;
+                int remov = NumSin.indexOf(14);
+                NumSin.remove(remov);
+            }}
     }//GEN-LAST:event_jLabel29MouseClicked
 
     private void Botton43MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton43MouseClicked
@@ -2817,8 +2892,34 @@ public class Opcion1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel30MouseClicked
-        // TODO add your handling code here:
+    
+        if(entra ==2){
+            if (sin13 == 0) {
+                Botton36.setBackground(Botverde);
+                sin13 = 1;
+                NumSin.add(7);
+            } else {
+                Botton36.setBackground(Botrojo);
+                sin13 = 0;
+                int remov = NumSin.indexOf(7);
+                NumSin.remove(remov);
+            }}
+        
     }//GEN-LAST:event_jLabel30MouseClicked
+
+    private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
+        if(entra ==2){
+            if (sin12 == 0) {
+                Botton38.setBackground(Botverde);
+                sin12 = 1;
+                NumSin.add(13);
+            } else {
+                Botton38.setBackground(Botrojo);
+                sin12 = 0;
+                int remov = NumSin.indexOf(13);
+                NumSin.remove(remov);
+            }}
+    }//GEN-LAST:event_jLabel31MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2908,6 +3009,7 @@ public class Opcion1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;

@@ -35,7 +35,7 @@ public class BDProductos {
         ArrayList<Productos> list = new ArrayList<Productos>();
         BDConexion conecta = new BDConexion();
         Connection cn = conecta.getConexion();
-        DecimalFormat df = new DecimalFormat("#.00");
+        DecimalFormat df = new DecimalFormat("#0.00");
         
         try {
             Productos p;
@@ -45,7 +45,7 @@ public class BDProductos {
                 p = new Productos();
                 p.setId_producto(rs.getInt("id_producto"));
                 p.setDescripcion(rs.getString("descripcion"));
-                p.setPrecio("Q "+rs.getString("precio"));
+                p.setPrecio("Q "+df.format(rs.getString("precio")));
                 //p.setPrecio(Double.parseDouble(df.format(rs.getDouble("precio"))));
                 //System.out.println("precio ="+rs.getDouble("precio"));
                  //System.out.println(df.format(rs.getDouble("precio")));
@@ -154,7 +154,7 @@ public class BDProductos {
 "if(p.adicional = 1, \n" +
 "    concat(if(p.tipo = 1,'PAN DE','TORTILLA DE'),'  ',pro.DESCRIPCION,' ',\n" +
 "    (select  GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as descri from  NOTAS n inner join DESCRIPCIONNOTAS dn on\n" +
-"dn.id = n.ID where ID_PRODUCTOS_PEDIDO = p.ID_PRODUCTOS_PEDIDO)),pro.DESCRIPCION) as DESCRIPCION,p.PRECIO\n" +
+"dn.id = n.ID where ID_PRODUCTOS_PEDIDO = p.ID_PRODUCTOS_PEDIDO)),pro.DESCRIPCION) as DESCRIPCION,truncate(p.precio,2) as Precio\n" +
 "from PRODUCTOS_PEDIDO p \n" +
 "inner join PRODUCTOS pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido ="+a+";");    
  }  
@@ -163,6 +163,7 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
     ArrayList<InsertarProducto> list = new ArrayList<InsertarProducto>();
     BDConexion conecta = new BDConexion();
     Connection cn = conecta.getConexion();
+    
         try {
             InsertarProducto t;
             Statement stmt = cn.createStatement();
