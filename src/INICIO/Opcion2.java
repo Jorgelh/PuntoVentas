@@ -291,7 +291,7 @@ public class Opcion2 extends javax.swing.JPanel {
             p1.setId_pedido(id_pedido);
             p1.setId_producto(menu);
             p1.setCantidad( Integer.parseInt( cantidad.getText()));
-            p1.setPrecio(precio);
+            //p1.setPrecio(precio);
             BDProductos.InsertarProducto_Pedido_tortilla(p1);
             id_producto_pedido = p1.getIdregreso();
             
@@ -323,7 +323,7 @@ public class Opcion2 extends javax.swing.JPanel {
         smtp.close();    
      } catch (Exception e) {
          
-            JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
+            JOptionPane.showMessageDialog(null,"QUE PASO INSER ADICIONAL: "+ e);}
         }
     }
     
@@ -342,7 +342,7 @@ public class Opcion2 extends javax.swing.JPanel {
         smtp.close();    
      } catch (Exception e) {
          
-            JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
+            JOptionPane.showMessageDialog(null,"QUE PASO INSER DE NOTA: "+ e);}
     }
 }
        

@@ -13,6 +13,7 @@ import clas.TextAreaRenderer;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -188,14 +189,14 @@ public class ConsultaPedidos extends javax.swing.JFrame {
         RecargarTabla(result);  
     }
      public static void RecargarTabla(ArrayList<InsertarProducto> list) {
-         
+          DecimalFormat df = new DecimalFormat("#.00");
               Object[][] datos = new Object[list.size()][3];
               int i = 0;
               for(InsertarProducto t : list)
               {
                   datos[i][0] = t.getDescripcion();
                   datos[i][1] = t.getCantidad1();
-                  datos[i][2] = t.getPrecio();
+                  datos[i][2] = df.format(t.getPrecio());
                   i++;
               }    
              
