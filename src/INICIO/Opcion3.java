@@ -298,7 +298,7 @@ public class Opcion3 extends javax.swing.JPanel {
             BDProductos.InsertarProducto_Pedido_tortilla(p1);
             id_producto_pedido = p1.getIdregreso();
             
-            if(menu != 17){inserCarnes();}
+            if(menu != 23){inserCarnes();}
             insertarAdicional();
             insertarSin();
             Limpiar();
