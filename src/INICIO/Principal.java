@@ -125,7 +125,7 @@ private void Opcion3(){
     PanelPrincipal.repaint();
 }
 private void Opcion4(){
-    Opcion4 op4 = new Opcion4();
+    Opcion4 op4 = new Opcion4(id_pedido);
     op4.setSize(519, 690);
     op4.setLocation(0, 0);
     PanelPrincipal.removeAll();
@@ -134,11 +134,21 @@ private void Opcion4(){
     PanelPrincipal.repaint();
 }
 private void Opcion5(){
-    Opcion5 op5 = new Opcion5();
+    Opcion5 op5 = new Opcion5(id_pedido);
     op5.setSize(519, 690);
     op5.setLocation(0, 0);
     PanelPrincipal.removeAll();
     PanelPrincipal.add(op5,BorderLayout.CENTER);
+    PanelPrincipal.revalidate();
+    PanelPrincipal.repaint();
+}
+
+private void Opcion6(){
+    Opcion6 op6 = new Opcion6(id_pedido);
+    op6.setSize(519, 690);
+    op6.setLocation(0, 0);
+    PanelPrincipal.removeAll();
+    PanelPrincipal.add(op6,BorderLayout.CENTER);
     PanelPrincipal.revalidate();
     PanelPrincipal.repaint();
 }
@@ -149,6 +159,7 @@ private void PanelMismoColor(){
      complemento3.setBackground(c);
      complemento4.setBackground(c);
      complemento5.setBackground(c);
+     complemento6.setBackground(c);
      PanelPrincipal.setBackground(c);
 }
 
@@ -585,6 +596,9 @@ private void PanelMismoColor(){
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel9MouseEntered(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -1013,13 +1027,13 @@ private void PanelMismoColor(){
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
        PanelMismoColor();
-      Color c = new Color(177,216,119); 
+        Color c = new Color(177,216,119); 
         Opcion5();
       complemento5.setBackground(c);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-      Color c = new Color(19,195,231); 
+        Color c = new Color(19,195,231); 
         PanelMismoColor();
         Opcion4();
       complemento4.setBackground(c);
@@ -1051,7 +1065,14 @@ private void PanelMismoColor(){
     }//GEN-LAST:event_PanelPrincipalMouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
+     
+        
+        Color c = new Color(255,255,153); 
+        PanelMismoColor();
+        Opcion6();
+        complemento6.setBackground(c);
+        
+       
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PedidosMouseClicked
@@ -1063,11 +1084,18 @@ private void PanelMismoColor(){
     }//GEN-LAST:event_PanelPrincipalComponentAdded
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-      finalizar();
+      
+        if(para !=0){
+        finalizar();
       imprimir2();
                   Entra F = new Entra();
                   F.setVisible(true);
                   this.dispose();
+        }else{
+         
+            JOptionPane.showMessageDialog(null, "ESCOGER SI ES PARA LLEVAR O COMER AQUI");
+        
+        }           
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void panelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound3MouseClicked
@@ -1113,6 +1141,10 @@ private void PanelMismoColor(){
          panelRound3.setBackground(Original1);
          para = 2;
     }//GEN-LAST:event_LlevarMouseClicked
+
+    private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MouseEntered
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,7 @@
  */
 package INICIO;
 
+import static INICIO.Principal.ListarProductosPedidos;
 import clas.BDConexion;
 import java.awt.Color;
 import java.sql.Connection;
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author jluis
  */
-public class Opcion5 extends javax.swing.JPanel {
+public class Opcion6 extends javax.swing.JPanel {
      double precio;
     int marca15 = 0;   
     int marca16 = 0;    
@@ -35,13 +36,12 @@ public class Opcion5 extends javax.swing.JPanel {
     int id_pedido = 0;
     int id_producto = 0;
     ArrayList<Integer> Num = new ArrayList<>();
-    ArrayList<Integer> NumSin = new ArrayList<>();
     Color Botrojo = new Color(255,102,102); 
-    Color Botverde = new Color(255,255,153);
+    Color Botverde = new Color(0,204,0);
     /**
      * Creates new form Opcion5
      */
-    public Opcion5(int a) {
+    public Opcion6(int a) {
         initComponents();
          this.id_pedido=a;
         String texto = "<html><center><body>SALCHICA<br>PEQUEÑA</body></center></html>";
@@ -95,7 +95,6 @@ public class Opcion5 extends javax.swing.JPanel {
         marca28 = 0;
         marca29 = 0;
         Num.clear();
-        NumSin.clear();
         cantidad.setText("1");
     }
     
@@ -166,10 +165,10 @@ public class Opcion5 extends javax.swing.JPanel {
         BotonAgregar = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(177, 216, 119));
+        setBackground(new java.awt.Color(255, 255, 153));
         setPreferredSize(new java.awt.Dimension(730, 690));
 
-        jPanel3.setBackground(new java.awt.Color(0, 204, 0));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 153));
 
         Botton15.setBackground(new java.awt.Color(255, 102, 102));
         Botton15.setPreferredSize(new java.awt.Dimension(75, 45));
@@ -581,6 +580,9 @@ public class Opcion5 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 QuesoMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                QuesoMouseEntered(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton29Layout = new javax.swing.GroupLayout(Botton29);
@@ -788,7 +790,7 @@ public class Opcion5 extends javax.swing.JPanel {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1101,8 +1103,13 @@ public class Opcion5 extends javax.swing.JPanel {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         if(Num.size()!=0){
             insertarAdicional();
+            ListarProductosPedidos();
         }else{JOptionPane.showMessageDialog(null, "SELECCIONAR OPCIONES PRINCIPALES...");}
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void QuesoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuesoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_QuesoMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

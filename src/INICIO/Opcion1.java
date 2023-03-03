@@ -321,7 +321,6 @@ public class Opcion1 extends javax.swing.JPanel {
         sin11 = 0;
         sin12 = 0;
         sin13 = 0;
-        
         }
 
 /*
