@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IMPRESION" pageWidth="226" pageHeight="425" columnWidth="222" leftMargin="2" rightMargin="2" topMargin="2" bottomMargin="2" uuid="275a7440-d86a-4a9e-a0ae-913c7f5530c6">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_pedido_1" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT id_pedido,date_format(fecha, "%d/%m/%Y %h:%m:%s" ) as fecha,TOTAL,if(PARA = 1,'PARA COMER AQUI','PARA LLEVAR') AS PARA,CLIENTE FROM elrey.PEDIDOS where id_pedido =    $P{id_pedido_1}]]>
+	</queryString>
+	<field name="id_pedido" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_pedido"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_pedido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PEDIDOS"/>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fecha"/>
+		<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+	</field>
+	<field name="TOTAL" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TOTAL"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PEDIDOS"/>
+	</field>
+	<field name="PARA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="PARA"/>
+		<property name="com.jaspersoft.studio.field.label" value="PARA"/>
+	</field>
+	<field name="CLIENTE" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="CLIENTE"/>
+		<property name="com.jaspersoft.studio.field.label" value="CLIENTE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PEDIDOS"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="60" height="20" uuid="5124c74f-2857-42c4-82be-8d4dc886bfa4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PEDIDO #]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="10" width="139" height="20" uuid="c6678f35-485d-490c-af68-37d886c4df49"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_pedido}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="44" height="20" uuid="edf4d537-2945-44c0-99e1-8390fc5db0fd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="0" width="176" height="20" uuid="9562f505-431f-4214-a026-38bdac573b23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="222" height="1" uuid="f08da81f-a387-4994-b9e4-aa3e324c190d"/>
+			</line>
+			<line>
+				<reportElement x="45" y="0" width="1" height="20" uuid="0d7c581a-c4de-4998-be73-003c589f86db"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="222" height="1" uuid="a44beb2d-5fef-487b-b4e7-3db89962f6e8"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="20" uuid="931ed84d-ce6a-43f3-81fe-13801d12e54c"/>
+			</line>
+			<line>
+				<reportElement x="221" y="0" width="1" height="20" uuid="d7f006d0-6237-4c51-acd4-695c7cf928f2"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<subreport>
+				<reportElement x="-1" y="0" width="223" height="20" uuid="ce3a4ff3-5f3a-417d-a139-6251b8a9233a"/>
+				<subreportParameter name="ID_PEDIDO">
+					<subreportParameterExpression><![CDATA[$P{id_pedido_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["Tiket.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="96" splitType="Stretch">
+			<textField>
+				<reportElement x="39" y="46" width="100" height="20" uuid="697353fa-3c26-4189-9f11-497ff49a0a96"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fecha}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="66" width="221" height="30" uuid="f05f60f5-15d5-4319-a692-73eb4fb2e2a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PARA}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="46" width="83" height="20" uuid="96619db4-b77e-4652-9d85-a44a9be15941"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CLIENTE}.toString()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="46" width="40" height="20" uuid="1fc3129b-6533-4c7e-ba4a-b73d4a24ec18"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="26" width="83" height="20" uuid="6491c4a9-b406-41f3-a9e8-da328e487e3a"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[#CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="0" width="41" height="16" uuid="f8d35ed2-0364-418e-a9ff-bbe20ef3440e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="0" width="41" height="16" uuid="e5e7eb42-367a-4928-983e-a710ed66faea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TOTAL}.toString()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="179" y="0" width="1" height="16" uuid="0b506ce8-ad63-4ec8-a966-06257cff6bef"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

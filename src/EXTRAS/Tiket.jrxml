@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tiket" pageWidth="226" pageHeight="425" columnWidth="224" leftMargin="1" rightMargin="1" topMargin="1" bottomMargin="1" uuid="3fffe62e-1f9e-4f5a-8c6d-a87b7631b77c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="mm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="mm"/>
+	<parameter name="ID_PEDIDO" class="java.lang.Integer" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[select cantidad,if(p.adicional = 1,concat(if(p.tipo = 1,'PAN DE','TORTILLA DE'),'  ',pro.DESCRIPCION,' ',
+(select  GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as descri from  NOTAS n inner join DESCRIPCIONNOTAS dn on
+dn.id = n.ID where ID_PRODUCTOS_PEDIDO = p.ID_PRODUCTOS_PEDIDO)),pro.DESCRIPCION) as DESCRIPCION,truncate(p.precio,2) as Precio
+from PRODUCTOS_PEDIDO p
+inner join PRODUCTOS pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido =$P{ID_PEDIDO}]]>
+	</queryString>
+	<field name="cantidad" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCTOS_PEDIDO"/>
+	</field>
+	<field name="DESCRIPCION" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DESCRIPCION"/>
+		<property name="com.jaspersoft.studio.field.label" value="DESCRIPCION"/>
+	</field>
+	<field name="Precio" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="Precio"/>
+		<property name="com.jaspersoft.studio.field.label" value="Precio"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField textAdjust="ScaleFont" evaluationTime="Auto">
+				<reportElement x="46" y="-1" width="175" height="27" uuid="68f868c6-7d79-43a5-9a9d-c6bedf89fcd1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPCION}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="-1" width="44" height="27" uuid="8c5ca5dc-e386-41c2-b07a-a76b3d5dd8d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}.toString()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="45" y="-1" width="1" height="27" uuid="212300fb-154a-4f1c-bfd9-09a07f7eb5d7"/>
+			</line>
+			<line>
+				<reportElement x="0" y="26" width="222" height="1" uuid="33beef5f-cb27-4c1c-8b3a-6a9c5deecbbe"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-1" width="1" height="28" uuid="86cf97f9-ebad-489c-92f2-9c6544dd80fb"/>
+			</line>
+			<line>
+				<reportElement x="221" y="-1" width="1" height="27" uuid="81a6f5c1-62a6-4344-bc00-397fa933fe52"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
