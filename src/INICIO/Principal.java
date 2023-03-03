@@ -35,6 +35,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.TableColumn;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
@@ -247,14 +248,41 @@ private void PanelMismoColor(){
             parametros.put("id_pedido_1", id_pedido);
             JasperPrint print = JasperFillManager.fillReport(jasperReport,parametros, conexion);
             //JasperPrint print2 = JasperFillManager.fillReport(jasperReport2,parametros, conexion);
-            JasperViewer view = new JasperViewer(print,false);
+            JasperViewer Vista = new JasperViewer(print,true);
             //JasperViewer view2 = new JasperViewer(print2,false);
-            view.setVisible(true);
+            Vista.setVisible(true);
             //view2.setVisible(true);
         } catch (Exception e) {System.out.println("F"+e);
            JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  "+e);
         }
     }
+ 
+ 
+ private void imprimir2(){
+ 
+     
+      BDConexion con= new BDConexion();
+         Connection conexion= con.getConexion();
+        try {
+            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Users\\jluis\\JaspersoftWorkspace\\MyReports\\EXTRAS\\IMPRESION.jasper");
+            //JasperReport jasperReport2=(JasperReport)JRLoader.loadObjectFromFile("\\\\SRVANATEK\\Bases de Datos\\Sistema\\Recursos Humanos\\Reportes\\EvaluacionDesempeñoImprime2.jasper");
+            Map parametros= new HashMap();
+            parametros.put("id_pedido_1", id_pedido);
+            JasperPrint print = JasperFillManager.fillReport(jasperReport,parametros, conexion);
+            //JasperPrint print2 = JasperFillManager.fillReport(jasperReport2,parametros, conexion);
+            JasperPrintManager.printReport(print, true);
+            //view2.setVisible(true);
+        } catch (Exception e) {System.out.println("F"+e);
+           JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  "+e);
+        }
+    }
+     
+     
+     
+ 
+ 
+ 
+ 
  
 
     /**
@@ -670,20 +698,25 @@ private void PanelMismoColor(){
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("ORDEN#");
 
+        PEDIDO_ID.setEditable(false);
         PEDIDO_ID.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         PEDIDO_ID.setForeground(new java.awt.Color(0, 51, 255));
+        PEDIDO_ID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("TOTAL Q.");
 
+        Total.setEditable(false);
         Total.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         Total.setForeground(new java.awt.Color(255, 0, 0));
+        Total.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("CLIENTE#");
 
         Cliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Cliente.setForeground(new java.awt.Color(0, 51, 255));
+        Cliente.setText("0");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1031,7 +1064,7 @@ private void PanelMismoColor(){
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
       finalizar();
-      imprimir();
+      imprimir2();
                   Entra F = new Entra();
                   F.setVisible(true);
                   this.dispose();
