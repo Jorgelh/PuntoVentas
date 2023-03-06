@@ -148,7 +148,7 @@ public class BDProductos {
     
  public static ArrayList<InsertarProducto> ListarProductosPedidos (int a ) {
         return SQL3("select\n" +
-"cantidad,\n" +
+"ID_PRODUCTOS_PEDIDO,cantidad,\n" +
 "if(p.adicional = 1, \n" +
 "    concat(if(p.tipo = 1,'PAN DE','TORTILLA DE'),'  ',pro.DESCRIPCION,' ',\n" +
 "    (select  GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as descri from  NOTAS n inner join DESCRIPCIONNOTAS dn on\n" +
@@ -168,6 +168,7 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
                  t = new InsertarProducto();
+                 t.setId_producto_pedidos(rs.getInt("ID_PRODUCTOS_PEDIDO"));
                  t.setDescripcion(rs.getString("DESCRIPCION").toUpperCase());
                  t.setCantidad1(rs.getInt("cantidad"));
                  t.setPrecio(rs.getDouble("Precio"));

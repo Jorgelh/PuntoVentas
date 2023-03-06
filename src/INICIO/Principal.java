@@ -20,6 +20,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.print.Doc;
 import javax.print.DocFlavor;
 import javax.print.DocPrintJob;
@@ -48,6 +50,7 @@ public class Principal extends javax.swing.JFrame {
     public static int id_pedido;
     int para = 0;
     String TOTAL1;
+    int id_producto_pedido;
     Color Botrojo = new Color(255,102,102); 
     Color Original1 = new Color(255,255,102);
     Color Original2 = new Color(204,255,204);
@@ -176,19 +179,20 @@ private void PanelMismoColor(){
     }
      public static void RecargarTabla(ArrayList<InsertarProducto> list) {
          DecimalFormat df = new DecimalFormat("#.00");
-              Object[][] datos = new Object[list.size()][3];
+              Object[][] datos = new Object[list.size()][4];
               int i = 0;
               for(InsertarProducto t : list)
               {
-                  datos[i][0] = t.getDescripcion();
-                  datos[i][1] = t.getCantidad1();
-                  datos[i][2] = df.format(t.getPrecio());
+                  datos[i][0] = t.getId_producto_pedidos();
+                  datos[i][1] = t.getDescripcion();
+                  datos[i][2] = t.getCantidad1();
+                  datos[i][3] = df.format(t.getPrecio());
                   i++;
               }    
              Pedidos.setModel(new javax.swing.table.DefaultTableModel(
                 datos,
                 new String[]{
-                "DESCRIPCION","CANTIDAD","PRECIO"
+                "ID","DESCRIPCION","QTY","PRECIO"
              })
              {  
                  @Override
@@ -197,13 +201,15 @@ private void PanelMismoColor(){
 
              }
              });
-             Pedidos.getColumnModel().getColumn(0).setCellRenderer(new TextAreaRenderer());
-             TableColumn columna1 = Pedidos.getColumn("DESCRIPCION");
-             columna1.setPreferredWidth(250);
-             TableColumn columna2 = Pedidos.getColumn("CANTIDAD");
-             columna2.setPreferredWidth(10);
-             TableColumn columna3 = Pedidos.getColumn("PRECIO");
-             columna3.setPreferredWidth(10);
+             Pedidos.getColumnModel().getColumn(1).setCellRenderer(new TextAreaRenderer());
+             TableColumn columna1 = Pedidos.getColumn("ID");
+             columna1.setPreferredWidth(-20);
+             TableColumn columna2 = Pedidos.getColumn("DESCRIPCION");
+             columna2.setPreferredWidth(275);
+             TableColumn columna3 = Pedidos.getColumn("QTY");
+             columna3.setPreferredWidth(35);
+             TableColumn columna4 = Pedidos.getColumn("PRECIO");
+             columna4.setPreferredWidth(55);
              sumaTotal();
      }
 
@@ -246,6 +252,38 @@ private void PanelMismoColor(){
             }
  
  }
+ 
+ 
+ private void eliminarproducto(){
+        try {
+            BDConexion conecta = new BDConexion();
+            Connection con = conecta.getConexion();
+            PreparedStatement ps = null;
+            ps= con.prepareStatement("delete  from PRODUCTOS_PEDIDO  where ID_PRODUCTOS_PEDIDO ="+id_producto_pedido);
+            ps.executeUpdate();
+            con.close();
+            ps.close();
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null,"ERROr = "+ex);
+        }
+ }
+ 
+  private void eliminarOrden(){
+        try {
+            BDConexion conecta = new BDConexion();
+            Connection con = conecta.getConexion();
+            PreparedStatement ps = null;
+            ps= con.prepareStatement("delete from PEDIDOS where id_pedido="+id_pedido);
+            ps.executeUpdate();
+            con.close();
+            ps.close();
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null,"ERROr = "+ex);
+        }
+ }
+ 
+ 
+ 
  
  private void imprimir()
  {
@@ -375,7 +413,7 @@ private void PanelMismoColor(){
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(679, Short.MAX_VALUE))
+                .addContainerGap(709, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,7 +422,7 @@ private void PanelMismoColor(){
                 .addGap(0, 3, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 30));
 
         jPanel3.setBackground(new java.awt.Color(238, 238, 238));
         jPanel3.setMinimumSize(new java.awt.Dimension(180, 720));
@@ -750,7 +788,7 @@ private void PanelMismoColor(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Total, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                .addComponent(Total, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
@@ -766,7 +804,7 @@ private void PanelMismoColor(){
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelRound3.setBackground(new java.awt.Color(255, 255, 102));
@@ -862,29 +900,30 @@ private void PanelMismoColor(){
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
-                                .addComponent(panelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -895,7 +934,7 @@ private void PanelMismoColor(){
                 .addGap(32, 32, 32))
         );
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 360, 690));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 390, 690));
 
         PanelPrincipal.setBackground(new java.awt.Color(238, 238, 238));
         PanelPrincipal.setPreferredSize(new java.awt.Dimension(519, 690));
@@ -956,22 +995,22 @@ private void PanelMismoColor(){
         BotonSalir.setLayout(BotonSalirLayout);
         BotonSalirLayout.setHorizontalGroup(
             BotonSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonSalirLayout.createSequentialGroup()
-                .addComponent(TxtSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonSalirLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(TxtSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         BotonSalirLayout.setVerticalGroup(
             BotonSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TxtSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(TxtSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 40, -1));
+        jPanel1.add(BotonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 40, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 971, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -992,7 +1031,17 @@ private void PanelMismoColor(){
     }//GEN-LAST:event_TxtSalirMouseExited
 
     private void TxtSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtSalirMouseClicked
-      System.exit(0);
+      
+        
+      int resp=JOptionPane.showConfirmDialog(null,"DESEA CANCELAR LA ORDEN");
+          if (JOptionPane.OK_OPTION == resp){
+             eliminarOrden();
+           Entra F = new Entra();
+           F.setVisible(true);
+           this.dispose();
+          }
+        
+      
     }//GEN-LAST:event_TxtSalirMouseClicked
 
     private void BotonSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSalirMouseExited
@@ -1076,6 +1125,20 @@ private void PanelMismoColor(){
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PedidosMouseClicked
+     id_producto_pedido = (Integer.parseInt(String.valueOf(Pedidos.getModel().getValueAt(Pedidos.getSelectedRow(), 0))));
+     
+     if (evt.getClickCount() > 1) {
+     
+            int resp=JOptionPane.showConfirmDialog(null,"DESEA ELIMINAR EL PRODUCTO");
+            if (JOptionPane.OK_OPTION == resp){
+                eliminarproducto();
+            }
+     
+     
+     
+     
+     }
+     
      
     }//GEN-LAST:event_PedidosMouseClicked
 
@@ -1087,7 +1150,7 @@ private void PanelMismoColor(){
       
         if(para !=0){
         finalizar();
-      imprimir2();
+        imprimir2();
                   Entra F = new Entra();
                   F.setVisible(true);
                   this.dispose();

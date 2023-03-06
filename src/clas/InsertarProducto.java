@@ -12,6 +12,7 @@ public class InsertarProducto {
     
     private int id_pedido;
     private int id_producto;
+    private int id_producto_pedidos;
     private int cantidad;
     private int id_nota;
     private int id_adicional;
@@ -23,6 +24,14 @@ public class InsertarProducto {
     private String sin;
     private double precio;
 
+    public int getId_producto_pedidos() {
+        return id_producto_pedidos;
+    }
+
+    public void setId_producto_pedidos(int id_producto_pedidos) {
+        this.id_producto_pedidos = id_producto_pedidos;
+    }
+    
     public double getPrecio() {
         return precio;
     }
