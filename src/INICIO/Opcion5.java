@@ -4,6 +4,7 @@
  */
 package INICIO;
 
+import static INICIO.Principal.ListarProductosPedidos;
 import clas.BDConexion;
 import java.awt.Color;
 import java.sql.Connection;
@@ -1099,8 +1100,10 @@ public class Opcion5 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        
         if(Num.size()!=0){
             insertarAdicional();
+            ListarProductosPedidos();
         }else{JOptionPane.showMessageDialog(null, "SELECCIONAR OPCIONES PRINCIPALES...");}
     }//GEN-LAST:event_jLabel3MouseClicked
 

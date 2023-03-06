@@ -242,7 +242,7 @@ public class Opcion1 extends javax.swing.JPanel {
             insertarAdicional();
             insertarSin();
             Limpiar();
-            JOptionPane.showMessageDialog(null, "Producto Agregado");
+            //JOptionPane.showMessageDialog(null, "Producto Agregado");
             
         } catch (Exception e) {
         }

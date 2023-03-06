@@ -302,7 +302,7 @@ public class Opcion3 extends javax.swing.JPanel {
             insertarAdicional();
             insertarSin();
             Limpiar();
-            JOptionPane.showMessageDialog(null, "Producto Agregado");
+            //JOptionPane.showMessageDialog(null, "Producto Agregado");
             
         } catch (Exception e) {
         }
@@ -610,8 +610,9 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton1.setRoundTopLeft(20);
         Botton1.setRoundTopRight(20);
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("jLabel1");
+        jLabel2.setText("1 CARNE");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -622,9 +623,7 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton1.setLayout(Botton1Layout);
         Botton1Layout.setHorizontalGroup(
             Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton1Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         Botton1Layout.setVerticalGroup(
             Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -640,8 +639,9 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton37.setRoundTopLeft(20);
         Botton37.setRoundTopRight(20);
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("3 CARNES");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -669,10 +669,9 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton39.setRoundTopLeft(20);
         Botton39.setRoundTopRight(20);
 
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("jLabel15");
-        jLabel15.setMaximumSize(null);
-        jLabel15.setMinimumSize(null);
+        jLabel15.setText("5 CARNES");
         jLabel15.setPreferredSize(new java.awt.Dimension(85, 45));
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -702,8 +701,9 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton2.setRoundTopLeft(20);
         Botton2.setRoundTopRight(20);
 
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("jLabel2");
+        jLabel4.setText("2 CARNES");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -730,8 +730,9 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton38.setRoundTopLeft(20);
         Botton38.setRoundTopRight(20);
 
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("jLabel14");
+        jLabel14.setText("4 CARNES");
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel14MouseClicked(evt);
@@ -758,8 +759,9 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton40.setRoundTopLeft(20);
         Botton40.setRoundTopRight(20);
 
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("jLabel22");
+        jLabel22.setText("TODAS LAS CARNES");
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel22MouseClicked(evt);
@@ -770,9 +772,7 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton40.setLayout(Botton40Layout);
         Botton40Layout.setHorizontalGroup(
             Botton40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Botton40Layout.createSequentialGroup()
-                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         Botton40Layout.setVerticalGroup(
             Botton40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1696,7 +1696,7 @@ public class Opcion3 extends javax.swing.JPanel {
                         .addComponent(Botton46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(Botton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addComponent(Botton41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(Botton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2302,8 +2302,9 @@ public class Opcion3 extends javax.swing.JPanel {
         panelRound1.setRoundTopLeft(15);
         panelRound1.setRoundTopRight(15);
 
+        jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("jLabel24");
+        jLabel24.setText("AGREGAR");
         jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel24MouseClicked(evt);

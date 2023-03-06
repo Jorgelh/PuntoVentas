@@ -113,6 +113,14 @@ public class Opcion4 extends javax.swing.JPanel {
         Botton33.setBackground(Botrojo);
         Botton34.setBackground(Botrojo);
         Botton35.setBackground(Botrojo);
+        Botton36.setBackground(Botrojo);
+        Botton37.setBackground(Botrojo);
+        Botton38.setBackground(Botrojo);
+        Botton39.setBackground(Botrojo);
+        Botton40.setBackground(Botrojo);
+        Botton41.setBackground(Botrojo);
+        Botton42.setBackground(Botrojo);
+        Botton43.setBackground(Botrojo);
         marca15 = 0;   
         marca16 = 0;    
         marca17 = 0;  
@@ -190,7 +198,7 @@ public class Opcion4 extends javax.swing.JPanel {
             insertarAdicional();
             insertarSin();
             Limpiar();
-            JOptionPane.showMessageDialog(null, "Producto Agregado");
+            //JOptionPane.showMessageDialog(null, "Producto Agregado");
             
         } catch (Exception e) {
         }

@@ -98,6 +98,8 @@ public class Opcion2 extends javax.swing.JPanel {
          Queso.setText(texto7);
          String texto8 = "<html><center><body>TODAS LAS<br>CARNES</body></center></html>";
          todas.setText(texto8);
+         
+         
     }
     
     private void todosBotones() {
@@ -299,7 +301,7 @@ public class Opcion2 extends javax.swing.JPanel {
             insertarAdicional();
             insertarSin();
             Limpiar();
-            JOptionPane.showMessageDialog(null, "Producto Agregado");
+            //JOptionPane.showMessageDialog(null, "Producto Agregado");
             
         } catch (Exception e) {
         }
@@ -498,11 +500,11 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton37 = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
         Botton39 = new Clases.PanelRound();
-        jLabel15 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         Botton2 = new Clases.PanelRound();
         jLabel2 = new javax.swing.JLabel();
         Botton38 = new Clases.PanelRound();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         Botton40 = new Clases.PanelRound();
         jLabel22 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -608,8 +610,9 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton1.setRoundTopLeft(20);
         Botton1.setRoundTopRight(20);
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("1 CARNE");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -620,9 +623,7 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton1.setLayout(Botton1Layout);
         Botton1Layout.setHorizontalGroup(
             Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         Botton1Layout.setVerticalGroup(
             Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -638,8 +639,9 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton37.setRoundTopLeft(20);
         Botton37.setRoundTopRight(20);
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("3 CARNES");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -667,14 +669,13 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton39.setRoundTopLeft(20);
         Botton39.setRoundTopRight(20);
 
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("jLabel15");
-        jLabel15.setMaximumSize(null);
-        jLabel15.setMinimumSize(null);
-        jLabel15.setPreferredSize(new java.awt.Dimension(85, 45));
-        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("5 CARNES");
+        jLabel5.setPreferredSize(new java.awt.Dimension(85, 45));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel15MouseClicked(evt);
+                jLabel5MouseClicked(evt);
             }
         });
 
@@ -682,13 +683,13 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton39.setLayout(Botton39Layout);
         Botton39Layout.setHorizontalGroup(
             Botton39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         Botton39Layout.setVerticalGroup(
             Botton39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Botton39Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(Botton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
@@ -700,8 +701,9 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton2.setRoundTopLeft(20);
         Botton2.setRoundTopRight(20);
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("2 CARNES");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -728,11 +730,12 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton38.setRoundTopLeft(20);
         Botton38.setRoundTopRight(20);
 
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("jLabel14");
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("4 CARNES");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
+                jLabel4MouseClicked(evt);
             }
         });
 
@@ -740,11 +743,11 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton38.setLayout(Botton38Layout);
         Botton38Layout.setHorizontalGroup(
             Botton38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         Botton38Layout.setVerticalGroup(
             Botton38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
         jPanel1.add(Botton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
@@ -756,8 +759,9 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton40.setRoundTopLeft(20);
         Botton40.setRoundTopRight(20);
 
+        jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("jLabel22");
+        jLabel22.setText("TODAS LA CARNES");
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel22MouseClicked(evt);
@@ -768,9 +772,7 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton40.setLayout(Botton40Layout);
         Botton40Layout.setHorizontalGroup(
             Botton40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Botton40Layout.createSequentialGroup()
-                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
         );
         Botton40Layout.setVerticalGroup(
             Botton40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2276,8 +2278,9 @@ public class Opcion2 extends javax.swing.JPanel {
         panelRound1.setRoundTopLeft(15);
         panelRound1.setRoundTopRight(15);
 
+        jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("jLabel24");
+        jLabel24.setText("AGREGAR");
         jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel24MouseClicked(evt);
@@ -2844,21 +2847,21 @@ public class Opcion2 extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // Boton4
       
         todosBotones();
         Botton38.setBackground(Botverde);
         menu = 15;
-    }//GEN-LAST:event_jLabel14MouseClicked
+    }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // Booton5
          
         todosBotones();
         Botton39.setBackground(Botverde);
         menu = 16;
-    }//GEN-LAST:event_jLabel15MouseClicked
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
      // Boton6
@@ -3128,8 +3131,6 @@ public class Opcion2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -3147,6 +3148,8 @@ public class Opcion2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
