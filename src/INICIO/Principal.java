@@ -1132,6 +1132,8 @@ private void PanelMismoColor(){
             int resp=JOptionPane.showConfirmDialog(null,"DESEA ELIMINAR EL PRODUCTO");
             if (JOptionPane.OK_OPTION == resp){
                 eliminarproducto();
+                ListarProductosPedidos();
+                
             }
      
      
