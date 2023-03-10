@@ -362,7 +362,7 @@ public class ConsultaPedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowDeactivated
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        Entra C = new Entra();
+        EntraReportes C = new EntraReportes();
         C.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked

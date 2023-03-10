@@ -21,12 +21,12 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author jluis
  */
-public class ReporteVentas extends javax.swing.JFrame {
+public class ReporteVentasCarnes extends javax.swing.JFrame {
      String fecha;
     /**
      * Creates new form ReporteVentas
      */
-    public ReporteVentas() {
+    public ReporteVentasCarnes() {
         initComponents();
         this.setLocationRelativeTo(null);
 
@@ -37,9 +37,9 @@ public class ReporteVentas extends javax.swing.JFrame {
          BDConexion con= new BDConexion();
          Connection conexion= con.getConexion();
         try {
-            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\VentasDia.jasper");
+            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\GastodeCarnes.jasper");
             Map parametros= new HashMap();
-            parametros.put("FECHA1", fecha);
+            parametros.put("FECHA", fecha);
             JasperPrint print = JasperFillManager.fillReport(jasperReport,parametros, conexion);
             JasperViewer view = new JasperViewer(print,false);
             view.setVisible(true);
@@ -160,7 +160,7 @@ public class ReporteVentas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        Entra C = new Entra();
+        EntraReportes C = new EntraReportes();
         C.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
@@ -182,20 +182,21 @@ public class ReporteVentas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReporteVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReporteVentasCarnes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReporteVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReporteVentasCarnes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReporteVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReporteVentasCarnes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReporteVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReporteVentasCarnes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReporteVentas().setVisible(true);
+                new ReporteVentasCarnes().setVisible(true);
             }
         });
     }
