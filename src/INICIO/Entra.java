@@ -218,8 +218,6 @@ public class Entra extends javax.swing.JFrame {
                   CONTRASEÑA F = new CONTRASEÑA();
                   F.setVisible(true);
                   this.dispose();
-       
-        
     }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
