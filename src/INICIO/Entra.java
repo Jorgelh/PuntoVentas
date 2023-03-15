@@ -215,7 +215,7 @@ public class Entra extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         
-                  CONTRASEÑA F = new CONTRASEÑA();
+                  Contra F = new Contra();
                   F.setVisible(true);
                   this.dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
