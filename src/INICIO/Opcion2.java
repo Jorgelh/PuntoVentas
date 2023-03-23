@@ -109,15 +109,20 @@ public class Opcion2 extends javax.swing.JPanel {
          
     }
     
-    Timer timer = new Timer(10000, new ActionListener(){
+    Timer timer = new Timer(1000, new ActionListener(){
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null, "TERMINO DE PRESIONAR");
+                    
+                    Botton3.setBackground(Botverde);
+                    marca3 = 0;
+                    Cantidacarnes.add(15);
+                    JOptionPane.showMessageDialog(null, "MAS AGREGADOS");
+                    Stop();
                 }
             });
     
     
-    
+    private void Stop(){timer.stop();}
     
     private void todosBotones() {
           //[255,102,102]
@@ -544,6 +549,7 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton10 = new Clases.PanelRound();
         ahumado = new javax.swing.JLabel();
         Botton14 = new Clases.PanelRound();
+        Contar = new javax.swing.JLabel();
         Botton6 = new Clases.PanelRound();
         jLabel7 = new javax.swing.JLabel();
         Botton13 = new Clases.PanelRound();
@@ -612,6 +618,8 @@ public class Opcion2 extends javax.swing.JPanel {
         cantidad = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setBackground(new java.awt.Color(77, 77, 77));
         setPreferredSize(new java.awt.Dimension(495, 690));
@@ -676,7 +684,7 @@ public class Opcion2 extends javax.swing.JPanel {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, -1, -1));
+        jPanel1.add(Botton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, -1, -1));
 
         Botton39.setBackground(new java.awt.Color(255, 102, 102));
         Botton39.setMaximumSize(null);
@@ -709,7 +717,7 @@ public class Opcion2 extends javax.swing.JPanel {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(Botton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
+        jPanel1.add(Botton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
         Botton2.setBackground(new java.awt.Color(255, 102, 102));
         Botton2.setPreferredSize(new java.awt.Dimension(120, 45));
@@ -731,14 +739,17 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton2.setLayout(Botton2Layout);
         Botton2Layout.setHorizontalGroup(
             Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addGroup(Botton2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addContainerGap())
         );
         Botton2Layout.setVerticalGroup(
             Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, -1));
+        jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
 
         Botton38.setBackground(new java.awt.Color(255, 102, 102));
         Botton38.setPreferredSize(new java.awt.Dimension(120, 45));
@@ -798,9 +809,9 @@ public class Opcion2 extends javax.swing.JPanel {
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(Botton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
+        jPanel1.add(Botton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 480, 100));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 410, 100));
 
         jPanel5.setBackground(new java.awt.Color(77, 77, 77));
 
@@ -878,6 +889,9 @@ public class Opcion2 extends javax.swing.JPanel {
         Salchi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SalchiMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SalchiMousePressed(evt);
             }
         });
 
@@ -1111,15 +1125,24 @@ public class Opcion2 extends javax.swing.JPanel {
             }
         });
 
+        Contar.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
+        Contar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Contar.setText("TODAS LAS CARNES");
+        Contar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ContarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout Botton14Layout = new javax.swing.GroupLayout(Botton14);
         Botton14.setLayout(Botton14Layout);
         Botton14Layout.setHorizontalGroup(
             Botton14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(Contar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         Botton14Layout.setVerticalGroup(
             Botton14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
+            .addComponent(Contar, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         Botton6.setBackground(new java.awt.Color(255, 102, 102));
@@ -1219,7 +1242,7 @@ public class Opcion2 extends javax.swing.JPanel {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Botton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Botton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2350,6 +2373,10 @@ public class Opcion2 extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, -1, -1));
+
+        jScrollPane1.setViewportView(jList1);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 60, 110));
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalJumboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalJumboMouseClicked
@@ -2369,6 +2396,8 @@ public class Opcion2 extends javax.swing.JPanel {
     private void SalchiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalchiMouseClicked
         //Boton Salchicha
         carne1();
+        jList1.add(SAlchi);
+        timer.stop();
     }//GEN-LAST:event_SalchiMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
@@ -2425,14 +2454,14 @@ public class Opcion2 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton10MouseClicked
 
     private void Botton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton14MouseClicked
-    /*        timer.stop();
+        timer.stop();
         if(timer.isRunning()){
             System.out.println("El timer esta corriendo");   
         }else{System.out.println("El timer no esta corriendo");   }
         
         Prueba.add(3);
         
-        for(int i=0; i<Prueba.size(); i++){System.out.println(Prueba.get(i));}*/
+        for(int i=0; i<Prueba.size(); i++){System.out.println(Prueba.get(i));}
     }//GEN-LAST:event_Botton14MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -3095,6 +3124,18 @@ public class Opcion2 extends javax.swing.JPanel {
         }else{System.out.println("El timer no esta corriendo");   }
     }//GEN-LAST:event_Botton14MousePressed
 
+    private void ContarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContarMouseClicked
+       
+        
+        Contar.setText(String.valueOf(Cantidacarnes.size()));
+        
+        
+    }//GEN-LAST:event_ContarMouseClicked
+
+    private void SalchiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalchiMousePressed
+       timer.start();
+    }//GEN-LAST:event_SalchiMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Argentino;
@@ -3149,6 +3190,7 @@ public class Opcion2 extends javax.swing.JPanel {
     private javax.swing.JLabel ChoArgenti;
     private javax.swing.JLabel Chori;
     private javax.swing.JLabel ChoriBremen;
+    private javax.swing.JLabel Contar;
     private javax.swing.JLabel Extra10;
     private javax.swing.JLabel Extra11;
     private javax.swing.JLabel Extra14;
@@ -3192,10 +3234,12 @@ public class Opcion2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private Clases.PanelRound panelRound1;
     private javax.swing.JLabel todas;
     // End of variables declaration//GEN-END:variables
