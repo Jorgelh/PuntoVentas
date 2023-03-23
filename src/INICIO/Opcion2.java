@@ -9,16 +9,22 @@ import clas.BDConexion;
 import clas.BDProductos;
 import clas.InsertarProducto;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
  * @author Jorge Lopez
  */
 public class Opcion2 extends javax.swing.JPanel {
+    int descargacarne;
+    int descargacantidad;
     int entra = 2;
     int menu = 0;
     double precio;
@@ -66,6 +72,7 @@ public class Opcion2 extends javax.swing.JPanel {
     ArrayList<Integer> Num = new ArrayList<>();
     ArrayList<Integer> NumSin = new ArrayList<>(); 
     ArrayList<Integer> Cantidacarnes = new ArrayList<>();
+     ArrayList<Integer> Prueba = new ArrayList<>();
     Color Botrojo = new Color(255,102,102); 
     Color Botverde = new Color(102,255,102);
     /**
@@ -101,6 +108,16 @@ public class Opcion2 extends javax.swing.JPanel {
          
          
     }
+    
+    Timer timer = new Timer(10000, new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null, "TERMINO DE PRESIONAR");
+                }
+            });
+    
+    
+    
     
     private void todosBotones() {
           //[255,102,102]
@@ -962,6 +979,9 @@ public class Opcion2 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel10MouseEntered(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton9Layout = new javax.swing.GroupLayout(Botton9);
@@ -1085,6 +1105,9 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Botton14MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Botton14MousePressed(evt);
             }
         });
 
@@ -2402,7 +2425,14 @@ public class Opcion2 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton10MouseClicked
 
     private void Botton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton14MouseClicked
-        // TODO add your handling code here:
+        timer.stop();
+        if(timer.isRunning()){
+            System.out.println("El timer esta corriendo");   
+        }else{System.out.println("El timer no esta corriendo");   }
+        
+        Prueba.add(3);
+        
+        for(int i=0; i<Prueba.size(); i++){System.out.println(Prueba.get(i));}
     }//GEN-LAST:event_Botton14MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -2826,8 +2856,6 @@ public class Opcion2 extends javax.swing.JPanel {
        todosBotones();
        Botton1.setBackground(Botverde);
        menu = 12;
-       
-       
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -3055,6 +3083,17 @@ public class Opcion2 extends javax.swing.JPanel {
     private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel16MouseEntered
+
+    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseEntered
+
+    private void Botton14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton14MousePressed
+        timer.start();
+        if(timer.isRunning()){
+            System.out.println("El timer esta corriendo");   
+        }else{System.out.println("El timer no esta corriendo");   }
+    }//GEN-LAST:event_Botton14MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
