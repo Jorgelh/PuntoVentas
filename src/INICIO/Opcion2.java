@@ -2425,14 +2425,14 @@ public class Opcion2 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton10MouseClicked
 
     private void Botton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton14MouseClicked
-        timer.stop();
+    /*        timer.stop();
         if(timer.isRunning()){
             System.out.println("El timer esta corriendo");   
         }else{System.out.println("El timer no esta corriendo");   }
         
         Prueba.add(3);
         
-        for(int i=0; i<Prueba.size(); i++){System.out.println(Prueba.get(i));}
+        for(int i=0; i<Prueba.size(); i++){System.out.println(Prueba.get(i));}*/
     }//GEN-LAST:event_Botton14MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
