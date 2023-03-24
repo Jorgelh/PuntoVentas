@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -23,6 +25,9 @@ import javax.swing.Timer;
  * @author Jorge Lopez
  */
 public class Opcion2 extends javax.swing.JPanel {
+    
+    int cantidadcarnes;
+    String nombredecarnes;
     int descargacarne;
     int descargacantidad;
     int entra = 2;
@@ -72,7 +77,7 @@ public class Opcion2 extends javax.swing.JPanel {
     ArrayList<Integer> Num = new ArrayList<>();
     ArrayList<Integer> NumSin = new ArrayList<>(); 
     ArrayList<Integer> Cantidacarnes = new ArrayList<>();
-     ArrayList<Integer> Prueba = new ArrayList<>();
+    ArrayList<String> NombreCarnes = new ArrayList<>();
     Color Botrojo = new Color(255,102,102); 
     Color Botverde = new Color(102,255,102);
     /**
@@ -109,20 +114,39 @@ public class Opcion2 extends javax.swing.JPanel {
          
     }
     
-    Timer timer = new Timer(1000, new ActionListener(){
+    Timer timer = new Timer(2000, new ActionListener(){
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     
-                    Botton3.setBackground(Botverde);
-                    marca3 = 0;
-                    Cantidacarnes.add(15);
-                    JOptionPane.showMessageDialog(null, "MAS AGREGADOS");
+                    //Botton3.setBackground(Botverde);
+                    //marca3 = 0;
+                    Cantidacarnes.add(cantidadcarnes);
+                    NombreCarnes.add(nombredecarnes);
+                    JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
                     Stop();
+                    agregaralist();
                 }
             });
     
-    
     private void Stop(){timer.stop();}
+
+
+ private void agregaralist(){
+  DefaultListModel listModel = new DefaultListModel();
+//Recorrer el contenido del ArrayList
+    for(int i=0; i<NombreCarnes.size(); i++) {
+    //Añadir cada elemento del ArrayList en el modelo de la lista
+    listModel.add(i, NombreCarnes.get(i));
+}
+//Asociar el modelo de lista al JList
+jList1.setModel(listModel);
+
+jList1.clearSelection();
+
+ }
+
+
+  
     
     private void todosBotones() {
           //[255,102,102]
@@ -174,12 +198,15 @@ public class Opcion2 extends javax.swing.JPanel {
       if (marca3 == 1) {
             Botton3.setBackground(Botverde);
             marca3 = 0;
-            Cantidacarnes.add(15);
+            Cantidacarnes.add(15);cantidadcarnes = 15;
+            NombreCarnes.add("SALCHICHA");nombredecarnes ="SALCHICHA";
         } else {
             Botton3.setBackground(Botrojo);
             marca3 = 1;
             int remov = Cantidacarnes.indexOf(15);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("SALCHICHA");
+            NombreCarnes.remove(r);
           }
       
      }
@@ -187,12 +214,15 @@ public class Opcion2 extends javax.swing.JPanel {
       if (marca4 == 1) {
             Botton4.setBackground(Botverde);
             marca4 = 0;
-            Cantidacarnes.add(16);
+            Cantidacarnes.add(16);cantidadcarnes = 16;
+            NombreCarnes.add("BREMEN");nombredecarnes = "BREMEN";
         } else {
             Botton4.setBackground(Botrojo);
             marca4 = 1;
             int remov = Cantidacarnes.indexOf(16);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("BREMEN");
+            NombreCarnes.remove(r);
           }
      }
      
@@ -200,12 +230,15 @@ public class Opcion2 extends javax.swing.JPanel {
       if (marca5 == 1) {
             Botton5.setBackground(Botverde);
             marca5 = 0;
-            Cantidacarnes.add(17);
+            Cantidacarnes.add(17); cantidadcarnes = 17;
+            NombreCarnes.add("SALAMI"); nombredecarnes = "SALAMI";
         } else {
             Botton5.setBackground(Botrojo);
             marca5 = 1;
             int remov = Cantidacarnes.indexOf(17);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("SALAMI");
+            NombreCarnes.remove(r);
           }
       
      }
@@ -213,84 +246,105 @@ public class Opcion2 extends javax.swing.JPanel {
       if (marca6 == 1) {
             Botton6.setBackground(Botverde);
             marca6 = 0;
-            Cantidacarnes.add(18);
+            Cantidacarnes.add(18); cantidadcarnes = 18;
+            NombreCarnes.add("LONGANIZA"); nombredecarnes = "LONGANIZA";
         } else {
             Botton6.setBackground(Botrojo);
             marca6 = 1;
             int remov = Cantidacarnes.indexOf(18);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("LONGANIZA");
+            NombreCarnes.remove(r);
           }
      }
      private void carne5(){//Boton Salchicha Jumbo
       if (marca7 == 1) {
             Botton7.setBackground(Botverde);
             marca7 = 0;
-            Cantidacarnes.add(19);
+            Cantidacarnes.add(19); cantidadcarnes = 19;
+            NombreCarnes.add("JUMBO"); nombredecarnes ="JUMBO";
         } else {
             Botton7.setBackground(Botrojo);
             marca7 = 1;
             int remov = Cantidacarnes.indexOf(19);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("JUMBO");
+            NombreCarnes.remove(r);
           }
      }
      private void carne6(){ //ADOBADO
       if (marca8 == 1) {
             Botton8.setBackground(Botverde);
             marca8 = 0;
-            Cantidacarnes.add(20);
+            Cantidacarnes.add(20); cantidadcarnes = 20;
+            NombreCarnes.add("ADOBADO"); nombredecarnes = "ADOBADO";
         } else {
             Botton8.setBackground(Botrojo);
             marca8 = 1;
             int remov = Cantidacarnes.indexOf(20);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("ADOBADO");
+            NombreCarnes.remove(r);
           }
      }
      private void carne7(){ //RES
       if (marca9 == 1) {
             Botton9.setBackground(Botverde);
             marca9 = 0;
-            Cantidacarnes.add(21);
+            Cantidacarnes.add(21); cantidadcarnes = 21;
+            NombreCarnes.add("RES"); nombredecarnes = "RES";
         } else {
             Botton9.setBackground(Botrojo);
             marca9 = 1;
             int remov = Cantidacarnes.indexOf(21);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("RES");
+            NombreCarnes.remove(r);
           }
      }
      private void carne8(){ //CHORIZO AHUMADO
       if (marca10 == 1) {
             Botton10.setBackground(Botverde);
             marca10 = 0;
-            Cantidacarnes.add(22);
+            Cantidacarnes.add(22); cantidadcarnes = 22;
+            NombreCarnes.add("AHUMADO"); nombredecarnes = "AHUMADO";
         } else {
             Botton10.setBackground(Botrojo);
             marca10 = 1;
             int remov = Cantidacarnes.indexOf(22);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("AHUMADO");
+            NombreCarnes.remove(r);
           }
      }
      private void carne9(){//Chorizo Argentino
       if (marca11 == 1) {
             Botton11.setBackground(Botverde);
             marca11 = 0;
-            Cantidacarnes.add(23);
+            Cantidacarnes.add(23); cantidadcarnes = 23;
+            NombreCarnes.add("ARGENTINO"); nombredecarnes = "ARGENTINO";
         } else {
             Botton11.setBackground(Botrojo);
             marca11 = 1;
             int remov = Cantidacarnes.indexOf(23);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("ARGENTINO");
+            NombreCarnes.remove(r);
           }
      }
      private void carne10(){
       if (marca12 == 1) {
             Botton12.setBackground(Botverde);
             marca12 = 0;
-            Cantidacarnes.add(24);
+            Cantidacarnes.add(24);cantidadcarnes = 24;
+             NombreCarnes.add("TOCINO"); nombredecarnes = "TOCINO";
         } else {
             Botton12.setBackground(Botrojo);
             marca12 = 1;
             int remov = Cantidacarnes.indexOf(24);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("TOCINO");
+            NombreCarnes.remove(r);
           }
      }
      
@@ -390,6 +444,9 @@ public class Opcion2 extends javax.swing.JPanel {
         }
     }
        
+       
+       
+       
        private void Limpiar() {
         marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;
         Botton1.setBackground(Botrojo);
@@ -470,8 +527,12 @@ public class Opcion2 extends javax.swing.JPanel {
         Num.clear();
         NumSin.clear();
         Cantidacarnes.clear();
+        NombreCarnes.clear();
+        nombredecarnes="";
+        cantidadcarnes=0;
         cantidad.setText("1");
-        
+        DefaultListModel modelo = new DefaultListModel();
+        jList1.setModel(modelo);
     }
        
         private void limpiarSin(){
@@ -549,7 +610,7 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton10 = new Clases.PanelRound();
         ahumado = new javax.swing.JLabel();
         Botton14 = new Clases.PanelRound();
-        Contar = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         Botton6 = new Clases.PanelRound();
         jLabel7 = new javax.swing.JLabel();
         Botton13 = new Clases.PanelRound();
@@ -811,7 +872,7 @@ public class Opcion2 extends javax.swing.JPanel {
 
         jPanel1.add(Botton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 410, 100));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 400, 100));
 
         jPanel5.setBackground(new java.awt.Color(77, 77, 77));
 
@@ -828,6 +889,9 @@ public class Opcion2 extends javax.swing.JPanel {
         SalJumbo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SalJumboMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SalJumboMousePressed(evt);
             }
         });
 
@@ -862,6 +926,9 @@ public class Opcion2 extends javax.swing.JPanel {
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel13MousePressed(evt);
             }
         });
 
@@ -927,6 +994,9 @@ public class Opcion2 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel9MousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton8Layout = new javax.swing.GroupLayout(Botton8);
@@ -958,6 +1028,12 @@ public class Opcion2 extends javax.swing.JPanel {
         Chori.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ChoriMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ChoriMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ChoriMousePressed(evt);
             }
         });
 
@@ -996,6 +1072,9 @@ public class Opcion2 extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel10MouseEntered(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel10MousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton9Layout = new javax.swing.GroupLayout(Botton9);
@@ -1027,6 +1106,9 @@ public class Opcion2 extends javax.swing.JPanel {
         Argentino.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ArgentinoMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ArgentinoMousePressed(evt);
             }
         });
 
@@ -1062,6 +1144,9 @@ public class Opcion2 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton5Layout = new javax.swing.GroupLayout(Botton5);
@@ -1094,6 +1179,9 @@ public class Opcion2 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ahumadoMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ahumadoMousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton10Layout = new javax.swing.GroupLayout(Botton10);
@@ -1125,12 +1213,12 @@ public class Opcion2 extends javax.swing.JPanel {
             }
         });
 
-        Contar.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
-        Contar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Contar.setText("TODAS LAS CARNES");
-        Contar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("CANCELAR");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ContarMouseClicked(evt);
+                jLabel8MouseClicked(evt);
             }
         });
 
@@ -1138,11 +1226,11 @@ public class Opcion2 extends javax.swing.JPanel {
         Botton14.setLayout(Botton14Layout);
         Botton14Layout.setHorizontalGroup(
             Botton14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Contar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Botton14Layout.setVerticalGroup(
             Botton14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Contar, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         Botton6.setBackground(new java.awt.Color(255, 102, 102));
@@ -1163,6 +1251,9 @@ public class Opcion2 extends javax.swing.JPanel {
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel7MousePressed(evt);
             }
         });
 
@@ -2374,19 +2465,27 @@ public class Opcion2 extends javax.swing.JPanel {
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, -1, -1));
 
+        jList1.setBackground(new java.awt.Color(77, 77, 77));
+        jList1.setBorder(null);
+        jList1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jList1.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jList1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 60, 110));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 70, 100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalJumboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalJumboMouseClicked
        //Boton Salchicha Jumbo
        carne5();
+       timer.stop();
+       agregaralist();
     }//GEN-LAST:event_SalJumboMouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         //Boton Tosino
         carne10();
+        timer.stop();
+        agregaralist();
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void Botton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton12MouseClicked
@@ -2396,13 +2495,15 @@ public class Opcion2 extends javax.swing.JPanel {
     private void SalchiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalchiMouseClicked
         //Boton Salchicha
         carne1();
-        jList1.add(SAlchi);
         timer.stop();
+        agregaralist();
     }//GEN-LAST:event_SalchiMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
     //Boton Adobado        
        carne6();
+       timer.stop();
+       agregaralist();
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void Botton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton8MouseClicked
@@ -2411,6 +2512,8 @@ public class Opcion2 extends javax.swing.JPanel {
 
     private void ChoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriMouseClicked
      carne2();
+     timer.stop();
+     agregaralist();
     }//GEN-LAST:event_ChoriMouseClicked
 
     private void Botton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton4MouseClicked
@@ -2420,6 +2523,8 @@ public class Opcion2 extends javax.swing.JPanel {
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
          //Boton Res
         carne7();
+        timer.stop();
+        agregaralist();
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void Botton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton9MouseClicked
@@ -2429,6 +2534,8 @@ public class Opcion2 extends javax.swing.JPanel {
     private void ArgentinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArgentinoMouseClicked
      //Boton Chorizo Argentino        
        carne9();
+       timer.stop();
+       agregaralist();
     }//GEN-LAST:event_ArgentinoMouseClicked
 
     private void Botton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton11MouseClicked
@@ -2436,7 +2543,9 @@ public class Opcion2 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton11MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-   carne3();
+       carne3();
+       timer.stop();
+       agregaralist();
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void Botton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton5MouseClicked
@@ -2447,6 +2556,8 @@ public class Opcion2 extends javax.swing.JPanel {
          //Boton Chorizo Ahumado
 
        carne8();
+       timer.stop();
+       agregaralist();
     }//GEN-LAST:event_ahumadoMouseClicked
 
     private void Botton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton10MouseClicked
@@ -2454,18 +2565,20 @@ public class Opcion2 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton10MouseClicked
 
     private void Botton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton14MouseClicked
-        timer.stop();
+       /* timer.stop();
         if(timer.isRunning()){
             System.out.println("El timer esta corriendo");   
         }else{System.out.println("El timer no esta corriendo");   }
         
-        Prueba.add(3);
+        Prueba.add(3);*/
         
-        for(int i=0; i<Prueba.size(); i++){System.out.println(Prueba.get(i));}
+        for(int i=0; i<Cantidacarnes.size(); i++){System.out.println(Cantidacarnes.get(i));}
     }//GEN-LAST:event_Botton14MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         carne4();
+        timer.stop();
+        agregaralist();
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void Botton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton6MouseClicked
@@ -3088,7 +3201,7 @@ public class Opcion2 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton46MouseClicked
 
     private void Botton47MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton47MouseClicked
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_Botton47MouseClicked
 
     private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
@@ -3118,23 +3231,61 @@ public class Opcion2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel10MouseEntered
 
     private void Botton14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton14MousePressed
-        timer.start();
+       /* timer.start();
         if(timer.isRunning()){
             System.out.println("El timer esta corriendo");   
-        }else{System.out.println("El timer no esta corriendo");   }
+        }else{System.out.println("El timer no esta corriendo");   }*/
     }//GEN-LAST:event_Botton14MousePressed
-
-    private void ContarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContarMouseClicked
-       
-        
-        Contar.setText(String.valueOf(Cantidacarnes.size()));
-        
-        
-    }//GEN-LAST:event_ContarMouseClicked
 
     private void SalchiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalchiMousePressed
        timer.start();
     }//GEN-LAST:event_SalchiMousePressed
+
+    private void ChoriMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChoriMouseEntered
+
+    private void ChoriMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriMousePressed
+        timer.start();
+    }//GEN-LAST:event_ChoriMousePressed
+
+    private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
+        timer.start();
+    }//GEN-LAST:event_jLabel6MousePressed
+
+    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
+        timer.start();
+    }//GEN-LAST:event_jLabel7MousePressed
+
+    private void SalJumboMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalJumboMousePressed
+        timer.start();
+    }//GEN-LAST:event_SalJumboMousePressed
+
+    private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
+        timer.start();
+    }//GEN-LAST:event_jLabel9MousePressed
+
+    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
+        timer.start();
+    }//GEN-LAST:event_jLabel10MousePressed
+
+    private void ahumadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ahumadoMousePressed
+       timer.start();
+    }//GEN-LAST:event_ahumadoMousePressed
+
+    private void ArgentinoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArgentinoMousePressed
+        timer.start();
+    }//GEN-LAST:event_ArgentinoMousePressed
+
+    private void jLabel13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MousePressed
+        timer.start();
+    }//GEN-LAST:event_jLabel13MousePressed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+       
+        
+        
+    }//GEN-LAST:event_jLabel8MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3190,7 +3341,6 @@ public class Opcion2 extends javax.swing.JPanel {
     private javax.swing.JLabel ChoArgenti;
     private javax.swing.JLabel Chori;
     private javax.swing.JLabel ChoriBremen;
-    private javax.swing.JLabel Contar;
     private javax.swing.JLabel Extra10;
     private javax.swing.JLabel Extra11;
     private javax.swing.JLabel Extra14;
@@ -3233,6 +3383,7 @@ public class Opcion2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
