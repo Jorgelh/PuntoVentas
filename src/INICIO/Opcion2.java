@@ -14,9 +14,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -32,7 +30,6 @@ public class Opcion2 extends javax.swing.JPanel {
     int descargacantidad;
     int entra = 2;
     int menu = 0;
-    double precio;
     int marca3 = 1;
     int marca4 = 1; 
     int marca5 = 1;
@@ -3283,6 +3280,10 @@ jList1.clearSelection();
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
        
+        Cantidacarnes.clear();
+        NombreCarnes.clear();
+        nombredecarnes="";
+        cantidadcarnes=0;
         
         
     }//GEN-LAST:event_jLabel8MouseClicked
