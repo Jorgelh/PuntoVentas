@@ -111,7 +111,7 @@ public class Opcion2 extends javax.swing.JPanel {
          
     }
     
-    Timer timer = new Timer(2000, new ActionListener(){
+    Timer timer = new Timer(1700, new ActionListener(){
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     
@@ -122,6 +122,18 @@ public class Opcion2 extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
                     Stop();
                     agregaralist();
+                }
+            });
+    
+    
+    
+    Timer timerBoton = new Timer(500, new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    
+                    Botton14.setBackground(Botrojo);
+                   
+                    
                 }
             });
     
@@ -3279,12 +3291,26 @@ jList1.clearSelection();
     }//GEN-LAST:event_jLabel13MousePressed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-       
+       Botton14.setBackground(Botverde);
+       timerBoton.setRepeats(false);
         Cantidacarnes.clear();
         NombreCarnes.clear();
         nombredecarnes="";
         cantidadcarnes=0;
-        
+        marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;
+        Botton3.setBackground(Botrojo);
+        Botton4.setBackground(Botrojo);
+        Botton5.setBackground(Botrojo);
+        Botton6.setBackground(Botrojo);
+        Botton7.setBackground(Botrojo);
+        Botton8.setBackground(Botrojo);
+        Botton9.setBackground(Botrojo);
+        Botton10.setBackground(Botrojo);
+        Botton11.setBackground(Botrojo);
+        Botton12.setBackground(Botrojo);
+        Botton13.setBackground(Botrojo);
+        DefaultListModel modelo = new DefaultListModel();
+        jList1.setModel(modelo);
         
     }//GEN-LAST:event_jLabel8MouseClicked
 

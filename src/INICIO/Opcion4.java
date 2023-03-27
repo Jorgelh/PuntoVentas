@@ -152,6 +152,7 @@ public class Opcion4 extends javax.swing.JPanel {
         Num.clear();
         NumSin.clear();
         cantidad.setText("1");
+         entra=2;
     }
     private void limpiarSin(){
         Botton30.setBackground(Botrojo);
@@ -2053,11 +2054,11 @@ public class Opcion4 extends javax.swing.JPanel {
             if (sin8 == 0) {
                 Botton42.setBackground(Botverde);
                 sin8 = 1;
-                NumSin.add(25);
+                NumSin.add(8);
             } else {
                 Botton42.setBackground(Botrojo);
                 sin8 = 0;
-                int remov = NumSin.indexOf(25);
+                int remov = NumSin.indexOf(8);
                 NumSin.remove(remov);
 
             }}

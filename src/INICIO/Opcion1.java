@@ -194,6 +194,15 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton33.setBackground(Botrojo);
         Botton34.setBackground(Botrojo);
         Botton35.setBackground(Botrojo);
+        Botton38.setBackground(Botrojo);
+        Botton36.setBackground(Botrojo);
+        Botton37.setBackground(Botrojo);
+        Botton38.setBackground(Botrojo);
+        Botton39.setBackground(Botrojo);
+        Botton40.setBackground(Botrojo);
+        Botton41.setBackground(Botrojo);
+        Botton42.setBackground(Botrojo);
+        Botton43.setBackground(Botrojo);
         marca15 = 0;   
         marca16 = 0;    
         marca17 = 0;  
@@ -225,6 +234,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Num.clear();
         NumSin.clear();
         cantidad.setText("1");
+         entra=2;
     }
     
     private void InsertarProductoPedido() {
@@ -2647,7 +2657,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         
-         if(entra == 2){limpiarSin();NumSin.clear();}
+        if(entra == 2){limpiarSin();NumSin.clear();}
         
         if (sin1 == 0) {
             Botton30.setBackground(Botverde);
@@ -2668,7 +2678,7 @@ public class Opcion1 extends javax.swing.JPanel {
             Botton33.setEnabled(false);
             Botton34.setEnabled(false);
             Botton35.setEnabled(false);*/
-        }
+       }
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
@@ -2854,11 +2864,11 @@ public class Opcion1 extends javax.swing.JPanel {
             if (sin8 == 0) {
                 Botton42.setBackground(Botverde);
                 sin8 = 1;
-                NumSin.add(25);
+                NumSin.add(8);
             } else {
                 Botton42.setBackground(Botrojo);
                 sin8 = 0;
-                int remov = NumSin.indexOf(25);
+                int remov = NumSin.indexOf(8);
                 NumSin.remove(remov);
 
             }}
@@ -2873,11 +2883,11 @@ public class Opcion1 extends javax.swing.JPanel {
             if (sin7 == 0) {
                 Botton43.setBackground(Botverde);
                 sin7 = 1;
-                NumSin.add(14);
+                NumSin.add(27);
             } else {
                 Botton43.setBackground(Botrojo);
                 sin7 = 0;
-                int remov = NumSin.indexOf(14);
+                int remov = NumSin.indexOf(27);
                 NumSin.remove(remov);
             }}
     }//GEN-LAST:event_jLabel29MouseClicked

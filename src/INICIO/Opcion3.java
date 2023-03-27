@@ -47,6 +47,7 @@ public class Opcion3 extends javax.swing.JPanel {
     int sin11 = 0;
     int sin12 = 0;
     int sin13 = 0;
+    int sin14 = 0;
     int marca15 = 0;   
     int marca16 = 0;    
     int marca17 = 0;  
@@ -450,6 +451,7 @@ public class Opcion3 extends javax.swing.JPanel {
         NumSin.clear();
         Cantidacarnes.clear();
         cantidad.setText("1");
+         entra=2;
     }
        
         private void limpiarSin(){
@@ -557,6 +559,7 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton46 = new Clases.PanelRound();
         jLabel30 = new javax.swing.JLabel();
         Botton47 = new Clases.PanelRound();
+        jLabel32 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Botton15 = new Clases.PanelRound();
         SalPequeña = new javax.swing.JLabel();
@@ -765,6 +768,9 @@ public class Opcion3 extends javax.swing.JPanel {
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel22MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel22MouseEntered(evt);
             }
         });
 
@@ -1660,15 +1666,24 @@ public class Opcion3 extends javax.swing.JPanel {
             }
         });
 
+        jLabel32.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel32.setText("SIN QUESO");
+        jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel32MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout Botton47Layout = new javax.swing.GroupLayout(Botton47);
         Botton47.setLayout(Botton47Layout);
         Botton47Layout.setHorizontalGroup(
             Botton47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton47Layout.setVerticalGroup(
             Botton47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -3053,6 +3068,24 @@ public class Opcion3 extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jLabel24MouseClicked
 
+    private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
+        if(entra ==2){
+            if (sin14 == 0) {
+                Botton47.setBackground(Botverde);
+                sin14 = 1;
+                NumSin.add(26);
+            } else {
+                Botton47.setBackground(Botrojo);
+                sin14 = 0;
+                int remov = NumSin.indexOf(26);
+                NumSin.remove(remov);
+            }}
+    }//GEN-LAST:event_jLabel32MouseClicked
+
+    private void jLabel22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22MouseEntered
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Argentino;
@@ -3147,6 +3180,7 @@ public class Opcion3 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
