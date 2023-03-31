@@ -9,17 +9,21 @@ import clas.BDConexion;
 import clas.BDProductos;
 import clas.InsertarProducto;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
- *
  * @author Jorge Lopez
  */
 public class Opcion3 extends javax.swing.JPanel {
-    
+    int cantidadcarnes;
+    String nombredecarnes;
     int entra = 2;
     int menu = 0;
     double precio;
@@ -68,6 +72,7 @@ public class Opcion3 extends javax.swing.JPanel {
     ArrayList<Integer> Num = new ArrayList<>();
     ArrayList<Integer> NumSin = new ArrayList<>(); 
     ArrayList<Integer> Cantidacarnes = new ArrayList<>();
+    ArrayList<String> NombreCarnes = new ArrayList<>();
     Color Botrojo = new Color(255,102,102); 
     Color Botverde = new Color(102,255,102);
     
@@ -79,7 +84,7 @@ public class Opcion3 extends javax.swing.JPanel {
         initComponents();
     this.id_pedido = a;
         
-         String texto = "<html><center><body>SALCHICA<br>PEQUEÑA</body></center></html>";
+         String texto = "<html><center><body>SALCHICHA<br>PEQUEÑA</body></center></html>";
         SalPequeña.setText(texto);
         Salchi.setText(texto);
         String texto1 = "<html><center><body>CHORIZO<br>BREMEN</body></center></html>";
@@ -104,9 +109,44 @@ public class Opcion3 extends javax.swing.JPanel {
          todas.setText(texto8);
     }
     
+   /*Timer timer = new Timer(1500, new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    
+                    //Botton3.setBackground(Botverde);
+                    //marca3 = 0;
+                    
+                }
+            });*/
+    
+   
+    
+    
+    Timer timerBoton = new Timer(400, new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("LLEGA");
+                    Botton14.setBackground(Botrojo);
+                }
+            });
+    
+    
+    private void agregaralist(){
+  DefaultListModel listModel = new DefaultListModel();
+//Recorrer el contenido del ArrayList
+    for(int i=0; i<NombreCarnes.size(); i++) {
+    //Añadir cada elemento del ArrayList en el modelo de la lista
+    listModel.add(i, NombreCarnes.get(i));
+}
+//Asociar el modelo de lista al JList
+jList1.setModel(listModel);
+
+jList1.clearSelection();
+
+ }
+    
     private void todosBotones() {
           //[255,102,102]
-          
         Botton1.setBackground(Botrojo);
         Botton2.setBackground(Botrojo);
         Botton37.setBackground(Botrojo);
@@ -125,7 +165,24 @@ public class Opcion3 extends javax.swing.JPanel {
             Cantidacarnes.remove(remov);}
           }    
            
-        System.out.println("MENU = "+menu+" ARRAy ="+Cantidacarnes.size());
+      //  System.out.println("MENU = "+menu+" ARRAy ="+Cantidacarnes.size());
+    }
+    
+    public void cancelarcarnes(){
+    
+     marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1;
+        Botton3.setBackground(Botrojo);
+        Botton4.setBackground(Botrojo);
+        Botton5.setBackground(Botrojo);
+        Botton6.setBackground(Botrojo);
+        Botton7.setBackground(Botrojo);
+        Botton8.setBackground(Botrojo);
+        Botton9.setBackground(Botrojo);
+        Botton10.setBackground(Botrojo);
+        Botton11.setBackground(Botrojo);
+        Botton12.setBackground(Botrojo);
+        DefaultListModel modelo = new DefaultListModel();
+        jList1.setModel(modelo);
     }
     
    
@@ -153,52 +210,64 @@ public class Opcion3 extends javax.swing.JPanel {
      private void carne1(){ //Boton Salchicha
       if (marca3 == 1) {
             Botton3.setBackground(Botverde);
-            marca3 = 0;
+            marca3 = 0;NombreCarnes.add("SALCHICHA");
             Cantidacarnes.add(15);
+            
         } else {
             Botton3.setBackground(Botrojo);
             marca3 = 1;
             int remov = Cantidacarnes.indexOf(15);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("SALCHICHA");
+            NombreCarnes.remove(r);
           }
       
      }
      private void carne2(){//Boton Chorizo bremen     
       if (marca4 == 1) {
             Botton4.setBackground(Botverde);
-            marca4 = 0;
+            marca4 = 0;NombreCarnes.add("BREMEN");
             Cantidacarnes.add(16);
+            
         } else {
             Botton4.setBackground(Botrojo);
             marca4 = 1;
             int remov = Cantidacarnes.indexOf(16);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("BREMEN");
+            NombreCarnes.remove(r);
           }
      }
      
      private void carne3(){ // Boton Salami   
       if (marca5 == 1) {
             Botton5.setBackground(Botverde);
-            marca5 = 0;
+            marca5 = 0;  NombreCarnes.add("SALAMI");
             Cantidacarnes.add(17);
+            
         } else {
             Botton5.setBackground(Botrojo);
             marca5 = 1;
             int remov = Cantidacarnes.indexOf(17);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("SALAMI");
+            NombreCarnes.remove(r);
           }
       
      }
      private void carne4(){ //Boton Longaniza
       if (marca6 == 1) {
             Botton6.setBackground(Botverde);
-            marca6 = 0;
-            Cantidacarnes.add(18);
+            marca6 = 0;NombreCarnes.add("LONGANIZA"); 
+            Cantidacarnes.add(18); 
+            
         } else {
             Botton6.setBackground(Botrojo);
             marca6 = 1;
             int remov = Cantidacarnes.indexOf(18);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("LONGANIZA");
+            NombreCarnes.remove(r);
           }
      }
      private void carne5(){//Boton Salchicha Jumbo
@@ -206,23 +275,29 @@ public class Opcion3 extends javax.swing.JPanel {
             Botton7.setBackground(Botverde);
             marca7 = 0;
             Cantidacarnes.add(19);
+             NombreCarnes.add("JUMBO"); 
         } else {
             Botton7.setBackground(Botrojo);
             marca7 = 1;
             int remov = Cantidacarnes.indexOf(19);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("JUMBO");
+            NombreCarnes.remove(r);
           }
      }
      private void carne6(){ //ADOBADO
       if (marca8 == 1) {
             Botton8.setBackground(Botverde);
             marca8 = 0;
-            Cantidacarnes.add(20);
+            Cantidacarnes.add(20); 
+            NombreCarnes.add("ADOBADO"); 
         } else {
             Botton8.setBackground(Botrojo);
             marca8 = 1;
             int remov = Cantidacarnes.indexOf(20);
             Cantidacarnes.remove(remov);
+            /*int r = NombreCarnes.indexOf("ADOBADO");
+            NombreCarnes.remove(r);*/
           }
      }
      private void carne7(){ //RES
@@ -230,11 +305,14 @@ public class Opcion3 extends javax.swing.JPanel {
             Botton9.setBackground(Botverde);
             marca9 = 0;
             Cantidacarnes.add(21);
+            NombreCarnes.add("RES"); 
         } else {
             Botton9.setBackground(Botrojo);
             marca9 = 1;
             int remov = Cantidacarnes.indexOf(21);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("RES");
+            NombreCarnes.remove(r);
           }
      }
      private void carne8(){ //CHORIZO AHUMADO
@@ -242,23 +320,29 @@ public class Opcion3 extends javax.swing.JPanel {
             Botton10.setBackground(Botverde);
             marca10 = 0;
             Cantidacarnes.add(22);
+            NombreCarnes.add("AHUMADO");
         } else {
             Botton10.setBackground(Botrojo);
             marca10 = 1;
             int remov = Cantidacarnes.indexOf(22);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("AHUMADO");
+            NombreCarnes.remove(r);
           }
      }
      private void carne9(){//Chorizo Argentino
       if (marca11 == 1) {
             Botton11.setBackground(Botverde);
             marca11 = 0;
-            Cantidacarnes.add(23);
+            Cantidacarnes.add(23); 
+            NombreCarnes.add("ARGENTINO"); 
         } else {
             Botton11.setBackground(Botrojo);
             marca11 = 1;
             int remov = Cantidacarnes.indexOf(23);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("ARGENTINO");
+            NombreCarnes.remove(r);
           }
      }
      private void carne10(){
@@ -266,11 +350,14 @@ public class Opcion3 extends javax.swing.JPanel {
             Botton12.setBackground(Botverde);
             marca12 = 0;
             Cantidacarnes.add(24);
+            NombreCarnes.add("TOCINO");
         } else {
             Botton12.setBackground(Botrojo);
             marca12 = 1;
             int remov = Cantidacarnes.indexOf(24);
             Cantidacarnes.remove(remov);
+            int r = NombreCarnes.indexOf("TOCINO");
+            NombreCarnes.remove(r);
           }
      }
      
@@ -296,10 +383,10 @@ public class Opcion3 extends javax.swing.JPanel {
             p1.setId_producto(menu);
             p1.setCantidad( Integer.parseInt( cantidad.getText()));
             p1.setPrecio(precio);
-            BDProductos.InsertarProducto_Pedido_tortilla(p1);
+            BDProductos.InsertarProducto_Pedido_tortilla_harina(p1);
             id_producto_pedido = p1.getIdregreso();
             
-            if(menu != 23){inserCarnes();}
+            if(menu != 23){inserCarnes();}else{descargatodascarnes();}
             insertarAdicional();
             insertarSin();
             Limpiar();
@@ -316,15 +403,19 @@ public class Opcion3 extends javax.swing.JPanel {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
+        PreparedStatement sm = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
+        sm = con.prepareStatement("{call Opcion_adicional("+Integer.parseInt(cantidad.getText())+","+Num.get(i)+")}");
         smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio) values(?,?,?,?,2,(select ("+cantidad.getText()+"*precio) as precio from PRODUCTOS where id_producto = "+Num.get(i)+"))");
         smtp.setInt(1,id_pedido);
         smtp.setInt(2,Num.get(i));
         smtp.setInt(3, id_producto_pedido);
         smtp.setInt(4, Integer.parseInt(cantidad.getText()));
         smtp.executeUpdate();
+        sm.executeUpdate();
         con.close();
-        smtp.close();    
+        smtp.close();
+        sm.close();  
      } catch (Exception e) {
          
             JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
@@ -346,7 +437,7 @@ public class Opcion3 extends javax.swing.JPanel {
         smtp.close();    
      } catch (Exception e) {
          
-            JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
+            JOptionPane.showMessageDialog(null,"QUE PASO INSER DE NOTA: "+ e);}
     }
 }
        
@@ -357,18 +448,38 @@ public class Opcion3 extends javax.swing.JPanel {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
+        PreparedStatement sm = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
+        sm = con.prepareStatement("{call Opcion3_carnes("+Integer.parseInt(cantidad.getText())+","+Cantidacarnes.get(i)+","+menu+")}");
         smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id) values(?,?)");
         smtp.setInt(1, id_producto_pedido);
         smtp.setInt(2,Cantidacarnes.get(i));
         smtp.executeUpdate();
+        sm.executeUpdate();
         con.close();
-        smtp.close();    
+        smtp.close(); 
+        sm.close();  
      } catch (Exception e) {
          
             JOptionPane.showMessageDialog(null,"QUE PASO CARNES: "+ e);}
         }
     }
+       
+       
+          private void descargatodascarnes(){
+           try {
+               
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement sm = null;  
+        sm = con.prepareStatement("{call Opcion3_carnes("+Integer.parseInt(cantidad.getText())+","+'0'+","+menu+")}");
+        sm.executeUpdate();
+        con.close();
+        sm.close();  
+           } catch (Exception e) {
+           }
+       }
+       
        
        private void Limpiar() {
         marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;
@@ -450,8 +561,13 @@ public class Opcion3 extends javax.swing.JPanel {
         Num.clear();
         NumSin.clear();
         Cantidacarnes.clear();
+        NombreCarnes.clear();
+        nombredecarnes="";
+        cantidadcarnes=0;
         cantidad.setText("1");
          entra=2;
+        DefaultListModel modelo = new DefaultListModel();
+        jList1.setModel(modelo);
     }
        
         private void limpiarSin(){
@@ -507,6 +623,8 @@ public class Opcion3 extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         Botton40 = new Clases.PanelRound();
         jLabel22 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jPanel5 = new javax.swing.JPanel();
         Botton7 = new Clases.PanelRound();
         SalJumbo = new javax.swing.JLabel();
@@ -527,6 +645,7 @@ public class Opcion3 extends javax.swing.JPanel {
         Botton10 = new Clases.PanelRound();
         ahumado = new javax.swing.JLabel();
         Botton14 = new Clases.PanelRound();
+        jLabel5 = new javax.swing.JLabel();
         Botton6 = new Clases.PanelRound();
         jLabel7 = new javax.swing.JLabel();
         Botton13 = new Clases.PanelRound();
@@ -633,7 +752,7 @@ public class Opcion3 extends javax.swing.JPanel {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 120, -1));
+        jPanel1.add(Botton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, -1));
 
         Botton37.setBackground(new java.awt.Color(255, 102, 102));
         Botton37.setPreferredSize(new java.awt.Dimension(120, 45));
@@ -662,7 +781,7 @@ public class Opcion3 extends javax.swing.JPanel {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
+        jPanel1.add(Botton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         Botton39.setBackground(new java.awt.Color(255, 102, 102));
         Botton39.setMaximumSize(null);
@@ -695,7 +814,7 @@ public class Opcion3 extends javax.swing.JPanel {
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(Botton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
+        jPanel1.add(Botton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
 
         Botton2.setBackground(new java.awt.Color(255, 102, 102));
         Botton2.setPreferredSize(new java.awt.Dimension(120, 45));
@@ -724,7 +843,7 @@ public class Opcion3 extends javax.swing.JPanel {
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+        jPanel1.add(Botton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         Botton38.setBackground(new java.awt.Color(255, 102, 102));
         Botton38.setPreferredSize(new java.awt.Dimension(120, 45));
@@ -753,7 +872,7 @@ public class Opcion3 extends javax.swing.JPanel {
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jPanel1.add(Botton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jPanel1.add(Botton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         Botton40.setBackground(new java.awt.Color(255, 102, 102));
         Botton40.setPreferredSize(new java.awt.Dimension(120, 45));
@@ -787,9 +906,16 @@ public class Opcion3 extends javax.swing.JPanel {
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(Botton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
+        jPanel1.add(Botton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, 480, 110));
+        jList1.setBackground(new java.awt.Color(140, 220, 218));
+        jList1.setBorder(null);
+        jList1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 70, 100));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 24, 500, 110));
 
         jPanel5.setBackground(new java.awt.Color(140, 220, 218));
 
@@ -806,6 +932,9 @@ public class Opcion3 extends javax.swing.JPanel {
         SalJumbo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SalJumboMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SalJumboMousePressed(evt);
             }
         });
 
@@ -841,6 +970,9 @@ public class Opcion3 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel13MousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton12Layout = new javax.swing.GroupLayout(Botton12);
@@ -867,6 +999,9 @@ public class Opcion3 extends javax.swing.JPanel {
         Salchi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SalchiMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SalchiMousePressed(evt);
             }
         });
 
@@ -902,6 +1037,9 @@ public class Opcion3 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel9MousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton8Layout = new javax.swing.GroupLayout(Botton8);
@@ -933,6 +1071,9 @@ public class Opcion3 extends javax.swing.JPanel {
         Chori.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ChoriMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ChoriMousePressed(evt);
             }
         });
 
@@ -968,6 +1109,9 @@ public class Opcion3 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel10MousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton9Layout = new javax.swing.GroupLayout(Botton9);
@@ -999,6 +1143,9 @@ public class Opcion3 extends javax.swing.JPanel {
         Argentino.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ArgentinoMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ArgentinoMousePressed(evt);
             }
         });
 
@@ -1034,6 +1181,9 @@ public class Opcion3 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton5Layout = new javax.swing.GroupLayout(Botton5);
@@ -1066,6 +1216,9 @@ public class Opcion3 extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ahumadoMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ahumadoMousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout Botton10Layout = new javax.swing.GroupLayout(Botton10);
@@ -1094,15 +1247,24 @@ public class Opcion3 extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("BORRAR");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout Botton14Layout = new javax.swing.GroupLayout(Botton14);
         Botton14.setLayout(Botton14Layout);
         Botton14Layout.setHorizontalGroup(
             Botton14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Botton14Layout.setVerticalGroup(
             Botton14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
         Botton6.setBackground(new java.awt.Color(255, 102, 102));
@@ -1123,6 +1285,9 @@ public class Opcion3 extends javax.swing.JPanel {
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel7MousePressed(evt);
             }
         });
 
@@ -2390,6 +2555,7 @@ public class Opcion3 extends javax.swing.JPanel {
         // Boton6
 
         todosBotones();
+        cancelarcarnes();
         Botton40.setBackground(Botverde);
         menu = 23;
         TODAS();
@@ -2398,11 +2564,13 @@ public class Opcion3 extends javax.swing.JPanel {
     private void SalJumboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalJumboMouseClicked
         //Boton Salchicha Jumbo
         carne5();
+        agregaralist();
     }//GEN-LAST:event_SalJumboMouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        //Boton Tosino
+        //Boton Tocino
         carne10();
+        agregaralist();
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void Botton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton12MouseClicked
@@ -2410,13 +2578,16 @@ public class Opcion3 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton12MouseClicked
 
     private void SalchiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalchiMouseClicked
-        //Boton Salchicha
         carne1();
+        agregaralist();
+        
+       
     }//GEN-LAST:event_SalchiMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         //Boton Adobado
         carne6();
+        agregaralist();
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void Botton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton8MouseClicked
@@ -2424,7 +2595,8 @@ public class Opcion3 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton8MouseClicked
 
     private void ChoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriMouseClicked
-        carne2();
+        carne2(); //CHORIZO BREMEN
+        agregaralist();
     }//GEN-LAST:event_ChoriMouseClicked
 
     private void Botton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton4MouseClicked
@@ -2434,6 +2606,7 @@ public class Opcion3 extends javax.swing.JPanel {
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         //Boton Res
         carne7();
+        agregaralist();
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void Botton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton9MouseClicked
@@ -2443,6 +2616,7 @@ public class Opcion3 extends javax.swing.JPanel {
     private void ArgentinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArgentinoMouseClicked
         //Boton Chorizo Argentino
         carne9();
+        agregaralist();
     }//GEN-LAST:event_ArgentinoMouseClicked
 
     private void Botton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton11MouseClicked
@@ -2450,7 +2624,8 @@ public class Opcion3 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton11MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        carne3();
+        carne3(); //SALAMI
+        agregaralist();
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void Botton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton5MouseClicked
@@ -2461,6 +2636,7 @@ public class Opcion3 extends javax.swing.JPanel {
         //Boton Chorizo Ahumado
 
         carne8();
+        agregaralist();
     }//GEN-LAST:event_ahumadoMouseClicked
 
     private void Botton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton10MouseClicked
@@ -2472,7 +2648,8 @@ public class Opcion3 extends javax.swing.JPanel {
     }//GEN-LAST:event_Botton14MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        carne4();
+        carne4(); //LONGANIZA
+        agregaralist();
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void Botton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton6MouseClicked
@@ -3044,25 +3221,25 @@ public class Opcion3 extends javax.swing.JPanel {
 
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
         if(NumSin.size()!=0){
-            int a =Cantidacarnes.size(); System.out.println("CARNES = "+a+" Y MENU= "+menu);
-            if(Cantidacarnes.size()!=0){
-                if(menu == 12)
+            //int a =Cantidacarnes.size(); System.out.println("CARNES = "+a+" Y MENU= "+menu);
+            if(Cantidacarnes.size()!=0 && menu !=0){
+                if(menu == 18)
                 {
                     if(Cantidacarnes.size()>0 && Cantidacarnes.size()<=1){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO UNA CARNE");}
                 }
-                else if(menu == 13)
+                else if(menu == 19)
                 {
                     if(Cantidacarnes.size()>1 && Cantidacarnes.size()<=2){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO DOS CARNES");}
                 }
 
-                else if (menu == 14){if(Cantidacarnes.size()>2 && Cantidacarnes.size()<=3){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO TRES CARNES");}}
+                else if (menu == 20){if(Cantidacarnes.size()>2 && Cantidacarnes.size()<=3){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO TRES CARNES");}}
 
-                else if (menu == 15){if(Cantidacarnes.size()>3 && Cantidacarnes.size()<=4){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO CUATRO CARNES");}}
+                else if (menu == 21){if(Cantidacarnes.size()>3 && Cantidacarnes.size()<=4){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO CUATRO CARNES");}}
 
-                else if(menu == 16){if(Cantidacarnes.size()>4 && Cantidacarnes.size()<=5){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO CINCO CARNES");}}
+                else if(menu == 22){if(Cantidacarnes.size()>4 && Cantidacarnes.size()<=5){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO CINCO CARNES");}}
 
                 else {InsertarProductoTortilla();}
-            }else {{JOptionPane.showMessageDialog(null, "SELECCIONE UNA DE LAS CARNES");}}
+            }else {{JOptionPane.showMessageDialog(null, "SELECCIONE UNA DE LAS CARNES O MENU");}}
             ListarProductosPedidos();
         }else {JOptionPane.showMessageDialog(null, "AGREGUE UNA NOTA");}
 
@@ -3085,6 +3262,134 @@ public class Opcion3 extends javax.swing.JPanel {
     private void jLabel22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel22MouseEntered
+
+    private void SalchiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalchiMousePressed
+       if ((evt.getModifiers() & 4) !=0){
+        cantidadcarnes = 15;
+        nombredecarnes ="SALCHICHA";
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+       }
+    }//GEN-LAST:event_SalchiMousePressed
+
+    private void ChoriMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriMousePressed
+       if ((evt.getModifiers() & 4) !=0){
+        cantidadcarnes = 16;
+        nombredecarnes = "BREMEN";
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+       }
+    }//GEN-LAST:event_ChoriMousePressed
+
+    private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
+       if ((evt.getModifiers() & 4) !=0){ 
+        cantidadcarnes = 17;
+        nombredecarnes = "SALAMI";
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+       }
+    }//GEN-LAST:event_jLabel6MousePressed
+
+    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
+       if ((evt.getModifiers() & 4) !=0){ 
+        cantidadcarnes = 18;
+        nombredecarnes = "LONGANIZA";
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+       }
+    }//GEN-LAST:event_jLabel7MousePressed
+
+    private void SalJumboMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalJumboMousePressed
+        if ((evt.getModifiers() & 4) !=0){
+        cantidadcarnes = 19;nombredecarnes ="JUMBO";
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+        }
+    }//GEN-LAST:event_SalJumboMousePressed
+
+    private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
+       if ((evt.getModifiers() & 4) !=0){
+        nombredecarnes = "ADOBADO";cantidadcarnes = 20;
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+       }
+    }//GEN-LAST:event_jLabel9MousePressed
+
+    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
+       if ((evt.getModifiers() & 4) !=0){
+        nombredecarnes = "RES";cantidadcarnes = 21;
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+       }
+    }//GEN-LAST:event_jLabel10MousePressed
+
+    private void ahumadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ahumadoMousePressed
+      if ((evt.getModifiers() & 4) !=0){
+        nombredecarnes = "AHUMADO";cantidadcarnes =22;
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+      }
+    }//GEN-LAST:event_ahumadoMousePressed
+
+    private void ArgentinoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArgentinoMousePressed
+       if ((evt.getModifiers() & 4) !=0){
+        nombredecarnes = "ARGENTINO";cantidadcarnes = 23;
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+       }
+    }//GEN-LAST:event_ArgentinoMousePressed
+
+    private void jLabel13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MousePressed
+       if ((evt.getModifiers() & 4) !=0){
+        nombredecarnes = "TOCINO";cantidadcarnes = 24;
+        Cantidacarnes.add(cantidadcarnes);
+        NombreCarnes.add(nombredecarnes);
+        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
+        agregaralist();
+       }
+    }//GEN-LAST:event_jLabel13MousePressed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+      Botton14.setBackground(Botverde);
+       timerBoton.setRepeats(false);
+       timerBoton.start();
+        Cantidacarnes.clear();
+        NombreCarnes.clear();
+        nombredecarnes="";
+        cantidadcarnes=0;
+        marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;
+        Botton3.setBackground(Botrojo);
+        Botton4.setBackground(Botrojo);
+        Botton5.setBackground(Botrojo);
+        Botton6.setBackground(Botrojo);
+        Botton7.setBackground(Botrojo);
+        Botton8.setBackground(Botrojo);
+        Botton9.setBackground(Botrojo);
+        Botton10.setBackground(Botrojo);
+        Botton11.setBackground(Botrojo);
+        Botton12.setBackground(Botrojo);
+        Botton13.setBackground(Botrojo);
+        DefaultListModel modelo = new DefaultListModel();
+        jList1.setModel(modelo);
+    }//GEN-LAST:event_jLabel5MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3182,13 +3487,16 @@ public class Opcion3 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private Clases.PanelRound panelRound1;
     private javax.swing.JLabel todas;
     // End of variables declaration//GEN-END:variables

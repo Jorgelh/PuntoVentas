@@ -45,7 +45,7 @@ public class Opcion5 extends javax.swing.JPanel {
     public Opcion5(int a) {
         initComponents();
          this.id_pedido=a;
-        String texto = "<html><center><body>SALCHICA<br>PEQUEÑA</body></center></html>";
+        String texto = "<html><center><body>SALCHICHA<br>PEQUEÑA</body></center></html>";
         SalPequeña.setText(texto);
         String texto1 = "<html><center><body>CHORIZO<br>BREMEN</body></center></html>";
         ChoriBremen.setText(texto1);
@@ -107,14 +107,18 @@ public class Opcion5 extends javax.swing.JPanel {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
+        PreparedStatement sm = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
+        sm = con.prepareStatement("{call Opcion_adicional("+Integer.parseInt(cantidad.getText())+","+Num.get(i)+")}");
         smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,adicional,precio) values(?,?,?,2,(select precio*"+cantidad.getText()+" from PRODUCTOS where id_producto = "+Num.get(i)+"))");
         smtp.setInt(1,id_pedido);
         smtp.setInt(2,Num.get(i));
         smtp.setInt(3, Integer.parseInt(cantidad.getText()));
         smtp.executeUpdate();
+        sm.executeUpdate();
         con.close();
-        smtp.close();    
+        smtp.close();
+        sm.close(); 
      } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
     }

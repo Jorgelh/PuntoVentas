@@ -70,7 +70,7 @@ public class Opcion4 extends javax.swing.JPanel {
         this.id_pedido=a;
         String texto8 = "<html><center><body>COMBO (2 PANES MIXTOS, DE SALCHICHA<br>, CHORIZO BREMEN, LONGANIZA, SALAMI, TOCINO, RES )</body></center></html>";
         COMBO.setText(texto8);
-        String texto = "<html><center><body>SALCHICA<br>PEQUEÑA</body></center></html>";
+        String texto = "<html><center><body>SALCHICHA<br>PEQUEÑA</body></center></html>";
         SalPequeña.setText(texto);
         String texto1 = "<html><center><body>CHORIZO<br>BREMEN</body></center></html>";
         ChoriBremen.setText(texto1);
