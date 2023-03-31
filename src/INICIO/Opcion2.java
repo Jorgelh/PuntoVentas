@@ -488,21 +488,6 @@ jList1.clearSelection();
            }
        }
        
-        private void preguardar(){
-           try {
-               
-        BDConexion conecta = new BDConexion();
-        Connection con = conecta.getConexion();
-        PreparedStatement sm = null;  
-        sm = con.prepareStatement("savepoint menu"+id_producto_pedido);
-        sm.executeUpdate();
-        con.close();
-        sm.close();  
-           } catch (Exception e) {
-               System.out.println("INICIO.Opcion2.preguardar()"+e);
-           }
-       }
-       
        
        
        private void Limpiar() {
@@ -3539,3 +3524,11 @@ jList1.clearSelection();
     private javax.swing.JLabel todas;
     // End of variables declaration//GEN-END:variables
 }
+
+
+/*
+
+update productos_inventario p join notas n on p.id = n.id set p.cantidad = p.cantidad+n.cantidad where n.id_productos_pedido = 482;
+update productos_inventario p join productos_pedido pp on p.id_adicional = pp.id_producto set p.cantidad = p.cantidad+pp.cantidad where n.id_productos_pedido = 482;
+
+*/
