@@ -259,11 +259,11 @@ private void PanelMismoColor(){
             BDConexion conecta = new BDConexion();
             Connection con = conecta.getConexion();
             PreparedStatement ps = null;
-            ps= con.prepareStatement("ROLLBACK to savepoint menu"+id_producto_pedido);
-            //ps= con.prepareStatement("delete  from PRODUCTOS_PEDIDO  where ID_PRODUCTOS_PEDIDO ="+id_producto_pedido);
+            //ps= con.prepareStatement("ROLLBACK to savepoint menu"+id_producto_pedido);
+            ps= con.prepareStatement("delete  from PRODUCTOS_PEDIDO  where ID_PRODUCTOS_PEDIDO ="+id_producto_pedido);
             ps.executeUpdate();
-            //con.close();
-            //ps.close();
+            con.close();
+            ps.close();
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null,"ERROr = "+ex);
         }

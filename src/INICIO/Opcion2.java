@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -24,6 +25,8 @@ import javax.swing.Timer;
  */
 public class Opcion2 extends javax.swing.JPanel {
     
+    int carnesrepetida;
+    int cantidadcarnesrepetida;
     int cantidadcarnes;
     String nombredecarnes;
     int descargacarne;
@@ -450,8 +453,13 @@ jList1.clearSelection();
        
        private void inserCarnes(){   
 
-    
+    Collections.sort(Cantidacarnes);
     for(int i = 0; i < Cantidacarnes.size(); i++) {
+        System.out.println("CARNESREPETIDA= "+carnesrepetida+" Y cantidad = "+cantidadcarnesrepetida);
+        //carnesrepetida = Cantidacarnes.get(i);
+        if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());}
+        carnesrepetida = Cantidacarnes.get(i);
+        
     try {
         if(Cantidacarnes.get(i)==17){descargacantidad = Integer.parseInt(cantidad.getText())*3;}else{descargacantidad = Integer.parseInt(cantidad.getText());}
         BDConexion conecta = new BDConexion();
@@ -460,7 +468,7 @@ jList1.clearSelection();
         PreparedStatement sm = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
         sm = con.prepareStatement("{call Opcion2_carnes("+Integer.parseInt(cantidad.getText())+","+Cantidacarnes.get(i)+","+menu+")}");
-        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id,cantidad,tipo) values(?,?,"+descargacantidad+",1)");
+        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id,cantidad,tipo) values(?,?,"+cantidadcarnesrepetida+",1)");
         smtp.setInt(1, id_producto_pedido);
         smtp.setInt(2,Cantidacarnes.get(i));
         smtp.executeUpdate();
