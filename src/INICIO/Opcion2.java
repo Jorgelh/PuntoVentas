@@ -453,13 +453,17 @@ jList1.clearSelection();
        
        private void inserCarnes(){   
 
-    Collections.sort(Cantidacarnes);
+    Collections.sort(Cantidacarnes);//NUEVO
     for(int i = 0; i < Cantidacarnes.size(); i++) {
-        System.out.println("CARNESREPETIDA= "+carnesrepetida+" Y cantidad = "+cantidadcarnesrepetida);
-        //carnesrepetida = Cantidacarnes.get(i);
-        if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());}
-        carnesrepetida = Cantidacarnes.get(i);
         
+        if(Cantidacarnes.get(i)==17){
+        if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+4;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+4;}//NUEVO
+        carnesrepetida = Cantidacarnes.get(i);//NUEVO
+        }else{
+          if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());}//NUEVO
+          carnesrepetida = Cantidacarnes.get(i);//NUEVO
+        }
+        carnesrepetida = Cantidacarnes.get(i);//NUEVO
     try {
         if(Cantidacarnes.get(i)==17){descargacantidad = Integer.parseInt(cantidad.getText())*3;}else{descargacantidad = Integer.parseInt(cantidad.getText());}
         BDConexion conecta = new BDConexion();
@@ -1657,7 +1661,7 @@ jList1.clearSelection();
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("SOLO GUACAMOL");
+        jLabel25.setText("SIN GUACAMOL");
         jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel25MouseClicked(evt);
@@ -1668,7 +1672,7 @@ jList1.clearSelection();
         Botton41.setLayout(Botton41Layout);
         Botton41Layout.setHorizontalGroup(
             Botton41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton41Layout.setVerticalGroup(
             Botton41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

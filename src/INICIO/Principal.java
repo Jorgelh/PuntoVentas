@@ -51,6 +51,7 @@ public class Principal extends javax.swing.JFrame {
     int para = 0;
     String TOTAL1;
     int id_producto_pedido;
+    int cantidad;
     Color Botrojo = new Color(255,102,102); 
     Color Original1 = new Color(255,255,102);
     Color Original2 = new Color(204,255,204);
@@ -259,8 +260,11 @@ private void PanelMismoColor(){
             BDConexion conecta = new BDConexion();
             Connection con = conecta.getConexion();
             PreparedStatement ps = null;
+            PreparedStatement pse = null;
             //ps= con.prepareStatement("ROLLBACK to savepoint menu"+id_producto_pedido);
+            pse= con.prepareStatement("{call Opcion2_regresarainventario("+cantidad+","+id_producto_pedido+")}");
             ps= con.prepareStatement("delete  from PRODUCTOS_PEDIDO  where ID_PRODUCTOS_PEDIDO ="+id_producto_pedido);
+            pse.executeUpdate();
             ps.executeUpdate();
             con.close();
             ps.close();
@@ -1126,8 +1130,9 @@ private void PanelMismoColor(){
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PedidosMouseClicked
-     id_producto_pedido = (Integer.parseInt(String.valueOf(Pedidos.getModel().getValueAt(Pedidos.getSelectedRow(), 0))));
-     
+    id_producto_pedido = (Integer.parseInt(String.valueOf(Pedidos.getModel().getValueAt(Pedidos.getSelectedRow(), 0))));
+    cantidad = (Integer.parseInt(String.valueOf(Pedidos.getModel().getValueAt(Pedidos.getSelectedRow(), 2))));
+
      if (evt.getClickCount() > 1) {
      
             int resp=JOptionPane.showConfirmDialog(null,"DESEA ELIMINAR EL PRODUCTO");
@@ -1136,10 +1141,7 @@ private void PanelMismoColor(){
                 ListarProductosPedidos();
                 
             }
-     
-     
-     
-     
+    
      }
      
      

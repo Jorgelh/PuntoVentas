@@ -1641,7 +1641,7 @@ jList1.clearSelection();
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("SOLO GUACAMOL");
+        jLabel25.setText("SIN GUACAMOL");
         jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel25MouseClicked(evt);
@@ -1652,7 +1652,7 @@ jList1.clearSelection();
         Botton41.setLayout(Botton41Layout);
         Botton41Layout.setHorizontalGroup(
             Botton41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton41Layout.setVerticalGroup(
             Botton41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -2888,11 +2888,11 @@ public class Opcion1 extends javax.swing.JPanel {
             if (sin7 == 0) {
                 Botton43.setBackground(Botverde);
                 sin7 = 1;
-                NumSin.add(27);
+                NumSin.add(14);
             } else {
                 Botton43.setBackground(Botrojo);
                 sin7 = 0;
-                int remov = NumSin.indexOf(27);
+                int remov = NumSin.indexOf(14);
                 NumSin.remove(remov);
             }}
     }//GEN-LAST:event_jLabel29MouseClicked
