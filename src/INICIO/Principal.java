@@ -278,10 +278,14 @@ private void PanelMismoColor(){
             BDConexion conecta = new BDConexion();
             Connection con = conecta.getConexion();
             PreparedStatement ps = null;
+            PreparedStatement pse = null;
             ps= con.prepareStatement("delete from PEDIDOS where id_pedido="+id_pedido);
+            pse= con.prepareStatement("ROLLBACK");
             ps.executeUpdate();
+            pse.executeUpdate();
             con.close();
             ps.close();
+            pse.close();
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null,"ERROr = "+ex);
         }

@@ -8,6 +8,8 @@ import clas.BDConexion;
 import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -29,6 +31,7 @@ public class ReporteVentas extends javax.swing.JFrame {
     public ReporteVentas() {
         initComponents();
         this.setLocationRelativeTo(null);
+        FechasJdate();
 
     }
     
@@ -46,6 +49,12 @@ public class ReporteVentas extends javax.swing.JFrame {
         } catch (Exception e) {System.out.println("F"+e);
            JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  "+e);
         }
+    }
+    
+    public void FechasJdate() {
+
+        Calendar c2 = new GregorianCalendar();
+        Fe.setCalendar(c2);
     }
 
     /**

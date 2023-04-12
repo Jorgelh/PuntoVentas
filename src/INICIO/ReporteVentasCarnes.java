@@ -8,6 +8,8 @@ import clas.BDConexion;
 import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -29,6 +31,7 @@ public class ReporteVentasCarnes extends javax.swing.JFrame {
     public ReporteVentasCarnes() {
         initComponents();
         this.setLocationRelativeTo(null);
+        FechasJdate();
 
     }
     
@@ -48,6 +51,12 @@ public class ReporteVentasCarnes extends javax.swing.JFrame {
         }
     }
 
+    
+    public void FechasJdate() {
+
+        Calendar c2 = new GregorianCalendar();
+        Fe.setCalendar(c2);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

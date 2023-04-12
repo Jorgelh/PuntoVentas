@@ -13,6 +13,26 @@ public class Productos {
     private int id_producto;
     private String descripcion;
     private String precio;
+    private int codigo;
+    private int cantidad;
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
+    
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
 
     public int getId_producto() {
         return id_producto;

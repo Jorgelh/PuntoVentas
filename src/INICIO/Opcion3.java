@@ -22,7 +22,10 @@ import javax.swing.Timer;
  * @author Jorge Lopez
  */
 public class Opcion3 extends javax.swing.JPanel {
+   int carnesrepetida;
+    int cantidadcarnesrepetida;
     int cantidadcarnes;
+    int descargacantidad;
     String nombredecarnes;
     int entra = 2;
     int menu = 0;
@@ -444,14 +447,26 @@ jList1.clearSelection();
        private void inserCarnes(){   
 
     for(int i = 0; i < Cantidacarnes.size(); i++) {
+        
+        if(Cantidacarnes.get(i)==17){
+        if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+4;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+4;}//NUEVO
+        carnesrepetida = Cantidacarnes.get(i);//NUEVO
+        }else{
+          if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());}//NUEVO
+          carnesrepetida = Cantidacarnes.get(i);//NUEVO
+        }
+        carnesrepetida = Cantidacarnes.get(i);//NUEVO
+        
+        
     try {
+        if(Cantidacarnes.get(i)==17){descargacantidad = Integer.parseInt(cantidad.getText())*3;}else{descargacantidad = Integer.parseInt(cantidad.getText());}
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         PreparedStatement sm = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
         sm = con.prepareStatement("{call Opcion3_carnes("+Integer.parseInt(cantidad.getText())+","+Cantidacarnes.get(i)+","+menu+")}");
-        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id) values(?,?)");
+        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id,cantidad,tipo) values(?,?,"+cantidadcarnesrepetida+",1)");
         smtp.setInt(1, id_producto_pedido);
         smtp.setInt(2,Cantidacarnes.get(i));
         smtp.executeUpdate();

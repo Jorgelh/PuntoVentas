@@ -4,21 +4,14 @@
  */
 package INICIO;
 
-import static INICIO.Principal.id_pedido;
 import clas.BDConexion;
-import clas.BDProductos;
-import clas.InsertarProducto;
 import java.awt.Image;
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -29,7 +22,6 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -92,9 +84,6 @@ public class EntraReportes extends javax.swing.JFrame {
          fecha=(dateFormat.format(cal.getTime()));
         }  
     
-     
-     
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,6 +108,8 @@ public class EntraReportes extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         panelRound5 = new Clases.PanelRound();
         jLabel4 = new javax.swing.JLabel();
+        panelRound6 = new Clases.PanelRound();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -140,7 +131,7 @@ public class EntraReportes extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("TOTAL EN CAJA");
+        jLabel7.setText("CARGA DE INVENTARIO");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -162,7 +153,7 @@ public class EntraReportes extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         panelRound2.setBackground(new java.awt.Color(153, 255, 153));
         panelRound2.setPreferredSize(new java.awt.Dimension(170, 62));
@@ -347,6 +338,44 @@ public class EntraReportes extends javax.swing.JFrame {
 
         jPanel1.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
+        panelRound6.setBackground(new java.awt.Color(153, 255, 153));
+        panelRound6.setPreferredSize(new java.awt.Dimension(170, 62));
+        panelRound6.setRoundBottomLeft(10);
+        panelRound6.setRoundBottomRight(10);
+        panelRound6.setRoundTopLeft(10);
+        panelRound6.setRoundTopRight(10);
+        panelRound6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelRound6MouseClicked(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("TOTAL EN CAJA");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelRound6Layout = new javax.swing.GroupLayout(panelRound6);
+        panelRound6.setLayout(panelRound6Layout);
+        panelRound6Layout.setHorizontalGroup(
+            panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        panelRound6Layout.setVerticalGroup(
+            panelRound6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(panelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -409,7 +438,17 @@ public class EntraReportes extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
           
-      Cfecha();
+        InventarioProductos C = new InventarioProductos();
+                  C.setVisible(true);
+                  this.dispose();
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void panelRound5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelRound5MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+         Cfecha();
 
       BDConexion con= new BDConexion();
        Connection conexion= con.getConexion();
@@ -425,11 +464,11 @@ public class EntraReportes extends javax.swing.JFrame {
         } catch (Exception e) {System.out.println("F"+e);
            JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  "+e);
         }
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_jLabel8MouseClicked
 
-    private void panelRound5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound5MouseClicked
+    private void panelRound6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound6MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_panelRound5MouseClicked
+    }//GEN-LAST:event_panelRound6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -476,6 +515,7 @@ public class EntraReportes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     public static javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -484,5 +524,6 @@ public class EntraReportes extends javax.swing.JFrame {
     private Clases.PanelRound panelRound3;
     private Clases.PanelRound panelRound4;
     private Clases.PanelRound panelRound5;
+    private Clases.PanelRound panelRound6;
     // End of variables declaration//GEN-END:variables
 }

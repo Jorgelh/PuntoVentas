@@ -150,7 +150,6 @@ public class BDProductos {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         smtp =con.prepareStatement("insert into PEDIDOS (FECHA) values(CURRENT_TIMESTAMP)",Statement.RETURN_GENERATED_KEYS);
-          
         try {
          //smtp.setString(1,t.getFecha());
          smtp.executeUpdate();
@@ -162,7 +161,6 @@ public class BDProductos {
         if(rs.next()){int id = rs.getInt(1);
           t.setIdregresoPedido(id);
         }
-        
        con.close();
        smtp.close(); 
         return t;
@@ -218,4 +216,68 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
  
  
  
+
+ public static ArrayList<Productos> ListarProductosInventario() {
+
+        return ListarInventario("SELECT codigo,DESCRIPCION,CANTIDAD FROM productos_inventario");
+    }
+
+    private static ArrayList<Productos> ListarInventario(String sql) {
+        ArrayList<Productos> list = new ArrayList<Productos>();
+        BDConexion conecta = new BDConexion();
+        Connection cn = conecta.getConexion();
+        try {
+            Productos c;
+            Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                c = new Productos();
+                c.setCodigo(rs.getInt("codigo"));
+                c.setDescripcion(rs.getString("descripcion"));
+                c.setCantidad(rs.getInt("cantidad"));
+               
+
+                list.add(c);
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.err.println("Error Consulta producto por nombre " + e);
+            return null;
+        }
+        return list;
+    }
+
+
+ public static Productos BuscarProducto (int idc) throws SQLException{
+    
+        return buscarDescarga(idc, null);
+        
+    }
+    
+    public static Productos buscarDescarga(int idc, Productos c) throws SQLException{
+        
+        BDConexion conecta = new BDConexion();
+        Connection cn = conecta.getConexion();
+        PreparedStatement ps =null;
+        ps = cn.prepareStatement("SELECT codigo,DESCRIPCION,cantidad FROM productos_inventario where codigo ="+idc);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()){
+             if (c == null){
+             c = new Productos(){   };
+        
+        }
+        c.setCodigo(rs.getInt("codigo"));
+        c.setDescripcion(rs.getString("descripcion"));
+        c.setCantidad(rs.getInt("cantidad"));
+        }
+        cn.close();
+        ps.close();
+        return c;
+        
+    }   
+    
+    
+    
+    
+
 }
