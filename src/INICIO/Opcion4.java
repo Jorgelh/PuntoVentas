@@ -194,7 +194,7 @@ public class Opcion4 extends javax.swing.JPanel {
             p1.setCantidad( Integer.parseInt( cantidad.getText()));
             p1.setTipo(1);
             p1.setPrecio(precio);
-            BDProductos.InsertarProducto_Pedido(p1);
+            BDProductos.InsertarProducto_Pedido_combo(p1);
             id_producto_pedido = p1.getIdregreso();
             insertarAdicional();
             insertarSin();

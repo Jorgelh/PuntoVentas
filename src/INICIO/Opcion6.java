@@ -173,7 +173,7 @@ public class Opcion6 extends javax.swing.JPanel {
         cantidad.setText("1");
     }
     
-     private void insertarAdicional(){
+     private void insertarGaseosas(){
 
     for(int i = 0; i < Num.size(); i++) {
     try {
@@ -183,7 +183,7 @@ public class Opcion6 extends javax.swing.JPanel {
         PreparedStatement sm = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
         sm = con.prepareStatement("{call Opcion6("+Integer.parseInt(cantidad.getText())+","+Num.get(i)+")}");
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,adicional,precio) values(?,?,?,2,(select precio*"+cantidad.getText()+" from PRODUCTOS where id_producto = "+Num.get(i)+"))");
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,adicional,precio,opcion) values(?,?,?,2,(select precio*"+cantidad.getText()+" from PRODUCTOS where id_producto = "+Num.get(i)+"),6)");
         smtp.setInt(1,id_pedido);
         smtp.setInt(2,Num.get(i));
         smtp.setInt(3, Integer.parseInt(cantidad.getText()));
@@ -1636,7 +1636,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         if(Num.size()!=0){
-            insertarAdicional();
+            insertarGaseosas();
             ListarProductosPedidos();
         }else{JOptionPane.showMessageDialog(null, "SELECCIONAR UNA OPCION...");}
     }//GEN-LAST:event_jLabel3MouseClicked

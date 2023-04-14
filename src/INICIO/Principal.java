@@ -50,6 +50,8 @@ public class Principal extends javax.swing.JFrame {
     public static int id_pedido;
     int para = 0;
     String TOTAL1;
+    String QueryOpcion;
+    int opcion;
     int id_producto_pedido;
     int cantidad;
     Color Botrojo = new Color(255,102,102); 
@@ -256,20 +258,36 @@ private void PanelMismoColor(){
  
  
  private void eliminarproducto(){
+         ObtenerOpcion();
+
+     
+     
         try {
             BDConexion conecta = new BDConexion();
             Connection con = conecta.getConexion();
+            if(opcion ==1){
+            
+            }else if (opcion ==2){
+             QueryOpcion = "{call Opcion2_regresarainventario("+cantidad+","+id_producto_pedido+")}";
+            }else if (opcion ==3){
+               QueryOpcion = "{call Opcion3_regresarainventario("+cantidad+","+id_producto_pedido+")}"; 
+            }else if (opcion ==4){
+                
+            }else if (opcion ==5){
+                
+            }     
             PreparedStatement ps = null;
             PreparedStatement pse = null;
             //ps= con.prepareStatement("ROLLBACK to savepoint menu"+id_producto_pedido);
-            pse= con.prepareStatement("{call Opcion2_regresarainventario("+cantidad+","+id_producto_pedido+")}");
+            //pse= con.prepareStatement("{call Opcion2_regresarainventario("+cantidad+","+id_producto_pedido+")}");
+            pse= con.prepareStatement(QueryOpcion);
             ps= con.prepareStatement("delete  from PRODUCTOS_PEDIDO  where ID_PRODUCTOS_PEDIDO ="+id_producto_pedido);
-            pse.executeUpdate();
+            pse.executeUpdate();                   
             ps.executeUpdate();
             con.close();
             ps.close();
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"ERROr = "+ex);
+           JOptionPane.showMessageDialog(null,"ERROR = "+ex);
         }
  }
  
@@ -290,6 +308,26 @@ private void PanelMismoColor(){
            JOptionPane.showMessageDialog(null,"ERROr = "+ex);
         }
  }
+  
+   public  void ObtenerOpcion() {
+            try {
+                 BDConexion conecta = new BDConexion();
+                Connection cn = conecta.getConexion();
+                java.sql.Statement stmt = cn.createStatement();
+                ResultSet rs = stmt.executeQuery("select opcion from productos_pedido where id_productos_pedido = " + id_producto_pedido);
+                while (rs.next()) {
+                    opcion = rs.getInt(1);
+                }
+                
+                rs.close();
+                stmt.close();
+                cn.close();
+                
+            } catch (Exception error) {
+                System.out.print(error);
+            }
+        }
+
  
  
  
@@ -1136,7 +1174,6 @@ private void PanelMismoColor(){
     private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PedidosMouseClicked
     id_producto_pedido = (Integer.parseInt(String.valueOf(Pedidos.getModel().getValueAt(Pedidos.getSelectedRow(), 0))));
     cantidad = (Integer.parseInt(String.valueOf(Pedidos.getModel().getValueAt(Pedidos.getSelectedRow(), 2))));
-
      if (evt.getClickCount() > 1) {
      
             int resp=JOptionPane.showConfirmDialog(null,"DESEA ELIMINAR EL PRODUCTO");
