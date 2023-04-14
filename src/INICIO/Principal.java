@@ -51,8 +51,10 @@ public class Principal extends javax.swing.JFrame {
     int para = 0;
     String TOTAL1;
     String QueryOpcion;
+    int tipo;
     int opcion;
     int id_producto_pedido;
+    int id_producto;
     int cantidad;
     Color Botrojo = new Color(255,102,102); 
     Color Original1 = new Color(255,255,102);
@@ -266,11 +268,11 @@ private void PanelMismoColor(){
             BDConexion conecta = new BDConexion();
             Connection con = conecta.getConexion();
             if(opcion ==1){
-            
+             QueryOpcion = "{call Opcion1_regresarinventario("+tipo+","+id_producto+","+cantidad+")}";
             }else if (opcion ==2){
              QueryOpcion = "{call Opcion2_regresarainventario("+cantidad+","+id_producto_pedido+")}";
             }else if (opcion ==3){
-               QueryOpcion = "{call Opcion3_regresarainventario("+cantidad+","+id_producto_pedido+")}"; 
+             QueryOpcion = "{call Opcion3_regresarainventario("+cantidad+","+id_producto_pedido+")}"; 
             }else if (opcion ==4){
                 
             }else if (opcion ==5){
@@ -314,9 +316,11 @@ private void PanelMismoColor(){
                  BDConexion conecta = new BDConexion();
                 Connection cn = conecta.getConexion();
                 java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select opcion from productos_pedido where id_productos_pedido = " + id_producto_pedido);
+                ResultSet rs = stmt.executeQuery("select opcion,tipo,id_producto from productos_pedido where id_productos_pedido = " + id_producto_pedido);
                 while (rs.next()) {
                     opcion = rs.getInt(1);
+                    tipo = rs.getInt(2);
+                    id_producto = rs.getInt(3);
                 }
                 
                 rs.close();
