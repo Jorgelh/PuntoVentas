@@ -60,8 +60,6 @@ public class BDProductos {
     }
     
     
-    
-    
  public static InsertarProducto InsertarProducto_Pedido(InsertarProducto t) throws SQLException{
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();

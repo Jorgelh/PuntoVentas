@@ -274,10 +274,13 @@ private void PanelMismoColor(){
             }else if (opcion ==3){
              QueryOpcion = "{call Opcion3_regresarainventario("+cantidad+","+id_producto_pedido+")}"; 
             }else if (opcion ==4){
-                
+              // QueryOpcion = "{call Opcion3_regresarainventario("+cantidad+","+id_producto_pedido+")}";  
             }else if (opcion ==5){
-                
-            }     
+                QueryOpcion = "{call Opcion5_regresarinventario("+cantidad+","+id_producto+")}"; 
+            }else if(opcion == 6) 
+            {
+                 QueryOpcion = "{call Opcion6_regresarinventario("+cantidad+","+id_producto+")}"; 
+            }
             PreparedStatement ps = null;
             PreparedStatement pse = null;
             //ps= con.prepareStatement("ROLLBACK to savepoint menu"+id_producto_pedido);
