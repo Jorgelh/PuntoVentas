@@ -81,6 +81,11 @@ public class Contra extends javax.swing.JFrame {
         });
 
         jPass.setToolTipText("");
+        jPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPassMouseClicked(evt);
+            }
+        });
         jPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPassActionPerformed(evt);
@@ -153,6 +158,10 @@ public class Contra extends javax.swing.JFrame {
                   F.setVisible(true);
                   this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPassMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPassMouseClicked
 
     /**
      * @param args the command line arguments

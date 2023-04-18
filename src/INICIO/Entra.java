@@ -6,6 +6,7 @@ package INICIO;
 
 import clas.BDProductos;
 import clas.InsertarProducto;
+import com.login.Login;
 import java.awt.Image;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -93,8 +94,6 @@ public class Entra extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        panelRound1 = new Clases.PanelRound();
-        jLabel4 = new javax.swing.JLabel();
         panelRound3 = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
         imagen = new javax.swing.JLabel();
@@ -107,39 +106,6 @@ public class Entra extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(74, 183, 162));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panelRound1.setBackground(new java.awt.Color(153, 255, 153));
-        panelRound1.setRoundBottomLeft(10);
-        panelRound1.setRoundBottomRight(10);
-        panelRound1.setRoundTopLeft(10);
-        panelRound1.setRoundTopRight(10);
-        panelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelRound1MouseClicked(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("REPORTES");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
-        panelRound1.setLayout(panelRound1Layout);
-        panelRound1Layout.setHorizontalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-        );
-        panelRound1Layout.setVerticalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
         panelRound3.setBackground(new java.awt.Color(153, 255, 153));
         panelRound3.setRoundBottomLeft(10);
@@ -174,7 +140,7 @@ public class Entra extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        jPanel1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         imagen.setText("jLabel4");
         jPanel1.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 640, 470));
@@ -233,10 +199,6 @@ public class Entra extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MouseClicked
-         crear();
-    }//GEN-LAST:event_panelRound1MouseClicked
-
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
       crear();
     }//GEN-LAST:event_jLabel3MouseClicked
@@ -245,14 +207,9 @@ public class Entra extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_panelRound3MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        
-                  Contra F = new Contra();
-                  F.setVisible(true);
-                  this.dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
-
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        Login C = new Login();
+        C.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
@@ -295,12 +252,10 @@ public class Entra extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel imagen;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     public static javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private Clases.PanelRound panelRound1;
     private Clases.PanelRound panelRound3;
     // End of variables declaration//GEN-END:variables
 }

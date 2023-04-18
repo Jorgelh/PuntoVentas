@@ -96,7 +96,7 @@ public class BDProductos {
         PreparedStatement smtp = null;
         PreparedStatement sm = null;
         smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,?,1,(select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" ),4)",Statement.RETURN_GENERATED_KEYS);
-        sm = con.prepareStatement("{call Opcion1("+t.getTipo()+","+t.getId_producto()+","+t.getCantidad()+")}");
+        sm = con.prepareStatement("{call Opcion4("+t.getCantidad()+")}");
         try {
          smtp.setInt(1,t.getId_pedido());
          smtp.setInt(2,t.getId_producto());
@@ -106,7 +106,6 @@ public class BDProductos {
          sm.executeUpdate();
      } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "QUE MIERDA PASA ADENTRO =  "+e);}
-        
         ResultSet rs = smtp.getGeneratedKeys();
         if(rs.next()){int id1 = rs.getInt(1);
           t.setIdregreso(id1);

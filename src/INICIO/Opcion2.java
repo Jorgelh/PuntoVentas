@@ -495,7 +495,7 @@ jList1.clearSelection();
         PreparedStatement sm = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
         sm = con.prepareStatement("{call Opcion2_carnes("+Integer.parseInt(cantidad.getText())+","+Cantidacarnes.get(i)+","+menu+")}");
-        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id,cantidad,tipo) values(?,?,"+cantidadcarnesrepetida+",1)");
+        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id,cantidad,tipo) values(?,?,"+cantidadcarnesrepetida*Integer.parseInt(cantidad.getText())+",1)");
         smtp.setInt(1, id_producto_pedido);
         smtp.setInt(2,Cantidacarnes.get(i));
         smtp.executeUpdate();

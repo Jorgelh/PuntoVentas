@@ -5,6 +5,7 @@
 package INICIO;
 
 import clas.BDConexion;
+import com.login.Login;
 import java.awt.Image;
 import java.sql.Connection;
 import java.text.DateFormat;
@@ -467,7 +468,7 @@ public class EntraReportes extends javax.swing.JFrame {
     }//GEN-LAST:event_panelRound6MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        Entra C = new Entra();
+        Login C = new Login();
         C.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked

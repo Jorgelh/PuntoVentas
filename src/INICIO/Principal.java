@@ -262,8 +262,6 @@ private void PanelMismoColor(){
  private void eliminarproducto(){
          ObtenerOpcion();
 
-     
-     
         try {
             BDConexion conecta = new BDConexion();
             Connection con = conecta.getConexion();
@@ -274,7 +272,7 @@ private void PanelMismoColor(){
             }else if (opcion ==3){
              QueryOpcion = "{call Opcion3_regresarainventario("+cantidad+","+id_producto_pedido+")}"; 
             }else if (opcion ==4){
-              // QueryOpcion = "{call Opcion3_regresarainventario("+cantidad+","+id_producto_pedido+")}";  
+             QueryOpcion = "{call Opcion4_regresarainventario("+cantidad+")}";  
             }else if (opcion ==5){
                 QueryOpcion = "{call Opcion5_regresarinventario("+cantidad+","+id_producto+")}"; 
             }else if(opcion == 6) 
