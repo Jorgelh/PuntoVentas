@@ -448,12 +448,35 @@ jList1.clearSelection();
 
     for(int i = 0; i < Cantidacarnes.size(); i++) {
         
-        if(Cantidacarnes.get(i)==17){
-        if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+4;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+4;}//NUEVO
-        carnesrepetida = Cantidacarnes.get(i);//NUEVO
-        }else{
-          if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());}//NUEVO
-          carnesrepetida = Cantidacarnes.get(i);//NUEVO
+     if(null==Cantidacarnes.get(i)){
+            if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());}//NUEVO
+            carnesrepetida = Cantidacarnes.get(i);//NUEVO
+        }
+        else switch (Cantidacarnes.get(i)) {
+            case 17:
+                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+4;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+4;}//NUEVO
+                carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                break;
+            case 21:
+                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2;}//NUEVO
+                carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                break;
+            case 20:
+                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2;}//NUEVO
+                carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                break;
+            case 24:
+                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2;}//NUEVO
+                carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                break;
+            case 23:
+                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2;}//NUEVO
+                carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                break;
+            default:
+                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());}//NUEVO
+                carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                break;
         }
         carnesrepetida = Cantidacarnes.get(i);//NUEVO
         
