@@ -504,7 +504,6 @@ jList1.clearSelection();
         smtp.close(); 
         sm.close();  
      } catch (Exception e) {
-         
             JOptionPane.showMessageDialog(null,"QUE PASO CARNES: "+ e);}
         }
     }

@@ -1199,7 +1199,7 @@ private void PanelMismoColor(){
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
       
-        if(para !=0){
+        if(para !=0 && Double.parseDouble(Total.getText())!= 0.00){
         finalizar();
         imprimir2();
                   Cambio F = new Cambio(Double.parseDouble(Total.getText()));
@@ -1208,7 +1208,7 @@ private void PanelMismoColor(){
                   this.dispose();
         }else{
          
-            JOptionPane.showMessageDialog(null, "ESCOGER SI ES PARA LLEVAR O COMER AQUI");
+            JOptionPane.showMessageDialog(null, "PARA LLEVAR O COMER AQUI O AGREGUE UN PRODUCTO");
         
         }           
     }//GEN-LAST:event_jLabel3MouseClicked
