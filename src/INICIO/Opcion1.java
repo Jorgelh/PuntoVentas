@@ -272,7 +272,7 @@ public class Opcion1 extends javax.swing.JPanel {
         PreparedStatement sm = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
         sm = con.prepareStatement("{call Opcion_adicional("+Integer.parseInt(cantidad.getText())+","+Num.get(i)+")}");
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio) values(?,?,?,?,2,(select precio*"+cantidad.getText()+" from PRODUCTOS where id_producto = "+Num.get(i)+"))");
+        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio,opcion) values(?,?,?,?,2,(select precio*"+cantidad.getText()+" from productos where id_producto = "+Num.get(i)+"),5)");
         smtp.setInt(1,id_pedido);
         smtp.setInt(2,Num.get(i));
         smtp.setInt(3, id_producto_pedido);
@@ -294,7 +294,7 @@ public class Opcion1 extends javax.swing.JPanel {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id) values(?,?)");
+        smtp =con.prepareStatement("insert into notas (id_productos_pedido,id) values(?,?)");
         smtp.setInt(1,id_producto_pedido);
         smtp.setInt(2,NumSin.get(i));
         smtp.executeUpdate();

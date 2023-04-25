@@ -65,7 +65,7 @@ public class BDProductos {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         PreparedStatement sm = null;
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,?,1,(select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" ),1)",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,?,1,(select precio*"+t.getCantidad()+" from productos where ID_PRODUCTO =  "+t.getId_producto()+" ),1)",Statement.RETURN_GENERATED_KEYS);
         sm = con.prepareStatement("{call Opcion1("+t.getTipo()+","+t.getId_producto()+","+t.getCantidad()+")}");
         try {
          smtp.setInt(1,t.getId_pedido());
@@ -95,7 +95,7 @@ public class BDProductos {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         PreparedStatement sm = null;
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,?,1,(select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" ),4)",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,?,1,(select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" ),4)",Statement.RETURN_GENERATED_KEYS);
         sm = con.prepareStatement("{call Opcion4("+t.getCantidad()+")}");
         try {
          smtp.setInt(1,t.getId_pedido());
@@ -124,7 +124,7 @@ public class BDProductos {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         PreparedStatement sm = null;
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,3,1,(select precio*"+t.getCantidad()+"  from PRODUCTOS where ID_PRODUCTO = "+t.getId_producto()+" ),2)",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,3,1,(select precio*"+t.getCantidad()+"  from PRODUCTOS where ID_PRODUCTO = "+t.getId_producto()+" ),2)",Statement.RETURN_GENERATED_KEYS);
         sm = con.prepareStatement("{call Opcion2("+t.getId_producto()+","+t.getCantidad()+")}");
         try {
          smtp.setInt(1,t.getId_pedido());
@@ -177,7 +177,7 @@ public class BDProductos {
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        smtp =con.prepareStatement("insert into PEDIDOS (FECHA) values(CURRENT_TIMESTAMP)",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into pedidos (FECHA) values(CURRENT_TIMESTAMP)",Statement.RETURN_GENERATED_KEYS);
         try {
          //smtp.setString(1,t.getFecha());
          smtp.executeUpdate();
@@ -211,10 +211,10 @@ public class BDProductos {
 "ID_PRODUCTOS_PEDIDO,cantidad,\n" +
 "if(p.adicional = 1, \n" +
 "    concat(if(p.tipo = 1,'PAN DE','TORTILLA DE'),'  ',pro.DESCRIPCION,' ',\n" +
-"    (select  GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as descri from  NOTAS n inner join DESCRIPCIONNOTAS dn on\n" +
+"    (select  GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as descri from  notas n inner join descripcionnotas dn on\n" +
 "dn.id = n.ID where ID_PRODUCTOS_PEDIDO = p.ID_PRODUCTOS_PEDIDO)),pro.DESCRIPCION) as DESCRIPCION,truncate(p.precio,2) as Precio\n" +
-"from PRODUCTOS_PEDIDO p \n" +
-"inner join PRODUCTOS pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido ="+a+";");    
+"from productos_pedido p \n" +
+"inner join productos pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido ="+a+";");    
  }  
 
 private static ArrayList<InsertarProducto> SQL3(String sql){

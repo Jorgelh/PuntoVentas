@@ -409,7 +409,7 @@ jList1.clearSelection();
         PreparedStatement sm = null;
         //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
         sm = con.prepareStatement("{call Opcion_adicional("+Integer.parseInt(cantidad.getText())+","+Num.get(i)+")}");
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio) values(?,?,?,?,2,(select ("+cantidad.getText()+"*precio) as precio from PRODUCTOS where id_producto = "+Num.get(i)+"))");
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio,opcion) values(?,?,?,?,2,(select ("+cantidad.getText()+"*precio) as precio from PRODUCTOS where id_producto = "+Num.get(i)+"),5)");
         smtp.setInt(1,id_pedido);
         smtp.setInt(2,Num.get(i));
         smtp.setInt(3, id_producto_pedido);
