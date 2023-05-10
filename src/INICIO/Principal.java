@@ -1087,7 +1087,7 @@ private void PanelMismoColor(){
         
       int resp=JOptionPane.showConfirmDialog(null,"DESEA CANCELAR LA ORDEN");
           if (JOptionPane.OK_OPTION == resp){
-             eliminarOrden();
+           eliminarOrden();
            Entra F = new Entra();
            F.setVisible(true);
            this.dispose();
@@ -1255,6 +1255,7 @@ private void PanelMismoColor(){
          panelRound4.setBackground(Botrojo);
          panelRound3.setBackground(Original1);
          para = 2;
+         System.out.println("CANTIDAD= "+cantidad);
     }//GEN-LAST:event_LlevarMouseClicked
 
     private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered

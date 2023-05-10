@@ -602,8 +602,9 @@ jList1.clearSelection();
         NombreCarnes.clear();
         nombredecarnes="";
         cantidadcarnes=0;
+        cantidadcarnesrepetida = 0;
         cantidad.setText("1");
-         entra=2;
+        entra=2;
         DefaultListModel modelo = new DefaultListModel();
         jList1.setModel(modelo);
     }
