@@ -241,7 +241,6 @@ public class Opcion1 extends javax.swing.JPanel {
 
         try {
             InsertarProducto p1 = new InsertarProducto();
-
             p1.setId_pedido(id_pedido);
             p1.setId_producto(id_producto);
             p1.setCantidad( Integer.parseInt( cantidad.getText()));
@@ -253,7 +252,6 @@ public class Opcion1 extends javax.swing.JPanel {
             insertarSin();
             Limpiar();
             //JOptionPane.showMessageDialog(null, "Producto Agregado");
-            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "QUE MIERDA PASA= "+e);
         }
@@ -2837,7 +2835,6 @@ public class Opcion1 extends javax.swing.JPanel {
                 sin10 = 0;
                 int remov = NumSin.indexOf(10);
                 NumSin.remove(remov);
-
             }}
     }//GEN-LAST:event_jLabel26MouseClicked
 
@@ -3033,6 +3030,4 @@ public class Opcion1 extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
-
-    
 }

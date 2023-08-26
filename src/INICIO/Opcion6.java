@@ -446,7 +446,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
         CUATRO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         CUATRO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CUATRO.setText("LONGANIZA");
+        CUATRO.setText("COCA DIETA");
         CUATRO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CUATROMouseClicked(evt);
@@ -478,7 +478,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
         CINCO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         CINCO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CINCO.setText("SALCHI JUMBO");
+        CINCO.setText("DESECHABLE GRANDE");
         CINCO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CINCOMouseClicked(evt);
@@ -510,7 +510,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
         SEIS.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         SEIS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SEIS.setText("ADOBADO");
+        SEIS.setText("COCA LATA");
         SEIS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SEISMouseClicked(evt);
@@ -542,7 +542,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
         OCHO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         OCHO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OCHO.setText("OCHO");
+        OCHO.setText("FANTA DESECHABLE");
         OCHO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 OCHOMouseClicked(evt);
@@ -579,7 +579,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
         SIETE.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         SIETE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SIETE.setText("RES");
+        SIETE.setText("FANTA UVA");
         SIETE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SIETEMouseClicked(evt);
@@ -611,7 +611,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
         NUEVE.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         NUEVE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NUEVE.setText("NUEVE");
+        NUEVE.setText("FANTA NARANJA");
         NUEVE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NUEVEMouseClicked(evt);
@@ -774,7 +774,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
         DIES.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         DIES.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DIES.setText("DIES");
+        DIES.setText("FATA DESECHABLE");
         DIES.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DIESMouseClicked(evt);
@@ -1308,15 +1308,11 @@ public class Opcion6 extends javax.swing.JPanel {
                     .addComponent(Botton24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Botton25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Botton26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Botton29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Botton27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Botton28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(Botton29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Botton30, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)

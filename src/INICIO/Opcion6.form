@@ -450,7 +450,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="LONGANIZA"/>
+                <Property name="text" type="java.lang.String" value="COCA DIETA"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CUATROMouseClicked"/>
@@ -494,7 +494,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="SALCHI JUMBO"/>
+                <Property name="text" type="java.lang.String" value="DESECHABLE GRANDE"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CINCOMouseClicked"/>
@@ -538,7 +538,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="ADOBADO"/>
+                <Property name="text" type="java.lang.String" value="COCA LATA"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SEISMouseClicked"/>
@@ -582,7 +582,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="OCHO"/>
+                <Property name="text" type="java.lang.String" value="FANTA DESECHABLE"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="OCHOMouseClicked"/>
@@ -627,7 +627,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="RES"/>
+                <Property name="text" type="java.lang.String" value="FANTA UVA"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SIETEMouseClicked"/>
@@ -671,7 +671,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="NUEVE"/>
+                <Property name="text" type="java.lang.String" value="FANTA NARANJA"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NUEVEMouseClicked"/>
@@ -892,7 +892,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="DIES"/>
+                <Property name="text" type="java.lang.String" value="FATA DESECHABLE"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DIESMouseClicked"/>

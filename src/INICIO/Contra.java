@@ -154,7 +154,7 @@ public class Contra extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        Entra F = new Entra();
+                  Entra F = new Entra();
                   F.setVisible(true);
                   this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
