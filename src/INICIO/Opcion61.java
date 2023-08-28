@@ -32,22 +32,11 @@ public class Opcion61 extends javax.swing.JPanel {
     int marca13 = 0;
     int marca14 = 0;
     int marca15 = 0;
-    int marca16 = 0;
-    int marca17 = 0;
-    int marca18 = 0;
-    int marca19 = 0;
-    int marca20 = 0;
-    int marca21 = 0;
-    int marca22 = 0;
-    int marca23 = 0;
-    int marca24 = 0;
-    int marca25 = 0;
-    int marca26 = 0;
-    int marca27 = 0;
+    
     
     int id_pedido = 0;
     ArrayList<Integer> Num = new ArrayList<>();
-    Color Botrojo = new Color(255,102,102); 
+    Color Botrojo = new Color(153,204,255); 
     Color Botverde = new Color(0,204,0);
     /**
      * Creates new form Opcion5
@@ -55,30 +44,30 @@ public class Opcion61 extends javax.swing.JPanel {
     public Opcion61(int a) {
         initComponents();
          this.id_pedido=a;
-        String texto = "<html><center><body>COCA COLA<br>VIDRIO NORMAL</body></center></html>";
-        UNO.setText(texto);
-        String texto1 = "<html><center><body>COCA COLA<br>VIDRIO MEDIO LITRO</body></center></html>";
-        DOS.setText(texto1);
-        String texto2 = "<html><center><body>COCA COLA<br>DESECHABLE PEQUEÑA</body></center></html>";
-        TRES.setText(texto2);
-        String texto3 = "<html><center><body>COCA COLA<br>DIETA DESECHABLE</body></center></html>";
-        CUATRO.setText(texto3);
-        String texto4 = "<html><center><body>COCA COLA<br>DESECHABLE GRANDE</body></center></html>";
-        CINCO.setText(texto4);
-        String texto5 = "<html><center><body>COCA COLA<br>EN LATA</body></center></html>";
-        SEIS.setText(texto5);
-        String texto6 = "<html><center><body>FANTA UVA<br>VIDRIO</body></center></html>";
-        SIETE.setText(texto6);
-        String texto7 = "<html><center><body>FANTA UVA<br>DESECHABLE</body></center></html>";
-        OCHO.setText(texto7);
-        
-         String texto8 = "<html><center><body>FANTA NARANJA<br>VIDRIO</body></center></html>";
-        NUEVE.setText(texto8);
-         String texto9 = "<html><center><body>FANTA NARANJA<br>DESECHABLE</body></center></html>";
-        DIES.setText(texto9);
-         String texto10 = "<html><center><body>COCA COLA<br>FAMILIAR 2.5L</body></center></html>";
-        ONCE.setText(texto10);
-         String texto11 = "<html><center><body>SPRITE<br>VIDRIO</body></center></html>";
+        String texto1 = "<html><center><body>GASEOSA<br>VIDRIO NORMAL<br><font color='RED'>Q7.00</font></body></center></html>";
+        UNO.setText(texto1);
+        String texto2 = "<html><center><body>GASEOSA<br>VIDRIO O DESCHABLE GRANDE<br><font color='RED'>Q10.00</font></body></center></html>";
+        DOS.setText(texto2);
+        String texto3 = "<html><center><body>GASEOSA<br>DESECHABLE O LATA PEQUEÑA<br><font color='RED'>Q7.00</font></body></center></html>";
+        TRES.setText(texto3);
+        String texto4 = "<html><center><body>POWERADES<br><font color='RED'>Q10.00</font></body></center></html>";
+        CUATRO.setText(texto4);
+        String texto5 = "<html><center><body>TE FRIO<br><font color='RED'>Q10.00</font></body></center></html>";
+        CINCO.setText(texto5);
+        String texto6 = "<html><center><body>TE CALIENTE<br><font color='RED'>Q7.00</font></body></center></html>";
+        SEIS.setText(texto6);
+        String texto7 = "<html><center><body>CAFE 8onz<br><font color='RED'>Q7.00</font></body></center></html>";
+        SIETE.setText(texto7);
+        String texto8 = "<html><center><body>CAFE 12onz<br><font color='RED'>Q10.00</font></body></center></html>";
+        OCHO.setText(texto8);
+         String texto9 = "<html><center><body>CHOCOLATE 8onz<br><font color='RED'>Q9.00</font></body></center></html>";
+        NUEVE.setText(texto9);
+         String texto10 = "<html><center><body>CHOLATE 12onzO<br><font color='RED'>Q12.00</font></body></center></html>";
+        DIES.setText(texto10);
+        String texto11 = "<html><center><body>COCA COLA<br>FAMILIAR 2.5L<br><font color='RED'>Q26.00</font></body></center></html>";
+        ONCE.setText(texto11);
+        String texto12 = "<html><center><body>AGUA PUERA<br><font color='RED'>Q5.00</font></body></center></html>";
+        DOCE.setText(texto12);
       
     }
 
@@ -95,7 +84,7 @@ public class Opcion61 extends javax.swing.JPanel {
         Botton9.setBackground(Botrojo);
         Botton11.setBackground(Botrojo);
         Botton10.setBackground(Botrojo);
-        
+        Botton12.setBackground(Botrojo);
         marca1 = 0;   
         marca2 = 0;    
         marca3 = 0;  
@@ -111,18 +100,6 @@ public class Opcion61 extends javax.swing.JPanel {
         marca13 = 0;
         marca14 = 0;   
         marca15 = 0;    
-        marca16 = 0;  
-        marca17 = 0;
-        marca18 = 0;
-        marca19 = 0;
-        marca20 = 0;
-        marca21 = 0;
-        marca22 = 0;
-        marca23 = 0;
-        marca24 = 0;
-        marca25 = 0;
-        marca26 = 0;
-        marca27 = 0;
         Num.clear();
         cantidad.setText("1");
     }
@@ -189,6 +166,8 @@ public class Opcion61 extends javax.swing.JPanel {
         DIES = new javax.swing.JLabel();
         Botton11 = new Clases.PanelRound();
         ONCE = new javax.swing.JLabel();
+        Botton12 = new Clases.PanelRound();
+        DOCE = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 153));
         setPreferredSize(new java.awt.Dimension(730, 690));
@@ -254,7 +233,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
 
-        Botton1.setBackground(new java.awt.Color(255, 102, 102));
+        Botton1.setBackground(new java.awt.Color(153, 204, 255));
         Botton1.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton1.setRoundBottomLeft(15);
         Botton1.setRoundBottomRight(15);
@@ -288,7 +267,7 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(UNO, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        Botton2.setBackground(new java.awt.Color(255, 102, 102));
+        Botton2.setBackground(new java.awt.Color(153, 204, 255));
         Botton2.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton2.setRoundBottomLeft(15);
         Botton2.setRoundBottomRight(15);
@@ -302,7 +281,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         DOS.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         DOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DOS.setText("vidrio grande");
+        DOS.setText("vidrio/DESECHABLE grande");
         DOS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DOSMouseClicked(evt);
@@ -313,14 +292,14 @@ public class Opcion61 extends javax.swing.JPanel {
         Botton2.setLayout(Botton2Layout);
         Botton2Layout.setHorizontalGroup(
             Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DOS, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+            .addComponent(DOS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Botton2Layout.setVerticalGroup(
             Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(DOS, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        Botton3.setBackground(new java.awt.Color(255, 102, 102));
+        Botton3.setBackground(new java.awt.Color(153, 204, 255));
         Botton3.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton3.setRoundBottomLeft(15);
         Botton3.setRoundBottomRight(15);
@@ -354,7 +333,7 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(TRES, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        Botton4.setBackground(new java.awt.Color(255, 102, 102));
+        Botton4.setBackground(new java.awt.Color(153, 204, 255));
         Botton4.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton4.setRoundBottomLeft(15);
         Botton4.setRoundBottomRight(15);
@@ -368,7 +347,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         CUATRO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         CUATRO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CUATRO.setText("desechable grande");
+        CUATRO.setText("POWERADE");
         CUATRO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CUATROMouseClicked(evt);
@@ -386,7 +365,7 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(CUATRO, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        Botton5.setBackground(new java.awt.Color(255, 102, 102));
+        Botton5.setBackground(new java.awt.Color(153, 204, 255));
         Botton5.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton5.setRoundBottomLeft(15);
         Botton5.setRoundBottomRight(15);
@@ -400,7 +379,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         CINCO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         CINCO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CINCO.setText("te frio");
+        CINCO.setText("TE FRIO");
         CINCO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CINCOMouseClicked(evt);
@@ -418,7 +397,7 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(CINCO, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        Botton6.setBackground(new java.awt.Color(255, 102, 102));
+        Botton6.setBackground(new java.awt.Color(153, 204, 255));
         Botton6.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton6.setRoundBottomLeft(15);
         Botton6.setRoundBottomRight(15);
@@ -432,7 +411,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         SEIS.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         SEIS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SEIS.setText("powerade");
+        SEIS.setText("TE CALIENTE");
         SEIS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SEISMouseClicked(evt);
@@ -450,7 +429,7 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(SEIS, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        Botton7.setBackground(new java.awt.Color(255, 102, 102));
+        Botton7.setBackground(new java.awt.Color(153, 204, 255));
         Botton7.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton7.setRoundBottomLeft(15);
         Botton7.setRoundBottomRight(15);
@@ -487,7 +466,7 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(OCHO, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        Botton8.setBackground(new java.awt.Color(255, 102, 102));
+        Botton8.setBackground(new java.awt.Color(153, 204, 255));
         Botton8.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton8.setRoundBottomLeft(15);
         Botton8.setRoundBottomRight(15);
@@ -519,7 +498,7 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(SIETE, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        Botton9.setBackground(new java.awt.Color(255, 102, 102));
+        Botton9.setBackground(new java.awt.Color(153, 204, 255));
         Botton9.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton9.setRoundBottomLeft(15);
         Botton9.setRoundBottomRight(15);
@@ -551,7 +530,7 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(NUEVE, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        Botton10.setBackground(new java.awt.Color(255, 102, 102));
+        Botton10.setBackground(new java.awt.Color(153, 204, 255));
         Botton10.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton10.setRoundBottomLeft(15);
         Botton10.setRoundBottomRight(15);
@@ -563,9 +542,10 @@ public class Opcion61 extends javax.swing.JPanel {
             }
         });
 
+        DIES.setBackground(new java.awt.Color(153, 204, 255));
         DIES.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         DIES.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DIES.setText("2.5 litros");
+        DIES.setText("chocolate 12 onz");
         DIES.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DIESMouseClicked(evt);
@@ -576,14 +556,18 @@ public class Opcion61 extends javax.swing.JPanel {
         Botton10.setLayout(Botton10Layout);
         Botton10Layout.setHorizontalGroup(
             Botton10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DIES, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Botton10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(DIES, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         Botton10Layout.setVerticalGroup(
             Botton10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DIES, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Botton10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(DIES, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        Botton11.setBackground(new java.awt.Color(255, 102, 102));
+        Botton11.setBackground(new java.awt.Color(153, 204, 255));
         Botton11.setPreferredSize(new java.awt.Dimension(136, 60));
         Botton11.setRoundBottomLeft(15);
         Botton11.setRoundBottomRight(15);
@@ -597,7 +581,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         ONCE.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         ONCE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ONCE.setText("chocolate 12 onz");
+        ONCE.setText("COCA 2.5");
         ONCE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ONCEMouseClicked(evt);
@@ -618,35 +602,74 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(ONCE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        Botton12.setBackground(new java.awt.Color(153, 204, 255));
+        Botton12.setPreferredSize(new java.awt.Dimension(136, 60));
+        Botton12.setRoundBottomLeft(15);
+        Botton12.setRoundBottomRight(15);
+        Botton12.setRoundTopLeft(15);
+        Botton12.setRoundTopRight(15);
+        Botton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton12MouseClicked(evt);
+            }
+        });
+
+        DOCE.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        DOCE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DOCE.setText("AGUA PURA");
+        DOCE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DOCEMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton12Layout = new javax.swing.GroupLayout(Botton12);
+        Botton12.setLayout(Botton12Layout);
+        Botton12Layout.setHorizontalGroup(
+            Botton12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Botton12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(DOCE, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        Botton12Layout.setVerticalGroup(
+            Botton12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(DOCE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Botton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(Botton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(Botton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Botton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(Botton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(Botton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Botton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(Botton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(Botton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Botton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(Botton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(Botton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Botton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(Botton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(Botton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Botton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(Botton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(Botton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Botton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Botton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(Botton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Botton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -667,10 +690,11 @@ public class Opcion61 extends javax.swing.JPanel {
                     .addComponent(Botton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Botton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Botton9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Botton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Botton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Botton10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Botton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -776,11 +800,11 @@ public class Opcion61 extends javax.swing.JPanel {
         if (marca6 == 0) {
             Botton6.setBackground(Botverde);
             marca6 = 1;
-            Num.add(30);
+            Num.add(35);
         } else {
             Botton6.setBackground(Botrojo);
             marca6 = 0;
-            int remov = Num.indexOf(30);
+            int remov = Num.indexOf(35);
             Num.remove(remov);
         }
     }//GEN-LAST:event_SEISMouseClicked
@@ -793,11 +817,11 @@ public class Opcion61 extends javax.swing.JPanel {
         if (marca7 == 0) {
             Botton8.setBackground(Botverde);
             marca7 = 1;
-            Num.add(31);
+            Num.add(32);
         } else {
             Botton8.setBackground(Botrojo);
             marca7 = 0;
-            int remov = Num.indexOf(31);
+            int remov = Num.indexOf(32);
             Num.remove(remov);
         }
     }//GEN-LAST:event_SIETEMouseClicked
@@ -811,11 +835,11 @@ public class Opcion61 extends javax.swing.JPanel {
         if (marca8 == 0) {
             Botton7.setBackground(Botverde);
             marca8 = 1;
-            Num.add(32);
+            Num.add(33);
         } else {
             Botton7.setBackground(Botrojo);
             marca8 = 0;
-            int remov = Num.indexOf(32);
+            int remov = Num.indexOf(33);
             Num.remove(remov);
         }
     }//GEN-LAST:event_OCHOMouseClicked
@@ -832,11 +856,11 @@ public class Opcion61 extends javax.swing.JPanel {
         if (marca9 == 0) {
             Botton9.setBackground(Botverde);
             marca9 = 1;
-            Num.add(33);
+            Num.add(30);
         } else {
             Botton9.setBackground(Botrojo);
             marca9 = 0;
-            int remov = Num.indexOf(33);
+            int remov = Num.indexOf(30);
             Num.remove(remov);
         }
     }//GEN-LAST:event_NUEVEMouseClicked
@@ -847,13 +871,13 @@ public class Opcion61 extends javax.swing.JPanel {
 
     private void ONCEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ONCEMouseClicked
         if (marca11 == 0) {
-            Botton10.setBackground(Botverde);
+            Botton11.setBackground(Botverde);
             marca11 = 1;
-            Num.add(35);
+            Num.add(36);
         } else {
-            Botton10.setBackground(Botrojo);
+            Botton11.setBackground(Botrojo);
             marca11 = 0;
-            int remov = Num.indexOf(35);
+            int remov = Num.indexOf(36);
             Num.remove(remov);
         }
     }//GEN-LAST:event_ONCEMouseClicked
@@ -864,13 +888,13 @@ public class Opcion61 extends javax.swing.JPanel {
 
     private void DIESMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DIESMouseClicked
         if (marca10 == 0) {
-            Botton11.setBackground(Botverde);
+            Botton10.setBackground(Botverde);
             marca10 = 1;
-            Num.add(34);
+            Num.add(31);
         } else {
-            Botton11.setBackground(Botrojo);
+            Botton10.setBackground(Botrojo);
             marca10 = 0;
-            int remov = Num.indexOf(34);
+            int remov = Num.indexOf(31);
             Num.remove(remov);
         }
     }//GEN-LAST:event_DIESMouseClicked
@@ -905,12 +929,30 @@ public class Opcion61 extends javax.swing.JPanel {
         }else{JOptionPane.showMessageDialog(null, "SELECCIONAR UNA OPCION...");}
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void DOCEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DOCEMouseClicked
+        if (marca6 == 0) {
+            Botton12.setBackground(Botverde);
+            marca6 = 1;
+            Num.add(34);
+        } else {
+            Botton12.setBackground(Botrojo);
+            marca12 = 0;
+            int remov = Num.indexOf(34);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_DOCEMouseClicked
+
+    private void Botton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton12MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Clases.PanelRound BotonAgregar;
     private Clases.PanelRound Botton1;
     private Clases.PanelRound Botton10;
     private Clases.PanelRound Botton11;
+    private Clases.PanelRound Botton12;
     private Clases.PanelRound Botton2;
     private Clases.PanelRound Botton3;
     private Clases.PanelRound Botton4;
@@ -922,6 +964,7 @@ public class Opcion61 extends javax.swing.JPanel {
     private javax.swing.JLabel CINCO;
     private javax.swing.JLabel CUATRO;
     private javax.swing.JLabel DIES;
+    private javax.swing.JLabel DOCE;
     private javax.swing.JLabel DOS;
     private javax.swing.JLabel NUEVE;
     private javax.swing.JLabel OCHO;

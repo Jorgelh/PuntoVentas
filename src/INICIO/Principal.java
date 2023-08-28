@@ -155,6 +155,16 @@ private void Opcion6(){
     PanelPrincipal.revalidate();
     PanelPrincipal.repaint();
 }
+
+private void Opcion61(){
+    Opcion61 op61 = new Opcion61(id_pedido);
+    op61.setSize(519, 690);
+    op61.setLocation(0, 0);
+    PanelPrincipal.removeAll();
+    PanelPrincipal.add(op61,BorderLayout.CENTER);
+    PanelPrincipal.revalidate();
+    PanelPrincipal.repaint();
+}
 private void PanelMismoColor(){
      Color c = new Color(238,238,238);  
      panelRound.setBackground(c);
@@ -1152,7 +1162,7 @@ private void PanelMismoColor(){
         
         Color c = new Color(255,255,153); 
         PanelMismoColor();
-        Opcion6();
+        Opcion61();
         complemento6.setBackground(c);
         
        
