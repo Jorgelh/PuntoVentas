@@ -66,7 +66,7 @@ public class Opcion61 extends javax.swing.JPanel {
         DIES.setText(texto10);
         String texto11 = "<html><center><body>COCA COLA<br>FAMILIAR 2.5L<br><font color='RED'>Q26.00</font></body></center></html>";
         ONCE.setText(texto11);
-        String texto12 = "<html><center><body>AGUA PUERA<br><font color='RED'>Q5.00</font></body></center></html>";
+        String texto12 = "<html><center><body>AGUA PURA<br><font color='RED'>Q5.00</font></body></center></html>";
         DOCE.setText(texto12);
       
     }
