@@ -39,6 +39,15 @@ public class BDIngresos {
        
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public static InsertarProducto InsertarProducto_PedidoCervezaCubetazo(InsertarProducto t) throws SQLException{
         BDConexionSP conecta = new BDConexionSP();
         Connection con = conecta.getConexion();

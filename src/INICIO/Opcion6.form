@@ -19,11 +19,57 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-78,0,0,1,-36"/>
   </AuxValues>
 
-  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-    <Property name="useNullLayout" type="boolean" value="false"/>
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="cantidad" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                      <Component id="BotonAgregar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace pref="10" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                      <Component id="cantidad" min="-2" pref="28" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="BotonAgregar" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JButton" name="jButton2">
@@ -38,11 +84,6 @@
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
       </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="70" y="440" width="-1" height="-1"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="cantidad">
       <Properties>
@@ -53,11 +94,6 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="120" y="460" width="50" height="28"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -72,11 +108,6 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="440" width="-1" height="-1"/>
-        </Constraint>
-      </Constraints>
     </Component>
     <Container class="Clases.PanelRound" name="BotonAgregar">
       <Properties>
@@ -91,11 +122,6 @@
         <Property name="roundTopLeft" type="int" value="20"/>
         <Property name="roundTopRight" type="int" value="20"/>
       </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="270" y="440" width="-1" height="-1"/>
-        </Constraint>
-      </Constraints>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -128,162 +154,197 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel1">
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="40" width="420" height="370"/>
-        </Constraint>
-      </Constraints>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="Botton15" min="-2" pref="133" max="-2" attributes="0"/>
-                          <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                          <Component id="Botton16" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton17" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="Botton18" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton19" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton20" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="Botton21" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton22" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton23" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="Botton24" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton25" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton26" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="B1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="B6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="B12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="B9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="B7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="B14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="B23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="B25" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="B27" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="B4" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="B5" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="B13" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="B18" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="B11" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="B15" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="B26" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="B20" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace pref="2" max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="B8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="B24" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="B22" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="B21" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="B17" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="B19" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="B3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="B2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="B10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="B16" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Botton27" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton28" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Botton29" min="-2" max="-2" attributes="0"/>
+                          <Component id="B29" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="Botton40" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Botton39" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="Botton41" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="Botton37" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Botton36" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton38" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="Botton33" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Botton34" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="Botton35" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="Botton30" min="-2" pref="139" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Botton31" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="Botton32" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="B1" min="-2" max="-2" attributes="0"/>
+                      <Component id="B3" min="-2" max="-2" attributes="0"/>
+                      <Component id="B2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="B5" min="-2" max="-2" attributes="0"/>
+                      <Component id="B6" min="-2" max="-2" attributes="0"/>
+                      <Component id="B4" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Botton15" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="Botton16" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton17" min="-2" max="-2" attributes="0"/>
+                      <Component id="B9" min="-2" max="-2" attributes="0"/>
+                      <Component id="B10" min="-2" max="-2" attributes="0"/>
+                      <Component id="B16" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="B8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="B11" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="B7" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="B14" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="B17" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="B15" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Botton18" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton19" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton20" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Botton21" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton22" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton23" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Botton24" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton25" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton26" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Botton29" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton27" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton28" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="B18" min="-2" max="-2" attributes="0"/>
+                              <Component id="B13" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="B21" min="-2" max="-2" attributes="0"/>
+                              <Component id="B24" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="B12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="B23" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Botton30" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="Botton31" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton32" min="-2" max="-2" attributes="0"/>
+                      <Component id="B20" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="B26" min="-2" max="-2" attributes="0"/>
+                      <Component id="B25" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Botton33" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton34" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton35" min="-2" max="-2" attributes="0"/>
+                      <Component id="B27" min="-2" max="-2" attributes="0"/>
+                      <Component id="B19" min="-2" max="-2" attributes="0"/>
+                      <Component id="B22" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Botton37" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton36" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton38" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Botton40" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton39" min="-2" max="-2" attributes="0"/>
-                      <Component id="Botton41" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <Component id="B29" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="Clases.PanelRound" name="Botton15">
+        <Container class="Clases.PanelRound" name="B1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[75, 45]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -291,18 +352,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton15MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B1MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="UNO" alignment="0" pref="133" max="32767" attributes="0"/>
+                  <Component id="UNO" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="UNO" alignment="0" pref="36" max="32767" attributes="0"/>
+                  <Component id="UNO" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -323,13 +384,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton16">
+        <Container class="Clases.PanelRound" name="B2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -337,18 +398,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton16MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B2MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DOS" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="DOS" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DOS" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="DOS" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -367,13 +428,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton17">
+        <Container class="Clases.PanelRound" name="B3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -381,21 +442,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton17MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B3MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="TRES" min="-2" pref="136" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="TRES" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TRES" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="TRES" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -414,13 +472,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton18">
+        <Container class="Clases.PanelRound" name="B4">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -428,18 +486,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton18MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B4MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="CUATRO" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="CUATRO" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="CUATRO" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="CUATRO" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -458,13 +516,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton19">
+        <Container class="Clases.PanelRound" name="B5">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -472,18 +530,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton19MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B5MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="CINCO" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="CINCO" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="CINCO" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="CINCO" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -502,13 +560,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton20">
+        <Container class="Clases.PanelRound" name="B6">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -516,18 +574,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton20MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B6MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="SEIS" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="SEIS" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="SEIS" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="SEIS" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -546,13 +604,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton22">
+        <Container class="Clases.PanelRound" name="B7">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -560,63 +618,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton22MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B7MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="OCHO" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="SIETE" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="OCHO" alignment="0" pref="33" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="OCHO">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="FANTA DESECHABLE"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="OCHOMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="OCHOKeyReleased"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="Clases.PanelRound" name="Botton21">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="ff" type="rgb"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
-            </Property>
-            <Property name="roundBottomLeft" type="int" value="15"/>
-            <Property name="roundBottomRight" type="int" value="15"/>
-            <Property name="roundTopLeft" type="int" value="15"/>
-            <Property name="roundTopRight" type="int" value="15"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton21MouseClicked"/>
-          </Events>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="SIETE" alignment="0" pref="136" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="SIETE" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="SIETE" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -627,7 +640,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="FANTA UVA"/>
+                <Property name="text" type="java.lang.String" value="FANTA UVA VIDRIO"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SIETEMouseClicked"/>
@@ -635,13 +648,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton23">
+        <Container class="Clases.PanelRound" name="B8">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -649,18 +662,63 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton23MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B8MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="NUEVE" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="OCHO" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="NUEVE" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="OCHO" alignment="0" pref="45" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="OCHO">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="FANTA UVA DESECHABLE"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="OCHOMouseClicked"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="OCHOKeyReleased"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="Clases.PanelRound" name="B9">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="ff" type="rgb"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[145, 45]"/>
+            </Property>
+            <Property name="roundBottomLeft" type="int" value="15"/>
+            <Property name="roundBottomRight" type="int" value="15"/>
+            <Property name="roundTopLeft" type="int" value="15"/>
+            <Property name="roundTopRight" type="int" value="15"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B9MouseClicked"/>
+          </Events>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="NUEVE" alignment="0" pref="145" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="NUEVE" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -671,7 +729,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="FANTA NARANJA"/>
+                <Property name="text" type="java.lang.String" value="FANTA NARANJA VIDRIO"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NUEVEMouseClicked"/>
@@ -679,13 +737,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton25">
+        <Container class="Clases.PanelRound" name="B10">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -693,195 +751,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton25MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B10MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="ONCE" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="DIES" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="ONCE" alignment="0" pref="33" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="ONCE">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="PAN"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ONCEMouseClicked"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="Clases.PanelRound" name="Botton27">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="ff" type="rgb"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
-            </Property>
-            <Property name="roundBottomLeft" type="int" value="15"/>
-            <Property name="roundBottomRight" type="int" value="15"/>
-            <Property name="roundTopLeft" type="int" value="15"/>
-            <Property name="roundTopRight" type="int" value="15"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton27MouseClicked"/>
-          </Events>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TRESE" alignment="0" pref="136" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TRESE" alignment="0" pref="33" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="TRESE">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="tortilla"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TRESEMouseClicked"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="Clases.PanelRound" name="Botton28">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="ff" type="rgb"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
-            </Property>
-            <Property name="roundBottomLeft" type="int" value="15"/>
-            <Property name="roundBottomRight" type="int" value="15"/>
-            <Property name="roundTopLeft" type="int" value="15"/>
-            <Property name="roundTopRight" type="int" value="15"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton28MouseClicked"/>
-          </Events>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="CATORCE" alignment="0" pref="136" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="CATORCE" alignment="0" pref="33" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="CATORCE">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="CEBOLLIN"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CATORCEMouseClicked"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="Clases.PanelRound" name="Botton29">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="ff" type="rgb"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
-            </Property>
-            <Property name="roundBottomLeft" type="int" value="15"/>
-            <Property name="roundBottomRight" type="int" value="15"/>
-            <Property name="roundTopLeft" type="int" value="15"/>
-            <Property name="roundTopRight" type="int" value="15"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton29MouseClicked"/>
-          </Events>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="QUINCE" alignment="0" pref="136" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="QUINCE" alignment="0" pref="33" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="QUINCE">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="jLabel30"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QUINCEMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QUINCEMouseEntered"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="Clases.PanelRound" name="Botton24">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="ff" type="rgb"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
-            </Property>
-            <Property name="roundBottomLeft" type="int" value="15"/>
-            <Property name="roundBottomRight" type="int" value="15"/>
-            <Property name="roundTopLeft" type="int" value="15"/>
-            <Property name="roundTopRight" type="int" value="15"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton24MouseClicked"/>
-          </Events>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DIES" alignment="0" pref="136" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DIES" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="DIES" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -892,7 +773,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="FATA DESECHABLE"/>
+                <Property name="text" type="java.lang.String" value="FATA NARANJA DESECHABLE"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DIESMouseClicked"/>
@@ -900,13 +781,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton26">
+        <Container class="Clases.PanelRound" name="B11">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -914,18 +795,62 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton26MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B11MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DOCE" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="ONCE" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DOCE" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="ONCE" alignment="0" pref="45" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="ONCE">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="COCA COLA 2.5LTS"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ONCEMouseClicked"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="Clases.PanelRound" name="B12">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="ff" type="rgb"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[145, 45]"/>
+            </Property>
+            <Property name="roundBottomLeft" type="int" value="15"/>
+            <Property name="roundBottomRight" type="int" value="15"/>
+            <Property name="roundTopLeft" type="int" value="15"/>
+            <Property name="roundTopRight" type="int" value="15"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B12MouseClicked"/>
+          </Events>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="DOCE" alignment="0" pref="145" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="DOCE" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -936,7 +861,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="PORCIO GUACAMOL"/>
+                <Property name="text" type="java.lang.String" value="SPIRTE VIDRIO"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DOCEMouseClicked"/>
@@ -944,13 +869,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton31">
+        <Container class="Clases.PanelRound" name="B13">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -958,47 +883,43 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton31MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B13MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="DIESISIETE" pref="124" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="TRESE" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DIESISIETE" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="TRESE" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="DIESISIETE">
+            <Component class="javax.swing.JLabel" name="TRESE">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="CHOBREMEN"/>
+                <Property name="text" type="java.lang.String" value="SPIRTE DESECHABLE"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DIESISIETEMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TRESEMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton32">
+        <Container class="Clases.PanelRound" name="B14">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1006,43 +927,43 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton32MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B14MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DIESIOCHO" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="CATORCE" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DIESIOCHO" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="CATORCE" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="DIESIOCHO">
+            <Component class="javax.swing.JLabel" name="CATORCE">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="SALAMI"/>
+                <Property name="text" type="java.lang.String" value="MINERAL VIDRIO"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DIESIOCHOMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CATORCEMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton30">
+        <Container class="Clases.PanelRound" name="B15">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[75, 45]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1050,18 +971,63 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton30MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B15MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DIESISEIS" alignment="0" pref="139" max="32767" attributes="0"/>
+                  <Component id="QUINCE" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DIESISEIS" alignment="0" pref="36" max="32767" attributes="0"/>
+                  <Component id="QUINCE" alignment="0" pref="45" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="QUINCE">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="MINERAL DESECHABLE"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QUINCEMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QUINCEMouseEntered"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="Clases.PanelRound" name="B16">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="ff" type="rgb"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[145, 45]"/>
+            </Property>
+            <Property name="roundBottomLeft" type="int" value="15"/>
+            <Property name="roundBottomRight" type="int" value="15"/>
+            <Property name="roundTopLeft" type="int" value="15"/>
+            <Property name="roundTopRight" type="int" value="15"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B16MouseClicked"/>
+          </Events>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="DIESISEIS" alignment="0" pref="145" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="DIESISEIS" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1072,7 +1038,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="SAPEQUE&#xd1;A"/>
+                <Property name="text" type="java.lang.String" value="TE FRIO LIMON"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="name" type="java.lang.String" value="SALCHICHA PEQUE&#xd1;A" noResource="true"/>
               </Properties>
@@ -1082,13 +1048,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton33">
+        <Container class="Clases.PanelRound" name="B17">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1096,18 +1062,111 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton33MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B17MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DIESINUEVA" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="DIESSIETE" pref="133" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DIESINUEVA" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="DIESSIETE" alignment="0" pref="45" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="DIESSIETE">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="TE FRIO MELOCOTON"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DIESSIETEMouseClicked"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="DIESSIETEKeyReleased"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="Clases.PanelRound" name="B18">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="ff" type="rgb"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[145, 45]"/>
+            </Property>
+            <Property name="roundBottomLeft" type="int" value="15"/>
+            <Property name="roundBottomRight" type="int" value="15"/>
+            <Property name="roundTopLeft" type="int" value="15"/>
+            <Property name="roundTopRight" type="int" value="15"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B18MouseClicked"/>
+          </Events>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="DIESOCHO" alignment="0" pref="145" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="DIESOCHO" alignment="0" pref="45" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="DIESOCHO">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="AGUA FRESCA"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DIESOCHOMouseClicked"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="Clases.PanelRound" name="B19">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="ff" type="rgb"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[145, 45]"/>
+            </Property>
+            <Property name="roundBottomLeft" type="int" value="15"/>
+            <Property name="roundBottomRight" type="int" value="15"/>
+            <Property name="roundTopLeft" type="int" value="15"/>
+            <Property name="roundTopRight" type="int" value="15"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B19MouseClicked"/>
+          </Events>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="DIESINUEVA" alignment="0" pref="145" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="DIESINUEVA" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1118,7 +1177,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="LONGANIZA"/>
+                <Property name="text" type="java.lang.String" value="FANTA ROJA DESECHABLE"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DIESINUEVAMouseClicked"/>
@@ -1126,13 +1185,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton34">
+        <Container class="Clases.PanelRound" name="B20">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1140,43 +1199,43 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton34MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B20MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITE" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="VEINTE" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITE" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="VEINTE" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="VEITE">
+            <Component class="javax.swing.JLabel" name="VEINTE">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="SALCHI JUMBO"/>
+                <Property name="text" type="java.lang.String" value="POWERADE AZUL"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEITEMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEINTEMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton35">
+        <Container class="Clases.PanelRound" name="B21">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1184,43 +1243,43 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton35MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B21MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITIUNO" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="VEINTIUNO" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITIUNO" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="VEINTIUNO" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="VEITIUNO">
+            <Component class="javax.swing.JLabel" name="VEINTIUNO">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="ADOBADO"/>
+                <Property name="text" type="java.lang.String" value="POWERADE ROJO"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEITIUNOMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEINTIUNOMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton36">
+        <Container class="Clases.PanelRound" name="B22">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1228,63 +1287,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton36MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B22MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITITRES" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="VEINDOS" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITITRES" alignment="0" pref="33" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="VEITITRES">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="10" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="CHO AHUMADO"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEITITRESMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="VEITITRESKeyReleased"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="Clases.PanelRound" name="Botton37">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="ff" type="rgb"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
-            </Property>
-            <Property name="roundBottomLeft" type="int" value="15"/>
-            <Property name="roundBottomRight" type="int" value="15"/>
-            <Property name="roundTopLeft" type="int" value="15"/>
-            <Property name="roundTopRight" type="int" value="15"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton37MouseClicked"/>
-          </Events>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEINDOS" alignment="0" pref="136" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEINDOS" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="VEINDOS" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1295,7 +1309,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="RES"/>
+                <Property name="text" type="java.lang.String" value="AGUA PURA"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEINDOSMouseClicked"/>
@@ -1303,13 +1317,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton38">
+        <Container class="Clases.PanelRound" name="B23">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1317,43 +1331,44 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton38MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B23MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITICUATRO" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="VEITITRES" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITICUATRO" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="VEITITRES" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="VEITICUATRO">
+            <Component class="javax.swing.JLabel" name="VEITITRES">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="CHORI ARGENTINO"/>
+                <Property name="text" type="java.lang.String" value="CHOCOLATE 8ONZ"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEITICUATROMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEITITRESMouseClicked"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="VEITITRESKeyReleased"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton40">
+        <Container class="Clases.PanelRound" name="B24">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1361,18 +1376,63 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton40MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B24MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITICINCO" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="VEINTICUATRO" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITICINCO" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="VEINTICUATRO" alignment="0" pref="45" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="VEINTICUATRO">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="CHOCOLATE 12 ONZ"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEINTICUATROMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEINTICUATROMouseEntered"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="Clases.PanelRound" name="B25">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="ff" type="rgb"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[145, 45]"/>
+            </Property>
+            <Property name="roundBottomLeft" type="int" value="15"/>
+            <Property name="roundBottomRight" type="int" value="15"/>
+            <Property name="roundTopLeft" type="int" value="15"/>
+            <Property name="roundTopRight" type="int" value="15"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B25MouseClicked"/>
+          </Events>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="VEITICINCO" alignment="0" pref="145" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="VEITICINCO" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1383,7 +1443,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="tortilla"/>
+                <Property name="text" type="java.lang.String" value="CAFE 8 ONZ"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEITICINCOMouseClicked"/>
@@ -1391,13 +1451,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton39">
+        <Container class="Clases.PanelRound" name="B26">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1405,18 +1465,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton39MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B26MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITISEIS" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="VEITISEIS" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITISEIS" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="VEITISEIS" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1427,7 +1487,7 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="PAN"/>
+                <Property name="text" type="java.lang.String" value="CAFE 12 ONZ"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEITISEISMouseClicked"/>
@@ -1435,13 +1495,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="Clases.PanelRound" name="Botton41">
+        <Container class="Clases.PanelRound" name="B27">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[136, 33]"/>
+              <Dimension value="[145, 45]"/>
             </Property>
             <Property name="roundBottomLeft" type="int" value="15"/>
             <Property name="roundBottomRight" type="int" value="15"/>
@@ -1449,18 +1509,18 @@
             <Property name="roundTopRight" type="int" value="15"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Botton41MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B27MouseClicked"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITISIETE" alignment="0" pref="136" max="32767" attributes="0"/>
+                  <Component id="VEITISIETE" alignment="0" pref="145" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="VEITISIETE" alignment="0" pref="33" max="32767" attributes="0"/>
+                  <Component id="VEITISIETE" alignment="0" pref="45" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -1471,10 +1531,56 @@
                   <Font name="Arial" size="10" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="CEBOLLIN"/>
+                <Property name="text" type="java.lang.String" value="CREMORA"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VEITISIETEMouseClicked"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="Clases.PanelRound" name="B29">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="ff" type="rgb"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[145, 45]"/>
+            </Property>
+            <Property name="roundBottomLeft" type="int" value="15"/>
+            <Property name="roundBottomRight" type="int" value="15"/>
+            <Property name="roundTopLeft" type="int" value="15"/>
+            <Property name="roundTopRight" type="int" value="15"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B29MouseClicked"/>
+          </Events>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="UNO2" alignment="0" pref="145" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="UNO2" alignment="0" pref="45" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="UNO2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="TE CALIENTE"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="name" type="java.lang.String" value="SALCHICHA PEQUE&#xd1;A" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="UNO2MouseClicked"/>
               </Events>
             </Component>
           </SubComponents>

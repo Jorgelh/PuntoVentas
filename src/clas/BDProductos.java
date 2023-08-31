@@ -124,7 +124,7 @@ public class BDProductos {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         PreparedStatement sm = null;
-        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,3,1,(select precio*"+t.getCantidad()+"  from PRODUCTOS where ID_PRODUCTO = "+t.getId_producto()+" ),2)",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,2,1,(select precio*"+t.getCantidad()+"  from PRODUCTOS where ID_PRODUCTO = "+t.getId_producto()+" ),2)",Statement.RETURN_GENERATED_KEYS);
         sm = con.prepareStatement("{call Opcion2("+t.getId_producto()+","+t.getCantidad()+")}");
         try {
          smtp.setInt(1,t.getId_pedido());
@@ -205,16 +205,37 @@ public class BDProductos {
     }*/
     
  public static ArrayList<InsertarProducto> ListarProductosPedidos (int a ) {
-        return SQL3("select\n" +
+    /*    return SQL3("select\n" +
 "ID_PRODUCTOS_PEDIDO,cantidad,\n" +
 "if(p.adicional = 1, \n" +
 "    concat(if(p.tipo = 1,'PAN DE','TORTILLA DE'),'  ',pro.DESCRIPCION,' ',\n" +
 "    (select  GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as descri from  notas n inner join descripcionnotas dn on\n" +
 "dn.id = n.ID where ID_PRODUCTOS_PEDIDO = p.ID_PRODUCTOS_PEDIDO)),pro.DESCRIPCION) as DESCRIPCION,truncate(p.precio,2) as Precio\n" +
 "from productos_pedido p \n" +
-"inner join productos pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido ="+a+";");    
+"inner join productos pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido ="+a+";"); */   
+ 
+ 
+    return  SQL3("select ID_PRODUCTOS_PEDIDO,cantidad,\n" +
+"if(p.adicional = 1, concat(if(p.tipo = 1,'PAN DE',if(p.tipo = 2,'TORTILLA DE','GASEOSA')),'  ',pro.DESCRIPCION,' ',\n" +
+"    (select  GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as descri from  notas n inner join descripcionnotas dn on dn.id = n.ID where ID_PRODUCTOS_PEDIDO = p.ID_PRODUCTOS_PEDIDO)),pro.DESCRIPCION) as DESCRIPCION,truncate(p.precio,2) as Precio\n" +
+"from productos_pedido p \n" +
+"inner join productos pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido = "+a);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  }  
 
+ 
+ 
+ 
+ 
+ 
+ 
 private static ArrayList<InsertarProducto> SQL3(String sql){
     ArrayList<InsertarProducto> list = new ArrayList<InsertarProducto>();
     BDConexion conecta = new BDConexion();
@@ -302,6 +323,52 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
         
     }   
     
+    
+    
+    public static InsertarProducto InsertarProducto_Pedido_gaseosa(InsertarProducto t) throws SQLException{
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement smtp = null;
+        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,1,3,1,(select precio from productos where id_producto =  "+t.getId_producto()+" ),?) ",Statement.RETURN_GENERATED_KEYS);
+        try {
+         smtp.setInt(1,t.getId_pedido());
+         smtp.setInt(2,t.getId_producto());
+         smtp.setInt(3,t.getId_nota());
+         smtp.executeUpdate();
+     } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "QUE MIERDA PASA ADENTRO =  "+e);}
+        ResultSet rs = smtp.getGeneratedKeys();
+        if(rs.next()){int id1 = rs.getInt(1);
+          t.setIdregreso(id1);
+        }
+        
+       con.close();
+       smtp.close(); 
+        return t;
+       
+    }
+    
+    public static InsertarProducto InsertarProducto_Pedido_gaseosa_SinNota(InsertarProducto t) throws SQLException{
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement smtp = null;
+        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,precio,opcion) values(?,?,1,(select precio from productos where id_producto =  "+t.getId_producto()+" ),6) ",Statement.RETURN_GENERATED_KEYS);
+        try {
+         smtp.setInt(1,t.getId_pedido());
+         smtp.setInt(2,t.getId_producto());
+         smtp.executeUpdate();
+     } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "QUE MIERDA PASA ADENTRO =  "+e);}
+        ResultSet rs = smtp.getGeneratedKeys();
+        if(rs.next()){int id1 = rs.getInt(1);
+          t.setIdregreso(id1);
+        }
+        
+       con.close();
+       smtp.close(); 
+        return t;
+       
+    }
     
     
     

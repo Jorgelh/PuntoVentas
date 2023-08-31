@@ -10,10 +10,7 @@ import clas.Productos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -88,15 +85,12 @@ public class InventarioProductos extends javax.swing.JFrame {
     private void BuscarProducto() {
     
      try {
-           
-
             Productos ca = BDProductos.BuscarProducto(Integer.parseInt(String.valueOf(Inventario.getModel().getValueAt(Inventario.getSelectedRow(), 0))));
             //LaDescrip.setText(ca.getDescripcion());
             //unidadMedida.setText(ca.getPresentacion());
             codigo.setText(String.valueOf(ca.getCodigo()));
             descripcion.setText(ca.getDescripcion());
             cantidad.setText(String.valueOf(ca.getCantidad()));
-          
         } catch (Exception e) {
             System.out.println("ERROR REPORTE AL ADMINISTRADOR DE SISTEMA" + e);
         }

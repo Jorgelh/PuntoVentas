@@ -1162,7 +1162,7 @@ private void PanelMismoColor(){
         
         Color c = new Color(255,255,153); 
         PanelMismoColor();
-        Opcion61();
+        Opcion6();
         complemento6.setBackground(c);
         
        
