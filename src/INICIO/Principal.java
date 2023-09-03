@@ -278,7 +278,7 @@ private void PanelMismoColor(){
              QueryOpcion = "{call Opcion4_regresarainventario("+cantidad+")}";  
             }else if (opcion ==5){
                 QueryOpcion = "{call Opcion5_regresarinventario("+cantidad+","+id_producto+")}"; 
-            }else if(opcion == 6) 
+            }else if(opcion >= 6) 
             {
                  QueryOpcion = "{call Opcion6_regresarinventario("+cantidad+","+id_producto+")}"; 
             }

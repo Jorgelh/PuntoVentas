@@ -352,10 +352,11 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
-        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,precio,opcion) values(?,?,1,(select precio from productos where id_producto =  "+t.getId_producto()+" ),6) ",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,precio,opcion) values(?,?,1,(select precio from productos where id_producto =  "+t.getId_producto()+" ),?) ",Statement.RETURN_GENERATED_KEYS);
         try {
          smtp.setInt(1,t.getId_pedido());
          smtp.setInt(2,t.getId_producto());
+         smtp.setInt(3,t.getId_nota());
          smtp.executeUpdate();
      } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "QUE MIERDA PASA ADENTRO =  "+e);}
