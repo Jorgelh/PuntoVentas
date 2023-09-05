@@ -53,6 +53,7 @@ public class Opcion1 extends javax.swing.JPanel {
     int sin11 = 0;
     int sin12 = 0;
     int sin13 = 0;
+    int sin14 = 0;
     int marca15 = 0;   
     int marca16 = 0;    
     int marca17 = 0;  
@@ -509,6 +510,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton36 = new Clases.PanelRound();
         jLabel30 = new javax.swing.JLabel();
         Botton37 = new Clases.PanelRound();
+        jLabel32 = new javax.swing.JLabel();
         Botton38 = new Clases.PanelRound();
         jLabel31 = new javax.swing.JLabel();
         Botton39 = new Clases.PanelRound();
@@ -1820,15 +1822,24 @@ public class Opcion1 extends javax.swing.JPanel {
             }
         });
 
+        jLabel32.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel32.setText("SOLO CHIRMOL");
+        jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel32MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout Botton37Layout = new javax.swing.GroupLayout(Botton37);
         Botton37.setLayout(Botton37Layout);
         Botton37Layout.setHorizontalGroup(
             Botton37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton37Layout.setVerticalGroup(
             Botton37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         Botton38.setBackground(new java.awt.Color(255, 102, 102));
@@ -2932,6 +2943,20 @@ public class Opcion1 extends javax.swing.JPanel {
             }}
     }//GEN-LAST:event_jLabel31MouseClicked
 
+    private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
+       if(entra ==2){
+            if (sin13 == 0) {
+                Botton37.setBackground(Botverde);
+                sin14 = 1;
+                NumSin.add(41);
+            } else {
+                Botton37.setBackground(Botrojo);
+                sin14 = 0;
+                int remov = NumSin.indexOf(41);
+                NumSin.remove(remov);
+            }}
+    }//GEN-LAST:event_jLabel32MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Argentino;
@@ -3021,6 +3046,7 @@ public class Opcion1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;

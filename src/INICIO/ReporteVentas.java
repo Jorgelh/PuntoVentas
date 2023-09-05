@@ -54,8 +54,6 @@ public class ReporteVentas extends javax.swing.JFrame {
     
    
     private void imprimeTotalen(){
-    
-    
       BDConexion con= new BDConexion();
        Connection conexion= con.getConexion();
         try {
@@ -70,7 +68,6 @@ public class ReporteVentas extends javax.swing.JFrame {
         } catch (Exception e) {System.out.println("F"+e);
            JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  "+e);
         }
-    
     }
             
     
