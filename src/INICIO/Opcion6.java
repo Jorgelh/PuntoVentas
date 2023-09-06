@@ -273,10 +273,14 @@ public class Opcion6 extends javax.swing.JPanel {
             BDConexion conecta = new BDConexion();
             Connection con = conecta.getConexion();
             PreparedStatement smtp = null;
+            PreparedStatement sm = null;
+            sm = con.prepareStatement("{call Opcion6_regresarinventario(1,"+id_producto+")}");
             smtp = con.prepareStatement("update productos_pedido SET CANTIDAD = CANTIDAD-1,Precio = precio-(SELECT PRECIO FROM productos WHERE id_producto = " + id_producto + ") WHERE id_pedido = " + id_pedido + " AND id_producto = " + id_producto+" and opcion = "+ id_nota);
             smtp.executeUpdate();
+            sm.executeUpdate();
             con.close();
             smtp.close();
+            sm.close();
             // JOptionPane.showMessageDialog(null, "Guardado...");
         } catch (SQLException ex) {
             JOptionPane.showConfirmDialog(null, ex);
@@ -292,10 +296,14 @@ public class Opcion6 extends javax.swing.JPanel {
             BDConexion conecta = new BDConexion();
             Connection con = conecta.getConexion();
             PreparedStatement smtp = null;
+            PreparedStatement sm = null;
+            sm = con.prepareStatement("{call Opcion6(1,"+id_producto+")}");
             smtp = con.prepareStatement("update productos_pedido SET CANTIDAD = CANTIDAD+1, Precio = CANTIDAD*(SELECT PRECIO FROM productos WHERE id_producto = " + id_producto + ") WHERE id_pedido = " + id_pedido + " AND id_producto = " + id_producto+" and opcion = "+ id_nota);
             smtp.executeUpdate();
+            sm.executeUpdate();
             con.close();
             smtp.close();
+            sm.close();
             // JOptionPane.showMessageDialog(null, "Guardado...");
         } catch (SQLException ex) {
             JOptionPane.showConfirmDialog(null, ex);
@@ -1540,7 +1548,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
     private void DOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DOSMouseClicked
         if ((evt.getModifiers() & 4) != 0) {
-            id_producto = 37;
+            id_producto = 26;
             id_nota = 28;
             BuscarExistencia();
             if (existe >= 2) {
@@ -1554,7 +1562,7 @@ public class Opcion6 extends javax.swing.JPanel {
             timer.setRepeats(false);
             timer.start();
         } else {
-            id_producto = 37;
+            id_producto = 26;
             id_nota = 28;
             BuscarExistencia();
             if (existe == 0) {
@@ -1672,7 +1680,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
     private void SEISMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SEISMouseClicked
        if ((evt.getModifiers() & 4) != 0) {
-            id_producto = 38;
+            id_producto = 27;
             id_nota = 28;
             BuscarExistencia();
             if (existe >= 2) {
@@ -1686,7 +1694,7 @@ public class Opcion6 extends javax.swing.JPanel {
             timer.setRepeats(false);
             timer.start();
         } else {
-            id_producto = 38;
+            id_producto = 27;
             id_nota = 28;
             BuscarExistencia();
             if (existe == 0) {

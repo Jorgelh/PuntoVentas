@@ -329,21 +329,24 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
+        PreparedStatement sm = null;
+        sm = con.prepareStatement("{call Opcion6(1,"+t.getId_producto()+")}");
         smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,1,3,1,(select precio from productos where id_producto =  "+t.getId_producto()+" ),?) ",Statement.RETURN_GENERATED_KEYS);
         try {
          smtp.setInt(1,t.getId_pedido());
          smtp.setInt(2,t.getId_producto());
          smtp.setInt(3,t.getId_nota());
          smtp.executeUpdate();
+         sm.executeUpdate();
      } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "QUE MIERDA PASA ADENTRO =  "+e);}
         ResultSet rs = smtp.getGeneratedKeys();
         if(rs.next()){int id1 = rs.getInt(1);
           t.setIdregreso(id1);
         }
-        
        con.close();
-       smtp.close(); 
+       smtp.close();
+       sm.close();
         return t;
        
     }
@@ -352,26 +355,24 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
+        PreparedStatement sm = null;
+        sm = con.prepareStatement("{call Opcion6(1,"+t.getId_producto()+")}");
         smtp =con.prepareStatement("insert into productos_pedido (id_pedido,id_producto,cantidad,precio,opcion) values(?,?,1,(select precio from productos where id_producto =  "+t.getId_producto()+" ),?) ",Statement.RETURN_GENERATED_KEYS);
         try {
          smtp.setInt(1,t.getId_pedido());
          smtp.setInt(2,t.getId_producto());
          smtp.setInt(3,t.getId_nota());
          smtp.executeUpdate();
+         sm.executeUpdate();
      } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "QUE MIERDA PASA ADENTRO =  "+e);}
         ResultSet rs = smtp.getGeneratedKeys();
         if(rs.next()){int id1 = rs.getInt(1);
           t.setIdregreso(id1);
         }
-        
        con.close();
        smtp.close(); 
-        return t;
-       
+       sm.close();    
+       return t;
     }
-    
-    
-    
-
 }
