@@ -74,6 +74,7 @@ public class Opcion1 extends javax.swing.JPanel {
     int id_producto_pedido = 0;
     ArrayList<Integer> Num = new ArrayList<>();
     ArrayList<Integer> NumSin = new ArrayList<>();
+    ArrayList<Integer> Consumos = new ArrayList<>();
     Color Botrojo = new Color(255,102,102); 
     Color Botverde = new Color(255,255,153);
     @Override
@@ -234,6 +235,7 @@ public class Opcion1 extends javax.swing.JPanel {
         sin13 = 0;
         Num.clear();
         NumSin.clear();
+        Consumos.clear();
         cantidad.setText("1");
          entra=2;
     }
@@ -286,6 +288,7 @@ public class Opcion1 extends javax.swing.JPanel {
     }
 }
     
+    
        private void insertarSin(){
 
     for(int i = 0; i < NumSin.size(); i++) {
@@ -299,7 +302,7 @@ public class Opcion1 extends javax.swing.JPanel {
         smtp.executeUpdate();
         con.close();
         smtp.close();    
-     } catch (Exception e) {
+     }catch (Exception e){
          
             JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
     }
@@ -1026,10 +1029,7 @@ public class Opcion1 extends javax.swing.JPanel {
         Botton1.setLayout(Botton1Layout);
         Botton1Layout.setHorizontalGroup(
             Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Botton1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
         Botton1Layout.setVerticalGroup(
             Botton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

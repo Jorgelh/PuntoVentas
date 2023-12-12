@@ -15,6 +15,45 @@ public class Productos {
     private String precio;
     private int codigo;
     private int cantidad;
+    private double cantidad2;
+    private String Fecha;
+    private double Cantidadinicial;
+    private double Cantidadfinal;
+
+    public double getCantidadinicial() {
+        return Cantidadinicial;
+    }
+
+    public void setCantidadinicial(double Cantidadinicial) {
+        this.Cantidadinicial = Cantidadinicial;
+    }
+    
+    public double getCantidadfinal() {
+        return Cantidadfinal;
+    }
+
+    public void setCantidadfinal(double Cantidadfinal) {
+        this.Cantidadfinal = Cantidadfinal;
+    }
+    
+    
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.Fecha = fecha;
+    }
+    
+    public double getCantidad2() {
+        return cantidad2;
+    }
+
+    public void setCantidad2(double cantidad2) {
+        this.cantidad2 = cantidad2;
+    }
+    
+    
 
     public int getCantidad() {
         return cantidad;

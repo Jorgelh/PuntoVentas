@@ -51,16 +51,18 @@ public class Principal extends javax.swing.JFrame {
     int opcion;
     int id_producto_pedido;
     int id_producto;
+    int id_usuario;
     int cantidad;
     Color Botrojo = new Color(255,102,102); 
     Color Original1 = new Color(255,255,102);
     Color Original2 = new Color(204,255,204);
+    Color Originaempleado = new Color(255,204,51);
     /**
      * Creates new form Principal
      */
     ArrayList<Integer> NumSin = new ArrayList<>();
     
-    public Principal(int i) {
+    public Principal(int i,int u) {
       
         
          try {
@@ -70,6 +72,7 @@ public class Principal extends javax.swing.JFrame {
         }
         initComponents();
         this.id_pedido = i;
+        this.id_usuario = u;
         this.setLocationRelativeTo(null);
         PanelMismoColor();
         PEDIDO_ID.setText(String.valueOf(id_pedido));
@@ -250,7 +253,11 @@ private void PanelMismoColor(){
                  BDConexion conecta = new BDConexion();
                  Connection con = conecta.getConexion();
                  PreparedStatement smtp = null;
-                 smtp = con.prepareStatement("update PEDIDOS SET TOTAL = "+Total.getText()+", PARA = "+para+", CLIENTE = "+Cliente.getText()+" WHERE ID_PEDIDO ="+PEDIDO_ID.getText());
+                 if(para == 3){  
+                 smtp = con.prepareStatement("update PEDIDOS SET TOTAL = 0.00, PARA = "+para+", CLIENTE = "+Cliente.getText()+", TURNO = "+id_usuario+" WHERE ID_PEDIDO ="+PEDIDO_ID.getText());
+                 }else{
+                 smtp = con.prepareStatement("update PEDIDOS SET TOTAL = "+Total.getText()+", PARA = "+para+", CLIENTE = "+Cliente.getText()+", TURNO = "+id_usuario+" WHERE ID_PEDIDO ="+PEDIDO_ID.getText());
+                 }
                 smtp.executeUpdate();
                 con.close();
                 smtp.close();
@@ -277,10 +284,10 @@ private void PanelMismoColor(){
             }else if (opcion ==4){
              QueryOpcion = "{call Opcion4_regresarainventario("+cantidad+")}";  
             }else if (opcion ==5){
-                QueryOpcion = "{call Opcion5_regresarinventario("+cantidad+","+id_producto+")}"; 
+             QueryOpcion = "{call Opcion5_regresarinventario("+cantidad+","+id_producto+")}"; 
             }else if(opcion >= 6) 
             {
-                 QueryOpcion = "{call Opcion6_regresarinventario("+cantidad+","+id_producto+")}"; 
+             QueryOpcion = "{call Opcion6_regresarinventario("+cantidad+","+id_producto+")}"; 
             }
             PreparedStatement ps = null;
             PreparedStatement pse = null;
@@ -429,6 +436,8 @@ private void PanelMismoColor(){
         Llevar = new javax.swing.JLabel();
         panelRound2 = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
+        panelRound5 = new Clases.PanelRound();
+        jLabel4 = new javax.swing.JLabel();
         PanelPrincipal = new javax.swing.JPanel();
         BotonSalir = new javax.swing.JPanel();
         TxtSalir = new javax.swing.JLabel();
@@ -835,7 +844,7 @@ private void PanelMismoColor(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Total, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                .addComponent(Total)
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
@@ -855,10 +864,11 @@ private void PanelMismoColor(){
         );
 
         panelRound3.setBackground(new java.awt.Color(255, 255, 102));
-        panelRound3.setRoundBottomLeft(10);
-        panelRound3.setRoundBottomRight(10);
-        panelRound3.setRoundTopLeft(10);
-        panelRound3.setRoundTopRight(10);
+        panelRound3.setPreferredSize(new java.awt.Dimension(130, 54));
+        panelRound3.setRoundBottomLeft(20);
+        panelRound3.setRoundBottomRight(20);
+        panelRound3.setRoundTopLeft(20);
+        panelRound3.setRoundTopRight(20);
         panelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelRound3MouseClicked(evt);
@@ -878,19 +888,19 @@ private void PanelMismoColor(){
         panelRound3.setLayout(panelRound3Layout);
         panelRound3Layout.setHorizontalGroup(
             panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Aqui, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+            .addComponent(Aqui, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
         );
         panelRound3Layout.setVerticalGroup(
             panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Aqui, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+            .addComponent(Aqui, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
         );
 
         panelRound4.setBackground(new java.awt.Color(204, 255, 204));
-        panelRound4.setPreferredSize(new java.awt.Dimension(147, 51));
-        panelRound4.setRoundBottomLeft(10);
-        panelRound4.setRoundBottomRight(10);
-        panelRound4.setRoundTopLeft(10);
-        panelRound4.setRoundTopRight(10);
+        panelRound4.setPreferredSize(new java.awt.Dimension(130, 54));
+        panelRound4.setRoundBottomLeft(20);
+        panelRound4.setRoundBottomRight(20);
+        panelRound4.setRoundTopLeft(20);
+        panelRound4.setRoundTopRight(20);
 
         Llevar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         Llevar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -905,11 +915,11 @@ private void PanelMismoColor(){
         panelRound4.setLayout(panelRound4Layout);
         panelRound4Layout.setHorizontalGroup(
             panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Llevar, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+            .addComponent(Llevar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
         );
         panelRound4Layout.setVerticalGroup(
             panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Llevar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Llevar, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
         );
 
         panelRound2.setBackground(new java.awt.Color(102, 255, 0));
@@ -943,6 +953,38 @@ private void PanelMismoColor(){
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        panelRound5.setBackground(new java.awt.Color(255, 204, 51));
+        panelRound5.setPreferredSize(new java.awt.Dimension(100, 54));
+        panelRound5.setRoundBottomLeft(20);
+        panelRound5.setRoundBottomRight(20);
+        panelRound5.setRoundTopLeft(20);
+        panelRound5.setRoundTopRight(20);
+        panelRound5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelRound5MouseClicked(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("EMPLEADO");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelRound5Layout = new javax.swing.GroupLayout(panelRound5);
+        panelRound5.setLayout(panelRound5Layout);
+        panelRound5Layout.setHorizontalGroup(
+            panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+        );
+        panelRound5Layout.setVerticalGroup(
+            panelRound5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -952,15 +994,18 @@ private void PanelMismoColor(){
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                         .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelRound5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -970,12 +1015,13 @@ private void PanelMismoColor(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelRound4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(33, 33, 33)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panelRound5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelRound3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelRound4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(55, 55, 55))
         );
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, 390, 690));
@@ -1076,7 +1122,6 @@ private void PanelMismoColor(){
 
     private void TxtSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtSalirMouseClicked
       
-        
       int resp=JOptionPane.showConfirmDialog(null,"DESEA CANCELAR LA ORDEN");
           if (JOptionPane.OK_OPTION == resp){
            eliminarOrden();
@@ -1084,8 +1129,6 @@ private void PanelMismoColor(){
            F.setVisible(true);
            this.dispose();
           }
-        
-      
     }//GEN-LAST:event_TxtSalirMouseClicked
 
     private void BotonSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSalirMouseExited
@@ -1159,13 +1202,11 @@ private void PanelMismoColor(){
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
      
-        
         Color c = new Color(255,255,153); 
         PanelMismoColor();
         Opcion6();
         complemento6.setBackground(c);
         
-       
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void PedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PedidosMouseClicked
@@ -1177,9 +1218,7 @@ private void PanelMismoColor(){
             if (JOptionPane.OK_OPTION == resp){
                 eliminarproducto();
                 ListarProductosPedidos();
-                
             }
-    
      }
      
      
@@ -1240,19 +1279,34 @@ private void PanelMismoColor(){
         
         panelRound3.setBackground(Botrojo);
         panelRound4.setBackground(Original2);
+        panelRound5.setBackground(Originaempleado);
         para = 1;
+         System.out.println(para);
     }//GEN-LAST:event_AquiMouseClicked
 
     private void LlevarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LlevarMouseClicked
          panelRound4.setBackground(Botrojo);
          panelRound3.setBackground(Original1);
+         panelRound5.setBackground(Originaempleado);
          para = 2;
-         System.out.println("CANTIDAD= "+cantidad);
+         System.out.println(para);
     }//GEN-LAST:event_LlevarMouseClicked
 
     private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel9MouseEntered
+
+    private void panelRound5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound5MouseClicked
+       
+    }//GEN-LAST:event_panelRound5MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+         panelRound4.setBackground(Original2);
+         panelRound3.setBackground(Original1);
+         panelRound5.setBackground(Botrojo);
+         para = 3;
+          System.out.println(para);
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1313,6 +1367,7 @@ private void PanelMismoColor(){
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1331,5 +1386,6 @@ private void PanelMismoColor(){
     private Clases.PanelRound panelRound2;
     private Clases.PanelRound panelRound3;
     private Clases.PanelRound panelRound4;
+    private Clases.PanelRound panelRound5;
     // End of variables declaration//GEN-END:variables
 }

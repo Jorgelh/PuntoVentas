@@ -4,10 +4,13 @@
  */
 package INICIO;
 
+import clas.BDConexion;
 import clas.BDProductos;
 import clas.InsertarProducto;
 import com.login.Login;
 import java.awt.Image;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,6 +32,7 @@ public class Entra extends javax.swing.JFrame {
     
        int id_pedido;
        String fecha;
+       int Id_usuario;
        
     /**
      * Creates new form Entra
@@ -41,6 +45,7 @@ public class Entra extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
         }
         initComponents();
+        ObtenerUsuario();
         this.setLocationRelativeTo(null);
         imagen();
     }
@@ -59,7 +64,7 @@ public class Entra extends javax.swing.JFrame {
         }
         
                   //System.out.println("ID ="+id_pedido);
-                  Principal F = new Principal(id_pedido);
+                  Principal F = new Principal(id_pedido,Id_usuario);
                   F.setVisible(true);
                   this.dispose();
     
@@ -82,6 +87,25 @@ public class Entra extends javax.swing.JFrame {
         }  
     
      
+     public void ObtenerUsuario() {
+
+        try {
+            BDConexion conecta = new BDConexion();
+            Connection cn = conecta.getConexion();
+            java.sql.Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT id_usuario,nombre FROM usuario WHERE STATUS = 2");
+            while (rs.next()) {
+                Id_usuario = rs.getInt(1);
+                Usuario.setText(rs.getString(2));
+            }
+            rs.close();
+            stmt.close();
+            cn.close();
+
+        } catch (Exception error) {
+            System.out.print(error);
+        }
+    }
      
     
     /**
@@ -100,6 +124,9 @@ public class Entra extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        Inventario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        Usuario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -185,6 +212,20 @@ public class Entra extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 30, 30));
 
+        Inventario.setText("INVENTARIO");
+        Inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InventarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, -1, 30));
+
+        jLabel1.setText("USUARIO:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        Usuario.setEditable(false);
+        jPanel1.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -212,6 +253,23 @@ public class Entra extends javax.swing.JFrame {
         C.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void InventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioActionPerformed
+        
+        
+        try {
+        InventarioEmpleados C = new InventarioEmpleados();
+        C.setVisible(true);
+        this.dispose();
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "ERROR  "+e);
+        
+        }
+        
+        
+        
+    }//GEN-LAST:event_InventarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,7 +308,10 @@ public class Entra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Inventario;
+    private javax.swing.JTextField Usuario;
     private javax.swing.JLabel imagen;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     public static javax.swing.JPanel jPanel1;

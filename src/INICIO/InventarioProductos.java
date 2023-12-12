@@ -59,7 +59,7 @@ public class InventarioProductos extends javax.swing.JFrame {
         for (Productos a : list) {
             dato[f][0] = a.getCodigo();
             dato[f][1] = a.getDescripcion();
-            dato[f][2] = a.getCantidad();
+            dato[f][2] = a.getCantidad2();
             f++;
         }
         Inventario.setModel(new javax.swing.table.DefaultTableModel(
@@ -90,7 +90,7 @@ public class InventarioProductos extends javax.swing.JFrame {
             //unidadMedida.setText(ca.getPresentacion());
             codigo.setText(String.valueOf(ca.getCodigo()));
             descripcion.setText(ca.getDescripcion());
-            cantidad.setText(String.valueOf(ca.getCantidad()));
+            cantidad.setText(String.valueOf(ca.getCantidad2()));
         } catch (Exception e) {
             System.out.println("ERROR REPORTE AL ADMINISTRADOR DE SISTEMA" + e);
         }

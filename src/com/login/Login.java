@@ -5,17 +5,24 @@ import INICIO.EntraReportes;
 import clas.BDConexion;
 import java.awt.Color;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     
     int xMouse, yMouse;
     int usuario = 0;
-    int contra = 0;            
+    int contra = 0; 
+    int id_usuario;
     public Login() {
         initComponents();
+        CerrarSession();
         this.setLocationRelativeTo(null);
         favicon.requestFocus();
     }
@@ -29,10 +36,11 @@ public class Login extends javax.swing.JFrame {
             BDConexion Conn = new BDConexion();
             Connection con = Conn.getConexion();
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select COUNT(USUARIO) as USUARIO,ESTADO  from USUARIO where USUARIO= '"+userTxt.getText()+"' and PASS = '"+passTxt.getText()+"' group by estado" );
+            ResultSet rs = stmt.executeQuery("select COUNT(USUARIO) as USUARIO,ESTADO,ID_USUARIO  from USUARIO where USUARIO= '"+userTxt.getText()+"' and PASS = '"+passTxt.getText()+"' group by estado,ID_USUARIO" );
             rs.next();
             int USUARIO = rs.getInt("USUARIO");
             int ESTADO  = rs.getInt("ESTADO");
+            id_usuario = rs.getInt("ID_USUARIO");
             if (USUARIO == 1) {
                 
                 if(ESTADO ==1){
@@ -41,6 +49,7 @@ public class Login extends javax.swing.JFrame {
                   this.dispose();
                 }else if(ESTADO == 2)
                 {
+                  IniciarSesion();
                   Entra F = new Entra();
                   F.setVisible(true);
                   this.dispose();
@@ -58,7 +67,37 @@ public class Login extends javax.swing.JFrame {
         
     }
     
+     private void IniciarSesion() {
+         System.out.println("id =  "+id_usuario);
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement sm = null;
+        try {
+            sm = con.prepareStatement("update USUARIO set STATUS = 2  where ID_USUARIO = " + id_usuario);
+            sm.executeUpdate();
+            con.close();
+            sm.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR =" + ex);
+            //Logger.getLogger(CargaProductos_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
+    private void CerrarSession() {
+
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement sm = null;
+        try {
+            sm = con.prepareStatement("update USUARIO set STATUS = 1");
+            sm.executeUpdate();
+            con.close();
+            sm.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR =" + ex);
+            //Logger.getLogger(CargaProductos_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
     @SuppressWarnings("unchecked")

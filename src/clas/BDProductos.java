@@ -266,7 +266,7 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
 
  public static ArrayList<Productos> ListarProductosInventario() {
 
-        return ListarInventario("SELECT codigo,DESCRIPCION,CANTIDAD FROM productos_inventario");
+        return ListarInventario("SELECT codigo,DESCRIPCION,CANTIDAD FROM productos_inventario order by listar");
     }
 
     private static ArrayList<Productos> ListarInventario(String sql) {
@@ -281,7 +281,7 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
                 c = new Productos();
                 c.setCodigo(rs.getInt("codigo"));
                 c.setDescripcion(rs.getString("descripcion"));
-                c.setCantidad(rs.getInt("cantidad"));
+                c.setCantidad2(rs.getDouble("cantidad"));
                
 
                 list.add(c);
@@ -315,7 +315,7 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
         }
         c.setCodigo(rs.getInt("codigo"));
         c.setDescripcion(rs.getString("descripcion"));
-        c.setCantidad(rs.getInt("cantidad"));
+        c.setCantidad2(rs.getDouble("cantidad"));
         }
         cn.close();
         ps.close();
@@ -375,4 +375,66 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
        sm.close();    
        return t;
     }
+    
+   public static ArrayList<Productos> ListarProductosInventarioIngresados(int a) {
+
+        return ListarInventarioingresados("SELECT date_format(FECHA,'%d/%m/%Y') AS FECHA,CANTIDAD FROM ingresos WHERE CODIGO = "+a+" AND date_format(FECHA,'%d/%m/%Y') = date_format(current_date,'%d/%m/%Y')");
+    }
+
+    private static ArrayList<Productos> ListarInventarioingresados(String sql) {
+        ArrayList<Productos> list = new ArrayList<Productos>();
+        BDConexion conecta = new BDConexion();
+        Connection cn = conecta.getConexion();
+        try {
+            Productos c;
+            Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                c = new Productos();
+                c.setFecha(rs.getString("fecha"));
+                c.setCantidad2(rs.getDouble("cantidad"));
+               
+
+                list.add(c);
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.err.println("Error Consulta producto por nombre " + e);
+            return null;
+        }
+        return list;
+    }
+    
+    public static ArrayList<Productos> ListarProductosHistorialInventario(String a) {
+
+        return ListarInventarioHistorial("SELECT p.Codigo,Descripcion,c.CantidadInicio,c.CantidadFinal,(c.CantidadInicio-c.CantidadFinal) as Final FROM consumos c inner join productos_inventario p on c.codigo = p.codigo where c.fecha = '"+a+"' order by p.listar");
+    }
+
+    private static ArrayList<Productos> ListarInventarioHistorial(String sql) {
+        ArrayList<Productos> list = new ArrayList<Productos>();
+        BDConexion conecta = new BDConexion();
+        Connection cn = conecta.getConexion();
+        try {
+            Productos c;
+            Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                c = new Productos();
+                c.setCodigo(rs.getInt("codigo"));
+                c.setDescripcion(rs.getString("descripcion"));
+                c.setCantidadinicial(rs.getDouble("cantidadinicio"));
+                c.setCantidadfinal(rs.getDouble("cantidadfinal"));
+                c.setCantidad2(rs.getDouble("Final"));
+                list.add(c);
+            }
+            cn.close();
+        } catch (SQLException e) {
+            System.err.println("Error Consulta producto por nombre " + e);
+            return null;
+        }
+        return list;
+    }    
+    
+    
+    
 }

@@ -23,7 +23,7 @@ import javax.swing.Timer;
  */
 public class Opcion3 extends javax.swing.JPanel {
    int carnesrepetida;
-    int cantidadcarnesrepetida;
+    double cantidadcarnesrepetida;
     int cantidadcarnes;
     int descargacantidad;
     String nombredecarnes;
@@ -458,11 +458,11 @@ jList1.clearSelection();
                 carnesrepetida = Cantidacarnes.get(i);//NUEVO
                 break;
             case 21:
-                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2;}//NUEVO
+                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2.67;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2.67;}//NUEVO
                 carnesrepetida = Cantidacarnes.get(i);//NUEVO
                 break;
             case 20:
-                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2;}//NUEVO
+                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+3.20;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+3.20;}//NUEVO
                 carnesrepetida = Cantidacarnes.get(i);//NUEVO
                 break;
             case 24:
