@@ -24,7 +24,7 @@ import javax.swing.Timer;
  * @author Jorge Lopez
  */
 public class Opcion2 extends javax.swing.JPanel {
-    
+
     int carnesrepetida;
     double cantidadcarnesrepetida;
     int cantidadcarnes;
@@ -34,7 +34,7 @@ public class Opcion2 extends javax.swing.JPanel {
     int entra = 2;
     int menu = 0;
     int marca3 = 1;
-    int marca4 = 1; 
+    int marca4 = 1;
     int marca5 = 1;
     int marca6 = 1;
     int marca7 = 1;
@@ -46,7 +46,7 @@ public class Opcion2 extends javax.swing.JPanel {
     int marca13 = 1;
     int sin1 = 0;
     int sin2 = 0;
-    int sin3 = 0; 
+    int sin3 = 0;
     int sin4 = 0;
     int sin5 = 0;
     int sin6 = 0;
@@ -57,9 +57,12 @@ public class Opcion2 extends javax.swing.JPanel {
     int sin11 = 0;
     int sin12 = 0;
     int sin13 = 0;
-    int marca15 = 0;   
-    int marca16 = 0;    
-    int marca17 = 0;  
+    int sin14 = 0;
+    int sin15 = 0;
+    int sin16 = 0;
+    int marca15 = 0;
+    int marca16 = 0;
+    int marca17 = 0;
     int marca18 = 0;
     int marca19 = 0;
     int marca20 = 0;
@@ -75,19 +78,20 @@ public class Opcion2 extends javax.swing.JPanel {
     int id_pedido = 0;
     int id_producto_pedido = 0;
     ArrayList<Integer> Num = new ArrayList<>();
-    ArrayList<Integer> NumSin = new ArrayList<>(); 
+    ArrayList<Integer> NumSin = new ArrayList<>();
     ArrayList<Integer> Cantidacarnes = new ArrayList<>();
     ArrayList<String> NombreCarnes = new ArrayList<>();
-    Color Botrojo = new Color(255,102,102); 
-    Color Botverde = new Color(102,255,102);
+    Color Botrojo = new Color(255, 102, 102);
+    Color Botverde = new Color(102, 255, 102);
+
     /**
      * Creates new form Opcion2
      */
     public Opcion2(int a) {
         initComponents();
         this.id_pedido = a;
-        
-         String texto = "<html><center><body>SALCHICHA<br>PEQUEÑA</body></center></html>";
+
+        String texto = "<html><center><body>SALCHICHA<br>PEQUEÑA</body></center></html>";
         SalPequeña.setText(texto);
         Salchi.setText(texto);
         String texto1 = "<html><center><body>CHORIZO<br>BREMEN</body></center></html>";
@@ -95,7 +99,7 @@ public class Opcion2 extends javax.swing.JPanel {
         Chori.setText(texto1);
         String texto2 = "<html><center><body>SALCHICHA<br>JUMBO</body></center></html>";
         SAlchi.setText(texto2);
-        SalJumbo.setText(texto2);        
+        SalJumbo.setText(texto2);
         String texto3 = "<html><center><body>CHORIZO<br>AHUMADO</body></center></html>";
         ChoAhumado.setText(texto3);
         ahumado.setText(texto3);
@@ -107,13 +111,12 @@ public class Opcion2 extends javax.swing.JPanel {
         String texto6 = "<html><center><body>PORCION DE<br>TORTILLAS</body></center></html>";
         PorciMayonesa.setText(texto6);
         String texto7 = "<html><center><body>PORCION DE<br>QUESO MOSARELA</body></center></html>";
-         Queso.setText(texto7);
-         String texto8 = "<html><center><body>TODAS LAS<br>CARNES</body></center></html>";
-         todas.setText(texto8);
-         
-         
+        Queso.setText(texto7);
+        String texto8 = "<html><center><body>TODAS LAS<br>CARNES</body></center></html>";
+        todas.setText(texto8);
+
     }
-    
+
     /*Timer timer = new Timer(1500, new ActionListener(){
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -123,37 +126,29 @@ public class Opcion2 extends javax.swing.JPanel {
                     
                 }
             });*/
-    
-    
-    
-    Timer timerBoton = new Timer(400, new ActionListener(){
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Botton14.setBackground(Botrojo);
-                }
-            });
-    
+    Timer timerBoton = new Timer(400, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Botton14.setBackground(Botrojo);
+        }
+    });
 
-
- private void agregaralist(){
-  DefaultListModel listModel = new DefaultListModel();
+    private void agregaralist() {
+        DefaultListModel listModel = new DefaultListModel();
 //Recorrer el contenido del ArrayList
-    for(int i=0; i<NombreCarnes.size(); i++) {
-    //Añadir cada elemento del ArrayList en el modelo de la lista
-    listModel.add(i, NombreCarnes.get(i));
-}
+        for (int i = 0; i < NombreCarnes.size(); i++) {
+            //Añadir cada elemento del ArrayList en el modelo de la lista
+            listModel.add(i, NombreCarnes.get(i));
+        }
 //Asociar el modelo de lista al JList
-jList1.setModel(listModel);
+        jList1.setModel(listModel);
 
-jList1.clearSelection();
+        jList1.clearSelection();
 
- }
+    }
 
-
-  
-    
     private void todosBotones() {
-          //[255,102,102]
+        //[255,102,102]
         Botton1.setBackground(Botrojo);
         Botton2.setBackground(Botrojo);
         Botton37.setBackground(Botrojo);
@@ -161,22 +156,33 @@ jList1.clearSelection();
         Botton39.setBackground(Botrojo);
         Botton40.setBackground(Botrojo);
         menu = 2;
-            
+
         if (marca13 == 1) {
-           
+
         } else {
             Botton13.setBackground(Botrojo);
             marca13 = 1;
-            if(Cantidacarnes.size() != 0){
-            int remov = Cantidacarnes.indexOf(24);
-            Cantidacarnes.remove(remov);}
-          }    
-           
-       // System.out.println("MENU = "+menu+" ARRAy ="+Cantidacarnes.size());
+            if (Cantidacarnes.size() != 0) {
+                int remov = Cantidacarnes.indexOf(24);
+                Cantidacarnes.remove(remov);
+            }
+        }
+
+        // System.out.println("MENU = "+menu+" ARRAy ="+Cantidacarnes.size());
     }
-    public void cancelarcarnes(){
-    
-    marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1;
+
+    public void cancelarcarnes() {
+
+        marca3 = 1;
+        marca4 = 1;
+        marca5 = 1;
+        marca6 = 1;
+        marca7 = 1;
+        marca8 = 1;
+        marca9 = 1;
+        marca10 = 1;
+        marca11 = 1;
+        marca12 = 1;
         Botton3.setBackground(Botrojo);
         Botton4.setBackground(Botrojo);
         Botton5.setBackground(Botrojo);
@@ -189,13 +195,11 @@ jList1.clearSelection();
         Botton12.setBackground(Botrojo);
         DefaultListModel modelo = new DefaultListModel();
         jList1.setModel(modelo);
-    
+
     }
-   
-    
-    
-     private  void colores(){
-        
+
+    private void colores() {
+
         //Botton30.setBackground(Botrojo);
         Botton31.setBackground(Botrojo);
         Botton32.setBackground(Botrojo);
@@ -210,11 +214,10 @@ jList1.clearSelection();
         Botton45.setBackground(Botrojo);
         Botton46.setBackground(Botrojo);
         Botton47.setBackground(Botrojo);
-       }
-  
-     
-     private void carne1(){ //Boton Salchicha
-      if (marca3 == 1) {
+    }
+
+    private void carne1() { //Boton Salchicha
+        if (marca3 == 1) {
             Botton3.setBackground(Botverde);
             marca3 = 0;
             Cantidacarnes.add(15);
@@ -226,11 +229,12 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("SALCHICHA");
             NombreCarnes.remove(r);
-          }
-      
-     }
-     private void carne2(){//Boton Chorizo bremen     
-      if (marca4 == 1) {
+        }
+
+    }
+
+    private void carne2() {//Boton Chorizo bremen     
+        if (marca4 == 1) {
             Botton4.setBackground(Botverde);
             marca4 = 0;
             Cantidacarnes.add(16);
@@ -242,15 +246,15 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("BREMEN");
             NombreCarnes.remove(r);
-          }
-     }
-     
-     private void carne3(){ // Boton Salami   
-      if (marca5 == 1) {
+        }
+    }
+
+    private void carne3() { // Boton Salami   
+        if (marca5 == 1) {
             Botton5.setBackground(Botverde);
             marca5 = 0;
-            Cantidacarnes.add(17); 
-            NombreCarnes.add("SALAMI"); 
+            Cantidacarnes.add(17);
+            NombreCarnes.add("SALAMI");
         } else {
             Botton5.setBackground(Botrojo);
             marca5 = 1;
@@ -258,15 +262,16 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("SALAMI");
             NombreCarnes.remove(r);
-          }
-      
-     }
-     private void carne4(){ //Boton Longaniza
-      if (marca6 == 1) {
+        }
+
+    }
+
+    private void carne4() { //Boton Longaniza
+        if (marca6 == 1) {
             Botton6.setBackground(Botverde);
             marca6 = 0;
-            Cantidacarnes.add(18); 
-            NombreCarnes.add("LONGANIZA"); 
+            Cantidacarnes.add(18);
+            NombreCarnes.add("LONGANIZA");
         } else {
             Botton6.setBackground(Botrojo);
             marca6 = 1;
@@ -274,14 +279,15 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("LONGANIZA");
             NombreCarnes.remove(r);
-          }
-     }
-     private void carne5(){//Boton Salchicha Jumbo
-      if (marca7 == 1) {
+        }
+    }
+
+    private void carne5() {//Boton Salchicha Jumbo
+        if (marca7 == 1) {
             Botton7.setBackground(Botverde);
             marca7 = 0;
-            Cantidacarnes.add(19); 
-            NombreCarnes.add("JUMBO"); 
+            Cantidacarnes.add(19);
+            NombreCarnes.add("JUMBO");
         } else {
             Botton7.setBackground(Botrojo);
             marca7 = 1;
@@ -289,14 +295,15 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("JUMBO");
             NombreCarnes.remove(r);
-          }
-     }
-     private void carne6(){ //ADOBADO
-      if (marca8 == 1) {
+        }
+    }
+
+    private void carne6() { //ADOBADO
+        if (marca8 == 1) {
             Botton8.setBackground(Botverde);
             marca8 = 0;
-            Cantidacarnes.add(20); 
-            NombreCarnes.add("ADOBADO"); 
+            Cantidacarnes.add(20);
+            NombreCarnes.add("ADOBADO");
         } else {
             Botton8.setBackground(Botrojo);
             marca8 = 1;
@@ -304,14 +311,15 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("ADOBADO");
             NombreCarnes.remove(r);
-          }
-     }
-     private void carne7(){ //RES
-      if (marca9 == 1) {
+        }
+    }
+
+    private void carne7() { //RES
+        if (marca9 == 1) {
             Botton9.setBackground(Botverde);
             marca9 = 0;
             Cantidacarnes.add(21);
-            NombreCarnes.add("RES"); 
+            NombreCarnes.add("RES");
         } else {
             Botton9.setBackground(Botrojo);
             marca9 = 1;
@@ -319,13 +327,14 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("RES");
             NombreCarnes.remove(r);
-          }
-     }
-     private void carne8(){ //CHORIZO AHUMADO
-      if (marca10 == 1) {
+        }
+    }
+
+    private void carne8() { //CHORIZO AHUMADO
+        if (marca10 == 1) {
             Botton10.setBackground(Botverde);
             marca10 = 0;
-            Cantidacarnes.add(22); 
+            Cantidacarnes.add(22);
             NombreCarnes.add("AHUMADO");
         } else {
             Botton10.setBackground(Botrojo);
@@ -334,10 +343,11 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("AHUMADO");
             NombreCarnes.remove(r);
-          }
-     }
-     private void carne9(){//Chorizo Argentino
-      if (marca11 == 1) {
+        }
+    }
+
+    private void carne9() {//Chorizo Argentino
+        if (marca11 == 1) {
             Botton11.setBackground(Botverde);
             marca11 = 0;
             Cantidacarnes.add(23);
@@ -349,14 +359,15 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("ARGENTINO");
             NombreCarnes.remove(r);
-          }
-     }
-     private void carne10(){
-      if (marca12 == 1) {
+        }
+    }
+
+    private void carne10() {
+        if (marca12 == 1) {
             Botton12.setBackground(Botverde);
             marca12 = 0;
             Cantidacarnes.add(24);
-             NombreCarnes.add("TOCINO"); 
+            NombreCarnes.add("TOCINO");
         } else {
             Botton12.setBackground(Botrojo);
             marca12 = 1;
@@ -364,11 +375,11 @@ jList1.clearSelection();
             Cantidacarnes.remove(remov);
             int r = NombreCarnes.indexOf("TOCINO");
             NombreCarnes.remove(r);
-          }
-     }
-     
-     private void TODAS(){
-      if (marca13 == 1) {
+        }
+    }
+
+    private void TODAS() {
+        if (marca13 == 1) {
             Botton13.setBackground(Botverde);
             marca13 = 0;
             Cantidacarnes.add(24);
@@ -377,155 +388,206 @@ jList1.clearSelection();
             marca13 = 1;
             int remov = Cantidacarnes.indexOf(24);
             Cantidacarnes.remove(remov);
-          }
-     }
-     
-     private void InsertarProductoTortilla() {
+        }
+    }
+
+    private void InsertarProductoTortilla() {
 
         try {
             InsertarProducto p1 = new InsertarProducto();
 
             p1.setId_pedido(id_pedido);
             p1.setId_producto(menu);
-            p1.setCantidad( Integer.parseInt( cantidad.getText()));
+            p1.setCantidad(Integer.parseInt(cantidad.getText()));
             //p1.setPrecio(precio);
             BDProductos.InsertarProducto_Pedido_tortilla(p1);
             id_producto_pedido = p1.getIdregreso();
-            System.out.println("ID_PRODUCTO_PEDIDO ="+id_producto_pedido);
-            if(menu != 17){inserCarnes();}else{descargatodascarnes();}
+            System.out.println("ID_PRODUCTO_PEDIDO =" + id_producto_pedido);
+            if (menu != 17) {
+                inserCarnes();
+            } else {
+                descargatodascarnes();
+            }
             insertarAdicional();
             insertarSin();
             Limpiar();
             //JOptionPane.showMessageDialog(null, "Producto Agregado");
-            
+
         } catch (Exception e) {
         }
-     }
-     
-    private void insertarAdicional(){   
+    }
 
-    for(int i = 0; i < Num.size(); i++) {
-    try {
-        BDConexion conecta = new BDConexion();
-        Connection con = conecta.getConexion();
-        PreparedStatement smtp = null;
-        PreparedStatement sm = null;
-        //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
-        sm = con.prepareStatement("{call Opcion_adicional("+Integer.parseInt(cantidad.getText())+","+Num.get(i)+")}");
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio,opcion) values(?,?,?,?,2,(select ("+cantidad.getText()+"*precio) as precio from PRODUCTOS where id_producto = "+Num.get(i)+"),5)");
-        smtp.setInt(1,id_pedido);
-        smtp.setInt(2,Num.get(i));
-        smtp.setInt(3, id_producto_pedido);
-        smtp.setInt(4, Integer.parseInt(cantidad.getText()));
-        smtp.executeUpdate();
-        sm.executeUpdate();
-        con.close();
-        smtp.close(); 
-        sm.close();  
-     } catch (Exception e) {
-         
-            JOptionPane.showMessageDialog(null,"QUE PASO INSER ADICIONAL: "+ e);}
+    private void insertarAdicional() {
+
+        for (int i = 0; i < Num.size(); i++) {
+            try {
+                BDConexion conecta = new BDConexion();
+                Connection con = conecta.getConexion();
+                PreparedStatement smtp = null;
+                PreparedStatement sm = null;
+                //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
+                sm = con.prepareStatement("{call Opcion_adicional(" + Integer.parseInt(cantidad.getText()) + "," + Num.get(i) + ")}");
+                smtp = con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,pro_id_productos_pedido,cantidad,adicional,precio,opcion) values(?,?,?,?,2,(select (" + cantidad.getText() + "*precio) as precio from PRODUCTOS where id_producto = " + Num.get(i) + "),5)");
+                smtp.setInt(1, id_pedido);
+                smtp.setInt(2, Num.get(i));
+                smtp.setInt(3, id_producto_pedido);
+                smtp.setInt(4, Integer.parseInt(cantidad.getText()));
+                smtp.executeUpdate();
+                sm.executeUpdate();
+                con.close();
+                smtp.close();
+                sm.close();
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(null, "QUE PASO INSER ADICIONAL: " + e);
+            }
         }
-        
-    }
-    
-       private void insertarSin(){
-           
-           
 
-    for(int i = 0; i < NumSin.size(); i++) {
-    try {
-        BDConexion conecta = new BDConexion();
-        Connection con = conecta.getConexion();
-        PreparedStatement smtp = null;
-        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id) values(?,?)");
-        smtp.setInt(1,id_producto_pedido);
-        smtp.setInt(2,NumSin.get(i));
-        smtp.executeUpdate();
-        con.close();
-        smtp.close();  
-        
-     } catch (Exception e) {
-         
-            JOptionPane.showMessageDialog(null,"QUE PASO INSER DE NOTA: "+ e);}
     }
-}
-       
-       private void inserCarnes(){   
 
-    Collections.sort(Cantidacarnes);//NUEVO
-    for(int i = 0; i < Cantidacarnes.size(); i++) {
-        
-        if(null==Cantidacarnes.get(i)){
-            if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());}//NUEVO
+    private void insertarSin() {
+
+        for (int i = 0; i < NumSin.size(); i++) {
+            try {
+                BDConexion conecta = new BDConexion();
+                Connection con = conecta.getConexion();
+                PreparedStatement smtp = null;
+                smtp = con.prepareStatement("insert into NOTAS (id_productos_pedido,id) values(?,?)");
+                smtp.setInt(1, id_producto_pedido);
+                smtp.setInt(2, NumSin.get(i));
+                smtp.executeUpdate();
+                con.close();
+                smtp.close();
+
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(null, "QUE PASO INSER DE NOTA: " + e);
+            }
+        }
+    }
+
+    private void inserCarnes() {
+
+        Collections.sort(Cantidacarnes);//NUEVO
+        for (int i = 0; i < Cantidacarnes.size(); i++) {
+
+            if (null == Cantidacarnes.get(i)) {
+                if (carnesrepetida == Cantidacarnes.get(i)) {
+                    cantidadcarnesrepetida = cantidadcarnesrepetida + 1;
+                } else {
+                    cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());
+                }//NUEVO
+                carnesrepetida = Cantidacarnes.get(i);//NUEVO
+            } else {
+                switch (Cantidacarnes.get(i)) {
+                    case 17:
+                        if (carnesrepetida == Cantidacarnes.get(i)) {
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 4;
+                        } else {
+                            cantidadcarnesrepetida = 0;
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 4;
+                        }//NUEVO
+                        carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                        break;
+                    case 21:
+                        if (carnesrepetida == Cantidacarnes.get(i)) {
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 2.67;
+                        } else {
+                            cantidadcarnesrepetida = 0;
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 2.67;
+                        }//NUEVO
+                        carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                        break;
+                    case 20:
+                        if (carnesrepetida == Cantidacarnes.get(i)) {
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 3.20;
+                        } else {
+                            cantidadcarnesrepetida = 0;
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 3.20;
+                        }//NUEVO
+                        carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                        break;
+                    case 24:
+                        if (carnesrepetida == Cantidacarnes.get(i)) {
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 2;
+                        } else {
+                            cantidadcarnesrepetida = 0;
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 2;
+                        }//NUEVO
+                        carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                        break;
+                    case 23:
+                        if (carnesrepetida == Cantidacarnes.get(i)) {
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 1;
+                        } else {
+                            cantidadcarnesrepetida = 0;
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 1;
+                        }//NUEVO
+                        carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                        break;
+                    default:
+                        if (carnesrepetida == Cantidacarnes.get(i)) {
+                            cantidadcarnesrepetida = cantidadcarnesrepetida + 1;
+                        } else {
+                            cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());
+                        }//NUEVO
+                        carnesrepetida = Cantidacarnes.get(i);//NUEVO
+                        break;
+                }
+            }
             carnesrepetida = Cantidacarnes.get(i);//NUEVO
-        }
-        else switch (Cantidacarnes.get(i)) {
-            case 17:
-                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+4;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+4;}//NUEVO
-                carnesrepetida = Cantidacarnes.get(i);//NUEVO
-                break;
-            case 21:
-                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2.67;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2.67;}//NUEVO
-                carnesrepetida = Cantidacarnes.get(i);//NUEVO
-                break;
-            case 20:
-                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+3.20;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+3.20;}//NUEVO
-                carnesrepetida = Cantidacarnes.get(i);//NUEVO
-                break;
-            case 24:
-                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2;}//NUEVO
-                carnesrepetida = Cantidacarnes.get(i);//NUEVO
-                break;
-            case 23:
-                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2;}//NUEVO
-                carnesrepetida = Cantidacarnes.get(i);//NUEVO
-                break;
-            default:
-                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida = Integer.parseInt(cantidad.getText());}//NUEVO
-                carnesrepetida = Cantidacarnes.get(i);//NUEVO
-                break;
-        }
-        carnesrepetida = Cantidacarnes.get(i);//NUEVO
-    try {
-        if(Cantidacarnes.get(i)==17){descargacantidad = Integer.parseInt(cantidad.getText())*3;}else{descargacantidad = Integer.parseInt(cantidad.getText());}
-        BDConexion conecta = new BDConexion();
-        Connection con = conecta.getConexion();
-        PreparedStatement smtp = null;
-        PreparedStatement sm = null;
-        //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
-        sm = con.prepareStatement("{call Opcion2_carnes("+Integer.parseInt(cantidad.getText())+","+Cantidacarnes.get(i)+","+menu+")}");
-        smtp =con.prepareStatement("insert into NOTAS (id_productos_pedido,id,cantidad,tipo) values(?,?,"+cantidadcarnesrepetida*Integer.parseInt(cantidad.getText())+",1)");
-        smtp.setInt(1, id_producto_pedido);
-        smtp.setInt(2,Cantidacarnes.get(i));
-        smtp.executeUpdate();
-        sm.executeUpdate();
-        con.close();
-        smtp.close(); 
-        sm.close();  
-     } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"QUE PASO CARNES: "+ e);}
+            try {
+                if (Cantidacarnes.get(i) == 17) {
+                    descargacantidad = Integer.parseInt(cantidad.getText()) * 3;
+                } else {
+                    descargacantidad = Integer.parseInt(cantidad.getText());
+                }
+                BDConexion conecta = new BDConexion();
+                Connection con = conecta.getConexion();
+                PreparedStatement smtp = null;
+                PreparedStatement sm = null;
+                //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
+                sm = con.prepareStatement("{call Opcion2_carnes(" + Integer.parseInt(cantidad.getText()) + "," + Cantidacarnes.get(i) + "," + menu + ")}");
+                smtp = con.prepareStatement("insert into NOTAS (id_productos_pedido,id,cantidad,tipo) values(?,?," + cantidadcarnesrepetida * Integer.parseInt(cantidad.getText()) + ",1)");
+                smtp.setInt(1, id_producto_pedido);
+                smtp.setInt(2, Cantidacarnes.get(i));
+                smtp.executeUpdate();
+                sm.executeUpdate();
+                con.close();
+                smtp.close();
+                sm.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "QUE PASO CARNES: " + e);
+            }
         }
     }
-       
-       private void descargatodascarnes(){
-           try {
-               
-        BDConexion conecta = new BDConexion();
-        Connection con = conecta.getConexion();
-        PreparedStatement sm = null;  
-        sm = con.prepareStatement("{call Opcion2_carnes("+Integer.parseInt(cantidad.getText())+","+'0'+","+menu+")}");
-        sm.executeUpdate();
-        con.close();
-        sm.close();  
-           } catch (Exception e) {
-           }
-       }
-       
-       
-       
-       private void Limpiar() {
-        marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;
+
+    private void descargatodascarnes() {
+        try {
+
+            BDConexion conecta = new BDConexion();
+            Connection con = conecta.getConexion();
+            PreparedStatement sm = null;
+            sm = con.prepareStatement("{call Opcion2_carnes(" + Integer.parseInt(cantidad.getText()) + "," + '0' + "," + menu + ")}");
+            sm.executeUpdate();
+            con.close();
+            sm.close();
+        } catch (Exception e) {
+        }
+    }
+
+    private void Limpiar() {
+        marca3 = 1;
+        marca4 = 1;
+        marca5 = 1;
+        marca6 = 1;
+        marca7 = 1;
+        marca8 = 1;
+        marca9 = 1;
+        marca10 = 1;
+        marca11 = 1;
+        marca12 = 1;
+        marca13 = 1;
         Botton1.setBackground(Botrojo);
         Botton2.setBackground(Botrojo);
         Botton3.setBackground(Botrojo);
@@ -573,9 +635,9 @@ jList1.clearSelection();
         Botton45.setBackground(Botrojo);
         Botton46.setBackground(Botrojo);
         Botton47.setBackground(Botrojo);
-        marca15 = 0;   
-        marca16 = 0;    
-        marca17 = 0;  
+        marca15 = 0;
+        marca16 = 0;
+        marca17 = 0;
         marca18 = 0;
         marca19 = 0;
         marca20 = 0;
@@ -590,7 +652,7 @@ jList1.clearSelection();
         marca29 = 0;
         sin1 = 0;
         sin2 = 0;
-        sin3 = 0; 
+        sin3 = 0;
         sin4 = 0;
         sin5 = 0;
         sin6 = 0;
@@ -601,20 +663,23 @@ jList1.clearSelection();
         sin11 = 0;
         sin12 = 0;
         sin13 = 0;
+        sin14 = 0;
+        sin15 = 0;
+        sin16 = 0;
         Num.clear();
         NumSin.clear();
         Cantidacarnes.clear();
         NombreCarnes.clear();
-        nombredecarnes="";
-        cantidadcarnes=0;
+        nombredecarnes = "";
+        cantidadcarnes = 0;
         cantidadcarnesrepetida = 0;
         cantidad.setText("1");
-        entra=2;
+        entra = 2;
         DefaultListModel modelo = new DefaultListModel();
         jList1.setModel(modelo);
     }
-       
-        private void limpiarSin(){
+
+    private void limpiarSin() {
         Botton30.setBackground(Botrojo);
         Botton31.setBackground(Botrojo);
         Botton32.setBackground(Botrojo);
@@ -631,7 +696,7 @@ jList1.clearSelection();
         Botton47.setBackground(Botrojo);
         sin1 = 0;
         sin2 = 0;
-        sin3 = 0; 
+        sin3 = 0;
         sin4 = 0;
         sin5 = 0;
         sin6 = 0;
@@ -642,8 +707,11 @@ jList1.clearSelection();
         sin11 = 0;
         sin12 = 0;
         sin13 = 0;
-        
-        }
+        sin14 = 0;
+        sin15 = 0;
+        sin16 = 0;
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -654,6 +722,7 @@ jList1.clearSelection();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Botton48 = new Clases.PanelRound();
         jPanel1 = new javax.swing.JPanel();
         Botton1 = new Clases.PanelRound();
         jLabel1 = new javax.swing.JLabel();
@@ -720,6 +789,9 @@ jList1.clearSelection();
         Botton46 = new Clases.PanelRound();
         jLabel30 = new javax.swing.JLabel();
         Botton47 = new Clases.PanelRound();
+        jLabel33 = new javax.swing.JLabel();
+        Botton49 = new Clases.PanelRound();
+        jLabel34 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Botton15 = new Clases.PanelRound();
         SalPequeña = new javax.swing.JLabel();
@@ -758,6 +830,29 @@ jList1.clearSelection();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+
+        Botton48.setBackground(new java.awt.Color(255, 102, 102));
+        Botton48.setPreferredSize(new java.awt.Dimension(90, 30));
+        Botton48.setRoundBottomLeft(10);
+        Botton48.setRoundBottomRight(10);
+        Botton48.setRoundTopLeft(10);
+        Botton48.setRoundTopRight(10);
+        Botton48.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton48MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton48Layout = new javax.swing.GroupLayout(Botton48);
+        Botton48.setLayout(Botton48Layout);
+        Botton48Layout.setHorizontalGroup(
+            Botton48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 90, Short.MAX_VALUE)
+        );
+        Botton48Layout.setVerticalGroup(
+            Botton48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
 
         setBackground(new java.awt.Color(77, 77, 77));
         setPreferredSize(new java.awt.Dimension(495, 690));
@@ -1780,7 +1875,7 @@ jList1.clearSelection();
 
         jLabel28.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("SOLO MOSTASA");
+        jLabel28.setText("SOLO CHIRMOL");
         jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel28MouseClicked(evt);
@@ -1874,15 +1969,56 @@ jList1.clearSelection();
             }
         });
 
+        jLabel33.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setText("SOLO REPOLLO");
+        jLabel33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel33MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout Botton47Layout = new javax.swing.GroupLayout(Botton47);
         Botton47.setLayout(Botton47Layout);
         Botton47Layout.setHorizontalGroup(
             Botton47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
+            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         Botton47Layout.setVerticalGroup(
             Botton47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        Botton49.setBackground(new java.awt.Color(255, 102, 102));
+        Botton49.setPreferredSize(new java.awt.Dimension(90, 30));
+        Botton49.setRoundBottomLeft(10);
+        Botton49.setRoundBottomRight(10);
+        Botton49.setRoundTopLeft(10);
+        Botton49.setRoundTopRight(10);
+        Botton49.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton49MouseClicked(evt);
+            }
+        });
+
+        jLabel34.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("TODO APARTE");
+        jLabel34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel34MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton49Layout = new javax.swing.GroupLayout(Botton49);
+        Botton49.setLayout(Botton49Layout);
+        Botton49Layout.setHorizontalGroup(
+            Botton49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+        );
+        Botton49Layout.setVerticalGroup(
+            Botton49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1919,12 +2055,15 @@ jList1.clearSelection();
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(Botton34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Botton45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(Botton45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(Botton49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Botton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Botton41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1952,10 +2091,11 @@ jList1.clearSelection();
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Botton36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Botton47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(Botton49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 210, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 210, 290));
 
         jPanel3.setBackground(new java.awt.Color(77, 77, 77));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2516,7 +2656,7 @@ jList1.clearSelection();
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 600, -1, -1));
+        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 620, -1, -1));
 
         cantidad.setEditable(false);
         cantidad.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
@@ -2552,9 +2692,9 @@ jList1.clearSelection();
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalJumboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalJumboMouseClicked
-       //Boton Salchicha Jumbo
-       carne5();
-       agregaralist();
+        //Boton Salchicha Jumbo
+        carne5();
+        agregaralist();
     }//GEN-LAST:event_SalJumboMouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
@@ -2574,9 +2714,9 @@ jList1.clearSelection();
     }//GEN-LAST:event_SalchiMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-    //Boton Adobado        
-       carne6();
-       agregaralist();
+        //Boton Adobado        
+        carne6();
+        agregaralist();
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void Botton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton8MouseClicked
@@ -2584,8 +2724,8 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton8MouseClicked
 
     private void ChoriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriMouseClicked
-     carne2();
-     agregaralist();
+        carne2();
+        agregaralist();
     }//GEN-LAST:event_ChoriMouseClicked
 
     private void Botton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton4MouseClicked
@@ -2593,7 +2733,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton4MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-         //Boton Res
+        //Boton Res
         carne7();
         agregaralist();
     }//GEN-LAST:event_jLabel10MouseClicked
@@ -2603,9 +2743,9 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton9MouseClicked
 
     private void ArgentinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArgentinoMouseClicked
-     //Boton Chorizo Argentino        
-       carne9();
-       agregaralist();
+        //Boton Chorizo Argentino        
+        carne9();
+        agregaralist();
     }//GEN-LAST:event_ArgentinoMouseClicked
 
     private void Botton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton11MouseClicked
@@ -2613,8 +2753,8 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton11MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-       carne3();
-       agregaralist();
+        carne3();
+        agregaralist();
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void Botton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton5MouseClicked
@@ -2622,10 +2762,10 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton5MouseClicked
 
     private void ahumadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ahumadoMouseClicked
-         //Boton Chorizo Ahumado
+        //Boton Chorizo Ahumado
 
-       carne8();
-       agregaralist();
+        carne8();
+        agregaralist();
     }//GEN-LAST:event_ahumadoMouseClicked
 
     private void Botton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton10MouseClicked
@@ -2633,14 +2773,16 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton10MouseClicked
 
     private void Botton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton14MouseClicked
-       /* timer.stop();
+        /* timer.stop();
         if(timer.isRunning()){
             System.out.println("El timer esta corriendo");   
         }else{System.out.println("El timer no esta corriendo");   }
         
         Prueba.add(3);*/
-        
-        for(int i=0; i<Cantidacarnes.size(); i++){System.out.println(Cantidacarnes.get(i));}
+
+        for (int i = 0; i < Cantidacarnes.size(); i++) {
+            System.out.println(Cantidacarnes.get(i));
+        }
     }//GEN-LAST:event_Botton14MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
@@ -2657,9 +2799,12 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton13MouseClicked
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-      
-        if(entra == 2){limpiarSin();NumSin.clear();}
-       
+
+        if (entra == 2) {
+            limpiarSin();
+            NumSin.clear();
+        }
+
         if (sin1 == 0) {
             Botton30.setBackground(Botverde);
             sin1 = 1;
@@ -2682,14 +2827,14 @@ jList1.clearSelection();
             Botton35.setEnabled(false);*/
         }
     }//GEN-LAST:event_jLabel16MouseClicked
-    
+
     private void Botton30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton30MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Botton30MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-            if(entra ==2){ 
-            
+        if (entra == 2) {
+
             if (sin2 == 0) {
                 Botton31.setBackground(Botverde);
                 sin2 = 1;
@@ -2700,7 +2845,7 @@ jList1.clearSelection();
                 int remov = NumSin.indexOf(2);
                 NumSin.remove(remov);
             }
-    }
+        }
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void Botton31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton31MouseClicked
@@ -2708,7 +2853,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton31MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        if(entra ==2){ 
+        if (entra == 2) {
             if (sin3 == 0) {
                 Botton32.setBackground(Botverde);
                 sin3 = 1;
@@ -2718,7 +2863,8 @@ jList1.clearSelection();
                 sin3 = 0;
                 int remov = NumSin.indexOf(3);
                 NumSin.remove(remov);
-        }}
+            }
+        }
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void Botton32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton32MouseClicked
@@ -2726,7 +2872,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton32MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        if(entra ==2){ 
+        if (entra == 2) {
             if (sin4 == 0) {
                 Botton33.setBackground(Botverde);
                 sin4 = 1;
@@ -2736,7 +2882,8 @@ jList1.clearSelection();
                 sin4 = 0;
                 int remov = NumSin.indexOf(4);
                 NumSin.remove(remov);
-        }}
+            }
+        }
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void Botton33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton33MouseClicked
@@ -2744,8 +2891,8 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton33MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
-   
-        if(entra ==2){ 
+
+        if (entra == 2) {
             if (sin5 == 0) {
                 Botton34.setBackground(Botverde);
                 sin5 = 1;
@@ -2755,7 +2902,8 @@ jList1.clearSelection();
                 sin5 = 0;
                 int remov = NumSin.indexOf(5);
                 NumSin.remove(remov);
-            }}
+            }
+        }
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void Botton34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton34MouseClicked
@@ -2763,7 +2911,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton34MouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
-       if(entra ==2){ 
+        if (entra == 2) {
             if (sin6 == 0) {
                 Botton35.setBackground(Botverde);
                 sin6 = 1;
@@ -2774,7 +2922,8 @@ jList1.clearSelection();
                 int remov = NumSin.indexOf(6);
                 NumSin.remove(remov);
 
-            }}
+            }
+        }
     }//GEN-LAST:event_jLabel21MouseClicked
 
     private void Botton35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton35MouseClicked
@@ -2786,19 +2935,20 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton36MouseClicked
 
     private void SalPequeñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalPequeñaMouseClicked
-       if(entra ==2){ 
-        if (marca15 == 0) {
-            Botton15.setBackground(Botverde);
-            marca15 = 1;
-            Num.add(52);
-        } else {
-            Botton15.setBackground(Botrojo);
-            marca15 = 0;entra =1;
-            int remov = Num.indexOf(52);
-            Num.remove(remov);
+        if (entra == 2) {
+            if (marca15 == 0) {
+                Botton15.setBackground(Botverde);
+                marca15 = 1;
+                Num.add(52);
+            } else {
+                Botton15.setBackground(Botrojo);
+                marca15 = 0;
+                entra = 1;
+                int remov = Num.indexOf(52);
+                Num.remove(remov);
 
+            }
         }
-       }
     }//GEN-LAST:event_SalPequeñaMouseClicked
 
     private void Botton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton15MouseClicked
@@ -3058,27 +3208,27 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton26MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-       //Boton 1
-       Limpiar();
-       todosBotones();
-       Botton1.setBackground(Botverde);
-       menu = 12;
+        //Boton 1
+        Limpiar();
+        todosBotones();
+        Botton1.setBackground(Botverde);
+        menu = 12;
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // Boton2
-       todosBotones();
-       Botton2.setBackground(Botverde);
-       menu = 13;
+        todosBotones();
+        Botton2.setBackground(Botverde);
+        menu = 13;
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // Boton3
-        
+
         todosBotones();
         Botton37.setBackground(Botverde);
         menu = 14;
-        
+
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -3090,15 +3240,15 @@ jList1.clearSelection();
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // Booton5
-         
+
         todosBotones();
         Botton39.setBackground(Botverde);
         menu = 16;
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-     // Boton6
-        
+        // Boton6
+
         todosBotones();
         cancelarcarnes();
         Botton40.setBackground(Botverde);
@@ -3107,46 +3257,68 @@ jList1.clearSelection();
     }//GEN-LAST:event_jLabel22MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        int suma =Integer.parseInt(cantidad.getText());
-        suma = suma +1;
+        int suma = Integer.parseInt(cantidad.getText());
+        suma = suma + 1;
         cantidad.setText(String.valueOf(suma));
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
-        if(Integer.parseInt(cantidad.getText())!=1){
-            int resta =Integer.parseInt(cantidad.getText());
-            resta = resta -1;
+        if (Integer.parseInt(cantidad.getText()) != 1) {
+            int resta = Integer.parseInt(cantidad.getText());
+            resta = resta - 1;
             cantidad.setText(String.valueOf(resta));
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
-       if(NumSin.size()!=0){        
-       // int a =Cantidacarnes.size(); System.out.println("CARNES = "+a+" Y MENU= "+menu);
-        if(Cantidacarnes.size()!=0 && menu != 0){
-        if(menu == 12)
-        {
-            if(Cantidacarnes.size()>0 && Cantidacarnes.size()<=1){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO UNA CARNE");}
+        if (NumSin.size() != 0) {
+            // int a =Cantidacarnes.size(); System.out.println("CARNES = "+a+" Y MENU= "+menu);
+            if (Cantidacarnes.size() != 0 && menu != 0) {
+                if (menu == 12) {
+                    if (Cantidacarnes.size() > 0 && Cantidacarnes.size() <= 1) {
+                        InsertarProductoTortilla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "SELECCIONE SOLO UNA CARNE");
+                    }
+                } else if (menu == 13) {
+                    if (Cantidacarnes.size() > 1 && Cantidacarnes.size() <= 2) {
+                        InsertarProductoTortilla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "SELECCIONE SOLO DOS CARNES");
+                    }
+                } else if (menu == 14) {
+                    if (Cantidacarnes.size() > 2 && Cantidacarnes.size() <= 3) {
+                        InsertarProductoTortilla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "SELECCIONE SOLO TRES CARNES");
+                    }
+                } else if (menu == 15) {
+                    if (Cantidacarnes.size() > 3 && Cantidacarnes.size() <= 4) {
+                        InsertarProductoTortilla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "SELECCIONE SOLO CUATRO CARNES");
+                    }
+                } else if (menu == 16) {
+                    if (Cantidacarnes.size() > 4 && Cantidacarnes.size() <= 5) {
+                        InsertarProductoTortilla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "SELECCIONE SOLO CINCO CARNES");
+                    }
+                } else {
+                    InsertarProductoTortilla();
+                }
+            } else {
+                {
+                    JOptionPane.showMessageDialog(null, "SELECCIONE UNA DE LAS CARNES O MENU");
+                }
+            }
+            ListarProductosPedidos();
+            // preguardar();
+        } else {
+            JOptionPane.showMessageDialog(null, "AGREGUE UNA NOTA");
         }
-        else if(menu == 13)
-        { 
-            if(Cantidacarnes.size()>1 && Cantidacarnes.size()<=2){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO DOS CARNES");}
-        }
-        
-        else if (menu == 14){if(Cantidacarnes.size()>2 && Cantidacarnes.size()<=3){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO TRES CARNES");}}
-        
-        else if (menu == 15){if(Cantidacarnes.size()>3 && Cantidacarnes.size()<=4){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO CUATRO CARNES");}}
-        
-        
-        else if(menu == 16){if(Cantidacarnes.size()>4 && Cantidacarnes.size()<=5){InsertarProductoTortilla();} else {JOptionPane.showMessageDialog(null, "SELECCIONE SOLO CINCO CARNES");}}
-        
-        else {InsertarProductoTortilla();}
-        }else {{JOptionPane.showMessageDialog(null, "SELECCIONE UNA DE LAS CARNES O MENU");}}
-        ListarProductosPedidos();
-       // preguardar();
-       }else {JOptionPane.showMessageDialog(null, "AGREGUE UNA NOTA");}
-         
+
     }//GEN-LAST:event_jLabel24MouseClicked
 
     private void todasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_todasMouseClicked
@@ -3154,7 +3326,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_todasMouseClicked
 
     private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
-           if(entra ==2){ 
+        if (entra == 2) {
             if (sin7 == 0) {
                 Botton41.setBackground(Botverde);
                 sin7 = 1;
@@ -3164,7 +3336,8 @@ jList1.clearSelection();
                 sin7 = 0;
                 int remov = NumSin.indexOf(14);
                 NumSin.remove(remov);
-            }}
+            }
+        }
     }//GEN-LAST:event_jLabel25MouseClicked
 
     private void Botton41MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton41MouseClicked
@@ -3172,7 +3345,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton41MouseClicked
 
     private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
-              if(entra ==2){ 
+        if (entra == 2) {
             if (sin8 == 0) {
                 Botton42.setBackground(Botverde);
                 sin8 = 1;
@@ -3183,7 +3356,8 @@ jList1.clearSelection();
                 int remov = NumSin.indexOf(25);
                 NumSin.remove(remov);
 
-            }}
+            }
+        }
     }//GEN-LAST:event_jLabel26MouseClicked
 
     private void Botton42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton42MouseClicked
@@ -3191,7 +3365,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton42MouseClicked
 
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
-            if(entra ==2){ 
+        if (entra == 2) {
             if (sin9 == 0) {
                 Botton43.setBackground(Botverde);
                 sin9 = 1;
@@ -3202,7 +3376,8 @@ jList1.clearSelection();
                 int remov = NumSin.indexOf(9);
                 NumSin.remove(remov);
 
-            }}
+            }
+        }
     }//GEN-LAST:event_jLabel27MouseClicked
 
     private void Botton43MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton43MouseClicked
@@ -3210,7 +3385,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton43MouseClicked
 
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
-            if(entra ==2){ 
+        if (entra == 2) {
             if (sin10 == 0) {
                 Botton44.setBackground(Botverde);
                 sin10 = 1;
@@ -3221,7 +3396,8 @@ jList1.clearSelection();
                 int remov = NumSin.indexOf(10);
                 NumSin.remove(remov);
 
-            }}
+            }
+        }
     }//GEN-LAST:event_jLabel28MouseClicked
 
     private void Botton44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton44MouseClicked
@@ -3229,10 +3405,10 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton44MouseClicked
 
     private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
-           if(entra ==2){ 
+        if (entra == 2) {
             if (sin11 == 0) {
                 Botton45.setBackground(Botverde);
-                sin11= 1;
+                sin11 = 1;
                 NumSin.add(11);
             } else {
                 Botton45.setBackground(Botrojo);
@@ -3240,7 +3416,8 @@ jList1.clearSelection();
                 int remov = NumSin.indexOf(11);
                 NumSin.remove(remov);
 
-            }}
+            }
+        }
     }//GEN-LAST:event_jLabel29MouseClicked
 
     private void Botton45MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton45MouseClicked
@@ -3248,7 +3425,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton45MouseClicked
 
     private void jLabel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel30MouseClicked
-            if(entra ==2){ 
+        if (entra == 2) {
             if (sin12 == 0) {
                 Botton46.setBackground(Botverde);
                 sin12 = 1;
@@ -3258,7 +3435,8 @@ jList1.clearSelection();
                 sin12 = 0;
                 int remov = NumSin.indexOf(13);
                 NumSin.remove(remov);
-            }}
+            }
+        }
     }//GEN-LAST:event_jLabel30MouseClicked
 
     private void Botton46MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton46MouseClicked
@@ -3266,9 +3444,9 @@ jList1.clearSelection();
     }//GEN-LAST:event_Botton46MouseClicked
 
     private void Botton47MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton47MouseClicked
-       if ((evt.getModifiers() & 4) !=0){
-                 System.out.println("boton derecho");
-            }
+        if ((evt.getModifiers() & 4) != 0) {
+            System.out.println("boton derecho");
+        }
     }//GEN-LAST:event_Botton47MouseClicked
 
     private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
@@ -3276,7 +3454,7 @@ jList1.clearSelection();
     }//GEN-LAST:event_jLabel17MouseEntered
 
     private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
-           if(entra ==2){ 
+        if (entra == 2) {
             if (sin13 == 0) {
                 Botton36.setBackground(Botverde);
                 sin13 = 1;
@@ -3286,7 +3464,8 @@ jList1.clearSelection();
                 sin13 = 0;
                 int remov = NumSin.indexOf(7);
                 NumSin.remove(remov);
-            }}
+            }
+        }
     }//GEN-LAST:event_jLabel31MouseClicked
 
     private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
@@ -3298,22 +3477,23 @@ jList1.clearSelection();
     }//GEN-LAST:event_jLabel10MouseEntered
 
     private void Botton14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton14MousePressed
-       /* timer.start();
+        /* timer.start();
         if(timer.isRunning()){
             System.out.println("El timer esta corriendo");   
         }else{System.out.println("El timer no esta corriendo");   }*/
     }//GEN-LAST:event_Botton14MousePressed
 
     private void SalchiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalchiMousePressed
-        
-        if ((evt.getModifiers() & 4) !=0){
-             nombredecarnes ="SALCHICHA";cantidadcarnes = 15;
-             Cantidacarnes.add(cantidadcarnes);
-             NombreCarnes.add(nombredecarnes);
-             JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-             agregaralist();
-            }
-        
+
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "SALCHICHA";
+            cantidadcarnes = 15;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+        }
+
     }//GEN-LAST:event_SalchiMousePressed
 
     private void ChoriMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriMouseEntered
@@ -3321,120 +3501,137 @@ jList1.clearSelection();
     }//GEN-LAST:event_ChoriMouseEntered
 
     private void ChoriMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriMousePressed
-          if ((evt.getModifiers() & 4) !=0){
-          nombredecarnes = "BREMEN";cantidadcarnes = 16;
-          Cantidacarnes.add(cantidadcarnes);
-             NombreCarnes.add(nombredecarnes);
-             JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-             agregaralist();
-          }
-        
-        
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "BREMEN";
+            cantidadcarnes = 16;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+        }
+
+
     }//GEN-LAST:event_ChoriMousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
-          if ((evt.getModifiers() & 4) !=0){
-           nombredecarnes = "SALAMI";cantidadcarnes = 17;
-           Cantidacarnes.add(cantidadcarnes);
-           NombreCarnes.add(nombredecarnes);
-           JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-           agregaralist();
-          }
-       
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "SALAMI";
+            cantidadcarnes = 17;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+        }
+
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
 
-    if ((evt.getModifiers() & 4) !=0){
-        nombredecarnes = "LONGANIZA";cantidadcarnes = 18;     
-        Cantidacarnes.add(cantidadcarnes);
-        NombreCarnes.add(nombredecarnes);
-        JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-        agregaralist();
-    }
-       
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "LONGANIZA";
+            cantidadcarnes = 18;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+        }
+
     }//GEN-LAST:event_jLabel7MousePressed
 
     private void SalJumboMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalJumboMousePressed
 
-      if ((evt.getModifiers() & 4) !=0){
-          nombredecarnes ="JUMBO";cantidadcarnes = 19;   
-          Cantidacarnes.add(cantidadcarnes);
-          NombreCarnes.add(nombredecarnes);
-          JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-          agregaralist();
-      }
-       
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "JUMBO";
+            cantidadcarnes = 19;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+        }
     }//GEN-LAST:event_SalJumboMousePressed
 
     private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
-          if ((evt.getModifiers() & 4) !=0){
-             nombredecarnes = "ADOBADO";cantidadcarnes = 20;
-             Cantidacarnes.add(cantidadcarnes);
-             NombreCarnes.add(nombredecarnes);
-             JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-             agregaralist();
-              
-          }
-       
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "ADOBADO";
+            cantidadcarnes = 20;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+
+        }
+
     }//GEN-LAST:event_jLabel9MousePressed
 
     private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
-          if ((evt.getModifiers() & 4) !=0){
-           nombredecarnes = "RES"; cantidadcarnes = 21;
-          Cantidacarnes.add(cantidadcarnes);
-          NombreCarnes.add(nombredecarnes);
-          JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-          agregaralist();
-          }
-       
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "RES";
+            cantidadcarnes = 21;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+        }
+
     }//GEN-LAST:event_jLabel10MousePressed
 
     private void ahumadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ahumadoMousePressed
-          if ((evt.getModifiers() & 4) !=0){
-          nombredecarnes = "AHUMADO";cantidadcarnes = 22;
-          Cantidacarnes.add(cantidadcarnes);
-          NombreCarnes.add(nombredecarnes);
-          JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-          agregaralist();
-          }
-        
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "AHUMADO";
+            cantidadcarnes = 22;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+        }
+
     }//GEN-LAST:event_ahumadoMousePressed
 
     private void ArgentinoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArgentinoMousePressed
-          if ((evt.getModifiers() & 4) !=0){
-             nombredecarnes = "ARGENTINO"; cantidadcarnes = 23;
-             Cantidacarnes.add(cantidadcarnes);
-             NombreCarnes.add(nombredecarnes);
-             JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-             agregaralist();
-          
-          
-          }
-        
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "ARGENTINO";
+            cantidadcarnes = 23;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+
+        }
+
     }//GEN-LAST:event_ArgentinoMousePressed
 
     private void jLabel13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MousePressed
-          if ((evt.getModifiers() & 4) !=0){
-             nombredecarnes = "TOCINO";cantidadcarnes = 24;
-             Cantidacarnes.add(cantidadcarnes);
-             NombreCarnes.add(nombredecarnes);
-             JOptionPane.showMessageDialog(null, "AGREGADO OTRO "+nombredecarnes);
-             agregaralist();
-          
-          }
-        
+        if ((evt.getModifiers() & 4) != 0) {
+            nombredecarnes = "TOCINO";
+            cantidadcarnes = 24;
+            Cantidacarnes.add(cantidadcarnes);
+            NombreCarnes.add(nombredecarnes);
+            JOptionPane.showMessageDialog(null, "AGREGADO OTRO " + nombredecarnes);
+            agregaralist();
+
+        }
+
     }//GEN-LAST:event_jLabel13MousePressed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-       Botton14.setBackground(Botverde);
-       timerBoton.setRepeats(false);
-       timerBoton.start();
+        Botton14.setBackground(Botverde);
+        timerBoton.setRepeats(false);
+        timerBoton.start();
         Cantidacarnes.clear();
         NombreCarnes.clear();
-        nombredecarnes="";
-        cantidadcarnes=0;
-        marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;
+        nombredecarnes = "";
+        cantidadcarnes = 0;
+        marca3 = 1;
+        marca4 = 1;
+        marca5 = 1;
+        marca6 = 1;
+        marca7 = 1;
+        marca8 = 1;
+        marca9 = 1;
+        marca10 = 1;
+        marca11 = 1;
+        marca12 = 1;
+        marca13 = 1;
         Botton3.setBackground(Botrojo);
         Botton4.setBackground(Botrojo);
         Botton5.setBackground(Botrojo);
@@ -3448,8 +3645,46 @@ jList1.clearSelection();
         Botton13.setBackground(Botrojo);
         DefaultListModel modelo = new DefaultListModel();
         jList1.setModel(modelo);
-        
+
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void Botton48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton48MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton48MouseClicked
+
+    private void Botton49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton49MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton49MouseClicked
+
+    private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
+        if (entra == 2) {
+            if (sin15 == 0) {
+                Botton47.setBackground(Botverde);
+                sin15 = 1;
+                NumSin.add(42);
+            } else {
+                Botton47.setBackground(Botrojo);
+                sin15 = 0;
+                int remov = NumSin.indexOf(42);
+                NumSin.remove(remov);
+            }
+        }
+    }//GEN-LAST:event_jLabel33MouseClicked
+
+    private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
+        if (entra == 2) {
+            if (sin16 == 0) {
+                Botton49.setBackground(Botverde);
+                sin16 = 1;
+                NumSin.add(43);
+            } else {
+                Botton49.setBackground(Botrojo);
+                sin16 = 0;
+                int remov = NumSin.indexOf(43);
+                NumSin.remove(remov);
+            }
+        }
+    }//GEN-LAST:event_jLabel34MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3496,6 +3731,8 @@ jList1.clearSelection();
     private Clases.PanelRound Botton45;
     private Clases.PanelRound Botton46;
     private Clases.PanelRound Botton47;
+    private Clases.PanelRound Botton48;
+    private Clases.PanelRound Botton49;
     private Clases.PanelRound Botton5;
     private Clases.PanelRound Botton6;
     private Clases.PanelRound Botton7;
@@ -3543,6 +3780,8 @@ jList1.clearSelection();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -3559,11 +3798,7 @@ jList1.clearSelection();
     private javax.swing.JLabel todas;
     // End of variables declaration//GEN-END:variables
 }
-
-
 /*
-
 update productos_inventario p join notas n on p.id = n.id set p.cantidad = p.cantidad+n.cantidad where n.id_productos_pedido = 482;
 update productos_inventario p join productos_pedido pp on p.id_adicional = pp.id_producto set p.cantidad = p.cantidad+pp.cantidad where n.id_productos_pedido = 482;
-
 */

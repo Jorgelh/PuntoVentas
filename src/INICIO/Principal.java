@@ -1121,7 +1121,9 @@ private void PanelMismoColor(){
     }//GEN-LAST:event_TxtSalirMouseExited
 
     private void TxtSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TxtSalirMouseClicked
-      
+      if(Pedidos.getRowCount()>0){
+      JOptionPane.showMessageDialog(null, "ELIMINE TODOS LOS PRODUCTOS"); 
+       }else{
       int resp=JOptionPane.showConfirmDialog(null,"DESEA CANCELAR LA ORDEN");
           if (JOptionPane.OK_OPTION == resp){
            eliminarOrden();
@@ -1129,6 +1131,7 @@ private void PanelMismoColor(){
            F.setVisible(true);
            this.dispose();
           }
+      }
     }//GEN-LAST:event_TxtSalirMouseClicked
 
     private void BotonSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonSalirMouseExited

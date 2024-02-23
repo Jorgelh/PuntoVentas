@@ -470,7 +470,7 @@ jList1.clearSelection();
                 carnesrepetida = Cantidacarnes.get(i);//NUEVO
                 break;
             case 23:
-                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+2;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+2;}//NUEVO
+                if(carnesrepetida == Cantidacarnes.get(i)){cantidadcarnesrepetida = cantidadcarnesrepetida+1;}else{cantidadcarnesrepetida =0; cantidadcarnesrepetida = cantidadcarnesrepetida+1;}//NUEVO
                 carnesrepetida = Cantidacarnes.get(i);//NUEVO
                 break;
             default:
@@ -1776,7 +1776,7 @@ jList1.clearSelection();
 
         jLabel28.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("SOLO MOSTASA");
+        jLabel28.setText("SOLO CHIRMOL");
         jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel28MouseClicked(evt);

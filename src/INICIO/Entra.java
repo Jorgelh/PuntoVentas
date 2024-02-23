@@ -48,6 +48,7 @@ public class Entra extends javax.swing.JFrame {
         ObtenerUsuario();
         this.setLocationRelativeTo(null);
         imagen();
+        Inventario.requestFocus();
     }
     
     public void crear(){
@@ -120,11 +121,11 @@ public class Entra extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         panelRound3 = new Clases.PanelRound();
         jLabel3 = new javax.swing.JLabel();
-        imagen = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        imagen = new javax.swing.JLabel();
+        Inventario = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        Inventario = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Usuario = new javax.swing.JTextField();
 
@@ -169,9 +170,6 @@ public class Entra extends javax.swing.JFrame {
 
         jPanel1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
-        imagen.setText("jLabel4");
-        jPanel1.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 640, 470));
-
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -186,6 +184,17 @@ public class Entra extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 610, 30));
+
+        imagen.setText("jLabel4");
+        jPanel1.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 640, 470));
+
+        Inventario.setText("INVENTARIO");
+        Inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InventarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 450, -1, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 0));
         jPanel2.setForeground(new java.awt.Color(255, 0, 0));
@@ -211,14 +220,6 @@ public class Entra extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 30, 30));
-
-        Inventario.setText("INVENTARIO");
-        Inventario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InventarioActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, -1, 30));
 
         jLabel1.setText("USUARIO:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));

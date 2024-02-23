@@ -106,6 +106,48 @@ public class InicioInventario extends javax.swing.JFrame {
              columna5.setPreferredWidth(30);
     }
     
+    private void ListarHistorialFecha() {
+         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+         FechaListar = df.format(FECHA.getDate());
+        ArrayList<Productos> result = BDProductos.ListarProductosHistorialInventario(FechaListar);
+        ListaFecha(result);
+    }
+
+    private void ListaFecha(ArrayList<Productos> list) {
+
+        Object[][] dato = new Object[list.size()][5];
+        int f = 0;
+        for (Productos a : list) {
+            dato[f][0] = a.getCodigo();
+            dato[f][1] = a.getDescripcion();
+            dato[f][2] = a.getCantidadinicial();
+            dato[f][3] = a.getCantidadfinal();
+            dato[f][4] = a.getCantidad2();
+            f++;
+        }
+        Historial.setModel(new javax.swing.table.DefaultTableModel(
+                dato,
+                new String[]{
+                    "CODIGO", "DESCRIPCION","CANTIDAD INICIAL","CANTIDAD FINAL","CANTIDAD"
+                }) {
+                    @Override
+                    public boolean isCellEditable(int row, int column) {
+                    return false;
+                    }
+                });
+        
+             TableColumn columna1 = Historial.getColumn("CODIGO");
+             columna1.setPreferredWidth(10);
+             TableColumn columna2 = Historial.getColumn("DESCRIPCION");
+             columna2.setPreferredWidth(150);
+              TableColumn columna3 = Historial.getColumn("CANTIDAD INICIAL");
+             columna3.setPreferredWidth(50);
+             TableColumn columna4 = Historial.getColumn("CANTIDAD FINAL");
+             columna4.setPreferredWidth(50);
+             TableColumn columna5 = Historial.getColumn("CANTIDAD");
+             columna5.setPreferredWidth(30);
+    }
+    
     private void ListarProductos() {
         ArrayList<Productos> result = BDProductos.ListarProductosInventario();
         recagarTabla(result);
@@ -332,6 +374,8 @@ public class InicioInventario extends javax.swing.JFrame {
         cantidadCarga = new javax.swing.JTextField();
         Guardar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        FECHA = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         codigo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -401,6 +445,13 @@ public class InicioInventario extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Listar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -409,14 +460,24 @@ public class InicioInventario extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(cantidadCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(cantidadCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 31, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,11 +486,15 @@ public class InicioInventario extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cantidadCarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -502,6 +567,7 @@ public class InicioInventario extends javax.swing.JFrame {
         jScrollPane3.setViewportView(Historial);
 
         Guardar1.setText("INICIAR INVENTARIO");
+        Guardar1.setEnabled(false);
         Guardar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Guardar1ActionPerformed(evt);
@@ -516,6 +582,7 @@ public class InicioInventario extends javax.swing.JFrame {
         });
 
         jButton3.setText("CERRAR INVENTARIO");
+        jButton3.setEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -686,6 +753,16 @@ public class InicioInventario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       if(FECHA.getDate() != null)
+         {
+             ListarHistorialFecha();
+         }
+       else{
+      JOptionPane.showMessageDialog(null, "INGRESAR UNA FECHA");
+      }  
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -722,6 +799,7 @@ public class InicioInventario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser FECHA;
     private javax.swing.JButton Guardar;
     private javax.swing.JButton Guardar1;
     private javax.swing.JTable Historial;
@@ -733,6 +811,7 @@ public class InicioInventario extends javax.swing.JFrame {
     private javax.swing.JTextField descripcion;
     private javax.swing.JTable ingresos;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
