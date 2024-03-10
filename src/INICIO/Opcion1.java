@@ -2091,7 +2091,7 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jLabel34.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setText("TODO APARTE");
+        jLabel34.setText("SIN NADA");
         jLabel34.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel34MouseClicked(evt);
@@ -3070,11 +3070,11 @@ public class Opcion1 extends javax.swing.JPanel {
             if (sin16 == 0) {
                 Botton45.setBackground(Botverde);
                 sin16 = 1;
-                NumSin.add(43);
+                NumSin.add(45);
             } else {
                 Botton45.setBackground(Botrojo);
                 sin16 = 0;
-                int remov = NumSin.indexOf(43);
+                int remov = NumSin.indexOf(45);
                 NumSin.remove(remov);
             }}
     }//GEN-LAST:event_jLabel34MouseClicked

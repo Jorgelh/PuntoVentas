@@ -1683,7 +1683,7 @@ public class Opcion2 extends javax.swing.JPanel {
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("SIN CEBOLLA");
+        jLabel20.setText("SIN NADA");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel20MouseClicked(evt);
@@ -2896,11 +2896,11 @@ public class Opcion2 extends javax.swing.JPanel {
             if (sin5 == 0) {
                 Botton34.setBackground(Botverde);
                 sin5 = 1;
-                NumSin.add(5);
+                NumSin.add(45);
             } else {
                 Botton34.setBackground(Botrojo);
                 sin5 = 0;
-                int remov = NumSin.indexOf(5);
+                int remov = NumSin.indexOf(45);
                 NumSin.remove(remov);
             }
         }
