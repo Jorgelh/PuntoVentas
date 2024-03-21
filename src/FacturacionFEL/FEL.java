@@ -4,6 +4,7 @@
  */
 package FacturacionFEL;
 
+import FELclass.FELclas;
 import FELclass.RestApiClient;
 import FELclass.Token;
 import com.google.gson.Gson;
@@ -14,8 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-//import javax.ws.rs.client.ClientBuilder;
-
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
@@ -29,11 +28,11 @@ import org.json.JSONObject;
  */
 public class FEL extends javax.swing.JFrame {
      String Token;
+     String NI = "000000123456"; //"000044653948";
     /**
      * Creates new form FEL
      */
     public FEL() {
-        
         initComponents();
         this.setLocationRelativeTo(null);
         nit.requestFocus();
@@ -55,7 +54,6 @@ public class FEL extends javax.swing.JFrame {
             req.setPassword("Coast$cm86");
             Gson gson = new Gson();
             String jsonString = gson.toJson(req);
-            System.out.println("convierte a json "+jsonString);
             Response post = solicitud.post(Entity.json(jsonString));
             String resJson = post.readEntity(String.class);
             res = resJson;
@@ -72,19 +70,15 @@ public class FEL extends javax.swing.JFrame {
     }
     
     
-    
+    //000044653948
     private void Obtenernit(){
-   
+     
    RestApiClient apiClient = new RestApiClient();
         
         try {
-            String apiKey = "TAXID=000044653948&DATA1=SHARED_GETINFONITcom&DATA2=NIT|44653948&COUNTRY=GT&USERNAME=JULIOCIF";
+            String apiKey = "TAXID="+NI+"&DATA1=SHARED_GETINFONITcom&DATA2=NIT|"+nit.getText()+"&COUNTRY=GT&USERNAME=JULIOCIF";
             String accessToken = Token;
-            String endpoint = "your_endpoint";
-
-            String response = apiClient.get(endpoint, apiKey, accessToken);
-            System.out.println(response);
-            
+            String response = apiClient.get( apiKey, accessToken);
             JSONObject  jsonObject = new JSONObject(response);
             JSONArray arrayObject = (JSONArray) jsonObject.get("RESPONSE");
              for (int i = 0; i < arrayObject.length(); i++) {
@@ -103,6 +97,35 @@ public class FEL extends javax.swing.JFrame {
         }
    }
     
+    private void Certificar(){
+    
+    FELclas apiClient = new FELclas();
+        
+        try {
+            String apiKey = "TAXID="+NI+"&FORMAT=''&USERNAME=TESTUSER";
+            String accessToken = Token;
+            System.out.println("Token = "+Token);
+            String response = apiClient.get(apiKey, accessToken);
+            JSONObject  jsonObject = new JSONObject(response);
+            JSONObject object2 = (jsonObject); 
+            System.out.println("JSON = "+jsonObject);
+            String auto = object2.get("authNumber").toString();
+            String lot = object2.get("batch").toString();
+            String serie = object2.get("serial").toString();
+            
+            autorizacion.setText(auto);
+            lote.setText(lot);
+            seriee.setText(serie);
+           
+            System.out.println("No. Autorizacion = "+auto);
+            System.out.println("No. Lote = "+lot);
+            System.out.println("No. Serie = "+serie);
+
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+        
+    }
     
     
     
@@ -125,6 +148,9 @@ public class FEL extends javax.swing.JFrame {
         facturar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         orden = new javax.swing.JTextField();
+        autorizacion = new javax.swing.JLabel();
+        lote = new javax.swing.JLabel();
+        seriee = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,6 +185,12 @@ public class FEL extends javax.swing.JFrame {
         orden.setEditable(false);
         orden.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        autorizacion.setText("jLabel4");
+
+        lote.setText("jLabel4");
+
+        seriee.setText("jLabel4");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -183,6 +215,13 @@ public class FEL extends javax.swing.JFrame {
                 .addContainerGap(140, Short.MAX_VALUE)
                 .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(113, 113, 113))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(seriee)
+                    .addComponent(lote)
+                    .addComponent(autorizacion))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +240,13 @@ public class FEL extends javax.swing.JFrame {
                 .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addGap(34, 34, 34)
+                .addComponent(autorizacion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lote)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(seriee)
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,12 +268,13 @@ public class FEL extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
-        // TODO add your handling code here:
+        Certificar();
     }//GEN-LAST:event_facturarActionPerformed
 
     private void nitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nitActionPerformed
         token();
         Obtenernit();
+        
         facturar.requestFocus();
     }//GEN-LAST:event_nitActionPerformed
 
@@ -268,13 +314,16 @@ public class FEL extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel autorizacion;
     private javax.swing.JButton facturar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lote;
     private javax.swing.JTextField nit;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField orden;
+    private javax.swing.JLabel seriee;
     // End of variables declaration//GEN-END:variables
 }
