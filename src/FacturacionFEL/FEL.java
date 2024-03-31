@@ -312,6 +312,7 @@ public class FEL extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
+        token();
         Certificar();
     }//GEN-LAST:event_facturarActionPerformed
 
