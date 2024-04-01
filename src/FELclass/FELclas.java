@@ -20,7 +20,7 @@ public class FELclas {
     public FELclas() {
         this.client = new OkHttpClient();
     }
-    File file = new File("C:\\Complementos\\NUC1.xml");
+    File file = new File("C:\\Reportes\\XMLFel.xml");
     public String get(String apiKey, String accessToken) throws IOException {
         Request request = new Request.Builder()
                 .url(BASE_URL + "?" + apiKey)
