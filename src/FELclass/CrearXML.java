@@ -34,15 +34,17 @@ public class CrearXML {
      private String nombre;
      private String nit;
      private String orden;
-     
-     public CrearXML(String Nombre,String Nit,String Orden){
+     private String grantotal;
+     public CrearXML(String Nombre,String Nit,String Orden,String Grantotal){
      
          this.nombre = Nombre;
          this.nit = Nit;
          this.orden = Orden;
-         
+         this.grantotal = Grantotal;
          
      }
+     
+
 
     public Document inicializarDocumento() throws ParserConfigurationException{
         Document documento;
@@ -297,7 +299,7 @@ root.appendChild(Items);
 
 ///////////////////////////INICIO TOTALS////////////////////////////////////////////
         
-        ArrayList<ObtenerProductosFactura> result1 = ObtenerProductosFactura.GranTotla(orden);
+        
         
         Element Totals = documento.createElement("Totals");
         Element TotalTaxes = documento.createElement("TotalTaxes");
@@ -316,7 +318,7 @@ root.appendChild(Items);
         
         Element GrandTotal = documento.createElement("GrandTotal");
         Element InvoiceTotal = documento.createElement("InvoiceTotal");
-        InvoiceTotal.setTextContent("30.000000");
+        InvoiceTotal.setTextContent(grantotal);
         GrandTotal.appendChild(InvoiceTotal);
         Totals.appendChild(GrandTotal);
         

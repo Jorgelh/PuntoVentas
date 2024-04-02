@@ -8,9 +8,11 @@ import FELclass.CrearXML;
 import FELclass.FELclas;
 import FELclass.RestApiClient;
 import FELclass.Token;
+import clas.BDConexion;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +27,10 @@ import javax.xml.transform.TransformerException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,15 +40,17 @@ public class FEL extends javax.swing.JFrame {
      static final private Logger LOGGER = Logger.getLogger("mx.com.hash.pruebaxml.PruebaXML");
      String Token;
      String NI = "000000123456"; //"000044653948";
+     String grantotal;
     /**
      * Creates new form FEL
      */
     public FEL() {
         initComponents();
         this.setLocationRelativeTo(null);
-        nit.requestFocus();
-       
+        sumaTotal();
     }
+    
+    
     
     
     private void token(){
@@ -73,6 +81,25 @@ public class FEL extends javax.swing.JFrame {
             System.out.println("ERROR" );res = e.toString();
         }
     }
+    
+    public  void sumaTotal() {
+      //  DecimalFormat df = new DecimalFormat("#.00");
+            try {
+                 BDConexion conecta = new BDConexion();
+                Connection cn = conecta.getConexion();
+                java.sql.Statement stmt = cn.createStatement();
+                ResultSet rs = stmt.executeQuery("select sum(precio) as Total from PRODUCTOS_PEDIDO where id_pedido =" + orden.getText());
+                while (rs.next()) {
+                      grantotal = rs.getString(1);
+                      total.setText(grantotal);
+                }
+                rs.close();
+                stmt.close();
+                cn.close();
+            } catch (Exception error) {
+                System.out.print(error);
+            }
+        }
     
     
     //000044653948
@@ -107,7 +134,7 @@ public class FEL extends javax.swing.JFrame {
     FELclas apiClient = new FELclas();
         
         try {
-            String apiKey = "TAXID="+NI+"&FORMAT='PDF'&USERNAME=TESTUSER";
+            String apiKey = "TAXID="+NI+"&FORMAT=''&USERNAME=TESTUSER";
             String accessToken = Token;
             System.out.println("Token = "+Token);
             String response = apiClient.get(apiKey, accessToken);
@@ -135,7 +162,7 @@ public class FEL extends javax.swing.JFrame {
     private void crearXML(){
     
          try {
-            CrearXML ejemploXML = new CrearXML(nombre.getText(),nit.getText(),orden.getText());
+            CrearXML ejemploXML = new CrearXML(nombre.getText(),nit.getText(),orden.getText(),grantotal);
             Document documento = ejemploXML.crearDocumento();
             
             System.out.println(ejemploXML.convertirString(documento));
@@ -179,6 +206,8 @@ public class FEL extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        total = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -267,6 +296,17 @@ public class FEL extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setText("TOTAL");
+
+        total.setEditable(false);
+        total.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -299,11 +339,16 @@ public class FEL extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nombre)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(nit, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel2)
+                                        .addComponent(nit, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(21, 21, 21))
         );
@@ -313,7 +358,10 @@ public class FEL extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(orden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(orden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
@@ -356,9 +404,11 @@ public class FEL extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
-        //crearXML();
+        if(nit.getText().compareTo("")!=0 && nombre.getText().compareTo("")!=0){
+        crearXML();
         token();
         Certificar();
+        }else {JOptionPane.showMessageDialog(null, "INGRESE UN NIT");}
     }//GEN-LAST:event_facturarActionPerformed
 
     private void nitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nitActionPerformed
@@ -383,6 +433,10 @@ public class FEL extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        crearXML();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -428,6 +482,7 @@ public class FEL extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lote;
@@ -435,5 +490,6 @@ public class FEL extends javax.swing.JFrame {
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField orden;
     private javax.swing.JLabel seriee;
+    private javax.swing.JTextField total;
     // End of variables declaration//GEN-END:variables
 }

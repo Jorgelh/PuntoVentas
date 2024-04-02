@@ -99,31 +99,4 @@ private static ArrayList<ObtenerProductosFactura> SQLP(String sql){
         return list;
 } 
 
-public static ArrayList<ObtenerProductosFactura> GranTotla(String b) {
-        return total("select total from pedidos where ID_PEDIDO ="+b);    
- }  
-private static ArrayList<ObtenerProductosFactura> total(String sql){
-    ArrayList<ObtenerProductosFactura> list = new ArrayList<ObtenerProductosFactura>();
-    BDConexion conecta = new BDConexion();
-    Connection cn = conecta.getConexion();
-        try {
-            ObtenerProductosFactura t;
-            Statement stmt = cn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()){
-                 t = new ObtenerProductosFactura();
-                 t.setGrantotal(rs.getInt("total"));
-                 list.add(t);
-            }
-            cn.close();
-        } catch (Exception e) {
-            System.out.println("error consulta DE LA ATABLA "+e);
-            return null;
-        } 
-        return list;
-} 
-
-    
-    
-    
 }
