@@ -35,13 +35,14 @@ public class CrearXML {
      private String nit;
      private String orden;
      private String grantotal;
-     public CrearXML(String Nombre,String Nit,String Orden,String Grantotal){
+     private String totalletras;
+     public CrearXML(String Nombre,String Nit,String Orden,String Grantotal, String TotalLetras){
      
          this.nombre = Nombre;
          this.nit = Nit;
          this.orden = Orden;
          this.grantotal = Grantotal;
-         
+         this.totalletras = TotalLetras;
      }
      
 
@@ -348,7 +349,7 @@ root.appendChild(Items);
          Data.appendChild(InfoData);
          Element InfoData1 = documento.createElement("Info");
          InfoData1.setAttribute(  "Name", "CANTIDAD_LETRAS");
-         InfoData1.setAttribute(  "Value", "SEISCIENTOS TREINTA Y UN QUETZALES CON 00/100");
+         InfoData1.setAttribute(  "Value", totalletras);
          Data.appendChild(InfoData1);
          AditionalData.appendChild(Data);
          

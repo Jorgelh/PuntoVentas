@@ -6,6 +6,7 @@ package FacturacionFEL;
 
 import FELclass.CrearXML;
 import FELclass.FELclas;
+import FELclass.NumeroLetras;
 import FELclass.RestApiClient;
 import FELclass.Token;
 import clas.BDConexion;
@@ -41,6 +42,7 @@ public class FEL extends javax.swing.JFrame {
      String Token;
      String NI = "000000123456"; //"000044653948";
      String grantotal;
+     String TotalLetras;
     /**
      * Creates new form FEL
      */
@@ -48,6 +50,8 @@ public class FEL extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         sumaTotal();
+        
+        
     }
     
     
@@ -160,9 +164,13 @@ public class FEL extends javax.swing.JFrame {
     }
     
     private void crearXML(){
+        
+        NumeroLetras NumLetra  = new NumeroLetras();
+        String numero = total.getText();
+        TotalLetras =  (NumLetra .Convertir(numero,true));
     
          try {
-            CrearXML ejemploXML = new CrearXML(nombre.getText(),nit.getText(),orden.getText(),grantotal);
+            CrearXML ejemploXML = new CrearXML(nombre.getText(),nit.getText(),orden.getText(),grantotal,TotalLetras);
             Document documento = ejemploXML.crearDocumento();
             
             System.out.println(ejemploXML.convertirString(documento));
