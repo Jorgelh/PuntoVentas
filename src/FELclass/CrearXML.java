@@ -142,7 +142,7 @@ public class CrearXML {
         Element Seller = documento.createElement("Seller");
         // Establecemos el contenido del titulo
         Element TaxID = documento.createElement("TaxID");
-        TaxID.setTextContent("123456");//NIT
+        TaxID.setTextContent("123456");//NIT DEL NEGOCIO
         Seller.appendChild(TaxID);
         
         Element TaxIDAdditionalInfo = documento.createElement("TaxIDAdditionalInfo");//+Name="AfiliacionIVA"
@@ -217,10 +217,10 @@ public class CrearXML {
      
         Element AddressInfoClient = documento.createElement("AddressInfo");
          Element AddressClient = documento.createElement("Address");
-         AddressClient.setTextContent("ZOna 4");
+         AddressClient.setTextContent("Ciudad");
          AddressInfoClient.appendChild(AddressClient);
          Element CityClient = documento.createElement("City");
-         CityClient.setTextContent("01010");
+         CityClient.setTextContent("01052");
          AddressInfoClient.appendChild(CityClient);
          Element DistrictClient = documento.createElement("District");
          DistrictClient.setTextContent("Guatemala");
