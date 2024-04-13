@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.3.final using JasperReports Library version 6.20.3-415f9428cffdb6805c6f85bbb29ebaf18813a2ab  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tiket" pageWidth="226" pageHeight="425" columnWidth="211" leftMargin="1" rightMargin="14" topMargin="1" bottomMargin="1" uuid="3fffe62e-1f9e-4f5a-8c6d-a87b7631b77c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="mm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="473"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="513"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="477"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="523"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="EXTRAS\ELREY\ServerRey.jrdax"/>
+	<parameter name="ID_PEDIDO" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select ID_PRODUCTOS_PEDIDO,cantidad,DESCRIPCION,pro.precio,pro.precio*cantidad as subtotal
+from productos_pedido p 
+inner join productosfel pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido = $P{ID_PEDIDO}]]>
+	</queryString>
+	<field name="ID_PRODUCTOS_PEDIDO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ID_PRODUCTOS_PEDIDO"/>
+		<property name="com.jaspersoft.studio.field.label" value="ID_PRODUCTOS_PEDIDO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="productos_pedido"/>
+	</field>
+	<field name="cantidad" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="CANTIDAD"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="productos_pedido"/>
+	</field>
+	<field name="DESCRIPCION" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DESCRIPCION"/>
+		<property name="com.jaspersoft.studio.field.label" value="DESCRIPCION"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="productosfel"/>
+	</field>
+	<field name="precio" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PRECIO"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="productosfel"/>
+	</field>
+	<field name="subtotal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="subtotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="subtotal"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement x="19" y="0" width="140" height="19" uuid="68f868c6-7d79-43a5-9a9d-c6bedf89fcd1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0" lineStyle="Dotted"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCRIPCION}.toString()+" "+$F{precio}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="19" height="19" uuid="8c5ca5dc-e386-41c2-b07a-a76b3d5dd8d1"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="0" width="46" height="19" uuid="43d9e30f-8ef0-4d0e-9199-0e21c39063dc"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Q"+$F{subtotal}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

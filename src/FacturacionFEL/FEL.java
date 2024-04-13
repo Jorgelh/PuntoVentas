@@ -7,8 +7,10 @@ package FacturacionFEL;
 import FELclass.CrearXML;
 import FELclass.FELclas;
 import FELclass.NumeroLetras;
+import FELclass.ObtenerProductosFactura;
 import FELclass.RestApiClient;
 import FELclass.Token;
+import INICIO.Entra;
 import clas.BDConexion;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -32,6 +34,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+
 
 /**
  *
@@ -43,49 +54,66 @@ public class FEL extends javax.swing.JFrame {
      String NI; //"000044653948";
      String grantotal;
      String TotalLetras;
+     int IdNitCliente;
      int validarnit;
+     int id_orden;
+     String serie;
+     String numero;
+     String autoriza;
+     String FechaCerti;
     /**
      * Creates new form FEL
      */
-    public FEL() {
+    public FEL(int a) {
         initComponents();
+        Orden.setText(String.valueOf(a));
+        this.id_orden = a;
         this.setLocationRelativeTo(null);
         sumaTotal();
+        TokenLocal();
+        
         
         
     }
     
     
+     public void InsertarDatosComprador(){
     
-    
-    private void token(){
-    
-       String res = "";
-       String URL = "https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/login/get_token";
-        
-        try {
-            Client client = ClientBuilder.newClient();
-            WebTarget target = client.target(URL );
-            Invocation.Builder solicitud = target.request();
-            Token req = new Token();
-            req.setUsername("GT.000120011662.TESTUSER");//NIT EMPRESA y USUARIO DIGIFAC
-            req.setPassword("Coast$cm86");//CONTRASEÑA DIGIFAC
-            Gson gson = new Gson();
-            String jsonString = gson.toJson(req);
-            Response post = solicitud.post(Entity.json(jsonString));
-            String resJson = post.readEntity(String.class);
-            res = resJson;
-            String fichero = "";
-            fichero = resJson;
-            Properties properties = gson.fromJson(fichero, Properties.class);
-            Token = (String) properties.get("Token");
-            //nombre.setText((String) properties.get("Token"));
-            //System.out.println("SOLO TOKEN= "+properties.get("Token"));
-            //System.out.println("SOLO FECHA= " + properties.get("expira_en"));
-        } catch (JsonSyntaxException e) {
-            System.out.println("ERROR" );res = e.toString();
+     try {
+            
+            ObtenerProductosFactura p = new ObtenerProductosFactura();
+            p.setNit(nit.getText());
+            p.setNombre(nombre.getText());
+            ObtenerProductosFactura.InsertarNit(p);
+            IdNitCliente = p.getIdNit();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
+     
+     
+   public void InsertarDatosFEL(){
+    
+     try {
+            //serie,numero,autorizacion,fechacertificacion,id_pedido,idNit
+            ObtenerProductosFactura p = new ObtenerProductosFactura();
+            p.setSerie(serie);
+            p.setNumero(numero);
+            p.setAutorizacion(autoriza);
+            p.setFechaCertifica(FechaCerti);
+            p.setId_pedido(Integer.parseInt(Orden.getText()));
+            p.setIdNit(IdNitCliente);
+            ObtenerProductosFactura.InsertarFEL(p);
+            imprimir2();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }  
+    
+    
+    
+    
+    
     
      public  void TokenLocal() {
       //  DecimalFormat df = new DecimalFormat("#.00");
@@ -112,9 +140,10 @@ public class FEL extends javax.swing.JFrame {
                  BDConexion conecta = new BDConexion();
                 Connection cn = conecta.getConexion();
                 java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select nombre from compradornit where nit ='"+nit.getText()+"'");
+                ResultSet rs = stmt.executeQuery("select nombre,idNit from compradornit where nit ='"+nit.getText()+"'");
                 while (rs.next()) {
-                       nombre.setText(rs.getString(1));
+                       nombre.setText(rs.getString("nombre"));
+                       IdNitCliente = rs.getInt("idNit");
                 }
                 rs.close();
                 stmt.close();
@@ -185,7 +214,7 @@ public class FEL extends javax.swing.JFrame {
             nit.setText(nitv);
                 }
              }
-      
+             InsertarDatosComprador();
    
    }    catch (IOException ex) {
             Logger.getLogger(FEL.class.getName()).log(Level.SEVERE, null, ex);
@@ -204,26 +233,22 @@ public class FEL extends javax.swing.JFrame {
             JSONObject  jsonObject = new JSONObject(response);
             JSONObject object2 = (jsonObject); 
             System.out.println("JSON = "+jsonObject);
-            String auto = object2.get("authNumber").toString();
-            String lot = object2.get("batch").toString();
-            String serie = object2.get("serial").toString();
-            String fecha = object2.get("enrolledTimeStamp").toString();
-            String nitempre = object2.get("taxID").toString();
-            String nombreempre = object2.get("name").toString();
-            autorizacion.setText(auto);
+            autoriza = object2.get("authNumber").toString();
+            serie = object2.get("batch").toString();
+            numero = object2.get("serial").toString();
+            FechaCerti = object2.get("enrolledTimeStamp").toString();
+            InsertarDatosFEL();
+            /*autorizacion.setText(auto);
             lote.setText(lot);
             seriee.setText(serie);
             fechaout.setText(fecha);
-           
             System.out.println("No. Autorizacion = "+auto);
             System.out.println("No. Lote = "+lot);
             System.out.println("No. Serie = "+serie);
-            System.out.println("Fecha = "+fecha);
-           
-
-
+            System.out.println("Fecha = "+fecha);*/
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
+            Certificar();
         }
         
     }
@@ -249,10 +274,22 @@ public class FEL extends javax.swing.JFrame {
             LOGGER.log(Level.SEVERE, "Error de transformacion XML a String");
             LOGGER.log(Level.SEVERE, null, ex);
         }
+    }
     
-    
-    
-    
+    private void imprimir2(){
+ 
+     
+      BDConexion con= new BDConexion();
+         Connection conexion= con.getConexion();
+        try {
+            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FEL.jasper");
+            Map parametros= new HashMap();
+            parametros.put("id_orden", id_orden);
+            JasperPrint print = JasperFillManager.fillReport(jasperReport,parametros, conexion);
+            JasperPrintManager.printReport(print, true);
+        } catch (Exception e) {System.out.println("F"+e);
+           JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  "+e);
+        }
     }
     
     /**
@@ -271,19 +308,16 @@ public class FEL extends javax.swing.JFrame {
         nombre = new javax.swing.JTextField();
         facturar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        autorizacion = new javax.swing.JLabel();
-        lote = new javax.swing.JLabel();
-        seriee = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        fechaout = new javax.swing.JLabel();
         Orden = new javax.swing.JLabel();
         total = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("NIT");
@@ -314,66 +348,42 @@ public class FEL extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("#ORDEN:");
 
-        autorizacion.setText("jLabel4");
-
-        lote.setText("jLabel4");
-
-        seriee.setText("jLabel4");
-
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton1.setText("NIT");
+        jButton1.setPreferredSize(new java.awt.Dimension(72, 39));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton2.setText("CF");
+        jButton2.setPreferredSize(new java.awt.Dimension(72, 39));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jButton1)
-                .addGap(102, 102, 102)
-                .addComponent(jButton2)
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        jButton3.setText("jButton3");
+        jButton3.setPreferredSize(new java.awt.Dimension(72, 39));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("TOTAL");
 
-        fechaout.setText("jLabel5");
-
         Orden.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Orden.setForeground(new java.awt.Color(255, 0, 0));
-        Orden.setText("4377");
 
         total.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         total.setForeground(new java.awt.Color(255, 0, 0));
@@ -383,44 +393,35 @@ public class FEL extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel2)
+                .addContainerGap(286, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(nit, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Orden, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombre)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel2)
-                                        .addComponent(nit, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lote)
-                                    .addComponent(autorizacion)
-                                    .addComponent(seriee)
-                                    .addComponent(fechaout)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Orden, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(21, 21, 21))
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,46 +433,33 @@ public class FEL extends javax.swing.JFrame {
                         .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(Orden)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                        .addComponent(Orden, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton3))
-                .addGap(17, 17, 17)
-                .addComponent(autorizacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lote)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(seriee)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(fechaout)
-                .addGap(19, 19, 19))
+                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         pack();
@@ -480,7 +468,6 @@ public class FEL extends javax.swing.JFrame {
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
         if(nit.getText().compareTo("")!=0 && nombre.getText().compareTo("")!=0){
             crearXML();
-            TokenLocal();
             Certificar();
         }else {JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");}
     }//GEN-LAST:event_facturarActionPerformed
@@ -490,7 +477,6 @@ public class FEL extends javax.swing.JFrame {
       if(validarnit==1){
           NitLocal();
       }else{  
-        TokenLocal();
         Obtenernit();
       }
         facturar.requestFocus();
@@ -499,6 +485,7 @@ public class FEL extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         nit.setText("CF");
         nombre.setText("CONSUMIDOR FINAL");
+        IdNitCliente = 1;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -509,11 +496,9 @@ public class FEL extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-      String NitCeros = String.format("%12s", nit.getText()).replace(' ','0');
-        System.out.println("CEROS = "+NitCeros);
-       
-//crearXML();
+                  Entra F = new Entra();
+                  F.setVisible(true);
+                  this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -546,16 +531,14 @@ public class FEL extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FEL().setVisible(true);
+                //new FEL().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Orden;
-    private javax.swing.JLabel autorizacion;
     private javax.swing.JButton facturar;
-    private javax.swing.JLabel fechaout;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -565,10 +548,8 @@ public class FEL extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lote;
     private javax.swing.JTextField nit;
     private javax.swing.JTextField nombre;
-    private javax.swing.JLabel seriee;
     private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 }

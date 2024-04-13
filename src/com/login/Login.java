@@ -1,8 +1,11 @@
 package com.login;
 
+import FELclass.Token;
 import INICIO.Entra;
 import INICIO.EntraReportes;
 import clas.BDConexion;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +15,14 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 import javax.swing.JOptionPane;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
 
 public class Login extends javax.swing.JFrame {
     
@@ -20,18 +30,65 @@ public class Login extends javax.swing.JFrame {
     int usuario = 0;
     int contra = 0; 
     int id_usuario;
+    String Token;
     public Login() {
         initComponents();
         CerrarSession();
         this.setLocationRelativeTo(null);
         favicon.requestFocus();
+        token();
     }
+    
+    
+    private void token(){
+    
+       String res = "";
+       String URL = "https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/login/get_token";
+        
+        try {
+            Client client = ClientBuilder.newClient();
+            WebTarget target = client.target(URL );
+            Invocation.Builder solicitud = target.request();
+            Token req = new Token();
+            req.setUsername("GT.000120011662.TESTUSER");//NIT EMPRESA y USUARIO DIGIFAC
+            req.setPassword("Coast$cm86");//CONTRASEÑA DIGIFAC
+            Gson gson = new Gson();
+            String jsonString = gson.toJson(req);
+            Response post = solicitud.post(Entity.json(jsonString));
+            String resJson = post.readEntity(String.class);
+            res = resJson;
+            String fichero = "";
+            fichero = resJson;
+            Properties properties = gson.fromJson(fichero, Properties.class);
+            Token = (String) properties.get("Token");
+            
+        } catch (JsonSyntaxException e) {
+            System.out.println("ERROR" );res = e.toString();
+        }
+    
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement sm = null;
+        try {
+            sm = con.prepareStatement("update token set Token = '"+Token+"'  where idToken = 1");
+            sm.executeUpdate();
+            con.close();
+            sm.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR =" + ex);
+        }
+    }
+    
+    
+    
+    
+    
     
     
     public void logear(){
     
         //System.out.println("CONTRA = "+jPass.getText());
-    
+          
         try {
             BDConexion Conn = new BDConexion();
             Connection con = Conn.getConexion();
@@ -84,7 +141,6 @@ public class Login extends javax.swing.JFrame {
     }
     
     private void CerrarSession() {
-
         BDConexion conecta = new BDConexion();
         Connection con = conecta.getConexion();
         PreparedStatement sm = null;
