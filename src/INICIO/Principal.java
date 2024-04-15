@@ -936,6 +936,9 @@ private void PanelMismoColor(){
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
         });
 
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
@@ -1310,6 +1313,10 @@ private void PanelMismoColor(){
          para = 3;
           System.out.println(para);
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3MouseEntered
 
     /**
      * @param args the command line arguments
