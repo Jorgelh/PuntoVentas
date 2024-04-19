@@ -48,7 +48,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
  *
  * @author jluis
  */
-public class FEL extends javax.swing.JFrame {
+public class FEL_Encuentro extends javax.swing.JFrame {
      static final private Logger LOGGER = Logger.getLogger("mx.com.hash.pruebaxml.PruebaXML");
      String Token;
      String NI; //"000044653948";
@@ -64,7 +64,7 @@ public class FEL extends javax.swing.JFrame {
     /**
      * Creates new form FEL
      */
-    public FEL(int a) {
+    public FEL_Encuentro(int a) {
         initComponents();
         Orden.setText(String.valueOf(a));
         this.id_orden = a;
@@ -217,7 +217,7 @@ public class FEL extends javax.swing.JFrame {
              InsertarDatosComprador();
    
    }    catch (IOException ex) {
-            Logger.getLogger(FEL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FEL_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
         }
    }
     
@@ -524,20 +524,21 @@ public class FEL extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FEL.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEL_Encuentro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FEL.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEL_Encuentro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FEL.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEL_Encuentro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FEL.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FEL_Encuentro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new FEL().setVisible(true);
+                //new FEL_Encuentro().setVisible(true);
             }
         });
     }
