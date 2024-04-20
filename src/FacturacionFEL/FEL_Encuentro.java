@@ -9,29 +9,17 @@ import FELclass.FELclas;
 import FELclass.NumeroLetras;
 import FELclass.ObtenerProductosFactura;
 import FELclass.RestApiClient;
-import FELclass.Token;
 import INICIO.Entra;
 import clas.BDConexion;
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Response;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
@@ -200,7 +188,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
    RestApiClient apiClient = new RestApiClient();
         
         try {
-            String apiKey = "TAXID="+NI+"&DATA1=SHARED_GETINFONITcom&DATA2=NIT|"+nit.getText()+"&COUNTRY=GT&USERNAME=JULIOCIF";
+            String apiKey = "TAXID="+NI+"&DATA1=SHARED_GETINFONITcom&DATA2=NIT|"+nit.getText()+"&COUNTRY=GT&USERNAME=120011662";
             String accessToken = Token;
             String response = apiClient.get( apiKey, accessToken);
             JSONObject  jsonObject = new JSONObject(response);
@@ -214,9 +202,11 @@ public class FEL_Encuentro extends javax.swing.JFrame {
             nit.setText(nitv);
                 }
              }
+             System.out.println("entra a traer nit");
              InsertarDatosComprador();
    
    }    catch (IOException ex) {
+            System.out.println("FacturacionFEL.FEL_Encuentro.Obtenernit() "+ex);
             Logger.getLogger(FEL_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
         }
    }
@@ -226,7 +216,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
     FELclas apiClient = new FELclas();
         
         try {
-            String apiKey = "TAXID=000000123456&FORMAT=''&USERNAME=TESTUSER";//NIT DE NEGOCIO y USUARIO QUE DE DIGIFAC
+            String apiKey = "TAXID=000120011662&FORMAT=''&USERNAME=120011662";//NIT DE NEGOCIO y USUARIO QUE DE DIGIFAC
             String accessToken = Token;
             System.out.println("Token = "+Token);
             String response = apiClient.get(apiKey, accessToken);

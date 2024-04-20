@@ -43,15 +43,16 @@ public class Login extends javax.swing.JFrame {
     private void token(){
     
        String res = "";
-       String URL = "https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/login/get_token";
+       //String URL = "https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/login/get_token";
+       String URL = "https://felgtaws.digifact.com.gt/gt.com.apinuc/api/login/get_token";
         
         try {
             Client client = ClientBuilder.newClient();
             WebTarget target = client.target(URL );
             Invocation.Builder solicitud = target.request();
             Token req = new Token();
-            req.setUsername("GT.000120011662.TESTUSER");//NIT EMPRESA y USUARIO DIGIFAC
-            req.setPassword("Coast$cm86");//CONTRASEÑA DIGIFAC
+            req.setUsername("GT.000120011662.120011662");//NIT EMPRESA y USUARIO DIGIFAC
+            req.setPassword("Factur4$Fel");//CONTRASEÑA DIGIFAC
             Gson gson = new Gson();
             String jsonString = gson.toJson(req);
             Response post = solicitud.post(Entity.json(jsonString));

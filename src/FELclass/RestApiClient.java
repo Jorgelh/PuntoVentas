@@ -5,8 +5,9 @@ import okhttp3.Response;
 import java.io.IOException;
 
 public class RestApiClient {
-
-    private static final String BASE_URL = "https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/Shared";
+    
+    private static final String BASE_URL = "https://felgtaws.digifact.com.gt/gt.com.apinuc/api/Shared";
+    //private static final String BASE_URL = "https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/Shared";
     private static final String AUTHORIZATION_HEADER = "Authorization";
 
     private OkHttpClient client;
