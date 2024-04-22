@@ -31,12 +31,13 @@ public class Login extends javax.swing.JFrame {
     int contra = 0; 
     int id_usuario;
     String Token;
+    String FechaExp;
     public Login() {
         initComponents();
         CerrarSession();
         this.setLocationRelativeTo(null);
         favicon.requestFocus();
-        token();
+        //token();
     }
     
     
@@ -62,7 +63,7 @@ public class Login extends javax.swing.JFrame {
             fichero = resJson;
             Properties properties = gson.fromJson(fichero, Properties.class);
             Token = (String) properties.get("Token");
-            
+            FechaExp = (String) properties.get("expira_en");
         } catch (JsonSyntaxException e) {
             System.out.println("ERROR" );res = e.toString();
         }
@@ -71,7 +72,7 @@ public class Login extends javax.swing.JFrame {
         Connection con = conecta.getConexion();
         PreparedStatement sm = null;
         try {
-            sm = con.prepareStatement("update token set Token = '"+Token+"'  where idToken = 1");
+            sm = con.prepareStatement("update token set Token = '"+Token+"',fecha = '"+FechaExp+"',usuario = '"+userTxt.getText().toUpperCase()+"'  where idToken = 1");
             sm.executeUpdate();
             con.close();
             sm.close();
@@ -79,11 +80,6 @@ public class Login extends javax.swing.JFrame {
             System.out.println("ERROR =" + ex);
         }
     }
-    
-    
-    
-    
-    
     
     
     public void logear(){
@@ -107,6 +103,7 @@ public class Login extends javax.swing.JFrame {
                   this.dispose();
                 }else if(ESTADO == 2)
                 {
+                  token();
                   IniciarSesion();
                   Entra F = new Entra();
                   F.setVisible(true);

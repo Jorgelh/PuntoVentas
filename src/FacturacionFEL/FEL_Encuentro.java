@@ -5,6 +5,8 @@
 package FacturacionFEL;
 
 import FELclass.CrearXML;
+import FELclass.CrearXML_Encuentro;
+import FELclass.CrearXML_Zona4;
 import FELclass.FELclas;
 import FELclass.NumeroLetras;
 import FELclass.ObtenerProductosFactura;
@@ -39,6 +41,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
 public class FEL_Encuentro extends javax.swing.JFrame {
      static final private Logger LOGGER = Logger.getLogger("mx.com.hash.pruebaxml.PruebaXML");
      String Token;
+     String Usuario;
      String NI; //"000044653948";
      String grantotal;
      String TotalLetras;
@@ -59,8 +62,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         sumaTotal();
         TokenLocal();
-        
-        
+ 
         
     }
     
@@ -92,26 +94,22 @@ public class FEL_Encuentro extends javax.swing.JFrame {
             p.setId_pedido(Integer.parseInt(Orden.getText()));
             p.setIdNit(IdNitCliente);
             ObtenerProductosFactura.InsertarFEL(p);
-            imprimir2();
+            imprimirEncuentro();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }  
-    
-    
-    
-    
-    
-    
+
      public  void TokenLocal() {
       //  DecimalFormat df = new DecimalFormat("#.00");
             try {
                 BDConexion conecta = new BDConexion();
                 Connection cn = conecta.getConexion();
                 java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select token  from TOKEN where idToken = 1");
+                ResultSet rs = stmt.executeQuery("select token,usuario  from TOKEN where idToken = 1");
                 while (rs.next()) {
-                      Token = rs.getString(1);
+                      Token = rs.getString("token");
+                      Usuario = rs.getString("usuario");
                 }
                 rs.close();
                 stmt.close();
@@ -119,6 +117,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
             } catch (Exception error) {
                 System.out.print(error);
             }
+           
         }
     
     
@@ -188,7 +187,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
    RestApiClient apiClient = new RestApiClient();
         
         try {
-            String apiKey = "TAXID="+NI+"&DATA1=SHARED_GETINFONITcom&DATA2=NIT|"+nit.getText()+"&COUNTRY=GT&USERNAME=120011662";
+            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C"+nit.getText()+"&COUNTRY=GT&USERNAME=120011662";
             String accessToken = Token;
             String response = apiClient.get( apiKey, accessToken);
             JSONObject  jsonObject = new JSONObject(response);
@@ -202,11 +201,9 @@ public class FEL_Encuentro extends javax.swing.JFrame {
             nit.setText(nitv);
                 }
              }
-             System.out.println("entra a traer nit");
              InsertarDatosComprador();
    
    }    catch (IOException ex) {
-            System.out.println("FacturacionFEL.FEL_Encuentro.Obtenernit() "+ex);
             Logger.getLogger(FEL_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
         }
    }
@@ -243,14 +240,14 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         
     }
     
-    private void crearXML(){
+    private void crearXMLEncuentro(){
         
         NumeroLetras NumLetra  = new NumeroLetras();
         String numero = total.getText();
         TotalLetras =  (NumLetra .Convertir(numero,true));
     
          try {
-            CrearXML ejemploXML = new CrearXML(nombre.getText(),nit.getText(),Orden.getText(),grantotal,TotalLetras);
+             CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(),nit.getText(),Orden.getText(),grantotal,TotalLetras);
             Document documento = ejemploXML.crearDocumento();
             
             //System.out.println(ejemploXML.convertirString(documento));
@@ -266,9 +263,51 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         }
     }
     
-    private void imprimir2(){
+    private void crearXMLZona4(){
+        
+        NumeroLetras NumLetra  = new NumeroLetras();
+        String numero = total.getText();
+        TotalLetras =  (NumLetra .Convertir(numero,true));
+    
+         try {
+            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(),nit.getText(),Orden.getText(),grantotal,TotalLetras);
+            Document documento = XMLZona4.crearDocumento();
+            
+            //System.out.println(ejemploXML.convertirString(documento));
+            
+            XMLZona4.escribirArchivo(documento, "C:\\Reportes\\XMLFel.xml");            
+            
+        } catch (ParserConfigurationException ex) {
+            LOGGER.log(Level.SEVERE, "Error de configuracion");
+            LOGGER.log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            LOGGER.log(Level.SEVERE, "Error de transformacion XML a String");
+            LOGGER.log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    private void imprimirEncuentro(){
  
-     
+      BDConexion con= new BDConexion();
+         Connection conexion= con.getConexion();
+        try {
+            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FEL.jasper");
+            Map parametros= new HashMap();
+            parametros.put("ID_ORDEN", id_orden);
+            JasperPrint print = JasperFillManager.fillReport(jasperReport,parametros, conexion);
+            JasperPrintManager.printReport(print, true);
+        } catch (Exception e) {System.out.println("F"+e);
+           JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  "+e);
+        }
+         Entra F = new Entra();
+         F.setVisible(true);
+         this.dispose();
+        
+    }
+    
+    private void imprimirZona4(){
+ 
       BDConexion con= new BDConexion();
          Connection conexion= con.getConexion();
         try {
@@ -463,8 +502,16 @@ public class FEL_Encuentro extends javax.swing.JFrame {
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
         if(nit.getText().compareTo("")!=0 && nombre.getText().compareTo("")!=0){
-            crearXML();
-            Certificar();
+            
+            if(Usuario.equalsIgnoreCase("ENCUENTRO"))
+            {
+                crearXMLEncuentro();
+                Certificar();
+            }else if (Usuario.equalsIgnoreCase("ZONA4")){
+            
+               crearXMLZona4();
+               Certificar();
+            }
         }else {JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");}
     }//GEN-LAST:event_facturarActionPerformed
 
