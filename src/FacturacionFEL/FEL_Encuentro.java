@@ -94,7 +94,8 @@ public class FEL_Encuentro extends javax.swing.JFrame {
             p.setId_pedido(Integer.parseInt(Orden.getText()));
             p.setIdNit(IdNitCliente);
             ObtenerProductosFactura.InsertarFEL(p);
-            imprimirEncuentro();
+            if(Usuario.equalsIgnoreCase("ENCUENTRO")){imprimirEncuentro();}
+            else if(Usuario.equalsIgnoreCase("ZONA4")){imprimirZona4();}
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -292,7 +293,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
       BDConexion con= new BDConexion();
          Connection conexion= con.getConexion();
         try {
-            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FEL.jasper");
+            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELElEncuentro.jasper");
             Map parametros= new HashMap();
             parametros.put("ID_ORDEN", id_orden);
             JasperPrint print = JasperFillManager.fillReport(jasperReport,parametros, conexion);
@@ -311,7 +312,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
       BDConexion con= new BDConexion();
          Connection conexion= con.getConexion();
         try {
-            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FEL.jasper");
+            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELZona4.jasper");
             Map parametros= new HashMap();
             parametros.put("ID_ORDEN", id_orden);
             JasperPrint print = JasperFillManager.fillReport(jasperReport,parametros, conexion);
