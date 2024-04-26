@@ -216,11 +216,11 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         try {
             String apiKey = "TAXID=000120011662&FORMAT=''&USERNAME=120011662";//NIT DE NEGOCIO y USUARIO QUE DE DIGIFAC
             String accessToken = Token;
-            System.out.println("Token = "+Token);
+            //System.out.println("Token = "+Token);
             String response = apiClient.get(apiKey, accessToken);
             JSONObject  jsonObject = new JSONObject(response);
             JSONObject object2 = (jsonObject); 
-            System.out.println("JSON = "+jsonObject);
+            //System.out.println("JSON = "+jsonObject);
             autoriza = object2.get("authNumber").toString();
             serie = object2.get("batch").toString();
             numero = object2.get("serial").toString();
