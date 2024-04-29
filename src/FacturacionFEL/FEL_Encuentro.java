@@ -196,13 +196,20 @@ public class FEL_Encuentro extends javax.swing.JFrame {
              for (int i = 0; i < arrayObject.length(); i++) {
                 if (i == 0) {
             JSONObject object2 = (JSONObject) arrayObject.get(i);
+                  NI = object2.get("NOMBRE").toString();
                   String nombrev = object2.get("NOMBRE").toString();
                   String nitv = object2.get("NIT").toString();
             nombre.setText(nombrev);
             nit.setText(nitv);
                 }
              }
-             InsertarDatosComprador();
+             if(NI.equalsIgnoreCase(""))
+             {JOptionPane.showMessageDialog(null, "NIT INGRESADO ES INCORRECTO");
+             nombre.setText("");
+             nit.setText("");
+             nit.requestFocus();
+             }
+             else{ InsertarDatosComprador(); facturar.requestFocus();}
    
    }    catch (IOException ex) {
             Logger.getLogger(FEL_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
@@ -517,10 +524,11 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         NitValidar();
       if(validarnit==1){
           NitLocal();
+          facturar.requestFocus();
       }else{  
         Obtenernit();
       }
-        facturar.requestFocus();
+        
     }//GEN-LAST:event_nitActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
