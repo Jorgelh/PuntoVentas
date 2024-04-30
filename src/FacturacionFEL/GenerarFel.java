@@ -194,7 +194,14 @@ public class GenerarFel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       ListarOrdenSinFEL();
+      
+        if (FECHA.getDate() != null) {
+           ListarOrdenSinFEL();
+        }else {
+            JOptionPane.showMessageDialog(null, "INGRESE UNA FECHA...");
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void FacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FacturasMouseClicked
