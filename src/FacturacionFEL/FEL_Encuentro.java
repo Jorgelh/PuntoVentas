@@ -217,7 +217,6 @@ public class FEL_Encuentro extends javax.swing.JFrame {
    }
     
     private void Certificar(){
-    
     FELclas apiClient = new FELclas();
         
         try {
@@ -243,7 +242,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
             System.out.println("Fecha = "+fecha);*/
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
-            Certificar();
+            JOptionPane.showMessageDialog(null, "ERROR DE COMUNICACION PARA EMITIR LA FACTURA INTENTAR DE NUEVO");
         }
         
     }
@@ -513,7 +512,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
                 crearXMLEncuentro();
                 Certificar();
             }else if (Usuario.equalsIgnoreCase("ZONA4")){
-            
+                 
                crearXMLZona4();
                Certificar();
             }

@@ -221,20 +221,8 @@ public class BDProductos {
 "from productos_pedido p \n" +
 "inner join productos pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido = "+a);
  
- 
- 
- 
- 
- 
- 
- 
  }  
 
- 
- 
- 
- 
- 
  
 private static ArrayList<InsertarProducto> SQL3(String sql){
     ArrayList<InsertarProducto> list = new ArrayList<InsertarProducto>();
