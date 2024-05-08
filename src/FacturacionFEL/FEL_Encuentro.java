@@ -372,6 +372,11 @@ public class FEL_Encuentro extends javax.swing.JFrame {
                 nitActionPerformed(evt);
             }
         });
+        nit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nitKeyTyped(evt);
+            }
+        });
 
         nombre.setEditable(false);
         nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -548,6 +553,13 @@ public class FEL_Encuentro extends javax.swing.JFrame {
                   F.setVisible(true);
                   this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void nitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nitKeyTyped
+        char c = evt.getKeyChar();
+        if ((c < '0' || c > '9') && (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c !='ñ') && (c !='Ñ')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_nitKeyTyped
 
     /**
      * @param args the command line arguments
