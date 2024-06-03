@@ -78,8 +78,6 @@ public class Principal extends javax.swing.JFrame {
         PanelMismoColor();
         PEDIDO_ID.setText(String.valueOf(id_pedido));
       //this.setExtendedState(MAXIMIZED_BOTH); 
-      
-      
         String texto7 = "<html><center><body>TORTILLAS<br>DE<br>MAIZ</body></center></html>";
         Torti.setText(texto7);
         JTMaiz.setPreferredSize(new Dimension (80, 60));

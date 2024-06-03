@@ -33,6 +33,7 @@ public class Cambio extends javax.swing.JFrame {
         
         TOTAL.setText(String.valueOf(df.format(precio)));
         this.setLocationRelativeTo(null);
+        EFECTIVO.requestFocus();
         
     }
 
