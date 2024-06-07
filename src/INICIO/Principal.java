@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package INICIO;
+import FacturacionFEL.FELCobros;
 import FacturacionFEL.FEL_Encuentro;
 import clas.BDConexion;
 import clas.BDProductos;
@@ -1238,7 +1239,7 @@ private void PanelMismoColor(){
         if(para !=0 && Double.parseDouble(Total.getText())!= 0.00){
         finalizar();
         imprimir2();
-                  FEL_Encuentro F = new FEL_Encuentro(id_pedido);
+                  FELCobros F = new FELCobros(id_pedido,para);
                   F.setVisible(true);
                   this.dispose();
         }else{

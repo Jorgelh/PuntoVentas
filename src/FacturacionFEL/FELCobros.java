@@ -26,6 +26,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -33,7 +34,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
-
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -53,15 +54,20 @@ public class FELCobros extends javax.swing.JFrame {
      String numero;
      String autoriza;
      String FechaCerti;
+     int focoteclado = 0;
+     int pago = 0;
+     int para;
+     DecimalFormat df = new DecimalFormat("#.00");
     /**
      * Creates new form FEL
      */
-    public FELCobros(int a) {
+    public FELCobros(int a,int b) {
         initComponents();
         String texto1 = "<html><center><body>TARJETA<br>EFECTIVO</body></center></html>";
         EYT.setText(texto1);
         Orden.setText(String.valueOf(a));
         this.id_orden = a;
+        this.para = b;
         this.setLocationRelativeTo(null);
         sumaTotal();
         TokenLocal();
@@ -75,7 +81,7 @@ public class FELCobros extends javax.swing.JFrame {
      try {
             
             ObtenerProductosFactura p = new ObtenerProductosFactura();
-            p.setNit(nit.getText());
+            p.setNit(NIT.getText());
             p.setNombre(nombre.getText());
             ObtenerProductosFactura.InsertarNit(p);
             IdNitCliente = p.getIdNit();
@@ -131,7 +137,7 @@ public class FELCobros extends javax.swing.JFrame {
                  BDConexion conecta = new BDConexion();
                 Connection cn = conecta.getConexion();
                 java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select nombre,idNit from compradornit where nit ='"+nit.getText()+"'");
+                ResultSet rs = stmt.executeQuery("select nombre,idNit from compradornit where nit ='"+NIT.getText()+"'");
                 while (rs.next()) {
                        nombre.setText(rs.getString("nombre"));
                        IdNitCliente = rs.getInt("idNit");
@@ -150,7 +156,7 @@ public class FELCobros extends javax.swing.JFrame {
                  BDConexion conecta = new BDConexion();
                 Connection cn = conecta.getConexion();
                 java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='"+nit.getText()+"'");
+                ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='"+NIT.getText()+"'");
                 while (rs.next()) {
                     validarnit = rs.getInt(1);
                 }
@@ -191,7 +197,7 @@ public class FELCobros extends javax.swing.JFrame {
    RestApiClient apiClient = new RestApiClient();
         
         try {
-            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C"+nit.getText()+"&COUNTRY=GT&USERNAME=120011662";
+            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C"+NIT.getText()+"&COUNTRY=GT&USERNAME=120011662";
             String accessToken = Token;
             String response = apiClient.get( apiKey, accessToken);
             JSONObject  jsonObject = new JSONObject(response);
@@ -203,14 +209,14 @@ public class FELCobros extends javax.swing.JFrame {
                   String nombrev = object2.get("NOMBRE").toString();
                   String nitv = object2.get("NIT").toString();
             nombre.setText(nombrev);
-            nit.setText(nitv);
+            NIT.setText(nitv);
                 }
              }
              if(NI.equalsIgnoreCase(""))
              {JOptionPane.showMessageDialog(null, "NIT INGRESADO ES INCORRECTO");
              nombre.setText("");
-             nit.setText("");
-             nit.requestFocus();
+             NIT.setText("");
+             NIT.requestFocus();
              }
              else{ InsertarDatosComprador(); facturar.requestFocus();}
    
@@ -257,7 +263,7 @@ public class FELCobros extends javax.swing.JFrame {
         TotalLetras =  (NumLetra .Convertir(numero,true));
     
          try {
-             CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(),nit.getText(),Orden.getText(),grantotal,TotalLetras);
+             CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(),NIT.getText(),Orden.getText(),grantotal,TotalLetras);
             Document documento = ejemploXML.crearDocumento();
             
             //System.out.println(ejemploXML.convertirString(documento));
@@ -280,7 +286,7 @@ public class FELCobros extends javax.swing.JFrame {
         TotalLetras =  (NumLetra .Convertir(numero,true));
     
          try {
-            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(),nit.getText(),Orden.getText(),grantotal,TotalLetras);
+            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(),NIT.getText(),Orden.getText(),grantotal,TotalLetras);
             Document documento = XMLZona4.crearDocumento();
             
             //System.out.println(ejemploXML.convertirString(documento));
@@ -335,6 +341,62 @@ public class FELCobros extends javax.swing.JFrame {
         
     }
     
+    private void borrar1()
+            {
+            String cadena; cadena = MONTOCAMBIO.getText();
+        if(cadena.length()>0){cadena=cadena.substring(0,cadena.length()-1);} 
+        MONTOCAMBIO.setText(cadena);
+            }
+     private void borrar2()
+            {
+            String cadena; cadena = EFECTIVO.getText();
+        if(cadena.length()>0){cadena=cadena.substring(0,cadena.length()-1);} 
+        EFECTIVO.setText(cadena);
+            }
+      private void borrar3()
+            {
+            String cadena; cadena = NIT.getText();
+        if(cadena.length()>0){cadena=cadena.substring(0,cadena.length()-1);} 
+        NIT.setText(cadena);
+            }
+      
+      private void finalizar(){
+   
+        try {
+                 BDConexion conecta = new BDConexion();
+                 Connection con = conecta.getConexion();
+                 PreparedStatement smtp = null;
+                 if(para == 3){
+                  smtp = con.prepareStatement("update PEDIDOS SET EFECTIVO = 0.00, TARJETA = 0.00 WHERE ID_PEDIDO ="+Orden.getText());
+                 } 
+                 else{smtp = con.prepareStatement("update PEDIDOS SET EFECTIVO = "+EFECTIVO.getText()+", TARJETA = "+TARJETA.getText()+" WHERE ID_PEDIDO ="+Orden.getText());
+                 }
+                 smtp.executeUpdate();
+                 con.close();
+                 smtp.close();
+            } catch (SQLException ex) {
+                JOptionPane.showConfirmDialog(null, ex);
+            }
+            }
+      
+      
+      private void facturar(){
+      
+           if(NIT.getText().compareTo("")!=0 && nombre.getText().compareTo("")!=0){
+            
+            if(Usuario.equalsIgnoreCase("ENCUENTRO"))
+            {
+                crearXMLEncuentro();
+                Certificar();
+            }else if (Usuario.equalsIgnoreCase("ZONA4")){
+                 
+               crearXMLZona4();
+               Certificar();
+            }
+        }else {JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");}
+      
+      }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -347,7 +409,7 @@ public class FELCobros extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        nit = new javax.swing.JTextField();
+        NIT = new javax.swing.JTextField();
         nombre = new javax.swing.JTextField();
         facturar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -368,9 +430,10 @@ public class FELCobros extends javax.swing.JFrame {
         DOS = new javax.swing.JButton();
         CERO = new javax.swing.JButton();
         PUNTO = new javax.swing.JButton();
-        ENTER = new javax.swing.JButton();
+        BORRAR = new javax.swing.JButton();
         CUATRO = new javax.swing.JButton();
         UNO = new javax.swing.JButton();
+        ENTER = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -381,14 +444,15 @@ public class FELCobros extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        MONTOCAMBIO = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        VUELTO = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("NIT");
@@ -396,16 +460,21 @@ public class FELCobros extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("NOMBRE");
 
-        nit.setEditable(false);
-        nit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nitActionPerformed(evt);
+        NIT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        NIT.setEnabled(false);
+        NIT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NITMouseClicked(evt);
             }
         });
-        nit.addKeyListener(new java.awt.event.KeyAdapter() {
+        NIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NITActionPerformed(evt);
+            }
+        });
+        NIT.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                nitKeyTyped(evt);
+                NITKeyTyped(evt);
             }
         });
 
@@ -421,7 +490,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -432,7 +501,7 @@ public class FELCobros extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 100, -1));
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton2.setText("CF");
@@ -442,7 +511,7 @@ public class FELCobros extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 100, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -459,7 +528,8 @@ public class FELCobros extends javax.swing.JFrame {
         total.setBackground(new java.awt.Color(255, 255, 255));
         total.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         total.setForeground(new java.awt.Color(255, 0, 0));
-        total.setText("--------------");
+        total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        total.setText("0.00");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -470,10 +540,10 @@ public class FELCobros extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Orden, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(total)
+                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
         jPanel3Layout.setVerticalGroup(
@@ -493,7 +563,7 @@ public class FELCobros extends javax.swing.JFrame {
 
         SIETE.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         SIETE.setText("7");
-        SIETE.setPreferredSize(new java.awt.Dimension(45, 45));
+        SIETE.setPreferredSize(new java.awt.Dimension(60, 60));
         SIETE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SIETEActionPerformed(evt);
@@ -502,7 +572,7 @@ public class FELCobros extends javax.swing.JFrame {
 
         OCHO.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         OCHO.setText("8");
-        OCHO.setPreferredSize(new java.awt.Dimension(45, 45));
+        OCHO.setPreferredSize(new java.awt.Dimension(60, 60));
         OCHO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OCHOActionPerformed(evt);
@@ -511,7 +581,7 @@ public class FELCobros extends javax.swing.JFrame {
 
         NUEVE.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         NUEVE.setText("9");
-        NUEVE.setPreferredSize(new java.awt.Dimension(45, 45));
+        NUEVE.setPreferredSize(new java.awt.Dimension(60, 60));
         NUEVE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NUEVEActionPerformed(evt);
@@ -520,7 +590,7 @@ public class FELCobros extends javax.swing.JFrame {
 
         SEIS.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         SEIS.setText("6");
-        SEIS.setPreferredSize(new java.awt.Dimension(45, 45));
+        SEIS.setPreferredSize(new java.awt.Dimension(60, 60));
         SEIS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SEISActionPerformed(evt);
@@ -529,7 +599,7 @@ public class FELCobros extends javax.swing.JFrame {
 
         CINCO.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         CINCO.setText("5");
-        CINCO.setPreferredSize(new java.awt.Dimension(45, 45));
+        CINCO.setPreferredSize(new java.awt.Dimension(60, 60));
         CINCO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CINCOActionPerformed(evt);
@@ -538,7 +608,7 @@ public class FELCobros extends javax.swing.JFrame {
 
         TRES.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         TRES.setText("3");
-        TRES.setPreferredSize(new java.awt.Dimension(45, 45));
+        TRES.setPreferredSize(new java.awt.Dimension(60, 60));
         TRES.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TRESActionPerformed(evt);
@@ -547,7 +617,7 @@ public class FELCobros extends javax.swing.JFrame {
 
         DOS.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         DOS.setText("2");
-        DOS.setPreferredSize(new java.awt.Dimension(45, 45));
+        DOS.setPreferredSize(new java.awt.Dimension(60, 60));
         DOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DOSActionPerformed(evt);
@@ -556,7 +626,7 @@ public class FELCobros extends javax.swing.JFrame {
 
         CERO.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         CERO.setText("0");
-        CERO.setPreferredSize(new java.awt.Dimension(45, 45));
+        CERO.setPreferredSize(new java.awt.Dimension(60, 60));
         CERO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CEROActionPerformed(evt);
@@ -565,25 +635,25 @@ public class FELCobros extends javax.swing.JFrame {
 
         PUNTO.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         PUNTO.setText(".");
-        PUNTO.setPreferredSize(new java.awt.Dimension(45, 45));
+        PUNTO.setPreferredSize(new java.awt.Dimension(60, 60));
         PUNTO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PUNTOActionPerformed(evt);
             }
         });
 
-        ENTER.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        ENTER.setText("E");
-        ENTER.setPreferredSize(new java.awt.Dimension(45, 45));
-        ENTER.addActionListener(new java.awt.event.ActionListener() {
+        BORRAR.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        BORRAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pngwing.com (1).png"))); // NOI18N
+        BORRAR.setPreferredSize(new java.awt.Dimension(60, 60));
+        BORRAR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ENTERActionPerformed(evt);
+                BORRARActionPerformed(evt);
             }
         });
 
         CUATRO.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         CUATRO.setText("4");
-        CUATRO.setPreferredSize(new java.awt.Dimension(45, 45));
+        CUATRO.setPreferredSize(new java.awt.Dimension(60, 60));
         CUATRO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CUATROActionPerformed(evt);
@@ -592,10 +662,19 @@ public class FELCobros extends javax.swing.JFrame {
 
         UNO.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         UNO.setText("1");
-        UNO.setPreferredSize(new java.awt.Dimension(45, 45));
+        UNO.setPreferredSize(new java.awt.Dimension(60, 60));
         UNO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UNOActionPerformed(evt);
+            }
+        });
+
+        ENTER.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        ENTER.setText("ENTER");
+        ENTER.setPreferredSize(new java.awt.Dimension(60, 60));
+        ENTER.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ENTERActionPerformed(evt);
             }
         });
 
@@ -603,10 +682,11 @@ public class FELCobros extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(UNO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -626,12 +706,13 @@ public class FELCobros extends javax.swing.JFrame {
                             .addComponent(SEIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TRES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(PUNTO, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PUNTO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CERO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
-                        .addComponent(ENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(17, 17, 17))
+                        .addComponent(BORRAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ENTER, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -653,10 +734,12 @@ public class FELCobros extends javax.swing.JFrame {
                     .addComponent(UNO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BORRAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CERO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PUNTO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ENTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FORMA DE PAGO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
@@ -669,14 +752,34 @@ public class FELCobros extends javax.swing.JFrame {
         });
 
         jButton5.setText("TARJETA");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         EYT.setText("PARCIAL");
+        EYT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EYTActionPerformed(evt);
+            }
+        });
 
-        EFECTIVO.setEditable(false);
         EFECTIVO.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        EFECTIVO.setEnabled(false);
+        EFECTIVO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EFECTIVOMouseClicked(evt);
+            }
+        });
+        EFECTIVO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                EFECTIVOKeyTyped(evt);
+            }
+        });
 
-        TARJETA.setEditable(false);
         TARJETA.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TARJETA.setEnabled(false);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("MONTO EN EFECTIVO");
@@ -695,22 +798,21 @@ public class FELCobros extends javax.swing.JFrame {
                     .addComponent(EYT, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EFECTIVO, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(TARJETA, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(EFECTIVO, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                    .addComponent(TARJETA, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EFECTIVO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EFECTIVO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -720,7 +822,7 @@ public class FELCobros extends javax.swing.JFrame {
                         .addComponent(EYT, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(TARJETA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
@@ -735,9 +837,21 @@ public class FELCobros extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("jLabel7");
+        MONTOCAMBIO.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        MONTOCAMBIO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        MONTOCAMBIO.setEnabled(false);
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("MONTO");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("CAMBIO");
+
+        VUELTO.setEditable(false);
+        VUELTO.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        VUELTO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -745,11 +859,12 @@ public class FELCobros extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MONTOCAMBIO)
+                    .addComponent(VUELTO)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -757,10 +872,12 @@ public class FELCobros extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addComponent(MONTOCAMBIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(VUELTO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -768,31 +885,29 @@ public class FELCobros extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                                    .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nit, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+                            .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NIT, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -806,24 +921,23 @@ public class FELCobros extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -841,21 +955,18 @@ public class FELCobros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
-        if(nit.getText().compareTo("")!=0 && nombre.getText().compareTo("")!=0){
-            
-            if(Usuario.equalsIgnoreCase("ENCUENTRO"))
-            {
-                crearXMLEncuentro();
-                Certificar();
-            }else if (Usuario.equalsIgnoreCase("ZONA4")){
-                 
-               crearXMLZona4();
-               Certificar();
-            }
-        }else {JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");}
+       
+        if(EFECTIVO.getText().compareTo("")!=0){JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");}
+                 else{
+                    finalizar();
+                    facturar();
+                 }
+        
+        
+       
     }//GEN-LAST:event_facturarActionPerformed
 
-    private void nitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nitActionPerformed
+    private void NITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NITActionPerformed
         NitValidar();
       if(validarnit==1){
           NitLocal();
@@ -864,88 +975,239 @@ public class FELCobros extends javax.swing.JFrame {
         Obtenernit();
       }
         
-    }//GEN-LAST:event_nitActionPerformed
+    }//GEN-LAST:event_NITActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        nit.setText("CF");
+        NIT.setText("CF");
         nombre.setText("CONSUMIDOR FINAL");
         IdNitCliente = 1;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        nit.setText("");
+        NIT.setText("");
         nombre.setText("");
-        nit.setEditable(true);
-        nit.requestFocus();
+        NIT.setEnabled(true);
+        NIT.requestFocus();
+        focoteclado = 3;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-                  Cambio F = new Cambio(Double.parseDouble(total.getText()));
-                  F.setVisible(true);
-                  this.dispose();
+         switch (pago) {
+             case 0:
+                 JOptionPane.showMessageDialog(null, "SELECCIONAR METODO DE PAGO...");
+                 break;
+             case 3:
+                 if(EFECTIVO.getText().compareTo("")!=0){JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");}
+                 else{
+                     finalizar();
+                     Entra F = new Entra();
+                     F.setVisible(true);
+                     this.dispose();
+                 }    break;
+             default:
+                 finalizar();
+                 Entra F = new Entra();
+                 F.setVisible(true);
+                 this.dispose();
+                 break;      
+         }
+                  
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void nitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nitKeyTyped
+    private void NITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NITKeyTyped
         char c = evt.getKeyChar();
         if ((c < '0' || c > '9') && (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c !='ñ') && (c !='Ñ')) {
             evt.consume();
         }
-    }//GEN-LAST:event_nitKeyTyped
+    }//GEN-LAST:event_NITKeyTyped
 
     private void SIETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIETEActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"9");
+        
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus(); MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"7");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"7");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"7");}
+             default -> {
+             }
+         }
+        
     }//GEN-LAST:event_SIETEActionPerformed
 
     private void OCHOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OCHOActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"8");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"8");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"8");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"8");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_OCHOActionPerformed
 
     private void NUEVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NUEVEActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"9");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"9");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"9");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"9");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_NUEVEActionPerformed
 
     private void SEISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEISActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"6");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"6");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"6");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"6");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_SEISActionPerformed
 
     private void CINCOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CINCOActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"5");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"5");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"5");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"5");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_CINCOActionPerformed
 
     private void TRESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRESActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"3");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"3");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"3");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"3");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_TRESActionPerformed
 
     private void DOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DOSActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"2");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"2");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"2");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"2");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_DOSActionPerformed
 
     private void CEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CEROActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"0");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"0");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"0");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"0");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_CEROActionPerformed
 
     private void PUNTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PUNTOActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+".");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+".");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+".");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+".");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_PUNTOActionPerformed
 
-    private void ENTERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENTERActionPerformed
-        Double a = Double.valueOf(TOTAL.getText());
-        Double b = Double.valueOf(EFECTIVO.getText());
-        Double cambio = b-a;
-        CAMBIO.setText(String.valueOf(df.format(cambio)));
-    }//GEN-LAST:event_ENTERActionPerformed
+    private void BORRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BORRARActionPerformed
+        switch (focoteclado) {
+             case 1 -> borrar1();
+             case 2 -> borrar2();
+             case 3 -> borrar3();
+             default -> {
+             }
+         }
+    }//GEN-LAST:event_BORRARActionPerformed
 
     private void CUATROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CUATROActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"4");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"4");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"4");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"4");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_CUATROActionPerformed
 
     private void UNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UNOActionPerformed
-        EFECTIVO.setText(EFECTIVO.getText()+"1");
+         switch (focoteclado) {
+             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"1");}
+             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"1");}
+             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"1");}
+             default -> {
+             }
+         }
     }//GEN-LAST:event_UNOActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       EFE
+       EFECTIVO.setText(total.getText());
+       TARJETA.setText("0.00");
+       MONTOCAMBIO.setEnabled(true);
+       MONTOCAMBIO.requestFocus();
+       focoteclado = 1;
+       pago = 1;
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void EFECTIVOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EFECTIVOMouseClicked
+        EFECTIVO.requestFocus();
+        focoteclado = 2;
+    }//GEN-LAST:event_EFECTIVOMouseClicked
+
+    private void NITMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NITMouseClicked
+        NIT.requestFocus();
+        focoteclado = 3;
+    }//GEN-LAST:event_NITMouseClicked
+
+    private void ENTERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENTERActionPerformed
+        if(focoteclado == 1){
+        Double a = Double.valueOf(MONTOCAMBIO.getText());
+        Double b = Double.valueOf(EFECTIVO.getText());
+        Double cambio = a-b;
+        VUELTO.setText(String.valueOf(df.format(cambio)));
+        }else if(focoteclado == 2){
+        double totale = Double.parseDouble(EFECTIVO.getText());
+        double efectivo = Double.parseDouble(MONTOCAMBIO.getText());
+        double contarje = totale - efectivo;
+        TARJETA.setText(String.valueOf(contarje));  
+        }else if(focoteclado == 3){
+           NitValidar();
+      if(validarnit==1){
+          NitLocal();
+          facturar.requestFocus();
+      }else{  
+        Obtenernit();
+      }
+        }
+    }//GEN-LAST:event_ENTERActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        EFECTIVO.setText("0.00");
+        TARJETA.setText(total.getText());
+        MONTOCAMBIO.setEnabled(false);
+        MONTOCAMBIO.setText("");
+        VUELTO.setText("");
+        pago = 2;
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void EYTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EYTActionPerformed
+        EFECTIVO.setText("");
+        EFECTIVO.setEnabled(true);
+        EFECTIVO.requestFocus();
+        focoteclado = 2;
+        MONTOCAMBIO.setEnabled(false);
+        MONTOCAMBIO.setText("");
+        VUELTO.setText("");
+        pago = 3;
+        
+    }//GEN-LAST:event_EYTActionPerformed
+
+    private void EFECTIVOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EFECTIVOKeyTyped
+       
+    }//GEN-LAST:event_EFECTIVOKeyTyped
 
     /**
      * @param args the command line arguments
@@ -986,6 +1248,7 @@ public class FELCobros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BORRAR;
     private javax.swing.JButton CERO;
     private javax.swing.JButton CINCO;
     private javax.swing.JButton CUATRO;
@@ -993,6 +1256,8 @@ public class FELCobros extends javax.swing.JFrame {
     private javax.swing.JTextField EFECTIVO;
     private javax.swing.JButton ENTER;
     private javax.swing.JButton EYT;
+    private javax.swing.JTextField MONTOCAMBIO;
+    private javax.swing.JTextField NIT;
     private javax.swing.JButton NUEVE;
     private javax.swing.JButton OCHO;
     private javax.swing.JLabel Orden;
@@ -1002,6 +1267,7 @@ public class FELCobros extends javax.swing.JFrame {
     private javax.swing.JTextField TARJETA;
     private javax.swing.JButton TRES;
     private javax.swing.JButton UNO;
+    private javax.swing.JTextField VUELTO;
     private javax.swing.JButton facturar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1014,16 +1280,14 @@ public class FELCobros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField nit;
     private javax.swing.JTextField nombre;
     private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
