@@ -956,10 +956,15 @@ public class FELCobros extends javax.swing.JFrame {
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
        
-        if(EFECTIVO.getText().compareTo("")!=0){JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");}
-                 else{
-                    finalizar();
-                    facturar();
+        if(EFECTIVO.getText().compareTo("")!=0){
+                 finalizar();
+                 facturar();
+                 //System.out.println("si factura");
+                 }
+        else{
+            
+            JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");
+                    
                  }
         
         
@@ -997,13 +1002,16 @@ public class FELCobros extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(null, "SELECCIONAR METODO DE PAGO...");
                  break;
              case 3:
-                 if(EFECTIVO.getText().compareTo("")!=0){JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");}
-                 else{
+                 if(EFECTIVO.getText().compareTo("")!=0)
+                 {
                      finalizar();
                      Entra F = new Entra();
                      F.setVisible(true);
                      this.dispose();
-                 }    break;
+                 } 
+                 else
+                     {JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");}
+                 break;
              default:
                  finalizar();
                  Entra F = new Entra();
@@ -1169,8 +1177,8 @@ public class FELCobros extends javax.swing.JFrame {
         Double cambio = a-b;
         VUELTO.setText(String.valueOf(df.format(cambio)));
         }else if(focoteclado == 2){
-        double totale = Double.parseDouble(EFECTIVO.getText());
-        double efectivo = Double.parseDouble(MONTOCAMBIO.getText());
+        double totale = Double.parseDouble(TARJETA.getText());
+        double efectivo = Double.parseDouble(EFECTIVO.getText());
         double contarje = totale - efectivo;
         TARJETA.setText(String.valueOf(contarje));  
         }else if(focoteclado == 3){
@@ -1195,6 +1203,7 @@ public class FELCobros extends javax.swing.JFrame {
 
     private void EYTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EYTActionPerformed
         EFECTIVO.setText("");
+        TARJETA.setText(total.getText());
         EFECTIVO.setEnabled(true);
         EFECTIVO.requestFocus();
         focoteclado = 2;
@@ -1202,7 +1211,6 @@ public class FELCobros extends javax.swing.JFrame {
         MONTOCAMBIO.setText("");
         VUELTO.setText("");
         pago = 3;
-        
     }//GEN-LAST:event_EYTActionPerformed
 
     private void EFECTIVOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EFECTIVOKeyTyped
