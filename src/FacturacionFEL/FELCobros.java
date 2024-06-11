@@ -41,27 +41,29 @@ import java.sql.PreparedStatement;
  * @author jluis
  */
 public class FELCobros extends javax.swing.JFrame {
-     static final private Logger LOGGER = Logger.getLogger("mx.com.hash.pruebaxml.PruebaXML");
-     String Token;
-     String Usuario;
-     String NI; //"000044653948";
-     String grantotal;
-     String TotalLetras;
-     int IdNitCliente;
-     int validarnit;
-     int id_orden;
-     String serie;
-     String numero;
-     String autoriza;
-     String FechaCerti;
-     int focoteclado = 0;
-     int pago = 0;
-     int para;
-     DecimalFormat df = new DecimalFormat("#.00");
+
+    static final private Logger LOGGER = Logger.getLogger("mx.com.hash.pruebaxml.PruebaXML");
+    String Token;
+    String Usuario;
+    String NI; //"000044653948";
+    String grantotal;
+    String TotalLetras;
+    int IdNitCliente;
+    int validarnit;
+    int id_orden;
+    String serie;
+    String numero;
+    String autoriza;
+    String FechaCerti;
+    int focoteclado = 0;
+    int pago = 0;
+    int para;
+    DecimalFormat df = new DecimalFormat("#.00");
+
     /**
      * Creates new form FEL
      */
-    public FELCobros(int a,int b) {
+    public FELCobros(int a, int b) {
         initComponents();
         String texto1 = "<html><center><body>TARJETA<br>EFECTIVO</body></center></html>";
         EYT.setText(texto1);
@@ -71,15 +73,13 @@ public class FELCobros extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         sumaTotal();
         TokenLocal();
- 
-        
+
     }
-    
-    
-     public void InsertarDatosComprador(){
-    
-     try {
-            
+
+    public void InsertarDatosComprador() {
+
+        try {
+
             ObtenerProductosFactura p = new ObtenerProductosFactura();
             p.setNit(NIT.getText());
             p.setNombre(nombre.getText());
@@ -89,11 +89,10 @@ public class FELCobros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-     
-     
-   public void InsertarDatosFEL(){
-    
-     try {
+
+    public void InsertarDatosFEL() {
+
+        try {
             //serie,numero,autorizacion,fechacertificacion,id_pedido,idNit
             ObtenerProductosFactura p = new ObtenerProductosFactura();
             p.setSerie(serie);
@@ -103,138 +102,139 @@ public class FELCobros extends javax.swing.JFrame {
             p.setId_pedido(Integer.parseInt(Orden.getText()));
             p.setIdNit(IdNitCliente);
             ObtenerProductosFactura.InsertarFEL(p);
-            if(Usuario.equalsIgnoreCase("ENCUENTRO")){imprimirEncuentro();}
-            else if(Usuario.equalsIgnoreCase("ZONA4")){imprimirZona4();}
+            if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
+                imprimirEncuentro();
+            } else if (Usuario.equalsIgnoreCase("ZONA4")) {
+                imprimirZona4();
+            }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-    }  
+    }
 
-     public  void TokenLocal() {
-      //  DecimalFormat df = new DecimalFormat("#.00");
-            try {
-                BDConexion conecta = new BDConexion();
-                Connection cn = conecta.getConexion();
-                java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select token,usuario  from TOKEN where idToken = 1");
-                while (rs.next()) {
-                      Token = rs.getString("token");
-                      Usuario = rs.getString("usuario");
-                }
-                rs.close();
-                stmt.close();
-                cn.close();
-            } catch (Exception error) {
-                System.out.print(error);
-            }
-           
-        }
-    
-    
-    public  void NitLocal() {
-      //  DecimalFormat df = new DecimalFormat("#.00");
-            try {
-                 BDConexion conecta = new BDConexion();
-                Connection cn = conecta.getConexion();
-                java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select nombre,idNit from compradornit where nit ='"+NIT.getText()+"'");
-                while (rs.next()) {
-                       nombre.setText(rs.getString("nombre"));
-                       IdNitCliente = rs.getInt("idNit");
-                }
-                rs.close();
-                stmt.close();
-                cn.close();
-            } catch (Exception error) {
-                System.out.print(error);
-            }
-        }
-    
-    public  void NitValidar() {
-      //  DecimalFormat df = new DecimalFormat("#.00");
-            try {
-                 BDConexion conecta = new BDConexion();
-                Connection cn = conecta.getConexion();
-                java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='"+NIT.getText()+"'");
-                while (rs.next()) {
-                    validarnit = rs.getInt(1);
-                }
-                rs.close();
-                stmt.close();
-                cn.close();
-            } catch (Exception error) {
-                System.out.print(error);
-            }
-        }
-    
-    
-    public  void sumaTotal() {
-      //  DecimalFormat df = new DecimalFormat("#.00");
-            try {
-                 BDConexion conecta = new BDConexion();
-                Connection cn = conecta.getConexion();
-                java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select sum(precio) as Total from PRODUCTOS_PEDIDO where id_pedido =" + Orden.getText());
-                while (rs.next()) {
-                      grantotal = rs.getString(1);
-                      total.setText(grantotal);
-                }
-                rs.close();
-                stmt.close();
-                cn.close();
-            } catch (Exception error) {
-                System.out.print(error);
-            }
-        }
-    
-    
-    private void Obtenernit(){
-        
-         /*String NitCeros = String.format("%12s", nit.getText()).replace(' ','0');
-         NI = NitCeros;*/
-     
-   RestApiClient apiClient = new RestApiClient();
-        
+    public void TokenLocal() {
+        //  DecimalFormat df = new DecimalFormat("#.00");
         try {
-            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C"+NIT.getText()+"&COUNTRY=GT&USERNAME=120011662";
+            BDConexion conecta = new BDConexion();
+            Connection cn = conecta.getConexion();
+            java.sql.Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery("select token,usuario  from TOKEN where idToken = 1");
+            while (rs.next()) {
+                Token = rs.getString("token");
+                Usuario = rs.getString("usuario");
+            }
+            rs.close();
+            stmt.close();
+            cn.close();
+        } catch (Exception error) {
+            System.out.print(error);
+        }
+
+    }
+
+    public void NitLocal() {
+        //  DecimalFormat df = new DecimalFormat("#.00");
+        try {
+            BDConexion conecta = new BDConexion();
+            Connection cn = conecta.getConexion();
+            java.sql.Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery("select nombre,idNit from compradornit where nit ='" + NIT.getText() + "'");
+            while (rs.next()) {
+                nombre.setText(rs.getString("nombre"));
+                IdNitCliente = rs.getInt("idNit");
+            }
+            rs.close();
+            stmt.close();
+            cn.close();
+        } catch (Exception error) {
+            System.out.print(error);
+        }
+    }
+
+    public void NitValidar() {
+        //  DecimalFormat df = new DecimalFormat("#.00");
+        try {
+            BDConexion conecta = new BDConexion();
+            Connection cn = conecta.getConexion();
+            java.sql.Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='" + NIT.getText() + "'");
+            while (rs.next()) {
+                validarnit = rs.getInt(1);
+            }
+            rs.close();
+            stmt.close();
+            cn.close();
+        } catch (Exception error) {
+            System.out.print(error);
+        }
+    }
+
+    public void sumaTotal() {
+        //  DecimalFormat df = new DecimalFormat("#.00");
+        try {
+            BDConexion conecta = new BDConexion();
+            Connection cn = conecta.getConexion();
+            java.sql.Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery("select sum(precio) as Total from PRODUCTOS_PEDIDO where id_pedido =" + Orden.getText());
+            while (rs.next()) {
+                grantotal = rs.getString(1);
+                total.setText(grantotal);
+            }
+            rs.close();
+            stmt.close();
+            cn.close();
+        } catch (Exception error) {
+            System.out.print(error);
+        }
+    }
+
+    private void Obtenernit() {
+
+        /*String NitCeros = String.format("%12s", nit.getText()).replace(' ','0');
+         NI = NitCeros;*/
+        RestApiClient apiClient = new RestApiClient();
+
+        try {
+            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C" + NIT.getText() + "&COUNTRY=GT&USERNAME=120011662";
             String accessToken = Token;
-            String response = apiClient.get( apiKey, accessToken);
-            JSONObject  jsonObject = new JSONObject(response);
+            String response = apiClient.get(apiKey, accessToken);
+            JSONObject jsonObject = new JSONObject(response);
             JSONArray arrayObject = (JSONArray) jsonObject.get("RESPONSE");
-             for (int i = 0; i < arrayObject.length(); i++) {
+            for (int i = 0; i < arrayObject.length(); i++) {
                 if (i == 0) {
-            JSONObject object2 = (JSONObject) arrayObject.get(i);
-                  NI = object2.get("NOMBRE").toString();
-                  String nombrev = object2.get("NOMBRE").toString();
-                  String nitv = object2.get("NIT").toString();
-            nombre.setText(nombrev);
-            NIT.setText(nitv);
+                    JSONObject object2 = (JSONObject) arrayObject.get(i);
+                    NI = object2.get("NOMBRE").toString();
+                    String nombrev = object2.get("NOMBRE").toString();
+                    String nitv = object2.get("NIT").toString();
+                    nombre.setText(nombrev);
+                    NIT.setText(nitv);
                 }
-             }
-             if(NI.equalsIgnoreCase(""))
-             {JOptionPane.showMessageDialog(null, "NIT INGRESADO ES INCORRECTO");
-             nombre.setText("");
-             NIT.setText("");
-             NIT.requestFocus();
-             }
-             else{ InsertarDatosComprador(); facturar.requestFocus();}
-   
-   }    catch (IOException ex) {
+            }
+            if (NI.equalsIgnoreCase("")) {
+                JOptionPane.showMessageDialog(null, "NIT INGRESADO ES INCORRECTO");
+                nombre.setText("");
+                NIT.setText("");
+                NIT.requestFocus();
+            } else {
+                InsertarDatosComprador();
+                facturar.requestFocus();
+            }
+
+        } catch (IOException ex) {
             Logger.getLogger(FELCobros.class.getName()).log(Level.SEVERE, null, ex);
         }
-   }
-    
-    private void Certificar(){
-    FELclas apiClient = new FELclas();
-        
+    }
+
+    private void Certificar() {
+        FELclas apiClient = new FELclas();
+
         try {
             String apiKey = "TAXID=000120011662&FORMAT=''&USERNAME=120011662";//NIT DE NEGOCIO y USUARIO QUE DE DIGIFAC
             String accessToken = Token;
             //System.out.println("Token = "+Token);
             String response = apiClient.get(apiKey, accessToken);
-            JSONObject  jsonObject = new JSONObject(response);
-            JSONObject object2 = (jsonObject); 
+            JSONObject jsonObject = new JSONObject(response);
+            JSONObject object2 = (jsonObject);
             //System.out.println("JSON = "+jsonObject);
             autoriza = object2.get("authNumber").toString();
             serie = object2.get("batch").toString();
@@ -253,23 +253,22 @@ public class FELCobros extends javax.swing.JFrame {
             System.err.println("Error: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "ERROR DE COMUNICACION PARA EMITIR LA FACTURA INTENTAR DE NUEVO");
         }
-        
+
     }
-    
-    private void crearXMLEncuentro(){
-        
-        NumeroLetras NumLetra  = new NumeroLetras();
+
+    private void crearXMLEncuentro() {
+
+        NumeroLetras NumLetra = new NumeroLetras();
         String numero = total.getText();
-        TotalLetras =  (NumLetra .Convertir(numero,true));
-    
-         try {
-             CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(),NIT.getText(),Orden.getText(),grantotal,TotalLetras);
+        TotalLetras = (NumLetra.Convertir(numero, true));
+
+        try {
+            CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(), NIT.getText(), Orden.getText(), grantotal, TotalLetras);
             Document documento = ejemploXML.crearDocumento();
-            
+
             //System.out.println(ejemploXML.convertirString(documento));
-            
-            ejemploXML.escribirArchivo(documento, "C:\\Reportes\\XMLFel.xml");            
-            
+            ejemploXML.escribirArchivo(documento, "C:\\Reportes\\XMLFel.xml");
+
         } catch (ParserConfigurationException ex) {
             LOGGER.log(Level.SEVERE, "Error de configuracion");
             LOGGER.log(Level.SEVERE, null, ex);
@@ -278,21 +277,20 @@ public class FELCobros extends javax.swing.JFrame {
             LOGGER.log(Level.SEVERE, null, ex);
         }
     }
-    
-    private void crearXMLZona4(){
-        
-        NumeroLetras NumLetra  = new NumeroLetras();
+
+    private void crearXMLZona4() {
+
+        NumeroLetras NumLetra = new NumeroLetras();
         String numero = total.getText();
-        TotalLetras =  (NumLetra .Convertir(numero,true));
-    
-         try {
-            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(),NIT.getText(),Orden.getText(),grantotal,TotalLetras);
+        TotalLetras = (NumLetra.Convertir(numero, true));
+
+        try {
+            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(), NIT.getText(), Orden.getText(), grantotal, TotalLetras);
             Document documento = XMLZona4.crearDocumento();
-            
+
             //System.out.println(ejemploXML.convertirString(documento));
-            
-            XMLZona4.escribirArchivo(documento, "C:\\Reportes\\XMLFel.xml");            
-            
+            XMLZona4.escribirArchivo(documento, "C:\\Reportes\\XMLFel.xml");
+
         } catch (ParserConfigurationException ex) {
             LOGGER.log(Level.SEVERE, "Error de configuracion");
             LOGGER.log(Level.SEVERE, null, ex);
@@ -301,102 +299,111 @@ public class FELCobros extends javax.swing.JFrame {
             LOGGER.log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    private void imprimirEncuentro(){
- 
-      BDConexion con= new BDConexion();
-         Connection conexion= con.getConexion();
+
+    private void imprimirEncuentro() {
+
+        BDConexion con = new BDConexion();
+        Connection conexion = con.getConexion();
         try {
-            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELElEncuentro.jasper");
-            Map parametros= new HashMap();
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELElEncuentro.jasper");
+            Map parametros = new HashMap();
             parametros.put("ID_ORDEN", id_orden);
-            JasperPrint print = JasperFillManager.fillReport(jasperReport,parametros, conexion);
+            JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);
             JasperPrintManager.printReport(print, true);
-        } catch (Exception e) {System.out.println("F"+e);
-           JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  "+e);
+        } catch (Exception e) {
+            System.out.println("F" + e);
+            JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
         }
-         Cambio F = new Cambio(Double.parseDouble(total.getText()));
-         F.setVisible(true);
-         this.dispose();
-        
+        Cambio F = new Cambio(Double.parseDouble(total.getText()));
+        F.setVisible(true);
+        this.dispose();
+
     }
-    
-    private void imprimirZona4(){
- 
-      BDConexion con= new BDConexion();
-         Connection conexion= con.getConexion();
+
+    private void imprimirZona4() {
+
+        BDConexion con = new BDConexion();
+        Connection conexion = con.getConexion();
         try {
-            JasperReport jasperReport=(JasperReport)JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELZona4.jasper");
-            Map parametros= new HashMap();
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELZona4.jasper");
+            Map parametros = new HashMap();
             parametros.put("ID_ORDEN", id_orden);
-            JasperPrint print = JasperFillManager.fillReport(jasperReport,parametros, conexion);
+            JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);
             JasperPrintManager.printReport(print, true);
-        } catch (Exception e) {System.out.println("F"+e);
-           JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  "+e);
+        } catch (Exception e) {
+            System.out.println("F" + e);
+            JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
         }
-         Cambio F = new Cambio(Double.parseDouble(total.getText()));
-         F.setVisible(true);
-         this.dispose();
-        
+        Cambio F = new Cambio(Double.parseDouble(total.getText()));
+        F.setVisible(true);
+        this.dispose();
+
     }
-    
-    private void borrar1()
-            {
-            String cadena; cadena = MONTOCAMBIO.getText();
-        if(cadena.length()>0){cadena=cadena.substring(0,cadena.length()-1);} 
+
+    private void borrar1() {
+        String cadena;
+        cadena = MONTOCAMBIO.getText();
+        if (cadena.length() > 0) {
+            cadena = cadena.substring(0, cadena.length() - 1);
+        }
         MONTOCAMBIO.setText(cadena);
-            }
-     private void borrar2()
-            {
-            String cadena; cadena = EFECTIVO.getText();
-        if(cadena.length()>0){cadena=cadena.substring(0,cadena.length()-1);} 
+    }
+
+    private void borrar2() {
+        String cadena;
+        cadena = EFECTIVO.getText();
+        if (cadena.length() > 0) {
+            cadena = cadena.substring(0, cadena.length() - 1);
+        }
         EFECTIVO.setText(cadena);
-            }
-      private void borrar3()
-            {
-            String cadena; cadena = NIT.getText();
-        if(cadena.length()>0){cadena=cadena.substring(0,cadena.length()-1);} 
+    }
+
+    private void borrar3() {
+        String cadena;
+        cadena = NIT.getText();
+        if (cadena.length() > 0) {
+            cadena = cadena.substring(0, cadena.length() - 1);
+        }
         NIT.setText(cadena);
-            }
-      
-      private void finalizar(){
-   
+    }
+
+    private void finalizar() {
+
         try {
-                 BDConexion conecta = new BDConexion();
-                 Connection con = conecta.getConexion();
-                 PreparedStatement smtp = null;
-                 if(para == 3){
-                  smtp = con.prepareStatement("update PEDIDOS SET EFECTIVO = 0.00, TARJETA = 0.00 WHERE ID_PEDIDO ="+Orden.getText());
-                 } 
-                 else{smtp = con.prepareStatement("update PEDIDOS SET EFECTIVO = "+EFECTIVO.getText()+", TARJETA = "+TARJETA.getText()+" WHERE ID_PEDIDO ="+Orden.getText());
-                 }
-                 smtp.executeUpdate();
-                 con.close();
-                 smtp.close();
-            } catch (SQLException ex) {
-                JOptionPane.showConfirmDialog(null, ex);
+            BDConexion conecta = new BDConexion();
+            Connection con = conecta.getConexion();
+            PreparedStatement smtp = null;
+            if (para == 3) {
+                smtp = con.prepareStatement("update PEDIDOS SET EFECTIVO = 0.00, TARJETA = 0.00 WHERE ID_PEDIDO =" + Orden.getText());
+            } else {
+                smtp = con.prepareStatement("update PEDIDOS SET EFECTIVO = " + EFECTIVO.getText() + ", TARJETA = " + TARJETA.getText() + " WHERE ID_PEDIDO =" + Orden.getText());
             }
-            }
-      
-      
-      private void facturar(){
-      
-           if(NIT.getText().compareTo("")!=0 && nombre.getText().compareTo("")!=0){
-            
-            if(Usuario.equalsIgnoreCase("ENCUENTRO"))
-            {
+            smtp.executeUpdate();
+            con.close();
+            smtp.close();
+        } catch (SQLException ex) {
+            JOptionPane.showConfirmDialog(null, ex);
+        }
+    }
+
+    private void facturar() {
+
+        if (NIT.getText().compareTo("") != 0 && nombre.getText().compareTo("") != 0) {
+
+            if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
                 crearXMLEncuentro();
                 Certificar();
-            }else if (Usuario.equalsIgnoreCase("ZONA4")){
-                 
-               crearXMLZona4();
-               Certificar();
+            } else if (Usuario.equalsIgnoreCase("ZONA4")) {
+
+                crearXMLZona4();
+                Certificar();
             }
-        }else {JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");}
-      
-      }
-    
+        } else {
+            JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");
+        }
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -955,31 +962,29 @@ public class FELCobros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
-       
-        if(EFECTIVO.getText().compareTo("")!=0){
-                 finalizar();
-                 facturar();
-                 //System.out.println("si factura");
-                 }
-        else{
-            
+
+        if (EFECTIVO.getText().compareTo("") != 0) {
+            finalizar();
+            facturar();
+            //System.out.println("si factura");
+        } else {
+
             JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");
-                    
-                 }
-        
-        
-       
+
+        }
+
+
     }//GEN-LAST:event_facturarActionPerformed
 
     private void NITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NITActionPerformed
         NitValidar();
-      if(validarnit==1){
-          NitLocal();
-          facturar.requestFocus();
-      }else{  
-        Obtenernit();
-      }
-        
+        if (validarnit == 1) {
+            NitLocal();
+            facturar.requestFocus();
+        } else {
+            Obtenernit();
+        }
+
     }//GEN-LAST:event_NITActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -997,167 +1002,269 @@ public class FELCobros extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         switch (pago) {
-             case 0:
-                 JOptionPane.showMessageDialog(null, "SELECCIONAR METODO DE PAGO...");
-                 break;
-             case 3:
-                 if(EFECTIVO.getText().compareTo("")!=0)
-                 {
-                     finalizar();
-                     Entra F = new Entra();
-                     F.setVisible(true);
-                     this.dispose();
-                 } 
-                 else
-                     {JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");}
-                 break;
-             default:
-                 finalizar();
-                 Entra F = new Entra();
-                 F.setVisible(true);
-                 this.dispose();
-                 break;      
-         }
-                  
+        switch (pago) {
+            case 0:
+                JOptionPane.showMessageDialog(null, "SELECCIONAR METODO DE PAGO...");
+                break;
+            case 3:
+                if (EFECTIVO.getText().compareTo("") != 0) {
+                    finalizar();
+                    Entra F = new Entra();
+                    F.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");
+                }
+                break;
+            default:
+                finalizar();
+                Entra F = new Entra();
+                F.setVisible(true);
+                this.dispose();
+                break;
+        }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void NITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NITKeyTyped
         char c = evt.getKeyChar();
-        if ((c < '0' || c > '9') && (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c !='ñ') && (c !='Ñ')) {
+        if ((c < '0' || c > '9') && (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != 'ñ') && (c != 'Ñ')) {
             evt.consume();
         }
     }//GEN-LAST:event_NITKeyTyped
 
     private void SIETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIETEActionPerformed
-        
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus(); MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"7");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"7");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"7");}
-             default -> {
-             }
-         }
-        
+
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "7");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "7");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "7");
+            }
+            default -> {
+            }
+        }
+
     }//GEN-LAST:event_SIETEActionPerformed
 
     private void OCHOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OCHOActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"8");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"8");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"8");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "8");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "8");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "8");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_OCHOActionPerformed
 
     private void NUEVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NUEVEActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"9");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"9");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"9");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "9");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "9");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "9");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_NUEVEActionPerformed
 
     private void SEISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEISActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"6");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"6");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"6");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "6");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "6");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "6");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_SEISActionPerformed
 
     private void CINCOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CINCOActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"5");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"5");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"5");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "5");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "5");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "5");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_CINCOActionPerformed
 
     private void TRESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRESActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"3");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"3");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"3");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "3");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "3");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "3");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_TRESActionPerformed
 
     private void DOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DOSActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"2");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"2");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"2");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "2");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "2");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "2");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_DOSActionPerformed
 
     private void CEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CEROActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"0");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"0");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"0");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "0");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "0");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "0");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_CEROActionPerformed
 
     private void PUNTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PUNTOActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+".");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+".");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+".");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + ".");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + ".");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + ".");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_PUNTOActionPerformed
 
     private void BORRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BORRARActionPerformed
         switch (focoteclado) {
-             case 1 -> borrar1();
-             case 2 -> borrar2();
-             case 3 -> borrar3();
-             default -> {
-             }
-         }
+            case 1 ->
+                borrar1();
+            case 2 ->
+                borrar2();
+            case 3 ->
+                borrar3();
+            default -> {
+            }
+        }
     }//GEN-LAST:event_BORRARActionPerformed
 
     private void CUATROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CUATROActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"4");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"4");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"4");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "4");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "4");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "4");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_CUATROActionPerformed
 
     private void UNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UNOActionPerformed
-         switch (focoteclado) {
-             case 1 -> {MONTOCAMBIO.requestFocus();MONTOCAMBIO.setText(MONTOCAMBIO.getText()+"1");}
-             case 2 -> {EFECTIVO.requestFocus();EFECTIVO.setText(EFECTIVO.getText()+"1");}
-             case 3 -> {NIT.requestFocus();NIT.setText(NIT.getText()+"1");}
-             default -> {
-             }
-         }
+        switch (focoteclado) {
+            case 1 -> {
+                MONTOCAMBIO.requestFocus();
+                MONTOCAMBIO.setText(MONTOCAMBIO.getText() + "1");
+            }
+            case 2 -> {
+                EFECTIVO.requestFocus();
+                EFECTIVO.setText(EFECTIVO.getText() + "1");
+            }
+            case 3 -> {
+                NIT.requestFocus();
+                NIT.setText(NIT.getText() + "1");
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_UNOActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       EFECTIVO.setText(total.getText());
-       TARJETA.setText("0.00");
-       MONTOCAMBIO.setEnabled(true);
-       MONTOCAMBIO.requestFocus();
-       focoteclado = 1;
-       pago = 1;
+        EFECTIVO.setText(total.getText());
+        TARJETA.setText("0.00");
+        MONTOCAMBIO.setEnabled(true);
+        EFECTIVO.setEnabled(false);
+        MONTOCAMBIO.requestFocus();
+        focoteclado = 1;
+        pago = 1;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void EFECTIVOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EFECTIVOMouseClicked
@@ -1171,34 +1278,36 @@ public class FELCobros extends javax.swing.JFrame {
     }//GEN-LAST:event_NITMouseClicked
 
     private void ENTERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENTERActionPerformed
-        if(focoteclado == 1){
-        Double a = Double.valueOf(MONTOCAMBIO.getText());
-        Double b = Double.valueOf(EFECTIVO.getText());
-        Double cambio = a-b;
-        VUELTO.setText(String.valueOf(df.format(cambio)));
-        }else if(focoteclado == 2){
-        double totale = Double.parseDouble(TARJETA.getText());
-        double efectivo = Double.parseDouble(EFECTIVO.getText());
-        double contarje = totale - efectivo;
-        TARJETA.setText(String.valueOf(contarje));  
-        }else if(focoteclado == 3){
-           NitValidar();
-      if(validarnit==1){
-          NitLocal();
-          facturar.requestFocus();
-      }else{  
-        Obtenernit();
-      }
+        if (focoteclado == 1) {
+            Double a = Double.valueOf(MONTOCAMBIO.getText());
+            Double b = Double.valueOf(EFECTIVO.getText());
+            Double cambio = a - b;
+            VUELTO.setText(String.valueOf(df.format(cambio)));
+        } else if (focoteclado == 2) {
+            double totale = Double.parseDouble(total.getText());
+            double efectivo = Double.parseDouble(EFECTIVO.getText());
+            double contarje = totale - efectivo;
+            TARJETA.setText(String.valueOf(contarje));
+        } else if (focoteclado == 3) {
+            NitValidar();
+            if (validarnit == 1) {
+                NitLocal();
+                facturar.requestFocus();
+            } else {
+                Obtenernit();
+            }
         }
     }//GEN-LAST:event_ENTERActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         EFECTIVO.setText("0.00");
+        EFECTIVO.setEnabled(false);
         TARJETA.setText(total.getText());
         MONTOCAMBIO.setEnabled(false);
         MONTOCAMBIO.setText("");
         VUELTO.setText("");
         pago = 2;
+        focoteclado = 0;
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void EYTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EYTActionPerformed
@@ -1214,7 +1323,7 @@ public class FELCobros extends javax.swing.JFrame {
     }//GEN-LAST:event_EYTActionPerformed
 
     private void EFECTIVOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EFECTIVOKeyTyped
-       
+
     }//GEN-LAST:event_EFECTIVOKeyTyped
 
     /**
