@@ -25,8 +25,8 @@ public class ConsumoApi {
      */
     public static void main(String[] args) {
         try {
-            URL url = new URL("https://felgtaws.digifact.com.gt/gt.com.apinuc/api/login/get_token");
-            //URL url = new URL("https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/login/get_token");
+            //URL url = new URL("https://felgtaws.digifact.com.gt/gt.com.apinuc/api/login/get_token");
+            URL url = new URL("https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/login/get_token");
             Map<String,String> params = new LinkedHashMap<>();
             params.put("Username:","GT.000120011662.120011662");
             params.put("Password:","Factur4$Fel");

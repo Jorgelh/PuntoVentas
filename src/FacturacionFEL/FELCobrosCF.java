@@ -40,7 +40,7 @@ import java.sql.PreparedStatement;
  *
  * @author jluis
  */
-public class FELCobros extends javax.swing.JFrame {
+public class FELCobrosCF extends javax.swing.JFrame {
 
     static final private Logger LOGGER = Logger.getLogger("mx.com.hash.pruebaxml.PruebaXML");
     String Token;
@@ -58,12 +58,13 @@ public class FELCobros extends javax.swing.JFrame {
     int focoteclado = 0;
     int pago = 0;
     int para;
+    int validarorden;
     DecimalFormat df = new DecimalFormat("#.00");
 
     /**
      * Creates new form FEL
      */
-    public FELCobros(int a, int b) {
+    public FELCobrosCF(int a, int b) {
         initComponents();
         String texto1 = "<html><center><body>TARJETA<br>EFECTIVO</body></center></html>";
         EYT.setText(texto1);
@@ -221,7 +222,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(FELCobros.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FELCobrosCF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -326,8 +327,47 @@ public class FELCobros extends javax.swing.JFrame {
         this.dispose();
 
     }
+    
+     private void imprimirEncuentroSinValor() {
+
+        BDConexion con = new BDConexion();
+        Connection conexion = con.getConexion();
+        try {
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELElEncuentro.jasper");
+            Map parametros = new HashMap();
+            parametros.put("ID_ORDEN", id_orden);
+            JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);
+            JasperPrintManager.printReport(print, true);
+        } catch (Exception e) {
+            System.out.println("F" + e);
+            JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
+        }
+        Cambio F = new Cambio(Double.parseDouble(total.getText()));
+        F.setVisible(true);
+        this.dispose();
+
+    }
 
     private void imprimirZona4() {
+
+        BDConexion con = new BDConexion();
+        Connection conexion = con.getConexion();
+        try {
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELZona4.jasper");
+            Map parametros = new HashMap();
+            parametros.put("ID_ORDEN", id_orden);
+            JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);
+            JasperPrintManager.printReport(print, true);
+        } catch (Exception e) {
+            System.out.println("F" + e);
+            JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
+        }
+        Cambio F = new Cambio(Double.parseDouble(total.getText()));
+        F.setVisible(true);
+        this.dispose();
+
+    }
+    private void imprimirZona4SinValor() {
 
         BDConexion con = new BDConexion();
         Connection conexion = con.getConexion();
@@ -394,7 +434,8 @@ public class FELCobros extends javax.swing.JFrame {
     }
 
     private void facturar() {
-
+        ValidarOrden();
+     if(validarorden <= 0){
         if (NIT.getText().compareTo("") != 0 && nombre.getText().compareTo("") != 0) {
 
             if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
@@ -408,8 +449,34 @@ public class FELCobros extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");
         }
-
+    } else{
+     
+        if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
+                imprimirEncuentro();
+            } else if (Usuario.equalsIgnoreCase("ZONA4")) {
+                imprimirZona4();
+            }
+     
+     }
     }
+     public void ValidarOrden() {
+        //  DecimalFormat df = new DecimalFormat("#.00");
+        try {
+            BDConexion conecta = new BDConexion();
+            Connection cn = conecta.getConexion();
+            java.sql.Statement stmt = cn.createStatement();
+            ResultSet rs = stmt.executeQuery("select count(id_pedido) from fel where id_pedido =" + Orden.getText());
+            while (rs.next()) {
+                validarorden = rs.getInt(1);
+            }
+            rs.close();
+            stmt.close();
+            cn.close();
+        } catch (Exception error) {
+            System.out.print(error);
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -934,9 +1001,7 @@ public class FELCobros extends javax.swing.JFrame {
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -950,8 +1015,8 @@ public class FELCobros extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1016,6 +1081,13 @@ public class FELCobros extends javax.swing.JFrame {
             case 3:
                 if (EFECTIVO.getText().compareTo("") != 0) {
                     finalizar();
+                    
+                     if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
+                        imprimirEncuentroSinValor();
+                    } else if (Usuario.equalsIgnoreCase("ZONA4")) {
+                        imprimirZona4SinValor();
+            }
+                    
                     Entra F = new Entra();
                     F.setVisible(true);
                     this.dispose();
@@ -1350,14 +1422,18 @@ public class FELCobros extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FELCobros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FELCobrosCF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FELCobros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FELCobrosCF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FELCobros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FELCobrosCF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FELCobros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FELCobrosCF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
