@@ -333,7 +333,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
         BDConexion con = new BDConexion();
         Connection conexion = con.getConexion();
         try {
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELElEncuentro.jasper");
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELElEncuentroSinValor.jasper");
             Map parametros = new HashMap();
             parametros.put("ID_ORDEN", id_orden);
             JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);
@@ -372,7 +372,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
         BDConexion con = new BDConexion();
         Connection conexion = con.getConexion();
         try {
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELZona4.jasper");
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObjectFromFile("C:\\Reportes\\FEL\\FELZona4SinValor.jasper");
             Map parametros = new HashMap();
             parametros.put("ID_ORDEN", id_orden);
             JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);

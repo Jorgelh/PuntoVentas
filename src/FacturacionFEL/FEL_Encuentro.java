@@ -119,7 +119,6 @@ public class FEL_Encuentro extends javax.swing.JFrame {
             } catch (Exception error) {
                 System.out.print(error);
             }
-           
         }
     
     
