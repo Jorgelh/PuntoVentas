@@ -4,6 +4,7 @@
  */
 package INICIO;
 import FacturacionFEL.FELCobros;
+import FacturacionFEL.FELCobrosCF;
 import FacturacionFEL.FEL_Encuentro;
 import clas.BDConexion;
 import clas.BDProductos;
@@ -1239,7 +1240,7 @@ private void PanelMismoColor(){
         if(para !=0 && Double.parseDouble(Total.getText())!= 0.00){
         finalizar();
         imprimir2();
-                  FELCobros F = new FELCobros(id_pedido,para);
+                  FELCobrosCF F = new FELCobrosCF(id_pedido,para);
                   F.setVisible(true);
                   this.dispose();
         }else{
