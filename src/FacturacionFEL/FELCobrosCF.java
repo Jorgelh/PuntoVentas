@@ -322,10 +322,6 @@ public class FELCobrosCF extends javax.swing.JFrame {
             System.out.println("F" + e);
             JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
         }
-        Cambio F = new Cambio(Double.parseDouble(total.getText()));
-        F.setVisible(true);
-        this.dispose();
-
     }
     
      private void imprimirEncuentroSinValor() {
@@ -342,10 +338,6 @@ public class FELCobrosCF extends javax.swing.JFrame {
             System.out.println("F" + e);
             JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
         }
-        Cambio F = new Cambio(Double.parseDouble(total.getText()));
-        F.setVisible(true);
-        this.dispose();
-
     }
 
     private void imprimirZona4() {
@@ -362,10 +354,6 @@ public class FELCobrosCF extends javax.swing.JFrame {
             System.out.println("F" + e);
             JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
         }
-        Cambio F = new Cambio(Double.parseDouble(total.getText()));
-        F.setVisible(true);
-        this.dispose();
-
     }
     private void imprimirZona4SinValor() {
 
@@ -381,10 +369,6 @@ public class FELCobrosCF extends javax.swing.JFrame {
             System.out.println("F" + e);
             JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
         }
-        Cambio F = new Cambio(Double.parseDouble(total.getText()));
-        F.setVisible(true);
-        this.dispose();
-
     }
 
     private void borrar1() {
@@ -1038,6 +1022,10 @@ public class FELCobrosCF extends javax.swing.JFrame {
         if (EFECTIVO.getText().compareTo("") != 0) {
             finalizar();
             facturar();
+            Entra F = new Entra();
+            F.setVisible(true);
+            this.dispose();
+            
             //System.out.println("si factura");
         } else {
 
@@ -1097,6 +1085,11 @@ public class FELCobrosCF extends javax.swing.JFrame {
                 break;
             default:
                 finalizar();
+                if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
+                        imprimirEncuentroSinValor();
+                    } else if (Usuario.equalsIgnoreCase("ZONA4")) {
+                        imprimirZona4SinValor();
+                    }
                 Entra F = new Entra();
                 F.setVisible(true);
                 this.dispose();
