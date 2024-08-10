@@ -182,8 +182,6 @@ public class FEL_Encuentro extends javax.swing.JFrame {
     
     private void Obtenernit(){
         
-         /*String NitCeros = String.format("%12s", nit.getText()).replace(' ','0');
-         NI = NitCeros;*/
      
    RestApiClient apiClient = new RestApiClient();
         
