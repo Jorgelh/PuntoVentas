@@ -182,8 +182,6 @@ public class FEL_Encuentro extends javax.swing.JFrame {
     
     private void Obtenernit(){
         
-         /*String NitCeros = String.format("%12s", nit.getText()).replace(' ','0');
-         NI = NitCeros;*/
      
    RestApiClient apiClient = new RestApiClient();
         
@@ -213,6 +211,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
    
    }    catch (IOException ex) {
             Logger.getLogger(FEL_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERROOOOOOOR "+ex);
         }
    }
     
@@ -243,6 +242,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "ERROR DE COMUNICACION PARA EMITIR LA FACTURA INTENTAR DE NUEVO");
+            System.out.println("FacturacionFEL.FEL_Encuentro.Certificar() "+e);
         }
         
     }
@@ -264,9 +264,11 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         } catch (ParserConfigurationException ex) {
             LOGGER.log(Level.SEVERE, "Error de configuracion");
             LOGGER.log(Level.SEVERE, null, ex);
+             System.out.println("FacturacionFEL.FEL_Encuentro.crearXMLEncuentro()" + ex);
         } catch (TransformerException ex) {
             LOGGER.log(Level.SEVERE, "Error de transformacion XML a String");
             LOGGER.log(Level.SEVERE, null, ex);
+            System.out.println("FacturacionFEL.FEL_Encuentro.crearXMLEncuentro()" + ex);
         }
     }
     

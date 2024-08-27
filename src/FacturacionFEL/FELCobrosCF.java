@@ -72,9 +72,9 @@ public class FELCobrosCF extends javax.swing.JFrame {
         this.id_orden = a;
         this.para = b;
         this.setLocationRelativeTo(null);
-        sumaTotal();
+       
         TokenLocal();
-
+        sumaTotal();
     }
 
     public void InsertarDatosComprador() {
