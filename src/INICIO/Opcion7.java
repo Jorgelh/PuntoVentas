@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author jluis
  */
-public class Opcion61 extends javax.swing.JPanel {
+public class Opcion7 extends javax.swing.JPanel {
     int marca1 = 0;   
     int marca2 = 0;    
     int marca3 = 0;  
@@ -41,21 +41,23 @@ public class Opcion61 extends javax.swing.JPanel {
     /**
      * Creates new form Opcion5
      */
-    public Opcion61(int a) {
+    public Opcion7(int a) {
         initComponents();
          this.id_pedido=a;
-        String texto1 = "<html><center><body>GASEOSA<br>VIDRIO NORMAL<br><font color='RED'>Q7.00</font></body></center></html>";
+        String texto1 = "<html><center><body>DESAYUNO CHAPIN<br><font color='RED'>Q25.00</font></body></center></html>";
         UNO.setText(texto1);
-        String texto2 = "<html><center><body>GASEOSA<br>VIDRIO O DESCHABLE GRANDE<br><font color='RED'>Q10.00</font></body></center></html>";
+        String texto2 = "<html><center><body>DESAYUNO DEL REY<br><font color='RED'>Q45.00</font></body></center></html>";
         DOS.setText(texto2);
-        String texto3 = "<html><center><body>GASEOSA<br>DESECHABLE O LATA PEQUEÑA<br><font color='RED'>Q7.00</font></body></center></html>";
+        String texto3 = "<html><center><body>DESAYUNO AMERICANO<br><font color='RED'>Q35.00</font></body></center></html>";
         TRES.setText(texto3);
-        String texto4 = "<html><center><body>POWERADES<br><font color='RED'>Q10.00</font></body></center></html>";
+        String texto4 = "<html><center><body>DESAYUNO AMERICANO<br>SUPREMO<br><font color='RED'>Q40.00</font></body></center></html>";
         CUATRO.setText(texto4);
-        String texto5 = "<html><center><body>TE FRIO<br><font color='RED'>Q10.00</font></body></center></html>";
+        String texto5 = "<html><center><body>DESAYUNO INFANTIL<br><font color='RED'>Q30.00</font></body></center></html>";
         CINCO.setText(texto5);
-        String texto6 = "<html><center><body>TE CALIENTE<br><font color='RED'>Q7.00</font></body></center></html>";
+        String texto6 = "<html><center><body>BURRITO SUPREMO<br><font color='RED'>Q30.00</font></body></center></html>";
         SEIS.setText(texto6);
+        
+        /*
         String texto7 = "<html><center><body>CAFE 8onz<br><font color='RED'>Q7.00</font></body></center></html>";
         SIETE.setText(texto7);
         String texto8 = "<html><center><body>CAFE 12onz<br><font color='RED'>Q10.00</font></body></center></html>";
@@ -67,7 +69,7 @@ public class Opcion61 extends javax.swing.JPanel {
         String texto11 = "<html><center><body>COCA COLA<br>FAMILIAR 2.5L<br><font color='RED'>Q26.00</font></body></center></html>";
         ONCE.setText(texto11);
         String texto12 = "<html><center><body>AGUA PURA<br><font color='RED'>Q5.00</font></body></center></html>";
-        DOCE.setText(texto12);
+        DOCE.setText(texto12);*/
       
     }
 
@@ -169,7 +171,7 @@ public class Opcion61 extends javax.swing.JPanel {
         Botton12 = new Clases.PanelRound();
         DOCE = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 153));
+        setBackground(new java.awt.Color(255, 204, 204));
         setPreferredSize(new java.awt.Dimension(730, 690));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -229,9 +231,9 @@ public class Opcion61 extends javax.swing.JPanel {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        add(BotonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 120, -1));
+        add(BotonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, 120, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
         Botton1.setBackground(new java.awt.Color(153, 204, 255));
         Botton1.setPreferredSize(new java.awt.Dimension(136, 60));
@@ -247,7 +249,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         UNO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         UNO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        UNO.setText("vidrio normal");
+        UNO.setText("1");
         UNO.setToolTipText("");
         UNO.setName("SALCHICHA PEQUEÑA"); // NOI18N
         UNO.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -281,7 +283,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         DOS.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         DOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DOS.setText("vidrio/DESECHABLE grande");
+        DOS.setText("2");
         DOS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DOSMouseClicked(evt);
@@ -292,7 +294,7 @@ public class Opcion61 extends javax.swing.JPanel {
         Botton2.setLayout(Botton2Layout);
         Botton2Layout.setHorizontalGroup(
             Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DOS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(DOS, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
         );
         Botton2Layout.setVerticalGroup(
             Botton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +315,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         TRES.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         TRES.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TRES.setText("DESECHABLE normal");
+        TRES.setText("3");
         TRES.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TRESMouseClicked(evt);
@@ -347,7 +349,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         CUATRO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         CUATRO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CUATRO.setText("POWERADE");
+        CUATRO.setText("4");
         CUATRO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CUATROMouseClicked(evt);
@@ -379,7 +381,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         CINCO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         CINCO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CINCO.setText("TE FRIO");
+        CINCO.setText("5");
         CINCO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CINCOMouseClicked(evt);
@@ -411,7 +413,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         SEIS.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         SEIS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SEIS.setText("TE CALIENTE");
+        SEIS.setText("6");
         SEIS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SEISMouseClicked(evt);
@@ -443,7 +445,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         OCHO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         OCHO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OCHO.setText("cafe 12 onz");
+        OCHO.setText("--");
         OCHO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 OCHOMouseClicked(evt);
@@ -480,7 +482,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         SIETE.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         SIETE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SIETE.setText("cafe 8 onz");
+        SIETE.setText("--");
         SIETE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SIETEMouseClicked(evt);
@@ -512,7 +514,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         NUEVE.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         NUEVE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NUEVE.setText("chocolate 8 onz");
+        NUEVE.setText("--");
         NUEVE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NUEVEMouseClicked(evt);
@@ -545,7 +547,7 @@ public class Opcion61 extends javax.swing.JPanel {
         DIES.setBackground(new java.awt.Color(153, 204, 255));
         DIES.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         DIES.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DIES.setText("chocolate 12 onz");
+        DIES.setText("--");
         DIES.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DIESMouseClicked(evt);
@@ -581,7 +583,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         ONCE.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         ONCE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ONCE.setText("COCA 2.5");
+        ONCE.setText("--");
         ONCE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ONCEMouseClicked(evt);
@@ -616,7 +618,7 @@ public class Opcion61 extends javax.swing.JPanel {
 
         DOCE.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         DOCE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DOCE.setText("AGUA PURA");
+        DOCE.setText("--");
         DOCE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DOCEMouseClicked(evt);
