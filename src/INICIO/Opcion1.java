@@ -133,7 +133,6 @@ public class Opcion1 extends javax.swing.JPanel {
     }
 
     private void todosBotones() {
-          //[255,102,102]
         Botton3.setBackground(Botrojo);
         marca3 = 1;
         Botton4.setBackground(Botrojo);
@@ -294,7 +293,7 @@ public class Opcion1 extends javax.swing.JPanel {
 }
     
     
-       private void insertarSin(){
+    private void insertarSin(){
 
     for(int i = 0; i < NumSin.size(); i++) {
     try {
@@ -2259,13 +2258,7 @@ public class Opcion1 extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
-    
-    
-    
-    
+
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         if(tipopan !=0 && id_producto !=0 && NumSin.size()!=0){
         InsertarProductoPedido();
@@ -2883,7 +2876,7 @@ public class Opcion1 extends javax.swing.JPanel {
             if (pan == 1) {
                 Botton1.setBackground(Botverde);
                 Botton2.setBackground(Botrojo);
-                pan= 2;
+                pan = 2;
                 tipopan = 1;
             } 
     }//GEN-LAST:event_jLabel23MouseClicked

@@ -177,6 +177,7 @@ private void PanelMismoColor(){
      complemento4.setBackground(c);
      complemento5.setBackground(c);
      complemento6.setBackground(c);
+     complemento7.setBackground(c);
      PanelPrincipal.setBackground(c);
 }
 
@@ -1375,7 +1376,7 @@ private void PanelMismoColor(){
         Color c = new Color(255,204,204); 
         PanelMismoColor();
         Opcion7();
-        complemento6.setBackground(c);
+        complemento7.setBackground(c);
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void panelRound6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound6MouseClicked

@@ -1608,7 +1608,6 @@ public class Opcion4 extends javax.swing.JPanel {
             Botton1.setBackground(Botrojo);
             pan = 0;
             id_producto = 0;
-
         }
     }//GEN-LAST:event_COMBOMouseClicked
 

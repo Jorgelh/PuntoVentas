@@ -170,7 +170,7 @@ public class BDProductos {
        sm.close(); 
         return t;
     }
- 
+    
  
  
     public static InsertarProducto InsertarPedido(InsertarProducto t) throws SQLException{
@@ -191,7 +191,36 @@ public class BDProductos {
        smtp.close(); 
         return t;
        
-    } 
+    }
+    
+    
+    public static InsertarProducto InsertarProducto_Pedido_Desayuno(InsertarProducto t) throws SQLException{
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement smtp = null;
+        PreparedStatement sm = null;
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,3,1,(select precio*"+t.getCantidad()+"  from PRODUCTOS where ID_PRODUCTO = "+t.getId_producto()+" ),7)",Statement.RETURN_GENERATED_KEYS);
+        System.out.println(t.getId_producto()+" "+t.getCantidad()+" "+t.getTipo());
+        sm = con.prepareStatement("{call Opcion7("+t.getId_producto()+","+t.getCantidad()+","+t.getTipo()+")}");
+        
+        try {
+         smtp.setInt(1,t.getId_pedido());
+         smtp.setInt(2,t.getId_producto());
+         smtp.setInt(3, t.getCantidad());
+         smtp.executeUpdate();
+         sm.executeUpdate();
+     } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "CUAL ERROR = "+e);}
+        
+        ResultSet rs = smtp.getGeneratedKeys();
+        if(rs.next()){int id1 = rs.getInt(1);
+          t.setIdregreso(id1);
+        }
+       con.close();
+       smtp.close(); 
+       //sm.close(); 
+        return t;
+    }
     
     
     
@@ -216,7 +245,7 @@ public class BDProductos {
  
  
     return  SQL3("select ID_PRODUCTOS_PEDIDO,cantidad,\n" +
-"if(p.adicional = 1, concat(if(p.tipo = 1,'PAN DE',if(p.tipo = 2,'TORTILLA DE','GASEOSA')),'  ',pro.DESCRIPCION,' ',\n" +
+"if(p.adicional = 1, concat(if(p.tipo = 1,'PAN DE',if(p.tipo = 2,'TORTILLA DE',if(p.tipo = 3,'','GASEOSA'))),'  ',pro.DESCRIPCION,' ',\n" +
 "    (select  GROUP_CONCAT(dn.descripcion SEPARATOR ' / ') as descri from  notas n inner join descripcionnotas dn on dn.id = n.ID where ID_PRODUCTOS_PEDIDO = p.ID_PRODUCTOS_PEDIDO)),pro.DESCRIPCION) as DESCRIPCION,truncate(p.precio,2) as Precio\n" +
 "from productos_pedido p \n" +
 "inner join productos pro on p.ID_PRODUCTO = pro.ID_PRODUCTO where p.id_pedido = "+a);
