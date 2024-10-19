@@ -200,9 +200,7 @@ public class BDProductos {
         PreparedStatement smtp = null;
         PreparedStatement sm = null;
         smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,3,1,(select precio*"+t.getCantidad()+"  from PRODUCTOS where ID_PRODUCTO = "+t.getId_producto()+" ),7)",Statement.RETURN_GENERATED_KEYS);
-        System.out.println(t.getId_producto()+" "+t.getCantidad()+" "+t.getTipo());
         sm = con.prepareStatement("{call Opcion7("+t.getId_producto()+","+t.getCantidad()+","+t.getTipo()+")}");
-        
         try {
          smtp.setInt(1,t.getId_pedido());
          smtp.setInt(2,t.getId_producto());
@@ -272,7 +270,7 @@ private static ArrayList<InsertarProducto> SQL3(String sql){
             }
             cn.close();
         } catch (Exception e) {
-            System.out.println("error consulta DE LA ATABLA "+e);
+            System.out.println("error consulta NO LISTA"+e);
             return null;
         } 
         return list;

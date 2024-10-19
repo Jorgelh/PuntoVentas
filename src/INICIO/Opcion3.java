@@ -22,7 +22,7 @@ import javax.swing.Timer;
  * @author Jorge Lopez
  */
 public class Opcion3 extends javax.swing.JPanel {
-   int carnesrepetida;
+    int carnesrepetida;
     double cantidadcarnesrepetida;
     int cantidadcarnes;
     int descargacantidad;
