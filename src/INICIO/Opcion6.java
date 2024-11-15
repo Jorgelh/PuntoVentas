@@ -131,6 +131,7 @@ public class Opcion6 extends javax.swing.JPanel {
         B26.setBackground(Original);
         B27.setBackground(Original);
         B29.setBackground(Original);
+        B30.setBackground(Original);
         }
     });
     
@@ -428,6 +429,8 @@ public class Opcion6 extends javax.swing.JPanel {
         VEITISIETE = new javax.swing.JLabel();
         B29 = new Clases.PanelRound();
         VEINTINUEVE = new javax.swing.JLabel();
+        B30 = new Clases.PanelRound();
+        VEINTINUEVE1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 153));
         setPreferredSize(new java.awt.Dimension(730, 690));
@@ -1356,6 +1359,40 @@ public class Opcion6 extends javax.swing.JPanel {
             .addComponent(VEINTINUEVE, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
+        B30.setBackground(new java.awt.Color(255, 102, 102));
+        B30.setPreferredSize(new java.awt.Dimension(145, 45));
+        B30.setRoundBottomLeft(15);
+        B30.setRoundBottomRight(15);
+        B30.setRoundTopLeft(15);
+        B30.setRoundTopRight(15);
+        B30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B30MouseClicked(evt);
+            }
+        });
+
+        VEINTINUEVE1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        VEINTINUEVE1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        VEINTINUEVE1.setText("PROMO GASEOASA Q5.00");
+        VEINTINUEVE1.setToolTipText("");
+        VEINTINUEVE1.setName("SALCHICHA PEQUEÑA"); // NOI18N
+        VEINTINUEVE1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VEINTINUEVE1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout B30Layout = new javax.swing.GroupLayout(B30);
+        B30.setLayout(B30Layout);
+        B30Layout.setHorizontalGroup(
+            B30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(VEINTINUEVE1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+        );
+        B30Layout.setVerticalGroup(
+            B30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(VEINTINUEVE1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1392,10 +1429,8 @@ public class Opcion6 extends javax.swing.JPanel {
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(B8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(B24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(B22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE)))
-                                        .addGap(6, 6, 6)
+                                            .addComponent(B22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(B19, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -1430,6 +1465,8 @@ public class Opcion6 extends javax.swing.JPanel {
                                 .addContainerGap())))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(B29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(B30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1489,7 +1526,9 @@ public class Opcion6 extends javax.swing.JPanel {
                     .addComponent(B19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(B22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(B29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(B29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
 
@@ -2487,6 +2526,43 @@ public class Opcion6 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ONCEMouseEntered
 
+    private void VEINTINUEVE1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VEINTINUEVE1MouseClicked
+       
+         if ((evt.getModifiers() & 4) != 0) {
+            id_producto = 76;
+             id_nota = 40;
+            BuscarExistencia();
+            if (existe >= 2) {
+                UpdateCantidadMenos();
+            } else if (existe == 1) {
+                eliminarProducto();
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes agregado este producto");
+            }
+            B30.setBackground(Color.darkGray);
+            timer.setRepeats(false);
+            timer.start();
+        } else {
+            id_producto = 76;
+             id_nota = 40;
+            BuscarExistencia();
+            if (existe == 0) {
+                InsertarProductoPedidoSinNota();
+            } else {
+                UpdateCantidad();
+            }
+            B30.setBackground(Color.YELLOW);
+            timer.setRepeats(false);
+            timer.start();
+        }
+        
+        
+    }//GEN-LAST:event_VEINTINUEVE1MouseClicked
+
+    private void B30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B30MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B30MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Clases.PanelRound B1;
@@ -2511,6 +2587,7 @@ public class Opcion6 extends javax.swing.JPanel {
     private Clases.PanelRound B27;
     private Clases.PanelRound B29;
     private Clases.PanelRound B3;
+    private Clases.PanelRound B30;
     private Clases.PanelRound B4;
     private Clases.PanelRound B5;
     private Clases.PanelRound B6;
@@ -2540,6 +2617,7 @@ public class Opcion6 extends javax.swing.JPanel {
     private javax.swing.JLabel VEINTE;
     private javax.swing.JLabel VEINTICUATRO;
     private javax.swing.JLabel VEINTINUEVE;
+    private javax.swing.JLabel VEINTINUEVE1;
     private javax.swing.JLabel VEINTIUNO;
     private javax.swing.JLabel VEITICINCO;
     private javax.swing.JLabel VEITISEIS;
