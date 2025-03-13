@@ -23,10 +23,10 @@ import javax.swing.JOptionPane;
    
 
 
-public class Opcion1 extends javax.swing.JPanel {
+public class Opcion1y2 extends javax.swing.JPanel {
     double precio;
     int entra =2;
-    int tipopan = 1;
+    int tipopan = 2;
     int marca3 = 1;
     int marca4 = 1; 
     int marca5 = 1;
@@ -87,7 +87,7 @@ public class Opcion1 extends javax.swing.JPanel {
      * Creates new form Opcion1
      * @param a
      */
-    public Opcion1(int a) {
+    public Opcion1y2(int a) {
          
         
         initComponents();
@@ -159,6 +159,7 @@ public class Opcion1 extends javax.swing.JPanel {
     }
     
     private void Limpiar() {
+        
         marca3 = 1; marca4 = 1;marca5 = 1;marca6 = 1;marca7 = 1;marca8 = 1;marca9 = 1;marca10 = 1; marca11 = 1;marca12 = 1; marca13 = 1;marca14 = 1;
         Botton3.setBackground(Botrojo);
         Botton4.setBackground(Botrojo);
@@ -546,16 +547,16 @@ public class Opcion1 extends javax.swing.JPanel {
             .addGap(0, 191, Short.MAX_VALUE)
         );
 
-        setBackground(new java.awt.Color(0, 204, 0));
+        setBackground(new java.awt.Color(204, 255, 204));
         setPreferredSize(new java.awt.Dimension(519, 690));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         P.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         P.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        P.setText("PANES");
-        add(P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 490, -1));
+        P.setText("MIXTAS");
+        add(P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 500, -1));
 
-        jPanel5.setBackground(new java.awt.Color(0, 204, 0));
+        jPanel5.setBackground(new java.awt.Color(204, 255, 204));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Botton7.setBackground(new java.awt.Color(255, 102, 102));
@@ -978,9 +979,9 @@ public class Opcion1 extends javax.swing.JPanel {
 
         jPanel5.add(Botton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
 
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 489, 211));
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 489, 211));
 
-        jPanel3.setBackground(new java.awt.Color(0, 204, 0));
+        jPanel3.setBackground(new java.awt.Color(204, 255, 204));
 
         Botton15.setBackground(new java.awt.Color(255, 102, 102));
         Botton15.setPreferredSize(new java.awt.Dimension(75, 45));
@@ -1537,9 +1538,9 @@ public class Opcion1 extends javax.swing.JPanel {
                     .addComponent(Botton29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, 320));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, 300));
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 0));
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
 
         Botton30.setBackground(new java.awt.Color(255, 102, 102));
         Botton30.setRoundBottomLeft(10);
@@ -2121,7 +2122,7 @@ public class Opcion1 extends javax.swing.JPanel {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, -1, 300));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, 300));
 
         BotonAgregar.setBackground(new java.awt.Color(255, 153, 153));
         BotonAgregar.setPreferredSize(new java.awt.Dimension(80, 55));
@@ -2152,7 +2153,7 @@ public class Opcion1 extends javax.swing.JPanel {
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        add(BotonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 620, -1, -1));
+        add(BotonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 600, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ABAJO.png"))); // NOI18N
         jButton1.setPreferredSize(new java.awt.Dimension(40, 47));
@@ -2166,7 +2167,7 @@ public class Opcion1 extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 630, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, -1, -1));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ARRIBA.png"))); // NOI18N
         jButton2.setPreferredSize(new java.awt.Dimension(40, 47));
@@ -2175,13 +2176,13 @@ public class Opcion1 extends javax.swing.JPanel {
                 jButton2MouseClicked(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 630, -1, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, -1, -1));
 
         cantidad.setEditable(false);
         cantidad.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         cantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cantidad.setText("1");
-        add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 640, 50, 28));
+        add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 610, 50, 28));
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents

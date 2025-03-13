@@ -96,7 +96,6 @@ public class Login extends javax.swing.JFrame {
             int ESTADO  = rs.getInt("ESTADO");
             id_usuario = rs.getInt("ID_USUARIO");
             if (USUARIO == 1) {
-                
                 if(ESTADO ==1){
                   EntraReportes F = new EntraReportes();
                   F.setVisible(true);

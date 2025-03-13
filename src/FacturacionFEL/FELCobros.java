@@ -35,6 +35,10 @@ import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import java.sql.PreparedStatement;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 
 /**
  *
@@ -49,7 +53,7 @@ public class FELCobros extends javax.swing.JFrame {
     String grantotal;
     String TotalLetras;
     int IdNitCliente;
-    int validarnit;
+    int validarnit =0;
     int id_orden;
     String serie;
     String numero;
@@ -58,12 +62,16 @@ public class FELCobros extends javax.swing.JFrame {
     int focoteclado = 0;
     int pago = 0;
     int para;
+    int nitvalido =0;
     DecimalFormat df = new DecimalFormat("#.00");
 
     /**
      * Creates new form FEL
+     * @param a
+     * @param b
      */
     public FELCobros(int a, int b) {
+         
         initComponents();
         String texto1 = "<html><center><body>TARJETA<br>EFECTIVO</body></center></html>";
         EYT.setText(texto1);
@@ -73,15 +81,19 @@ public class FELCobros extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         sumaTotal();
         TokenLocal();
-
+       
     }
+    
+    
+    
+    
 
     public void InsertarDatosComprador() {
 
         try {
 
             ObtenerProductosFactura p = new ObtenerProductosFactura();
-            p.setNit(NIT.getText());
+            p.setNit(NIT.getText().toUpperCase());
             p.setNombre(nombre.getText());
             ObtenerProductosFactura.InsertarNit(p);
             IdNitCliente = p.getIdNit();
@@ -138,10 +150,11 @@ public class FELCobros extends javax.swing.JFrame {
             BDConexion conecta = new BDConexion();
             Connection cn = conecta.getConexion();
             java.sql.Statement stmt = cn.createStatement();
-            ResultSet rs = stmt.executeQuery("select nombre,idNit from compradornit where nit ='" + NIT.getText() + "'");
+            ResultSet rs = stmt.executeQuery("select nombre,idNit,NIT from compradornit where nit ='" + NIT.getText().toUpperCase() + "'");
             while (rs.next()) {
                 nombre.setText(rs.getString("nombre"));
                 IdNitCliente = rs.getInt("idNit");
+                NIT.setText(rs.getString("NIT"));
             }
             rs.close();
             stmt.close();
@@ -157,16 +170,18 @@ public class FELCobros extends javax.swing.JFrame {
             BDConexion conecta = new BDConexion();
             Connection cn = conecta.getConexion();
             java.sql.Statement stmt = cn.createStatement();
-            ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='" + NIT.getText() + "'");
+            ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='" + NIT.getText().toUpperCase() + "'");
             while (rs.next()) {
                 validarnit = rs.getInt(1);
             }
+            if(validarnit>0){nitvalido = 1;}
             rs.close();
             stmt.close();
             cn.close();
         } catch (Exception error) {
             System.out.print(error);
         }
+        
     }
 
     public void sumaTotal() {
@@ -195,7 +210,7 @@ public class FELCobros extends javax.swing.JFrame {
         RestApiClient apiClient = new RestApiClient();
 
         try {
-            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C" + NIT.getText() + "&COUNTRY=GT&USERNAME=120011662";
+            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C" + NIT.getText().toUpperCase() + "&COUNTRY=GT&USERNAME=120011662";
             String accessToken = Token;
             String response = apiClient.get(apiKey, accessToken);
             JSONObject jsonObject = new JSONObject(response);
@@ -208,6 +223,7 @@ public class FELCobros extends javax.swing.JFrame {
                     String nitv = object2.get("NIT").toString();
                     nombre.setText(nombrev);
                     NIT.setText(nitv);
+                    validarnit =1;
                 }
             }
             if (NI.equalsIgnoreCase("")) {
@@ -246,6 +262,7 @@ public class FELCobros extends javax.swing.JFrame {
                InsertarDatosFEL();
             }else{
                 JOptionPane.showMessageDialog(null, "NO SE GENERO LA FACTURA...");
+               return;
             }
             
             /*autorizacion.setText(auto);
@@ -259,6 +276,7 @@ public class FELCobros extends javax.swing.JFrame {
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "ERROR DE COMUNICACION PARA EMITIR LA FACTURA INTENTAR DE NUEVO");
+            return;
         }
 
     }
@@ -270,7 +288,9 @@ public class FELCobros extends javax.swing.JFrame {
         TotalLetras = (NumLetra.Convertir(numero, true));
 
         try {
-            CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(), NIT.getText(), Orden.getText(), grantotal, TotalLetras);
+            CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(), NIT.getText().toUpperCase(), Orden.getText(), grantotal, TotalLetras);
+            
+            System.out.println("NIT: "+NIT.getText().toUpperCase());
             Document documento = ejemploXML.crearDocumento();
 
             //System.out.println(ejemploXML.convertirString(documento));
@@ -292,9 +312,9 @@ public class FELCobros extends javax.swing.JFrame {
         TotalLetras = (NumLetra.Convertir(numero, true));
 
         try {
-            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(), NIT.getText(), Orden.getText(), grantotal, TotalLetras);
+            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(), NIT.getText().toUpperCase(), Orden.getText(), grantotal, TotalLetras);
             Document documento = XMLZona4.crearDocumento();
-
+             System.out.println("NIT: "+NIT.getText().toUpperCase());
             //System.out.println(ejemploXML.convertirString(documento));
             XMLZona4.escribirArchivo(documento, "C:\\Reportes\\XMLFel.xml");
 
@@ -341,6 +361,7 @@ public class FELCobros extends javax.swing.JFrame {
             System.out.println("F" + e);
             JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
         }
+        
         Cambio F = new Cambio(Double.parseDouble(total.getText()));
         F.setVisible(true);
         this.dispose();
@@ -367,7 +388,7 @@ public class FELCobros extends javax.swing.JFrame {
 
     private void borrar3() {
         String cadena;
-        cadena = NIT.getText();
+        cadena = NIT.getText().toUpperCase();
         if (cadena.length() > 0) {
             cadena = cadena.substring(0, cadena.length() - 1);
         }
@@ -401,7 +422,6 @@ public class FELCobros extends javax.swing.JFrame {
                 crearXMLEncuentro();
                 Certificar();
             } else if (Usuario.equalsIgnoreCase("ZONA4")) {
-
                 crearXMLZona4();
                 Certificar();
             }
@@ -969,16 +989,21 @@ public class FELCobros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
-
-        if (EFECTIVO.getText().compareTo("") != 0) {
+        if(validarnit ==1){ 
+        
+        if (EFECTIVO.getText().compareTo("") != 0 && NIT.getText().compareTo("")!=0 && nombre.getText().compareTo("")!=0) {
+            
             finalizar();
             facturar();
-            //System.out.println("si factura");
+            System.out.println("si factura");
+            
         } else {
 
             JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");
 
         }
+        
+        }else{JOptionPane.showMessageDialog(null, "INGRESAR UN NIT VALIDO");}
 
 
     }//GEN-LAST:event_facturarActionPerformed
@@ -998,6 +1023,7 @@ public class FELCobros extends javax.swing.JFrame {
         NIT.setText("CF");
         nombre.setText("CONSUMIDOR FINAL");
         IdNitCliente = 1;
+        validarnit = 1;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1006,6 +1032,7 @@ public class FELCobros extends javax.swing.JFrame {
         NIT.setEnabled(true);
         NIT.requestFocus();
         focoteclado = 3;
+        validarnit = 0;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1034,8 +1061,11 @@ public class FELCobros extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void NITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NITKeyTyped
+        
         char c = evt.getKeyChar();
-        if ((c < '0' || c > '9') && (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != 'ñ') && (c != 'Ñ')) {
+        //if ((c < '0' || c > '9') && (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != 'ñ') && (c != 'Ñ')) {
+            
+         if ((c < '0' || c > '9')  && (c < 'A' || c > 'Z') && (c != 'Ñ')) {    
             evt.consume();
         }
     }//GEN-LAST:event_NITKeyTyped
@@ -1053,7 +1083,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "7");
+                NIT.setText(NIT.getText().toUpperCase() + "7");
             }
             default -> {
             }
@@ -1073,7 +1103,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "8");
+                NIT.setText(NIT.getText().toUpperCase() + "8");
             }
             default -> {
             }
@@ -1092,7 +1122,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "9");
+                NIT.setText(NIT.getText().toUpperCase() + "9");
             }
             default -> {
             }
@@ -1111,7 +1141,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "6");
+                NIT.setText(NIT.getText().toUpperCase() + "6");
             }
             default -> {
             }
@@ -1130,7 +1160,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "5");
+                NIT.setText(NIT.getText().toUpperCase() + "5");
             }
             default -> {
             }
@@ -1149,7 +1179,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "3");
+                NIT.setText(NIT.getText().toUpperCase() + "3");
             }
             default -> {
             }
@@ -1168,7 +1198,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "2");
+                NIT.setText(NIT.getText().toUpperCase() + "2");
             }
             default -> {
             }
@@ -1187,7 +1217,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "0");
+                NIT.setText(NIT.getText().toUpperCase() + "0");
             }
             default -> {
             }
@@ -1206,7 +1236,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + ".");
+                NIT.setText(NIT.getText().toUpperCase() + ".");
             }
             default -> {
             }
@@ -1238,7 +1268,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "4");
+                NIT.setText(NIT.getText().toUpperCase() + "4");
             }
             default -> {
             }
@@ -1257,7 +1287,7 @@ public class FELCobros extends javax.swing.JFrame {
             }
             case 3 -> {
                 NIT.requestFocus();
-                NIT.setText(NIT.getText() + "1");
+                NIT.setText(NIT.getText().toUpperCase() + "1");
             }
             default -> {
             }

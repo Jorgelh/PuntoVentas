@@ -91,16 +91,9 @@ public class Principal extends javax.swing.JFrame {
     public void llenar(){
       int num = 200;
       int x = 0;
-      
-
       for(int i=1;i < num+1;i++){
-          
           NumSin.add(i);
-          
       }
-      
-    
-    
     }
     
     
@@ -110,6 +103,15 @@ public void Opcion1(){
     op1.setLocation(0, 0);
     PanelPrincipal.removeAll();
     PanelPrincipal.add(op1,BorderLayout.CENTER);
+    PanelPrincipal.revalidate();
+    PanelPrincipal.repaint();
+}  
+public void Opcion1y2(){
+    Opcion1y2 op7 = new Opcion1y2(id_pedido);
+    op7.setSize(519, 690);
+    op7.setLocation(0, 0);
+    PanelPrincipal.removeAll();
+    PanelPrincipal.add(op7,BorderLayout.CENTER);
     PanelPrincipal.revalidate();
     PanelPrincipal.repaint();
 }  
@@ -178,6 +180,7 @@ private void PanelMismoColor(){
      complemento5.setBackground(c);
      complemento6.setBackground(c);
      complemento7.setBackground(c);
+     complemento8.setBackground(c);
      PanelPrincipal.setBackground(c);
 }
 
@@ -284,7 +287,7 @@ private void PanelMismoColor(){
             }else if (opcion ==3){
              QueryOpcion = "{call Opcion3_regresarainventario("+cantidad+","+id_producto_pedido+")}"; 
             }else if (opcion ==4){
-             QueryOpcion = "{call Opcion4_regresarainventario("+cantidad+")}";  
+             QueryOpcion = "{call Opcion4_regresarainventario("+cantidad+","+id_producto+","+tipo+")}";  
             }else if (opcion ==5){
              QueryOpcion = "{call Opcion5_regresarinventario("+cantidad+","+id_producto+")}"; 
             }else if(opcion >= 6) 
@@ -425,6 +428,9 @@ private void PanelMismoColor(){
         panelRound6 = new Clases.PanelRound();
         jLabel12 = new javax.swing.JLabel();
         complemento7 = new Clases.PanelRound();
+        JPanes1 = new Clases.PanelRound();
+        jpanes5 = new javax.swing.JLabel();
+        complemento8 = new Clases.PanelRound();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Pedidos = new javax.swing.JTable();
@@ -569,7 +575,7 @@ private void PanelMismoColor(){
             .addComponent(Torti, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(JTMaiz, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 80, -1));
+        jPanel3.add(JTMaiz, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 80, -1));
 
         complemento2.setBackground(new java.awt.Color(255, 255, 255));
         complemento2.setRoundBottomLeft(28);
@@ -586,7 +592,7 @@ private void PanelMismoColor(){
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(complemento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
+        jPanel3.add(complemento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         jHarina6.setBackground(new java.awt.Color(140, 220, 218));
         jHarina6.setRoundBottomLeft(20);
@@ -616,7 +622,7 @@ private void PanelMismoColor(){
             .addComponent(harina, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jHarina6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 80, 60));
+        jPanel3.add(jHarina6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 80, 60));
 
         complemento3.setBackground(new java.awt.Color(255, 255, 255));
         complemento3.setRoundBottomLeft(28);
@@ -633,7 +639,7 @@ private void PanelMismoColor(){
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(complemento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+        jPanel3.add(complemento3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
         jPanel8.setBackground(new java.awt.Color(177, 216, 119));
         jPanel8.setRoundBottomLeft(20);
@@ -662,7 +668,7 @@ private void PanelMismoColor(){
             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 80, -1));
+        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 80, -1));
 
         complemento5.setBackground(new java.awt.Color(255, 255, 255));
         complemento5.setRoundBottomLeft(28);
@@ -679,7 +685,7 @@ private void PanelMismoColor(){
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(complemento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
+        jPanel3.add(complemento5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(19, 195, 231));
         jPanel5.setRoundBottomLeft(20);
@@ -711,7 +717,7 @@ private void PanelMismoColor(){
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 80, -1));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 80, -1));
 
         complemento4.setBackground(new java.awt.Color(255, 255, 255));
         complemento4.setRoundBottomLeft(28);
@@ -728,7 +734,7 @@ private void PanelMismoColor(){
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(complemento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
+        jPanel3.add(complemento4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 153));
         panelRound1.setRoundBottomLeft(20);
@@ -761,7 +767,7 @@ private void PanelMismoColor(){
             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 80, 60));
+        jPanel3.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 80, 60));
 
         complemento6.setBackground(new java.awt.Color(255, 255, 255));
         complemento6.setRoundBottomLeft(28);
@@ -778,7 +784,7 @@ private void PanelMismoColor(){
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(complemento6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+        jPanel3.add(complemento6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, -1, -1));
 
         panelRound6.setBackground(new java.awt.Color(255, 204, 204));
         panelRound6.setRoundBottomLeft(20);
@@ -811,7 +817,7 @@ private void PanelMismoColor(){
             .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(panelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 80, 60));
+        jPanel3.add(panelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, 80, 60));
 
         complemento7.setBackground(new java.awt.Color(255, 255, 255));
         complemento7.setRoundBottomLeft(28);
@@ -828,7 +834,44 @@ private void PanelMismoColor(){
             .addGap(0, 60, Short.MAX_VALUE)
         );
 
-        jPanel3.add(complemento7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, -1, -1));
+        jPanel3.add(complemento7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, -1, -1));
+
+        JPanes1.setBackground(new java.awt.Color(204, 255, 204));
+        JPanes1.setRoundBottomLeft(20);
+        JPanes1.setRoundBottomRight(28);
+        JPanes1.setRoundTopLeft(20);
+        JPanes1.setRoundTopRight(28);
+
+        jpanes5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jpanes5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jpanes5.setText("MIXTAS");
+        jpanes5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jpanes5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpanes5MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JPanes1Layout = new javax.swing.GroupLayout(JPanes1);
+        JPanes1.setLayout(JPanes1Layout);
+        JPanes1Layout.setHorizontalGroup(
+            JPanes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpanes5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+        );
+        JPanes1Layout.setVerticalGroup(
+            JPanes1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanes1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jpanes5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel3.add(JPanes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 80, -1));
+
+        complemento8.setBackground(new java.awt.Color(255, 255, 255));
+        complemento8.setRoundBottomLeft(28);
+        complemento8.setRoundTopLeft(28);
+        complemento8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(complemento8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 40, 60));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 90, 690));
 
@@ -1383,6 +1426,13 @@ private void PanelMismoColor(){
         // TODO add your handling code here:
     }//GEN-LAST:event_panelRound6MouseClicked
 
+    private void jpanes5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpanes5MouseClicked
+        Color c = new Color(204,255,204); 
+        PanelMismoColor();
+        Opcion1y2();
+        complemento8.setBackground(c);
+    }//GEN-LAST:event_jpanes5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1422,6 +1472,7 @@ private void PanelMismoColor(){
     private javax.swing.JPanel BotonSalir;
     private javax.swing.JTextField Cliente;
     private Clases.PanelRound JPanes;
+    private Clases.PanelRound JPanes1;
     private Clases.PanelRound JTMaiz;
     private javax.swing.JLabel Llevar;
     private javax.swing.JTextField PEDIDO_ID;
@@ -1436,6 +1487,7 @@ private void PanelMismoColor(){
     private Clases.PanelRound complemento5;
     private Clases.PanelRound complemento6;
     private Clases.PanelRound complemento7;
+    private Clases.PanelRound complemento8;
     private javax.swing.JLabel harina;
     private Clases.PanelRound jHarina6;
     private javax.swing.JLabel jLabel1;
@@ -1458,6 +1510,7 @@ private void PanelMismoColor(){
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jpanes4;
+    private javax.swing.JLabel jpanes5;
     private Clases.PanelRound panelRound;
     private Clases.PanelRound panelRound1;
     private Clases.PanelRound panelRound2;
