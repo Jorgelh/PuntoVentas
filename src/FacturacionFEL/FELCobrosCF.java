@@ -35,6 +35,8 @@ import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import java.sql.PreparedStatement;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -49,7 +51,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
     String grantotal;
     String TotalLetras;
     int IdNitCliente;
-    int validarnit;
+    int validarnit = 0;
     int id_orden;
     String serie;
     String numero;
@@ -59,6 +61,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
     int pago = 0;
     int para;
     int validarorden;
+    int nitvalido = 0;
     DecimalFormat df = new DecimalFormat("#.00");
 
     /**
@@ -72,9 +75,36 @@ public class FELCobrosCF extends javax.swing.JFrame {
         this.id_orden = a;
         this.para = b;
         this.setLocationRelativeTo(null);
-       
+
         TokenLocal();
         sumaTotal();
+        
+        EFECTIVO.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                onChange();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                onChange();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                // Este método se usa para cambios en atributos de estilo, no para cambios de texto
+            }
+
+            private void onChange() {
+            double totale = Double.parseDouble(total.getText());
+            double efectivo = Double.parseDouble(EFECTIVO.getText());
+            double contarje = totale - efectivo;
+            TARJETA.setText(String.valueOf(contarje));
+            }
+        });
+        
+        
+        
     }
 
     public void InsertarDatosComprador() {
@@ -139,7 +169,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
             BDConexion conecta = new BDConexion();
             Connection cn = conecta.getConexion();
             java.sql.Statement stmt = cn.createStatement();
-            ResultSet rs = stmt.executeQuery("select nombre,idNit from compradornit where nit ='" + NIT.getText() + "'");
+            ResultSet rs = stmt.executeQuery("select nombre,idNit from compradornit where nit ='" + NIT.getText().toUpperCase() + "'");
             while (rs.next()) {
                 nombre.setText(rs.getString("nombre"));
                 IdNitCliente = rs.getInt("idNit");
@@ -158,9 +188,12 @@ public class FELCobrosCF extends javax.swing.JFrame {
             BDConexion conecta = new BDConexion();
             Connection cn = conecta.getConexion();
             java.sql.Statement stmt = cn.createStatement();
-            ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='" + NIT.getText() + "'");
+            ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='" + NIT.getText().toUpperCase() + "'");
             while (rs.next()) {
                 validarnit = rs.getInt(1);
+            }
+            if (validarnit == 1) {
+                nitvalido = 1;
             }
             rs.close();
             stmt.close();
@@ -196,7 +229,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
         RestApiClient apiClient = new RestApiClient();
 
         try {
-            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C" + NIT.getText() + "&COUNTRY=GT&USERNAME=120011662";
+            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C" + NIT.getText().toUpperCase() + "&COUNTRY=GT&USERNAME=120011662";
             String accessToken = Token;
             String response = apiClient.get(apiKey, accessToken);
             JSONObject jsonObject = new JSONObject(response);
@@ -209,6 +242,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
                     String nitv = object2.get("NIT").toString();
                     nombre.setText(nombrev);
                     NIT.setText(nitv);
+                    nitvalido = 1;
                 }
             }
             if (NI.equalsIgnoreCase("")) {
@@ -241,14 +275,13 @@ public class FELCobrosCF extends javax.swing.JFrame {
             serie = object2.get("batch").toString();
             numero = object2.get("serial").toString();
             FechaCerti = object2.get("enrolledTimeStamp").toString();
-            
-            if(autoriza.compareTo("")!=0 && serie.compareTo("")!=0 && numero.compareTo("")!=0 && FechaCerti.compareTo("")!=0)
-            {
-               InsertarDatosFEL();
-            }else{
+
+            if (autoriza.compareTo("") != 0 && serie.compareTo("") != 0 && numero.compareTo("") != 0 && FechaCerti.compareTo("") != 0) {
+                InsertarDatosFEL();
+            } else {
                 JOptionPane.showMessageDialog(null, "NO SE GENERO LA FACTURA...");
             }
-            
+
             /*autorizacion.setText(auto);
             lote.setText(lot);
             seriee.setText(serie);
@@ -271,7 +304,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
         TotalLetras = (NumLetra.Convertir(numero, true));
 
         try {
-            CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(), NIT.getText(), Orden.getText(), grantotal, TotalLetras);
+            CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(), NIT.getText().toUpperCase(), Orden.getText(), grantotal, TotalLetras);
             Document documento = ejemploXML.crearDocumento();
 
             //System.out.println(ejemploXML.convertirString(documento));
@@ -293,7 +326,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
         TotalLetras = (NumLetra.Convertir(numero, true));
 
         try {
-            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(), NIT.getText(), Orden.getText(), grantotal, TotalLetras);
+            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(), NIT.getText().toUpperCase(), Orden.getText(), grantotal, TotalLetras);
             Document documento = XMLZona4.crearDocumento();
 
             //System.out.println(ejemploXML.convertirString(documento));
@@ -308,6 +341,13 @@ public class FELCobrosCF extends javax.swing.JFrame {
         }
     }
 
+    private void volver() {
+        Entra F = new Entra();
+        F.setVisible(true);
+        this.dispose();
+
+    }
+
     private void imprimirEncuentro() {
 
         BDConexion con = new BDConexion();
@@ -318,13 +358,14 @@ public class FELCobrosCF extends javax.swing.JFrame {
             parametros.put("ID_ORDEN", id_orden);
             JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);
             JasperPrintManager.printReport(print, true);
+            volver();
         } catch (Exception e) {
             System.out.println("F" + e);
             JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
         }
     }
-    
-     private void imprimirEncuentroSinValor() {
+
+    private void imprimirEncuentroSinValor() {
 
         BDConexion con = new BDConexion();
         Connection conexion = con.getConexion();
@@ -334,6 +375,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
             parametros.put("ID_ORDEN", id_orden);
             JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);
             JasperPrintManager.printReport(print, true);
+            volver();
         } catch (Exception e) {
             System.out.println("F" + e);
             JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
@@ -350,11 +392,13 @@ public class FELCobrosCF extends javax.swing.JFrame {
             parametros.put("ID_ORDEN", id_orden);
             JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);
             JasperPrintManager.printReport(print, true);
+            volver();
         } catch (Exception e) {
             System.out.println("F" + e);
             JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
         }
     }
+
     private void imprimirZona4SinValor() {
 
         BDConexion con = new BDConexion();
@@ -365,6 +409,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
             parametros.put("ID_ORDEN", id_orden);
             JasperPrint print = JasperFillManager.fillReport(jasperReport, parametros, conexion);
             JasperPrintManager.printReport(print, true);
+            volver();
         } catch (Exception e) {
             System.out.println("F" + e);
             JOptionPane.showMessageDialog(null, "ERROR EJECUTAR REPORTES =  " + e);
@@ -419,31 +464,32 @@ public class FELCobrosCF extends javax.swing.JFrame {
 
     private void facturar() {
         ValidarOrden();
-     if(validarorden <= 0){
-        if (NIT.getText().compareTo("") != 0 && nombre.getText().compareTo("") != 0) {
+        if (validarorden <= 0) {
+            if (NIT.getText().compareTo("") != 0 && nombre.getText().compareTo("") != 0) {
 
-            if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
-                crearXMLEncuentro();
-                Certificar();
-            } else if (Usuario.equalsIgnoreCase("ZONA4")) {
+                if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
+                    crearXMLEncuentro();
+                    Certificar();
+                } else if (Usuario.equalsIgnoreCase("ZONA4")) {
 
-                crearXMLZona4();
-                Certificar();
+                    crearXMLZona4();
+                    Certificar();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");
-        }
-    } else{
-     
-        if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
+
+            if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
                 imprimirEncuentro();
             } else if (Usuario.equalsIgnoreCase("ZONA4")) {
                 imprimirZona4();
             }
-     
-     }
+
+        }
     }
-     public void ValidarOrden() {
+
+    public void ValidarOrden() {
         //  DecimalFormat df = new DecimalFormat("#.00");
         try {
             BDConexion conecta = new BDConexion();
@@ -460,7 +506,6 @@ public class FELCobrosCF extends javax.swing.JFrame {
             System.out.print(error);
         }
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -837,6 +882,13 @@ public class FELCobrosCF extends javax.swing.JFrame {
                 EFECTIVOMouseClicked(evt);
             }
         });
+        EFECTIVO.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                EFECTIVOInputMethodTextChanged(evt);
+            }
+        });
         EFECTIVO.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 EFECTIVOKeyTyped(evt);
@@ -905,6 +957,13 @@ public class FELCobrosCF extends javax.swing.JFrame {
         MONTOCAMBIO.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         MONTOCAMBIO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MONTOCAMBIO.setEnabled(false);
+        MONTOCAMBIO.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                MONTOCAMBIOInputMethodTextChanged(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1018,19 +1077,15 @@ public class FELCobrosCF extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
-
-        if (EFECTIVO.getText().compareTo("") != 0) {
-            finalizar();
-            facturar();
-            Entra F = new Entra();
-            F.setVisible(true);
-            this.dispose();
-            
-            //System.out.println("si factura");
+        if (nitvalido == 1) {
+            if (EFECTIVO.getText().compareTo("") != 0) {
+                finalizar();
+                facturar();
+            } else {
+                JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");
+            }
         } else {
-
-            JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");
-
+            JOptionPane.showMessageDialog(null, "INGRESAR UN NIT VALIDO");
         }
 
 
@@ -1051,6 +1106,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
         NIT.setText("CF");
         nombre.setText("CONSUMIDOR FINAL");
         IdNitCliente = 1;
+        nitvalido = 1;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1069,16 +1125,16 @@ public class FELCobrosCF extends javax.swing.JFrame {
             case 3:
                 if (EFECTIVO.getText().compareTo("") != 0) {
                     finalizar();
-                    
-                     if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
+
+                    if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
                         imprimirEncuentroSinValor();
                     } else if (Usuario.equalsIgnoreCase("ZONA4")) {
                         imprimirZona4SinValor();
-            }
-                    
-                    Entra F = new Entra();
-                    F.setVisible(true);
-                    this.dispose();
+                    }
+
+//                    Entra F = new Entra();
+//                    F.setVisible(true);
+//                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "LLENAR LA CANTIDAD DE EFECTIVO O SELECCIONAR OTRO METODO DE PAGO");
                 }
@@ -1086,13 +1142,13 @@ public class FELCobrosCF extends javax.swing.JFrame {
             default:
                 finalizar();
                 if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
-                        imprimirEncuentroSinValor();
-                    } else if (Usuario.equalsIgnoreCase("ZONA4")) {
-                        imprimirZona4SinValor();
-                    }
-                Entra F = new Entra();
-                F.setVisible(true);
-                this.dispose();
+                    imprimirEncuentroSinValor();
+                } else if (Usuario.equalsIgnoreCase("ZONA4")) {
+                    imprimirZona4SinValor();
+                }
+//                Entra F = new Entra();
+//                F.setVisible(true);
+//                this.dispose();
                 break;
         }
 
@@ -1398,6 +1454,15 @@ public class FELCobrosCF extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EFECTIVOKeyTyped
 
+    private void MONTOCAMBIOInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_MONTOCAMBIOInputMethodTextChanged
+            
+    }//GEN-LAST:event_MONTOCAMBIOInputMethodTextChanged
+
+    private void EFECTIVOInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_EFECTIVOInputMethodTextChanged
+            
+    }//GEN-LAST:event_EFECTIVOInputMethodTextChanged
+
+      
     /**
      * @param args the command line arguments
      */

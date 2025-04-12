@@ -64,7 +64,6 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         sumaTotal();
         TokenLocal();
  
-        
     }
     
     
@@ -147,7 +146,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
                  BDConexion conecta = new BDConexion();
                 Connection cn = conecta.getConexion();
                 java.sql.Statement stmt = cn.createStatement();
-                ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='"+nit.getText()+"'");
+                ResultSet rs = stmt.executeQuery("select count(nit) from compradornit where nit ='"+nit.getText().toUpperCase()+"'");
                 while (rs.next()) {
                     validarnit = rs.getInt(1);
                 }
@@ -186,7 +185,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
    RestApiClient apiClient = new RestApiClient();
         
         try {
-            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C"+nit.getText()+"&COUNTRY=GT&USERNAME=120011662";
+            String apiKey = "TAXID=000120011662&DATA1=SHARED_GETINFONITcom&DATA2=NIT%7C"+nit.getText().toUpperCase()+"&COUNTRY=GT&USERNAME=120011662";
             String accessToken = Token;
             String response = apiClient.get( apiKey, accessToken);
             JSONObject  jsonObject = new JSONObject(response);
@@ -254,7 +253,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         TotalLetras =  (NumLetra .Convertir(numero,true));
     
          try {
-             CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(),nit.getText(),Orden.getText(),grantotal,TotalLetras);
+             CrearXML_Encuentro ejemploXML = new CrearXML_Encuentro(nombre.getText(),nit.getText().toUpperCase(),Orden.getText(),grantotal,TotalLetras);
             Document documento = ejemploXML.crearDocumento();
             
             //System.out.println(ejemploXML.convertirString(documento));
@@ -279,7 +278,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
         TotalLetras =  (NumLetra .Convertir(numero,true));
     
          try {
-            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(),nit.getText(),Orden.getText(),grantotal,TotalLetras);
+            CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(),nit.getText().toUpperCase(),Orden.getText(),grantotal,TotalLetras);
             Document documento = XMLZona4.crearDocumento();
             
             //System.out.println(ejemploXML.convertirString(documento));
@@ -527,7 +526,7 @@ public class FEL_Encuentro extends javax.swing.JFrame {
     }//GEN-LAST:event_facturarActionPerformed
 
     private void nitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nitActionPerformed
-        NitValidar();
+      NitValidar();
       if(validarnit==1){
           NitLocal();
           facturar.requestFocus();

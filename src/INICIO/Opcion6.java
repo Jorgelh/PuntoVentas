@@ -88,10 +88,10 @@ public class Opcion6 extends javax.swing.JPanel {
         VEINTIUNO.setText(texto20);
          String texto21 = "<html><center><body>AGUA PURA</body></center></html>";
         VEINDOS.setText(texto21);
-         String texto22 = "<html><center><body>CHOCOLATE 8 ONZ</body></center></html>";
+         /*String texto22 = "<html><center><body>CHOCOLATE 8 ONZ</body></center></html>";
         VEITITRES.setText(texto22);
          String texto23 = "<html><center><body>CHOCOLATE 16 ONZ</body></center></html>";
-        VEINTICUATRO.setText(texto23);
+        VEINTICUATRO.setText(texto23);*/
          String texto24 = "<html><center><body>CAFE 8 ONZ</body></center></html>";
         VEITICINCO.setText(texto24);
          String texto25 = "<html><center><body>CAFE 12 ONZ</body></center></html>";
@@ -135,6 +135,7 @@ public class Opcion6 extends javax.swing.JPanel {
         B25.setBackground(Original);
         B26.setBackground(Original);
         B27.setBackground(Original);
+        B28.setBackground(Original);
         B29.setBackground(Original);
         B30.setBackground(Original);
         B31.setBackground(Original);
@@ -476,6 +477,8 @@ public class Opcion6 extends javax.swing.JPanel {
         VEINTINUEVE2 = new javax.swing.JLabel();
         B32 = new Clases.PanelRound();
         VEINTINUEVE3 = new javax.swing.JLabel();
+        B28 = new Clases.PanelRound();
+        VEINTIOCHO = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 153));
         setPreferredSize(new java.awt.Dimension(730, 690));
@@ -934,6 +937,7 @@ public class Opcion6 extends javax.swing.JPanel {
         );
 
         B15.setBackground(new java.awt.Color(255, 102, 102));
+        B15.setEnabled(false);
         B15.setPreferredSize(new java.awt.Dimension(145, 45));
         B15.setRoundBottomLeft(15);
         B15.setRoundBottomRight(15);
@@ -1101,7 +1105,7 @@ public class Opcion6 extends javax.swing.JPanel {
             B19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(B19Layout.createSequentialGroup()
                 .addComponent(DIESINUEVA)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         B19Layout.setVerticalGroup(
             B19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1220,7 +1224,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
         VEITITRES.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         VEITITRES.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        VEITITRES.setText("CHOCOLATE 8ONZ");
+        VEITITRES.setText("CHOCOLATE 8 ONZ");
         VEITITRES.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 VEITITRESMouseClicked(evt);
@@ -1257,7 +1261,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
         VEINTICUATRO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         VEINTICUATRO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        VEINTICUATRO.setText("CHOCOLATE 16 ONZ");
+        VEINTICUATRO.setText("CHOCOLATE 12 ONZ");
         VEINTICUATRO.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 VEINTICUATROMouseClicked(evt);
@@ -1458,6 +1462,7 @@ public class Opcion6 extends javax.swing.JPanel {
         VEINTINUEVE2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         VEINTINUEVE2.setText("GASEOASA GRATIS");
         VEINTINUEVE2.setToolTipText("");
+        VEINTINUEVE2.setEnabled(false);
         VEINTINUEVE2.setName("SALCHICHA PEQUEÑA"); // NOI18N
         VEINTINUEVE2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1510,6 +1515,41 @@ public class Opcion6 extends javax.swing.JPanel {
             .addComponent(VEINTINUEVE3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
+        B28.setBackground(new java.awt.Color(255, 102, 102));
+        B28.setPreferredSize(new java.awt.Dimension(145, 45));
+        B28.setRoundBottomLeft(15);
+        B28.setRoundBottomRight(15);
+        B28.setRoundTopLeft(15);
+        B28.setRoundTopRight(15);
+        B28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B28MouseClicked(evt);
+            }
+        });
+
+        VEINTIOCHO.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        VEINTIOCHO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        VEINTIOCHO.setText("CHOCOLATE 16 ONZ");
+        VEINTIOCHO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VEINTIOCHOMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                VEINTIOCHOMouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout B28Layout = new javax.swing.GroupLayout(B28);
+        B28.setLayout(B28Layout);
+        B28Layout.setHorizontalGroup(
+            B28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(VEINTIOCHO, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+        );
+        B28Layout.setVerticalGroup(
+            B28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(VEINTIOCHO, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1549,8 +1589,12 @@ public class Opcion6 extends javax.swing.JPanel {
                                             .addComponent(B22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(B17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(B19, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)))
+                                            .addComponent(B19, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(B17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(B28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 0, Short.MAX_VALUE))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(B13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1568,21 +1612,23 @@ public class Opcion6 extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(B2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(151, 151, 151)
-                                        .addComponent(B21, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(B26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(B20, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)))
                                 .addContainerGap(14, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(B29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(B30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(B31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(B32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(B29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(B30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(B31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(B32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(B21, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1624,8 +1670,8 @@ public class Opcion6 extends javax.swing.JPanel {
                             .addComponent(B18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(B21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(B24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(B28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(B14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1646,7 +1692,9 @@ public class Opcion6 extends javax.swing.JPanel {
                     .addComponent(B30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(B31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(B32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(B32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
@@ -2080,7 +2128,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
     private void QUINCEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QUINCEMouseClicked
 
-        if ((evt.getModifiers() & 4) != 0) {
+       /* if ((evt.getModifiers() & 4) != 0) {
             id_producto = 26;
             id_nota = 32;
             BuscarExistencia();
@@ -2106,7 +2154,7 @@ public class Opcion6 extends javax.swing.JPanel {
             B15.setBackground(Color.YELLOW);
             timer.setRepeats(false);
             timer.start();
-       }
+       }*/
     }//GEN-LAST:event_QUINCEMouseClicked
 
     private void B15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B15MouseClicked
@@ -2463,7 +2511,7 @@ public class Opcion6 extends javax.swing.JPanel {
 
     private void VEINTICUATROMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VEINTICUATROMouseClicked
        if ((evt.getModifiers() & 4) != 0) {
-            id_producto = 31;
+            id_producto = 40;
             id_nota = 40;
             BuscarExistencia();
             if (existe >= 2) {
@@ -2477,7 +2525,7 @@ public class Opcion6 extends javax.swing.JPanel {
             timer.setRepeats(false);
             timer.start();
         } else {
-            id_producto = 31;
+            id_producto = 40;
             id_nota = 40;
             BuscarExistencia();
             if (existe == 0) {
@@ -2682,7 +2730,7 @@ public class Opcion6 extends javax.swing.JPanel {
     }//GEN-LAST:event_B30MouseClicked
 
     private void VEINTINUEVE2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VEINTINUEVE2MouseClicked
-        if(gratis1 >= 1 || gratis2 >= 2){
+     /*   if(gratis1 >= 1 || gratis2 >= 2){
         if ((evt.getModifiers() & 4) != 0) {
             id_producto = 77;
              id_nota = 40;
@@ -2711,7 +2759,7 @@ public class Opcion6 extends javax.swing.JPanel {
             timer.start();
         }
         }else {JOptionPane.showMessageDialog(null, "NO APLICA PROMOCION");}
-        
+        */
         
     }//GEN-LAST:event_VEINTINUEVE2MouseClicked
 
@@ -2753,6 +2801,44 @@ public class Opcion6 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_B32MouseClicked
 
+    private void VEINTIOCHOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VEINTIOCHOMouseClicked
+        if ((evt.getModifiers() & 4) != 0) {
+            id_producto = 31;
+            id_nota = 40;
+            BuscarExistencia();
+            if (existe >= 2) {
+                UpdateCantidadMenos();
+            } else if (existe == 1) {
+                eliminarProducto();
+            } else {
+                JOptionPane.showMessageDialog(this, "Aun no tienes agregado este producto");
+            }
+            B28.setBackground(Color.darkGray);
+            timer.setRepeats(false);
+            timer.start();
+        } else {
+            id_producto = 31;
+            id_nota = 40;
+            BuscarExistencia();
+            if (existe == 0) {
+                InsertarProductoPedidoSinNota();
+            } else {
+                UpdateCantidad();
+            }
+            B28.setBackground(Color.YELLOW);
+            timer.setRepeats(false);
+            timer.start();
+       }
+    }//GEN-LAST:event_VEINTIOCHOMouseClicked
+
+    private void VEINTIOCHOMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VEINTIOCHOMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VEINTIOCHOMouseEntered
+
+    private void B28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B28MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B28MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Clases.PanelRound B1;
@@ -2775,6 +2861,7 @@ public class Opcion6 extends javax.swing.JPanel {
     private Clases.PanelRound B25;
     private Clases.PanelRound B26;
     private Clases.PanelRound B27;
+    private Clases.PanelRound B28;
     private Clases.PanelRound B29;
     private Clases.PanelRound B3;
     private Clases.PanelRound B30;
@@ -2812,6 +2899,7 @@ public class Opcion6 extends javax.swing.JPanel {
     private javax.swing.JLabel VEINTINUEVE1;
     private javax.swing.JLabel VEINTINUEVE2;
     private javax.swing.JLabel VEINTINUEVE3;
+    private javax.swing.JLabel VEINTIOCHO;
     private javax.swing.JLabel VEINTIUNO;
     private javax.swing.JLabel VEITICINCO;
     private javax.swing.JLabel VEITISEIS;
