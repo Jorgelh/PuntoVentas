@@ -4,14 +4,14 @@
  */
 package FacturacionFEL;
 
-import FELclass.CrearXML;
 import FELclass.CrearXML_Encuentro;
+import FELclass.CrearXML_Encuentro_DPI;
 import FELclass.CrearXML_Zona4;
+import FELclass.CrearXML_Zona4_DPI;
 import FELclass.FELclas;
 import FELclass.NumeroLetras;
 import FELclass.ObtenerProductosFactura;
 import FELclass.RestApiClient;
-import INICIO.Cambio;
 import INICIO.Entra;
 import clas.BDConexion;
 import java.io.IOException;
@@ -62,6 +62,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
     int para;
     int validarorden;
     int nitvalido = 0;
+    int tipoDPI = 0;
     DecimalFormat df = new DecimalFormat("#.00");
 
     /**
@@ -78,7 +79,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
 
         TokenLocal();
         sumaTotal();
-        
+
         EFECTIVO.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -96,15 +97,27 @@ public class FELCobrosCF extends javax.swing.JFrame {
             }
 
             private void onChange() {
-            double totale = Double.parseDouble(total.getText());
-            double efectivo = Double.parseDouble(EFECTIVO.getText());
-            double contarje = totale - efectivo;
-            TARJETA.setText(String.valueOf(contarje));
+                try {
+                    String totalText = total.getText().trim();
+                    String efectivoText = EFECTIVO.getText().trim();
+
+                    if (totalText.isEmpty() || efectivoText.isEmpty()) {
+                        TARJETA.setText("0.00"); // Valor por defecto
+                        return;
+                    }
+
+                    double totale = Double.parseDouble(totalText);
+                    double efectivo = Double.parseDouble(efectivoText);
+                    double contarje = totale - efectivo;
+
+                    // Puedes formatear a 2 decimales si quieres
+                    TARJETA.setText(String.format("%.2f", contarje));
+                } catch (NumberFormatException ex) {
+                    TARJETA.setText("0.00"); // En caso de letras o valores inválidos
+                }
             }
         });
-        
-        
-        
+
     }
 
     public void InsertarDatosComprador() {
@@ -252,7 +265,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
                 NIT.requestFocus();
             } else {
                 InsertarDatosComprador();
-                facturar.requestFocus();
+                FACTURAR.requestFocus();
             }
 
         } catch (IOException ex) {
@@ -318,7 +331,29 @@ public class FELCobrosCF extends javax.swing.JFrame {
             LOGGER.log(Level.SEVERE, null, ex);
         }
     }
+     
+    private void crearXMLEncuentroDPI() {
 
+        NumeroLetras NumLetra = new NumeroLetras();
+        String numero = total.getText();
+        TotalLetras = (NumLetra.Convertir(numero, true));
+
+        try {
+            CrearXML_Encuentro_DPI ejemploXML = new CrearXML_Encuentro_DPI(nombre.getText(), NIT.getText().toUpperCase(), Orden.getText(), grantotal, TotalLetras);
+            Document documento = ejemploXML.crearDocumento();
+
+            //System.out.println(ejemploXML.convertirString(documento));
+            ejemploXML.escribirArchivo(documento, "C:\\Reportes\\XMLFel.xml");
+
+        } catch (ParserConfigurationException ex) {
+            LOGGER.log(Level.SEVERE, "Error de configuracion");
+            LOGGER.log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            LOGGER.log(Level.SEVERE, "Error de transformacion XML a String");
+            LOGGER.log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void crearXMLZona4() {
 
         NumeroLetras NumLetra = new NumeroLetras();
@@ -327,6 +362,28 @@ public class FELCobrosCF extends javax.swing.JFrame {
 
         try {
             CrearXML_Zona4 XMLZona4 = new CrearXML_Zona4(nombre.getText(), NIT.getText().toUpperCase(), Orden.getText(), grantotal, TotalLetras);
+            Document documento = XMLZona4.crearDocumento();
+
+            //System.out.println(ejemploXML.convertirString(documento));
+            XMLZona4.escribirArchivo(documento, "C:\\Reportes\\XMLFel.xml");
+
+        } catch (ParserConfigurationException ex) {
+            LOGGER.log(Level.SEVERE, "Error de configuracion");
+            LOGGER.log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            LOGGER.log(Level.SEVERE, "Error de transformacion XML a String");
+            LOGGER.log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void crearXMLZona4DPI() {
+
+        NumeroLetras NumLetra = new NumeroLetras();
+        String numero = total.getText();
+        TotalLetras = (NumLetra.Convertir(numero, true));
+
+        try {
+            CrearXML_Zona4_DPI XMLZona4 = new CrearXML_Zona4_DPI(nombre.getText(), NIT.getText().toUpperCase(), Orden.getText(), grantotal, TotalLetras);
             Document documento = XMLZona4.crearDocumento();
 
             //System.out.println(ejemploXML.convertirString(documento));
@@ -468,12 +525,12 @@ public class FELCobrosCF extends javax.swing.JFrame {
             if (NIT.getText().compareTo("") != 0 && nombre.getText().compareTo("") != 0) {
 
                 if (Usuario.equalsIgnoreCase("ENCUENTRO")) {
-                    crearXMLEncuentro();
-                    Certificar();
+                    
+                    if(tipoDPI == 1){crearXMLEncuentroDPI();Certificar();}else{crearXMLEncuentro();Certificar();}
+                    
                 } else if (Usuario.equalsIgnoreCase("ZONA4")) {
-
-                    crearXMLZona4();
-                    Certificar();
+                   
+                    if(tipoDPI == 1){crearXMLZona4DPI();Certificar();}else{crearXMLZona4();Certificar();}//agregado por validar si es con DPI
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "INGRESE UN NIT O MARCAR CF");
@@ -517,14 +574,15 @@ public class FELCobrosCF extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Tipo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         NIT = new javax.swing.JTextField();
         nombre = new javax.swing.JTextField();
-        facturar = new javax.swing.JButton();
+        FACTURAR = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         Orden = new javax.swing.JLabel();
@@ -548,11 +606,11 @@ public class FELCobrosCF extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         EYT = new javax.swing.JButton();
-        EFECTIVO = new javax.swing.JTextField();
         TARJETA = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        EFECTIVO = new javax.swing.JTextField();
+        SALIR = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         MONTOCAMBIO = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -564,8 +622,8 @@ public class FELCobrosCF extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("NIT");
+        Tipo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Tipo.setText("-");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("NOMBRE");
@@ -588,15 +646,20 @@ public class FELCobrosCF extends javax.swing.JFrame {
             }
         });
 
-        nombre.setEditable(false);
         nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        facturar.setBackground(new java.awt.Color(102, 255, 102));
-        facturar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        facturar.setText("FACTURAR");
-        facturar.addActionListener(new java.awt.event.ActionListener() {
+        nombre.setEnabled(false);
+        nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                facturarActionPerformed(evt);
+                nombreActionPerformed(evt);
+            }
+        });
+
+        FACTURAR.setBackground(new java.awt.Color(102, 255, 102));
+        FACTURAR.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        FACTURAR.setText("FACTURAR");
+        FACTURAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FACTURARActionPerformed(evt);
             }
         });
 
@@ -611,7 +674,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 100, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, -1));
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton2.setText("CF");
@@ -621,7 +684,17 @@ public class FELCobrosCF extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 100, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 100, -1));
+
+        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton3.setText("DPI");
+        jButton3.setPreferredSize(new java.awt.Dimension(72, 39));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -875,26 +948,6 @@ public class FELCobrosCF extends javax.swing.JFrame {
             }
         });
 
-        EFECTIVO.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        EFECTIVO.setEnabled(false);
-        EFECTIVO.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EFECTIVOMouseClicked(evt);
-            }
-        });
-        EFECTIVO.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                EFECTIVOInputMethodTextChanged(evt);
-            }
-        });
-        EFECTIVO.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                EFECTIVOKeyTyped(evt);
-            }
-        });
-
         TARJETA.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         TARJETA.setEnabled(false);
 
@@ -903,6 +956,9 @@ public class FELCobrosCF extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("MONTO EN TARJETA");
+
+        EFECTIVO.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        EFECTIVO.setEnabled(false);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -916,10 +972,10 @@ public class FELCobrosCF extends javax.swing.JFrame {
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(EFECTIVO, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                     .addComponent(TARJETA, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(EFECTIVO))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -928,9 +984,9 @@ public class FELCobrosCF extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(EFECTIVO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EFECTIVO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -944,26 +1000,19 @@ public class FELCobrosCF extends javax.swing.JFrame {
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        jButton3.setBackground(new java.awt.Color(255, 0, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setText("SALIR");
-        jButton3.setPreferredSize(new java.awt.Dimension(72, 39));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        SALIR.setBackground(new java.awt.Color(255, 0, 0));
+        SALIR.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        SALIR.setText("SALIR");
+        SALIR.setPreferredSize(new java.awt.Dimension(72, 39));
+        SALIR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                SALIRActionPerformed(evt);
             }
         });
 
         MONTOCAMBIO.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         MONTOCAMBIO.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MONTOCAMBIO.setEnabled(false);
-        MONTOCAMBIO.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                MONTOCAMBIOInputMethodTextChanged(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1013,16 +1062,16 @@ public class FELCobrosCF extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Tipo, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
                             .addComponent(nombre, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NIT, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
-                                .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(FACTURAR, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SALIR, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(21, 21, 21)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1048,7 +1097,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
+                        .addComponent(Tipo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(NIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1057,8 +1106,8 @@ public class FELCobrosCF extends javax.swing.JFrame {
                         .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(FACTURAR, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SALIR, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1076,7 +1125,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
+    private void FACTURARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FACTURARActionPerformed
         if (nitvalido == 1) {
             if (EFECTIVO.getText().compareTo("") != 0) {
                 finalizar();
@@ -1089,35 +1138,54 @@ public class FELCobrosCF extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_facturarActionPerformed
+    }//GEN-LAST:event_FACTURARActionPerformed
 
     private void NITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NITActionPerformed
-        NitValidar();
-        if (validarnit == 1) {
-            NitLocal();
-            facturar.requestFocus();
-        } else {
-            Obtenernit();
+        if (tipoDPI == 0) {//IF1
+            NitValidar();
+            if (validarnit == 1) {
+                NitLocal();
+                FACTURAR.requestFocus();
+            } else {
+                Obtenernit();
+            }
+        } else {///IF1
+            
+            NitValidar();
+            if (validarnit == 1) {
+                NitLocal();
+                FACTURAR.requestFocus();
+            } else {
+                nombre.requestFocus();
+            }
         }
 
     }//GEN-LAST:event_NITActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Tipo.setText("   ");
+        tipoDPI = 0;
         NIT.setText("CF");
         nombre.setText("CONSUMIDOR FINAL");
+        nombre.setEnabled(false);
+        NIT.setEnabled(false);
         IdNitCliente = 1;
         nitvalido = 1;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Tipo.setText("NIT");
+        tipoDPI = 0;
         NIT.setText("");
         nombre.setText("");
         NIT.setEnabled(true);
+        nombre.setEnabled(false);
         NIT.requestFocus();
         focoteclado = 3;
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void SALIRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SALIRActionPerformed
+
         switch (pago) {
             case 0:
                 JOptionPane.showMessageDialog(null, "SELECCIONAR METODO DE PAGO...");
@@ -1152,7 +1220,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
                 break;
         }
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_SALIRActionPerformed
 
     private void NITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NITKeyTyped
         char c = evt.getKeyChar();
@@ -1386,23 +1454,41 @@ public class FELCobrosCF extends javax.swing.JFrame {
     }//GEN-LAST:event_UNOActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        EFECTIVO.setText(total.getText());
-        TARJETA.setText("0.00");
-        MONTOCAMBIO.setEnabled(true);
+        focoteclado = 1;
+        /*MONTOCAMBIO.setEnabled(true);
         EFECTIVO.setEnabled(false);
         MONTOCAMBIO.requestFocus();
-        focoteclado = 1;
+        EFECTIVO.setText(total.getText());
+        TARJETA.setText("0.00");
+        pago = 1;*/
+        if (total != null && total.getText() != null && !total.getText().trim().isEmpty()) {
+            EFECTIVO.setText(total.getText());
+        } else {
+            EFECTIVO.setText("0.00"); // o manejar el caso vacío
+        }
+
+        if (MONTOCAMBIO != null) {
+            MONTOCAMBIO.setEnabled(true);
+            MONTOCAMBIO.requestFocus();
+        }
+
+        if (EFECTIVO != null) {
+            EFECTIVO.setEnabled(false);
+        }
+
+        if (TARJETA != null) {
+            TARJETA.setText("0.00");
+        }
+
         pago = 1;
+
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void EFECTIVOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EFECTIVOMouseClicked
-        EFECTIVO.requestFocus();
-        focoteclado = 2;
-    }//GEN-LAST:event_EFECTIVOMouseClicked
-
     private void NITMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NITMouseClicked
-        NIT.requestFocus();
         focoteclado = 3;
+        NIT.requestFocus();
+
     }//GEN-LAST:event_NITMouseClicked
 
     private void ENTERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENTERActionPerformed
@@ -1420,7 +1506,7 @@ public class FELCobrosCF extends javax.swing.JFrame {
             NitValidar();
             if (validarnit == 1) {
                 NitLocal();
-                facturar.requestFocus();
+                FACTURAR.requestFocus();
             } else {
                 Obtenernit();
             }
@@ -1428,41 +1514,75 @@ public class FELCobrosCF extends javax.swing.JFrame {
     }//GEN-LAST:event_ENTERActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        /*
+        focoteclado = 5;
         EFECTIVO.setText("0.00");
         EFECTIVO.setEnabled(false);
         TARJETA.setText(total.getText());
+        MONTOCAMBIO.setText("0");
+        VUELTO.setText("0");
         MONTOCAMBIO.setEnabled(false);
-        MONTOCAMBIO.setText("");
-        VUELTO.setText("");
+        pago = 2;*/
+        focoteclado = 5;
+
+        if (EFECTIVO != null) {
+            EFECTIVO.setText("0.00");
+            EFECTIVO.setEnabled(false);
+        }
+
+        if (TARJETA != null && total != null && total.getText() != null) {
+            String valorTotal = total.getText().trim();
+            if (!valorTotal.isEmpty()) {
+                TARJETA.setText(valorTotal);
+            } else {
+                TARJETA.setText("0.00");
+            }
+        }
+
+        if (MONTOCAMBIO != null) {
+            MONTOCAMBIO.setText("");
+            MONTOCAMBIO.setEnabled(false);
+        }
+
+        if (VUELTO != null) {
+            VUELTO.setText("");
+        }
+
         pago = 2;
-        focoteclado = 0;
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void EYTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EYTActionPerformed
-        EFECTIVO.setText("");
+        focoteclado = 2;
+        EFECTIVO.setText("0.00");
         TARJETA.setText(total.getText());
         EFECTIVO.setEnabled(true);
         EFECTIVO.requestFocus();
-        focoteclado = 2;
         MONTOCAMBIO.setEnabled(false);
-        MONTOCAMBIO.setText("");
-        VUELTO.setText("");
+        MONTOCAMBIO.setText("0");
+        //VUELTO.setText("0");
         pago = 3;
+
     }//GEN-LAST:event_EYTActionPerformed
 
-    private void EFECTIVOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EFECTIVOKeyTyped
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Tipo.setText("DPI");
+        tipoDPI = 1;
+        NIT.setText("");
+        nombre.setText("");
+        NIT.setEnabled(true);
+        nombre.setEnabled(true);
+        NIT.requestFocus();
+        focoteclado = 3;
 
-    }//GEN-LAST:event_EFECTIVOKeyTyped
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void MONTOCAMBIOInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_MONTOCAMBIOInputMethodTextChanged
-            
-    }//GEN-LAST:event_MONTOCAMBIOInputMethodTextChanged
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
+        if (NIT.getText().compareTo("") != 0 && nombre.getText().compareTo("") != 0) {
+           InsertarDatosComprador();nitvalido = 1;}else{JOptionPane.showMessageDialog(null, "LOS CAMPOS NO PUEDEN ESTAR VACIOS");}
+    }//GEN-LAST:event_nombreActionPerformed
 
-    private void EFECTIVOInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_EFECTIVOInputMethodTextChanged
-            
-    }//GEN-LAST:event_EFECTIVOInputMethodTextChanged
-
-      
     /**
      * @param args the command line arguments
      */
@@ -1514,25 +1634,26 @@ public class FELCobrosCF extends javax.swing.JFrame {
     private javax.swing.JTextField EFECTIVO;
     private javax.swing.JButton ENTER;
     private javax.swing.JButton EYT;
+    private javax.swing.JButton FACTURAR;
     private javax.swing.JTextField MONTOCAMBIO;
     private javax.swing.JTextField NIT;
     private javax.swing.JButton NUEVE;
     private javax.swing.JButton OCHO;
     private javax.swing.JLabel Orden;
     private javax.swing.JButton PUNTO;
+    private javax.swing.JButton SALIR;
     private javax.swing.JButton SEIS;
     private javax.swing.JButton SIETE;
     private javax.swing.JTextField TARJETA;
     private javax.swing.JButton TRES;
+    private javax.swing.JLabel Tipo;
     private javax.swing.JButton UNO;
     private javax.swing.JTextField VUELTO;
-    private javax.swing.JButton facturar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

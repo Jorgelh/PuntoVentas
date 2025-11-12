@@ -11,8 +11,8 @@ import okhttp3.RequestBody;
 
 public class FELclas {
                                           
-    //private static final String BASE_URL = "https://felgtaws.digifact.com.gt/gt.com.apinuc/api/v2/transform/nuc";                                      
-    private static final String BASE_URL = "https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/v2/transform/nuc";
+      private static final String BASE_URL = "https://felgtaws.digifact.com.gt/gt.com.apinuc/api/v2/transform/nuc";                                      
+    //private static final String BASE_URL = "https://felgttestaws.digifact.com.gt/gt.com.apinuc/api/v2/transform/nuc";
     private static final String AUTHORIZATION_HEADER = "Authorization";
      public static final MediaType MEDIA_TYPE_MARKDOWN
       = MediaType.parse("application/xml");
@@ -32,6 +32,7 @@ public class FELclas {
 
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
+                System.out.println("RESPUESTA __ "+response);
                 throw new IOException("Unexpected code " + response);
             }
             return response.body().string();

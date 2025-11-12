@@ -72,6 +72,7 @@ public class Login extends javax.swing.JFrame {
         Connection con = conecta.getConexion();
         PreparedStatement sm = null;
         try {
+            System.out.println(Token);
             sm = con.prepareStatement("update token set Token = '"+Token+"',fecha = '"+FechaExp+"',usuario = '"+userTxt.getText().toUpperCase()+"'  where idToken = 1");
             sm.executeUpdate();
             con.close();

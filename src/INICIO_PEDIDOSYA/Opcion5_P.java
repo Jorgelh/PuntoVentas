@@ -1,0 +1,1280 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+package INICIO_PEDIDOSYA;
+
+import INICIO.*;
+import static INICIO.Principal.ListarProductosPedidos;
+import clas.BDConexion;
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author jluis
+ */
+public class Opcion5_P extends javax.swing.JPanel {
+     double precio;
+    int marca15 = 0;   
+    int marca16 = 0;    
+    int marca17 = 0;  
+    int marca18 = 0;
+    int marca19 = 0;
+    int marca20 = 0;
+    int marca21 = 0;
+    int marca22 = 0;
+    int marca23 = 0;
+    int marca24 = 0;
+    int marca25 = 0;
+    int marca26 = 0;
+    int marca27 = 0;
+    int marca28 = 0;
+    int marca29 = 0;
+    int marca30 = 0;
+    int marca31 = 0;
+    int id_pedido = 0;
+    int id_producto = 0;
+    ArrayList<Integer> Num = new ArrayList<>();
+    ArrayList<Integer> NumSin = new ArrayList<>();
+    Color Botrojo = new Color(255,102,102); 
+    Color Botverde = new Color(255,255,153);
+    /**
+     * Creates new form Opcion5
+     */
+    public Opcion5_P(int a) {
+        initComponents();
+         this.id_pedido=a;
+        String texto = "<html><center><body>SALCHICHA<br>PEQUEÑA</body></center></html>";
+        SalPequeña.setText(texto);
+        String texto1 = "<html><center><body>CHORIZO<br>BREMEN</body></center></html>";
+        ChoriBremen.setText(texto1);
+        String texto2 = "<html><center><body>SALCHICHA<br>JUMBO</body></center></html>";
+        SAlchi.setText(texto2);
+        String texto3 = "<html><center><body>CHORIZO<br>AHUMADO</body></center></html>";
+        ChoAhumado.setText(texto3);
+        String texto4 = "<html><center><body>CHORIZO<br>ARGENTINO</body></center></html>";
+        ChoArgenti.setText(texto4);
+        String texto5 = "<html><center><body>PORCION DE<br>GUACAMOL</body></center></html>";
+        PorciGuaca.setText(texto5);
+        String texto6 = "<html><center><body>TORTILLA<br>UNIDAD</body></center></html>";
+        PorciMayonesa.setText(texto6);
+        String texto7 = "<html><center><body>PORCION DE<br>QUESO MOSARELA</body></center></html>";
+         Queso.setText(texto7);
+         String texto8 = "<html><center><body>EXTRA DE<br>FRIJOLES</body></center></html>";
+         frijoles.setText(texto8);
+         
+    }
+
+    private void Limpiar() {
+      
+        Botton15.setBackground(Botrojo);
+        Botton16.setBackground(Botrojo);
+        Botton17.setBackground(Botrojo);
+        Botton18.setBackground(Botrojo);
+        Botton19.setBackground(Botrojo);
+        Botton20.setBackground(Botrojo);
+        Botton21.setBackground(Botrojo);
+        Botton22.setBackground(Botrojo);
+        Botton23.setBackground(Botrojo);
+        Botton24.setBackground(Botrojo);
+        Botton25.setBackground(Botrojo);
+        Botton26.setBackground(Botrojo);
+        Botton27.setBackground(Botrojo);
+        Botton28.setBackground(Botrojo);
+        Botton29.setBackground(Botrojo);
+        Botton30.setBackground(Botrojo);
+        Botton31.setBackground(Botrojo);
+        marca15 = 0;   
+        marca16 = 0;    
+        marca17 = 0;  
+        marca18 = 0;
+        marca19 = 0;
+        marca20 = 0;
+        marca21 = 0;
+        marca22 = 0;
+        marca23 = 0;
+        marca24 = 0;
+        marca25 = 0;
+        marca26 = 0;
+        marca27 = 0;
+        marca28 = 0;
+        marca29 = 0;
+        marca30 = 0;
+        marca31 = 0;
+        Num.clear();
+        NumSin.clear();
+        cantidad.setText("1");
+    }
+    
+     private void insertarAdicional(){
+
+    for(int i = 0; i < Num.size(); i++) {
+    try {
+        BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement smtp = null;
+        PreparedStatement sm = null;
+        //insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,extra) values(?,?,?,?,1) select precio*"+t.getCantidad()+" from PRODUCTOS where ID_PRODUCTO =  "+t.getId_producto()+" 
+        sm = con.prepareStatement("{call Opcion_adicional("+Integer.parseInt(cantidad.getText())+","+Num.get(i)+")}");
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,adicional,precio,opcion) values(?,?,?,2,(select precio*"+cantidad.getText()+" from PRODUCTOS where id_producto = "+Num.get(i)+"),5)");
+        smtp.setInt(1,id_pedido);
+        smtp.setInt(2,Num.get(i));
+        smtp.setInt(3, Integer.parseInt(cantidad.getText()));
+        smtp.executeUpdate();
+        sm.executeUpdate();
+        con.close();
+        smtp.close();
+        sm.close(); 
+     } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"QUE PASO: "+ e);}
+    }
+    Limpiar();
+}
+    
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel3 = new javax.swing.JPanel();
+        Botton15 = new Clases.PanelRound();
+        SalPequeña = new javax.swing.JLabel();
+        Botton16 = new Clases.PanelRound();
+        ChoriBremen = new javax.swing.JLabel();
+        Botton17 = new Clases.PanelRound();
+        Extra3 = new javax.swing.JLabel();
+        Botton18 = new Clases.PanelRound();
+        Extra4 = new javax.swing.JLabel();
+        Botton19 = new Clases.PanelRound();
+        SAlchi = new javax.swing.JLabel();
+        Botton20 = new Clases.PanelRound();
+        Extra6 = new javax.swing.JLabel();
+        Botton21 = new Clases.PanelRound();
+        Extra7 = new javax.swing.JLabel();
+        Botton22 = new Clases.PanelRound();
+        ChoAhumado = new javax.swing.JLabel();
+        Botton23 = new Clases.PanelRound();
+        ChoArgenti = new javax.swing.JLabel();
+        Botton25 = new Clases.PanelRound();
+        Extra11 = new javax.swing.JLabel();
+        Botton27 = new Clases.PanelRound();
+        PorciMayonesa = new javax.swing.JLabel();
+        Botton28 = new Clases.PanelRound();
+        Extra14 = new javax.swing.JLabel();
+        Botton29 = new Clases.PanelRound();
+        Queso = new javax.swing.JLabel();
+        Botton24 = new Clases.PanelRound();
+        Extra10 = new javax.swing.JLabel();
+        Botton26 = new Clases.PanelRound();
+        PorciGuaca = new javax.swing.JLabel();
+        Botton30 = new Clases.PanelRound();
+        Quesadilla = new javax.swing.JLabel();
+        Botton31 = new Clases.PanelRound();
+        frijoles = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        cantidad = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        BotonAgregar = new Clases.PanelRound();
+        jLabel3 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(177, 216, 119));
+        setPreferredSize(new java.awt.Dimension(730, 690));
+
+        jPanel3.setBackground(new java.awt.Color(0, 204, 0));
+
+        Botton15.setBackground(new java.awt.Color(255, 102, 102));
+        Botton15.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton15.setRoundBottomLeft(15);
+        Botton15.setRoundBottomRight(15);
+        Botton15.setRoundTopLeft(15);
+        Botton15.setRoundTopRight(15);
+        Botton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton15MouseClicked(evt);
+            }
+        });
+
+        SalPequeña.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        SalPequeña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SalPequeña.setText("SAPEQUEÑA");
+        SalPequeña.setToolTipText("");
+        SalPequeña.setName("SALCHICHA PEQUEÑA"); // NOI18N
+        SalPequeña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SalPequeñaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton15Layout = new javax.swing.GroupLayout(Botton15);
+        Botton15.setLayout(Botton15Layout);
+        Botton15Layout.setHorizontalGroup(
+            Botton15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(SalPequeña, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton15Layout.setVerticalGroup(
+            Botton15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(SalPequeña, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton16.setBackground(new java.awt.Color(255, 102, 102));
+        Botton16.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton16.setRoundBottomLeft(15);
+        Botton16.setRoundBottomRight(15);
+        Botton16.setRoundTopLeft(15);
+        Botton16.setRoundTopRight(15);
+        Botton16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton16MouseClicked(evt);
+            }
+        });
+
+        ChoriBremen.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        ChoriBremen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChoriBremen.setText("CHOBREMEN");
+        ChoriBremen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ChoriBremenMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton16Layout = new javax.swing.GroupLayout(Botton16);
+        Botton16.setLayout(Botton16Layout);
+        Botton16Layout.setHorizontalGroup(
+            Botton16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ChoriBremen, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton16Layout.setVerticalGroup(
+            Botton16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ChoriBremen, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton17.setBackground(new java.awt.Color(255, 102, 102));
+        Botton17.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton17.setRoundBottomLeft(15);
+        Botton17.setRoundBottomRight(15);
+        Botton17.setRoundTopLeft(15);
+        Botton17.setRoundTopRight(15);
+        Botton17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton17MouseClicked(evt);
+            }
+        });
+
+        Extra3.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Extra3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Extra3.setText("SALAMI");
+        Extra3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Extra3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton17Layout = new javax.swing.GroupLayout(Botton17);
+        Botton17.setLayout(Botton17Layout);
+        Botton17Layout.setHorizontalGroup(
+            Botton17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra3, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton17Layout.setVerticalGroup(
+            Botton17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton18.setBackground(new java.awt.Color(255, 102, 102));
+        Botton18.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton18.setRoundBottomLeft(15);
+        Botton18.setRoundBottomRight(15);
+        Botton18.setRoundTopLeft(15);
+        Botton18.setRoundTopRight(15);
+        Botton18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton18MouseClicked(evt);
+            }
+        });
+
+        Extra4.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Extra4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Extra4.setText("LONGANIZA");
+        Extra4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Extra4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton18Layout = new javax.swing.GroupLayout(Botton18);
+        Botton18.setLayout(Botton18Layout);
+        Botton18Layout.setHorizontalGroup(
+            Botton18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra4, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton18Layout.setVerticalGroup(
+            Botton18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra4, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton19.setBackground(new java.awt.Color(255, 102, 102));
+        Botton19.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton19.setRoundBottomLeft(15);
+        Botton19.setRoundBottomRight(15);
+        Botton19.setRoundTopLeft(15);
+        Botton19.setRoundTopRight(15);
+        Botton19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton19MouseClicked(evt);
+            }
+        });
+
+        SAlchi.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        SAlchi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SAlchi.setText("SALCHI JUMBO");
+        SAlchi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SAlchiMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton19Layout = new javax.swing.GroupLayout(Botton19);
+        Botton19.setLayout(Botton19Layout);
+        Botton19Layout.setHorizontalGroup(
+            Botton19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(SAlchi, javax.swing.GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton19Layout.setVerticalGroup(
+            Botton19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(SAlchi, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton20.setBackground(new java.awt.Color(255, 102, 102));
+        Botton20.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton20.setRoundBottomLeft(15);
+        Botton20.setRoundBottomRight(15);
+        Botton20.setRoundTopLeft(15);
+        Botton20.setRoundTopRight(15);
+        Botton20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton20MouseClicked(evt);
+            }
+        });
+
+        Extra6.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Extra6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Extra6.setText("ADOBADO");
+        Extra6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Extra6MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton20Layout = new javax.swing.GroupLayout(Botton20);
+        Botton20.setLayout(Botton20Layout);
+        Botton20Layout.setHorizontalGroup(
+            Botton20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra6, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton20Layout.setVerticalGroup(
+            Botton20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra6, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton21.setBackground(new java.awt.Color(255, 102, 102));
+        Botton21.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton21.setRoundBottomLeft(15);
+        Botton21.setRoundBottomRight(15);
+        Botton21.setRoundTopLeft(15);
+        Botton21.setRoundTopRight(15);
+        Botton21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton21MouseClicked(evt);
+            }
+        });
+
+        Extra7.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Extra7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Extra7.setText("RES");
+        Extra7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Extra7MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton21Layout = new javax.swing.GroupLayout(Botton21);
+        Botton21.setLayout(Botton21Layout);
+        Botton21Layout.setHorizontalGroup(
+            Botton21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra7, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton21Layout.setVerticalGroup(
+            Botton21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra7, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton22.setBackground(new java.awt.Color(255, 102, 102));
+        Botton22.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton22.setRoundBottomLeft(15);
+        Botton22.setRoundBottomRight(15);
+        Botton22.setRoundTopLeft(15);
+        Botton22.setRoundTopRight(15);
+        Botton22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton22MouseClicked(evt);
+            }
+        });
+
+        ChoAhumado.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        ChoAhumado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChoAhumado.setText("CHO AHUMADO");
+        ChoAhumado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ChoAhumadoMouseClicked(evt);
+            }
+        });
+        ChoAhumado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ChoAhumadoKeyReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton22Layout = new javax.swing.GroupLayout(Botton22);
+        Botton22.setLayout(Botton22Layout);
+        Botton22Layout.setHorizontalGroup(
+            Botton22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ChoAhumado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton22Layout.setVerticalGroup(
+            Botton22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ChoAhumado, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton23.setBackground(new java.awt.Color(255, 102, 102));
+        Botton23.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton23.setRoundBottomLeft(15);
+        Botton23.setRoundBottomRight(15);
+        Botton23.setRoundTopLeft(15);
+        Botton23.setRoundTopRight(15);
+        Botton23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton23MouseClicked(evt);
+            }
+        });
+
+        ChoArgenti.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        ChoArgenti.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChoArgenti.setText("CHORI ARGENTINO");
+        ChoArgenti.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ChoArgentiMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton23Layout = new javax.swing.GroupLayout(Botton23);
+        Botton23.setLayout(Botton23Layout);
+        Botton23Layout.setHorizontalGroup(
+            Botton23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ChoArgenti, javax.swing.GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton23Layout.setVerticalGroup(
+            Botton23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ChoArgenti, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton25.setBackground(new java.awt.Color(255, 102, 102));
+        Botton25.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton25.setRoundBottomLeft(15);
+        Botton25.setRoundBottomRight(15);
+        Botton25.setRoundTopLeft(15);
+        Botton25.setRoundTopRight(15);
+        Botton25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton25MouseClicked(evt);
+            }
+        });
+
+        Extra11.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Extra11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Extra11.setText("PAN");
+        Extra11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Extra11MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton25Layout = new javax.swing.GroupLayout(Botton25);
+        Botton25.setLayout(Botton25Layout);
+        Botton25Layout.setHorizontalGroup(
+            Botton25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra11, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton25Layout.setVerticalGroup(
+            Botton25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra11, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton27.setBackground(new java.awt.Color(255, 102, 102));
+        Botton27.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton27.setRoundBottomLeft(15);
+        Botton27.setRoundBottomRight(15);
+        Botton27.setRoundTopLeft(15);
+        Botton27.setRoundTopRight(15);
+        Botton27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton27MouseClicked(evt);
+            }
+        });
+
+        PorciMayonesa.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        PorciMayonesa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PorciMayonesa.setText("tortilla");
+        PorciMayonesa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PorciMayonesaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton27Layout = new javax.swing.GroupLayout(Botton27);
+        Botton27.setLayout(Botton27Layout);
+        Botton27Layout.setHorizontalGroup(
+            Botton27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PorciMayonesa, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton27Layout.setVerticalGroup(
+            Botton27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PorciMayonesa, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton28.setBackground(new java.awt.Color(255, 102, 102));
+        Botton28.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton28.setRoundBottomLeft(15);
+        Botton28.setRoundBottomRight(15);
+        Botton28.setRoundTopLeft(15);
+        Botton28.setRoundTopRight(15);
+        Botton28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton28MouseClicked(evt);
+            }
+        });
+
+        Extra14.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Extra14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Extra14.setText("CEBOLLIN");
+        Extra14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Extra14MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton28Layout = new javax.swing.GroupLayout(Botton28);
+        Botton28.setLayout(Botton28Layout);
+        Botton28Layout.setHorizontalGroup(
+            Botton28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra14, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton28Layout.setVerticalGroup(
+            Botton28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra14, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton29.setBackground(new java.awt.Color(255, 102, 102));
+        Botton29.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton29.setRoundBottomLeft(15);
+        Botton29.setRoundBottomRight(15);
+        Botton29.setRoundTopLeft(15);
+        Botton29.setRoundTopRight(15);
+        Botton29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton29MouseClicked(evt);
+            }
+        });
+
+        Queso.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Queso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Queso.setText("jLabel30");
+        Queso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuesoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton29Layout = new javax.swing.GroupLayout(Botton29);
+        Botton29.setLayout(Botton29Layout);
+        Botton29Layout.setHorizontalGroup(
+            Botton29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Queso, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton29Layout.setVerticalGroup(
+            Botton29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Queso, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton24.setBackground(new java.awt.Color(255, 102, 102));
+        Botton24.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton24.setRoundBottomLeft(15);
+        Botton24.setRoundBottomRight(15);
+        Botton24.setRoundTopLeft(15);
+        Botton24.setRoundTopRight(15);
+        Botton24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton24MouseClicked(evt);
+            }
+        });
+
+        Extra10.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Extra10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Extra10.setText("TOCINO");
+        Extra10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Extra10MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton24Layout = new javax.swing.GroupLayout(Botton24);
+        Botton24.setLayout(Botton24Layout);
+        Botton24Layout.setHorizontalGroup(
+            Botton24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra10, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton24Layout.setVerticalGroup(
+            Botton24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Extra10, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton26.setBackground(new java.awt.Color(255, 102, 102));
+        Botton26.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton26.setRoundBottomLeft(15);
+        Botton26.setRoundBottomRight(15);
+        Botton26.setRoundTopLeft(15);
+        Botton26.setRoundTopRight(15);
+        Botton26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton26MouseClicked(evt);
+            }
+        });
+
+        PorciGuaca.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        PorciGuaca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PorciGuaca.setText("PORCIO GUACAMOL");
+        PorciGuaca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PorciGuacaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton26Layout = new javax.swing.GroupLayout(Botton26);
+        Botton26.setLayout(Botton26Layout);
+        Botton26Layout.setHorizontalGroup(
+            Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PorciGuaca, javax.swing.GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton26Layout.setVerticalGroup(
+            Botton26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PorciGuaca, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton30.setBackground(new java.awt.Color(255, 102, 102));
+        Botton30.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton30.setRoundBottomLeft(15);
+        Botton30.setRoundBottomRight(15);
+        Botton30.setRoundTopLeft(15);
+        Botton30.setRoundTopRight(15);
+        Botton30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton30MouseClicked(evt);
+            }
+        });
+
+        Quesadilla.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        Quesadilla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Quesadilla.setText("QUESADILLA");
+        Quesadilla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuesadillaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton30Layout = new javax.swing.GroupLayout(Botton30);
+        Botton30.setLayout(Botton30Layout);
+        Botton30Layout.setHorizontalGroup(
+            Botton30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Quesadilla, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton30Layout.setVerticalGroup(
+            Botton30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Quesadilla, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton31.setBackground(new java.awt.Color(255, 102, 102));
+        Botton31.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton31.setRoundBottomLeft(15);
+        Botton31.setRoundBottomRight(15);
+        Botton31.setRoundTopLeft(15);
+        Botton31.setRoundTopRight(15);
+        Botton31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton31MouseClicked(evt);
+            }
+        });
+
+        frijoles.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        frijoles.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        frijoles.setText("extra frijoles");
+        frijoles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                frijolesMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton31Layout = new javax.swing.GroupLayout(Botton31);
+        Botton31.setLayout(Botton31Layout);
+        Botton31Layout.setHorizontalGroup(
+            Botton31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(frijoles, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton31Layout.setVerticalGroup(
+            Botton31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(frijoles, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Botton15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Botton16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Botton17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Botton29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Botton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Botton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Botton15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Botton18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Botton21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Botton24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Botton27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Botton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ARRIBA.png"))); // NOI18N
+        jButton2.setPreferredSize(new java.awt.Dimension(40, 47));
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        cantidad.setEditable(false);
+        cantidad.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        cantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cantidad.setText("1");
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ABAJO.png"))); // NOI18N
+        jButton1.setPreferredSize(new java.awt.Dimension(40, 47));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        BotonAgregar.setBackground(new java.awt.Color(255, 153, 153));
+        BotonAgregar.setPreferredSize(new java.awt.Dimension(80, 55));
+        BotonAgregar.setRoundBottomLeft(20);
+        BotonAgregar.setRoundBottomRight(20);
+        BotonAgregar.setRoundTopLeft(20);
+        BotonAgregar.setRoundTopRight(20);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("AGREGAR");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BotonAgregarLayout = new javax.swing.GroupLayout(BotonAgregar);
+        BotonAgregar.setLayout(BotonAgregarLayout);
+        BotonAgregarLayout.setHorizontalGroup(
+            BotonAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonAgregarLayout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        BotonAgregarLayout.setVerticalGroup(
+            BotonAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(400, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(200, Short.MAX_VALUE))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void SalPequeñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalPequeñaMouseClicked
+
+        if (marca15 == 0) {
+            Botton15.setBackground(Botverde);
+            marca15 = 1;
+            Num.add(52);
+        } else {
+            Botton15.setBackground(Botrojo);
+            marca15 = 0;
+            int remov = Num.indexOf(52);
+            Num.remove(remov);
+
+        }
+
+    }//GEN-LAST:event_SalPequeñaMouseClicked
+
+    private void Botton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton15MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton15MouseClicked
+
+    private void ChoriBremenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoriBremenMouseClicked
+        if (marca16 == 0) {
+            Botton16.setBackground(Botverde);
+            marca16 = 1;
+            Num.add(53);
+        } else {
+            Botton16.setBackground(Botrojo);
+            marca16 = 0;
+            int remov = Num.indexOf(53);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_ChoriBremenMouseClicked
+
+    private void Botton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton16MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton16MouseClicked
+
+    private void Extra3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra3MouseClicked
+        if (marca17 == 0) {
+            Botton17.setBackground(Botverde);
+            marca17 = 1;
+            Num.add(54);
+        } else {
+            Botton17.setBackground(Botrojo);
+            marca17 = 0;
+            int remov = Num.indexOf(54);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_Extra3MouseClicked
+
+    private void Botton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton17MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton17MouseClicked
+
+    private void Extra4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra4MouseClicked
+        if (marca18 == 0) {
+            Botton18.setBackground(Botverde);
+            marca18 = 1;
+            Num.add(55);
+        } else {
+            Botton18.setBackground(Botrojo);
+            marca18 = 0;
+            int remov = Num.indexOf(55);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_Extra4MouseClicked
+
+    private void Botton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton18MouseClicked
+        if (marca15 == 1) {
+            Botton15.setBackground(Botverde);
+            marca15 = 0;
+        } else {
+            Botton15.setBackground(Botrojo);
+            marca15 = 1;
+
+        }
+    }//GEN-LAST:event_Botton18MouseClicked
+
+    private void SAlchiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SAlchiMouseClicked
+        if (marca19 == 0) {
+            Botton19.setBackground(Botverde);
+            marca19 = 1;
+            Num.add(56);
+        } else {
+            Botton19.setBackground(Botrojo);
+            marca19 = 0;
+            int remov = Num.indexOf(56);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_SAlchiMouseClicked
+
+    private void Botton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton19MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton19MouseClicked
+
+    private void Extra6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra6MouseClicked
+        if (marca20 == 0) {
+            Botton20.setBackground(Botverde);
+            marca20 = 1;
+            Num.add(57);
+        } else {
+            Botton20.setBackground(Botrojo);
+            marca20 = 0;
+            int remov = Num.indexOf(57);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_Extra6MouseClicked
+
+    private void Botton20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton20MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton20MouseClicked
+
+    private void Extra7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra7MouseClicked
+        if (marca21 == 0) {
+            Botton21.setBackground(Botverde);
+            marca21 = 1;
+            Num.add(58);
+        } else {
+            Botton21.setBackground(Botrojo);
+            marca21 = 0;
+            int remov = Num.indexOf(58);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_Extra7MouseClicked
+
+    private void Botton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton21MouseClicked
+
+        //   if(a==1 ){Botton1.setBackground(Botverde);a=0;}else{Botton1.setBackground(c);a=1;}
+    }//GEN-LAST:event_Botton21MouseClicked
+
+    private void ChoAhumadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoAhumadoMouseClicked
+        if (marca22 == 0) {
+            Botton22.setBackground(Botverde);
+            marca22 = 1;
+            Num.add(59);
+        } else {
+            Botton22.setBackground(Botrojo);
+            marca22 = 0;
+            int remov = Num.indexOf(59);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_ChoAhumadoMouseClicked
+
+    private void ChoAhumadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ChoAhumadoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChoAhumadoKeyReleased
+
+    private void Botton22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton22MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton22MouseClicked
+
+    private void ChoArgentiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChoArgentiMouseClicked
+        if (marca23 == 0) {
+            Botton23.setBackground(Botverde);
+            marca23 = 1;
+            Num.add(60);
+        } else {
+            Botton23.setBackground(Botrojo);
+            marca23 = 0;
+            int remov = Num.indexOf(60);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_ChoArgentiMouseClicked
+
+    private void Botton23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton23MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton23MouseClicked
+
+    private void Extra11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra11MouseClicked
+        if (marca25 == 0) {
+            Botton25.setBackground(Botverde);
+            marca25 = 1;
+            Num.add(62);
+        } else {
+            Botton25.setBackground(Botrojo);
+            marca25 = 0;
+            int remov = Num.indexOf(62);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_Extra11MouseClicked
+
+    private void Botton25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton25MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton25MouseClicked
+
+    private void PorciMayonesaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PorciMayonesaMouseClicked
+        if (marca27 == 0) {
+            Botton27.setBackground(Botverde);
+            marca27 = 1;
+            Num.add(64);
+        } else {
+            Botton27.setBackground(Botrojo);
+            marca27 = 0;
+            int remov = Num.indexOf(64);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_PorciMayonesaMouseClicked
+
+    private void Botton27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton27MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton27MouseClicked
+
+    private void Extra14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra14MouseClicked
+        if (marca28 == 0) {
+            Botton28.setBackground(Botverde);
+            marca28 = 1;
+            Num.add(65);
+        } else {
+            Botton28.setBackground(Botrojo);
+            marca28 = 0;
+            int remov = Num.indexOf(65);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_Extra14MouseClicked
+
+    private void Botton28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton28MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton28MouseClicked
+
+    private void QuesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuesoMouseClicked
+
+        if (marca29 == 0) {
+            Botton29.setBackground(Botverde);
+            marca29 = 1;
+            Num.add(66);
+        } else {
+            Botton29.setBackground(Botrojo);
+            marca29 = 0;
+            int remov = Num.indexOf(66);
+            Num.remove(remov);
+
+        }
+    }//GEN-LAST:event_QuesoMouseClicked
+
+    private void Botton29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton29MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton29MouseClicked
+
+    private void Extra10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Extra10MouseClicked
+        if (marca24 == 0) {
+            Botton24.setBackground(Botverde);
+            marca24 = 1;
+            Num.add(61);
+        } else {
+            Botton24.setBackground(Botrojo);
+            marca24 = 0;
+            int remov = Num.indexOf(61);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_Extra10MouseClicked
+
+    private void Botton24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton24MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton24MouseClicked
+
+    private void PorciGuacaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PorciGuacaMouseClicked
+        if (marca26 == 0) {
+            Botton26.setBackground(Botverde);
+            marca26 = 1;
+            Num.add(63);
+        } else {
+            Botton26.setBackground(Botrojo);
+            marca26 = 0;
+            int remov = Num.indexOf(63);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_PorciGuacaMouseClicked
+
+    private void Botton26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton26MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton26MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        int suma =Integer.parseInt(cantidad.getText());
+        suma = suma +1;
+        cantidad.setText(String.valueOf(suma));
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        if(Integer.parseInt(cantidad.getText())!=1){
+            int resta =Integer.parseInt(cantidad.getText());
+            resta = resta -1;
+            cantidad.setText(String.valueOf(resta));
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        
+        if(Num.size()!=0){
+            insertarAdicional();
+            ListarProductosPedidos();
+        }else{JOptionPane.showMessageDialog(null, "SELECCIONAR OPCIONES PRINCIPALES...");}
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void QuesadillaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuesadillaMouseClicked
+        if (marca30 == 0) {
+            Botton30.setBackground(Botverde);
+            marca30 = 1;
+            Num.add(68);
+        } else {
+            Botton30.setBackground(Botrojo);
+            marca30 = 0;
+            int remov = Num.indexOf(68);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_QuesadillaMouseClicked
+
+    private void Botton30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton30MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton30MouseClicked
+
+    private void frijolesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_frijolesMouseClicked
+        if (marca31 == 0) {
+            Botton31.setBackground(Botverde);
+            marca31 = 1;
+            Num.add(80);
+        } else {
+            Botton30.setBackground(Botrojo);
+            marca31 = 0;
+            int remov = Num.indexOf(80);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_frijolesMouseClicked
+
+    private void Botton31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton31MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton31MouseClicked
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Clases.PanelRound BotonAgregar;
+    private Clases.PanelRound Botton15;
+    private Clases.PanelRound Botton16;
+    private Clases.PanelRound Botton17;
+    private Clases.PanelRound Botton18;
+    private Clases.PanelRound Botton19;
+    private Clases.PanelRound Botton20;
+    private Clases.PanelRound Botton21;
+    private Clases.PanelRound Botton22;
+    private Clases.PanelRound Botton23;
+    private Clases.PanelRound Botton24;
+    private Clases.PanelRound Botton25;
+    private Clases.PanelRound Botton26;
+    private Clases.PanelRound Botton27;
+    private Clases.PanelRound Botton28;
+    private Clases.PanelRound Botton29;
+    private Clases.PanelRound Botton30;
+    private Clases.PanelRound Botton31;
+    private javax.swing.JLabel ChoAhumado;
+    private javax.swing.JLabel ChoArgenti;
+    private javax.swing.JLabel ChoriBremen;
+    private javax.swing.JLabel Extra10;
+    private javax.swing.JLabel Extra11;
+    private javax.swing.JLabel Extra14;
+    private javax.swing.JLabel Extra3;
+    private javax.swing.JLabel Extra4;
+    private javax.swing.JLabel Extra6;
+    private javax.swing.JLabel Extra7;
+    private javax.swing.JLabel PorciGuaca;
+    private javax.swing.JLabel PorciMayonesa;
+    private javax.swing.JLabel Quesadilla;
+    private javax.swing.JLabel Queso;
+    private javax.swing.JLabel SAlchi;
+    private javax.swing.JLabel SalPequeña;
+    private javax.swing.JTextField cantidad;
+    private javax.swing.JLabel frijoles;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel3;
+    // End of variables declaration//GEN-END:variables
+}

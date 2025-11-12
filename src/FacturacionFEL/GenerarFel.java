@@ -213,7 +213,7 @@ public class GenerarFel extends javax.swing.JFrame {
     private void GENERAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GENERAActionPerformed
          if(id_orden == 0){JOptionPane.showMessageDialog(null, "SELECCIONAR UNA ORDEN PARA FACTURAR...");}else{
 
-            FEL_Encuentro F = new FEL_Encuentro(id_orden);
+            FELCobrosCF F = new FELCobrosCF(id_orden,2);
             F.setVisible(true);
             this.dispose();
 
