@@ -35,6 +35,8 @@ public class Opcion5 extends javax.swing.JPanel {
     int marca29 = 0;
     int marca30 = 0;
     int marca31 = 0;
+    int marca32 = 0;
+    int marca33 = 0;
     int id_pedido = 0;
     int id_producto = 0;
     ArrayList<Integer> Num = new ArrayList<>();
@@ -65,7 +67,10 @@ public class Opcion5 extends javax.swing.JPanel {
          Queso.setText(texto7);
          String texto8 = "<html><center><body>EXTRA DE<br>FRIJOLES</body></center></html>";
          frijoles.setText(texto8);
-         
+         String texto9 = "<html><center><body>EXTRA DE<br>HUEVO</body></center></html>";
+         huevo.setText(texto9);
+         String texto10 = "<html><center><body>PAN<br>GRANDE</body></center></html>";
+         pangrande.setText(texto10);
     }
 
     private void Limpiar() {
@@ -87,6 +92,8 @@ public class Opcion5 extends javax.swing.JPanel {
         Botton29.setBackground(Botrojo);
         Botton30.setBackground(Botrojo);
         Botton31.setBackground(Botrojo);
+        Botton32.setBackground(Botrojo);
+        Botton33.setBackground(Botrojo);
         marca15 = 0;   
         marca16 = 0;    
         marca17 = 0;  
@@ -104,6 +111,8 @@ public class Opcion5 extends javax.swing.JPanel {
         marca29 = 0;
         marca30 = 0;
         marca31 = 0;
+        marca32 = 0;
+        marca33 = 0;
         Num.clear();
         NumSin.clear();
         cantidad.setText("1");
@@ -178,6 +187,14 @@ public class Opcion5 extends javax.swing.JPanel {
         Quesadilla = new javax.swing.JLabel();
         Botton31 = new Clases.PanelRound();
         frijoles = new javax.swing.JLabel();
+        Botton32 = new Clases.PanelRound();
+        huevo = new javax.swing.JLabel();
+        Botton33 = new Clases.PanelRound();
+        pangrande = new javax.swing.JLabel();
+        Botton34 = new Clases.PanelRound();
+        frijoles3 = new javax.swing.JLabel();
+        Botton35 = new Clases.PanelRound();
+        frijoles4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         cantidad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -740,6 +757,132 @@ public class Opcion5 extends javax.swing.JPanel {
             .addComponent(frijoles, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
+        Botton32.setBackground(new java.awt.Color(255, 102, 102));
+        Botton32.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton32.setRoundBottomLeft(15);
+        Botton32.setRoundBottomRight(15);
+        Botton32.setRoundTopLeft(15);
+        Botton32.setRoundTopRight(15);
+        Botton32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton32MouseClicked(evt);
+            }
+        });
+
+        huevo.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        huevo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        huevo.setText("huevo extra");
+        huevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                huevoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton32Layout = new javax.swing.GroupLayout(Botton32);
+        Botton32.setLayout(Botton32Layout);
+        Botton32Layout.setHorizontalGroup(
+            Botton32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(huevo, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton32Layout.setVerticalGroup(
+            Botton32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(huevo, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton33.setBackground(new java.awt.Color(255, 102, 102));
+        Botton33.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton33.setRoundBottomLeft(15);
+        Botton33.setRoundBottomRight(15);
+        Botton33.setRoundTopLeft(15);
+        Botton33.setRoundTopRight(15);
+        Botton33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton33MouseClicked(evt);
+            }
+        });
+
+        pangrande.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        pangrande.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pangrande.setText("pan grande");
+        pangrande.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pangrandeMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton33Layout = new javax.swing.GroupLayout(Botton33);
+        Botton33.setLayout(Botton33Layout);
+        Botton33Layout.setHorizontalGroup(
+            Botton33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pangrande, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton33Layout.setVerticalGroup(
+            Botton33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pangrande, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton34.setBackground(new java.awt.Color(255, 102, 102));
+        Botton34.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton34.setRoundBottomLeft(15);
+        Botton34.setRoundBottomRight(15);
+        Botton34.setRoundTopLeft(15);
+        Botton34.setRoundTopRight(15);
+        Botton34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton34MouseClicked(evt);
+            }
+        });
+
+        frijoles3.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        frijoles3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        frijoles3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                frijoles3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton34Layout = new javax.swing.GroupLayout(Botton34);
+        Botton34.setLayout(Botton34Layout);
+        Botton34Layout.setHorizontalGroup(
+            Botton34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(frijoles3, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton34Layout.setVerticalGroup(
+            Botton34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(frijoles3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
+        Botton35.setBackground(new java.awt.Color(255, 102, 102));
+        Botton35.setPreferredSize(new java.awt.Dimension(75, 45));
+        Botton35.setRoundBottomLeft(15);
+        Botton35.setRoundBottomRight(15);
+        Botton35.setRoundTopLeft(15);
+        Botton35.setRoundTopRight(15);
+        Botton35.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Botton35MouseClicked(evt);
+            }
+        });
+
+        frijoles4.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        frijoles4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        frijoles4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                frijoles4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Botton35Layout = new javax.swing.GroupLayout(Botton35);
+        Botton35.setLayout(Botton35Layout);
+        Botton35Layout.setHorizontalGroup(
+            Botton35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(frijoles4, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        );
+        Botton35Layout.setVerticalGroup(
+            Botton35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(frijoles4, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -772,8 +915,17 @@ public class Opcion5 extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(Botton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Botton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Botton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Botton32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Botton33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Botton34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Botton35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -803,11 +955,17 @@ public class Opcion5 extends javax.swing.JPanel {
                     .addComponent(Botton27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Botton28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Botton29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Botton30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Botton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(Botton31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Botton33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Botton35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ARRIBA.png"))); // NOI18N
@@ -870,25 +1028,27 @@ public class Opcion5 extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(400, Short.MAX_VALUE))
+                        .addGap(39, 39, 39)
+                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(22, 22, 22)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
@@ -896,7 +1056,7 @@ public class Opcion5 extends javax.swing.JPanel {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1233,6 +1393,56 @@ public class Opcion5 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Botton31MouseClicked
 
+    private void huevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_huevoMouseClicked
+       if (marca32 == 0) {
+            Botton32.setBackground(Botverde);
+            marca32 = 1;
+            Num.add(85);
+        } else {
+            Botton30.setBackground(Botrojo);
+            marca32 = 0;
+            int remov = Num.indexOf(80);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_huevoMouseClicked
+
+    private void Botton32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton32MouseClicked
+        
+    }//GEN-LAST:event_Botton32MouseClicked
+
+    private void pangrandeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pangrandeMouseClicked
+        if (marca33 == 0) {
+            Botton33.setBackground(Botverde);
+            marca33 = 1;
+            Num.add(86);
+        } else {
+            Botton33.setBackground(Botrojo);
+            marca33 = 0;
+            int remov = Num.indexOf(80);
+            Num.remove(remov);
+        }
+    }//GEN-LAST:event_pangrandeMouseClicked
+
+    private void Botton33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton33MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton33MouseClicked
+
+    private void frijoles3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_frijoles3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frijoles3MouseClicked
+
+    private void Botton34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton34MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton34MouseClicked
+
+    private void frijoles4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_frijoles4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_frijoles4MouseClicked
+
+    private void Botton35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Botton35MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Botton35MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Clases.PanelRound BotonAgregar;
@@ -1253,6 +1463,10 @@ public class Opcion5 extends javax.swing.JPanel {
     private Clases.PanelRound Botton29;
     private Clases.PanelRound Botton30;
     private Clases.PanelRound Botton31;
+    private Clases.PanelRound Botton32;
+    private Clases.PanelRound Botton33;
+    private Clases.PanelRound Botton34;
+    private Clases.PanelRound Botton35;
     private javax.swing.JLabel ChoAhumado;
     private javax.swing.JLabel ChoArgenti;
     private javax.swing.JLabel ChoriBremen;
@@ -1271,9 +1485,13 @@ public class Opcion5 extends javax.swing.JPanel {
     private javax.swing.JLabel SalPequeña;
     private javax.swing.JTextField cantidad;
     private javax.swing.JLabel frijoles;
+    private javax.swing.JLabel frijoles3;
+    private javax.swing.JLabel frijoles4;
+    private javax.swing.JLabel huevo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel pangrande;
     // End of variables declaration//GEN-END:variables
 }

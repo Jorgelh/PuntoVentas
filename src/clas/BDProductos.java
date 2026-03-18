@@ -199,7 +199,7 @@ public class BDProductos {
         Connection con = conecta.getConexion();
         PreparedStatement smtp = null;
         PreparedStatement sm = null;
-        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,3,1,(select precio*"+t.getCantidad()+"  from PRODUCTOS where ID_PRODUCTO = "+t.getId_producto()+" ),7)",Statement.RETURN_GENERATED_KEYS);
+        smtp =con.prepareStatement("insert into PRODUCTOS_PEDIDO (id_pedido,id_producto,cantidad,tipo,adicional,precio,opcion) values(?,?,?,0,1,(select precio*"+t.getCantidad()+"  from PRODUCTOS where ID_PRODUCTO = "+t.getId_producto()+" ),7)",Statement.RETURN_GENERATED_KEYS);
         sm = con.prepareStatement("{call Opcion7("+t.getId_producto()+","+t.getCantidad()+","+t.getTipo()+")}");
         try {
          smtp.setInt(1,t.getId_pedido());

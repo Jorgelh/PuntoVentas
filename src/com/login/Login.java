@@ -30,11 +30,13 @@ public class Login extends javax.swing.JFrame {
     int usuario = 0;
     int contra = 0; 
     int id_usuario;
+    int existe;
     String Token;
     String FechaExp;
     public Login() {
         initComponents();
         CerrarSession();
+        ObtenerExistecian();
         this.setLocationRelativeTo(null);
         favicon.requestFocus();
         //token();
@@ -105,6 +107,7 @@ public class Login extends javax.swing.JFrame {
                 {
                   token();
                   IniciarSesion();
+                  if(existe == 0){IniciarInventario();}
                   Entra F = new Entra();
                   F.setVisible(true);
                   this.dispose();
@@ -152,6 +155,62 @@ public class Login extends javax.swing.JFrame {
             //Logger.getLogger(CargaProductos_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    ///////////////////////////////////////////////inventarios/////////////////////////////////////////////////////////
+    private void IniciarInventario() {
+        
+       BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement sm = null;
+        try {
+            sm = con.prepareStatement("insert into consumos(codigo,cantidadInicio,fecha,estado) (select codigo,cantidad,current_date(),1 from productos_inventario)");
+            sm.executeUpdate();
+            con.close();
+            sm.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR ="+ex);
+            //Logger.getLogger(CargaProductos_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+     public  void ObtenerExistecian() {
+         
+            try {
+                 BDConexion conecta = new BDConexion();
+                Connection cn = conecta.getConexion();
+                java.sql.Statement stmt = cn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT COUNT(*) as Existe FROM consumos WHERE FECHA = current_date()");
+                while (rs.next()) {
+                    existe = rs.getInt(1);
+                }
+                rs.close();
+                stmt.close();
+                cn.close();
+                
+            } catch (Exception error) {
+                System.out.print(error);
+            }
+            System.out.println("Existe = "+existe);
+        }
+     
+     
+     private void FinalizarInventario() {
+       
+       BDConexion conecta = new BDConexion();
+        Connection con = conecta.getConexion();
+        PreparedStatement sm = null;
+        try {
+            sm = con.prepareStatement("update consumos c,productos_inventario p set c.CantidadFinal = p.cantidad,estado = 2 where c.Codigo = p.codigo and c.fecha = current_date()");
+            sm.executeUpdate();
+            con.close();
+            sm.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR ="+ex);
+            //Logger.getLogger(CargaProductos_Encuentro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    ////////////////////////////////////////fin inventarios////////////////////////////////////////////////////////////
     
     
     @SuppressWarnings("unchecked")
@@ -359,6 +418,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMouseDragged
 
     private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
+        if(existe > 0){FinalizarInventario();}
         System.exit(0);
     }//GEN-LAST:event_exitTxtMouseClicked
 
