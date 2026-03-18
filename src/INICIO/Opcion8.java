@@ -546,7 +546,7 @@ public class Opcion8 extends javax.swing.JPanel {
             .addGap(0, 191, Short.MAX_VALUE)
         );
 
-        setBackground(new java.awt.Color(0, 204, 0));
+        setBackground(new java.awt.Color(255, 153, 102));
         setPreferredSize(new java.awt.Dimension(519, 690));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -555,7 +555,7 @@ public class Opcion8 extends javax.swing.JPanel {
         P.setText("Combos");
         add(P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 490, -1));
 
-        jPanel5.setBackground(new java.awt.Color(0, 204, 0));
+        jPanel5.setBackground(new java.awt.Color(255, 153, 102));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Botton7.setBackground(new java.awt.Color(255, 102, 102));
@@ -980,7 +980,7 @@ public class Opcion8 extends javax.swing.JPanel {
 
         add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 489, 211));
 
-        jPanel3.setBackground(new java.awt.Color(0, 204, 0));
+        jPanel3.setBackground(new java.awt.Color(255, 153, 102));
 
         Botton15.setBackground(new java.awt.Color(255, 102, 102));
         Botton15.setPreferredSize(new java.awt.Dimension(75, 45));
@@ -1539,7 +1539,7 @@ public class Opcion8 extends javax.swing.JPanel {
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, 320));
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 153, 102));
 
         Botton30.setBackground(new java.awt.Color(255, 102, 102));
         Botton30.setRoundBottomLeft(10);
